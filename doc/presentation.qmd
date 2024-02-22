@@ -1,0 +1,212 @@
+---
+title: "Présentation de Git"
+description: "Git, à quoi ça sert, comment ça marche"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+---
+
+## Git, ça sert à quoi ?
+
+- Git
+  - Logiciel de **gestion de versions**
+  - Open source, gratuit, très très très utilisé et pas qu'en informatique
+  - créé par Linus Torvalds, créateur également du noyau Linux
+- Git Bash
+  - Terminal pour écrire des commandes `git`
+  - Possible d'ouvrir via le menu Démarrer, mais aussi inclus dans Visual Studio Code
+- GitLab / GitHub
+  - Logiciel permettant de gérer des fichiers (dépôt)
+  - Partagé par plusieurs personnes
+  - S'utilise avec Git
+  - Propose d'autres fonctionnalités (wiki, gestion des incidents...)
+
+
+## Pourquoi la gestion de version ?
+
+::: {#fig-thinkr}
+![](img/thinkR_git_avec_sans.png){width=60%}
+
+Source : [ThinkR](https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/){target="_blank"}
+::: 
+
+### Sans Git
+
+Quelle est la bonne version du fichier ?
+
+```
+├─── Projet info
+│   ├─── old
+│   │   ├─── Rapport.tex
+│   │   ├─── Rapport_new.tex
+│   │   ├─── Rapport_v1.0.tex
+│   │   └─── Rapport_v1.2.tex
+│   ├─── Rapport_old.tex
+│   ├─── Rapport_2022.05.15.tex
+│   └─── Rapport_2022.05.15_new.tex
+```
+
+### Avec Git
+
+Un seul fichier + l'hsitorique des modifications
+
+```
+├───Projet info
+│   └───Livrables
+│     └───Rapport.tex
+
+Date         Heure   Auteur      Message commit
+----         -----   ------      --------------
+2022.05.29   23h58   bianca      "Version finale"
+2022.05.29   23h40   archibald   "j'avais oublié l'intro"
+2022.05.29   21h32   tryphon     "ajout partie 2"
+2022.05.29   20h25   bianca      "v1.1"
+2022.05.29   20h12   tryphon     "Création du rapport"
+```
+
+Git permet de créer des `commit` (points de sauvegardes). Ainsi pour chaque fichier il est possible de consulter une version précédente et éventuellement de revenir en arrière en cas d'erreur.
+
+
+## Principe général de Git
+
+```{mermaid}
+flowchart LR
+    github[(Dépot commun)]
+    dev1[(Dépot local 1)]
+    dev2[(Dépot local 2)]
+    dev3[(Dépot local 3)]
+    dev4[(Dépot local 4)]
+    
+    github <--> dev1
+    github <--> dev2
+    dev3 <--> github
+    dev4 <--> github
+```
+
+Git est [distribué]{.underline}, cela signifie que chaque dépôt est une copie complète du projet.  
+Avec Git, vous allez avoir plusieurs dépôts de fichiers :
+
+- un dépôt commun (dépôt distant)
+- un dépôt par contributeur (dépôts locaux)
+  - Remarque : il est tout à fait possible d'avoir plusieurs clones du même dépôt sur son poste
+
+Git va aider à synchroniser ces dépôts avec les commandes suivantes :
+
+- `git clone` : créer une copie du dépôt commun sur son poste
+- `git status` : voir où l'on en est
+- `git add` : ajouter de nouveaux fichiers dans le dépôt
+- `git commit` : créer un point de sauvegarde
+- `git pull` : récupérer les éventuelles modifications du dépôt distant pour mettre à jour son dépôt local
+- `git push` : partager ses mises à jour locale sur le dépôt distant
+
+
+## Les principales commandes
+
+
+:::::: {.callout-note}
+:fearful: Git s'utilise très majoritairement en [ligne de commande]{.underline} dans un terminal `Git Bash`.  
+:sweat_smile: Pas de panique, quelques commandes simples suffisent largement pour travailler avec Git.
+
+Il existe aussi des interfaces graphiques mais elles sont souvent imparfaites et sources d'erreur.
+:::
+
+### git clone
+
+`git clone` est une commande de Git utilisée pour [créer une copie locale complète d'un dépôt distant]{.underline}. 
+Elle télécharge tous les fichiers et l'historique de version du dépôt distant vers votre système local dans un nouveau répertoire.
+
+Exemples :
+
+- `git clone https://github.com:<propietaire_depot>/<nom_du_depot>.git`
+- `git clone git@github.com:ludo2ne/Git-tuto.git`
+- `git clone https://github.com/ludo2ne/Git-tuto.git`
+
+Il y a deux principaux protocoles pour cloner un dépot git : *ssh* et *https*. Sans rentrer dans les détails, l'utilisation suivante est préconisée :
+
+- ssh : si vous souhaitez modifier le code et le partager (nécéssite d'avoir paramétré une clé ssh)
+- https : si vous voulez simplement avoir une copie locale du code sans partager vos modifications
+
+
+### git status
+
+`git status` affiche l'état actuel du répertoire de travail et de l'index. Elle montre : 
+
+- les fichiers modifiés (*Changes to be committed)
+- les fichiers non suivis (*Untracked files*)
+
+Cette commande est à utiliser sans modération pour voir l'état du dépôt !
+
+
+### git add
+
+`git add` est utilisée pour ajouter des fichiers à l'index, c'est à dire des fichiers que vous souhaitez versionner.
+
+Autrement dit, si vous faites `git add soleil.txt`, vous dites à git qu'il faut ajouter ce fichier au dépôt et le versionner.
+
+`git add .` permet d'ajouter [tous]{.underline} les fichiers non suivi à l'index
+
+
+### git commit
+
+`git commit -m "mon_message"` est utilisée pour créer un [point de sauvegarde]{.underline}.  
+Il est conseillé d'écrire un message court, clair et compréhensible.
+
+
+### git pull
+
+`git pull` récupère les dernières modifications du dépôt distant et met à jour votre dépôt local.
+
+:::{.callout-note title="Les conflits"}
+Que se passe-t-il si : 
+
+- Alice a modifié un fichier et poussé sa modification sur le dépôt distant
+- Vous avez également modifié le même fichier et vous faites un `git pull` pour mettre à jour votre dépôt à partir du dépôt distant
+
+:fearful: Un conflit ! Git ne sait pas choisir quelle est la bonne version entre la votre et celle d'Alice.  
+:sweat_smile: Pas de panique ! Pour résoudre le conflit, il faut simplement :
+
+- modifier le fichier en question pour garder la bonne version
+- `git add` puis `git commit` pour valider la résolution du conflit
+:::
+
+
+### git push
+
+`git push` envoie les modifications locales vers le dépôt distant.  
+
+::: {.callout-important}
+Pour pouvoir pousser, il est nécessaire :
+
+- d'avoir au préalable créé au minimum un *commit*
+- que votre dépôt soit à jour (pas de retard de version par rapport au dépôt distant)
+:::
+
+## Exemples
+
+### Exemple 1
+
+- Si sur le dépôt distant, le fichier *soleil.txt* a été créé par une autre personne
+- La commande `git pull` permet de mettre à jour son dépôt local
+- Le fichier `soleil.txt` apparait sur votre dépôt local
+
+### Exemple 2
+
+- En local, vous avez créé le fichier `temple.py` et modifié le fichier `soleil.txt`
+- Faites `git add .` pour dire à Git que vous souhaitez valider vos modifications
+- Créez un point de sauvegarde avec la commande `git commit -m "message de mise à jour"`
+- Puis, la commande `git push` permet de partager cette nouvelle version sur le dépôt distant
+- Sur le dépôt distant, les 2 fichiers seront créés ou mis à jour
+
+Pour gérer les versions, Git utilise des points de sauvegarde appelés `commits`. Grace à cela, il est possible de consulter les versions antérieures des fichiers.
+
+
+## Ressources {.unnumbered}
+
+- [Formation Git du Lab INSEE](https://github.com/InseeFrLab/formation-git){.external target="_blank"}
+- [Bonnes pratiques Git](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/){.external target="_blank"}

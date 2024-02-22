@@ -1,0 +1,35 @@
+
+project:
+  type: website
+
+website:
+  title: "Git tuto"
+  navbar:
+    background: "#447099"
+    left:
+      - href: index.qmd
+        text: Home
+      - href: doc/presentation.qmd
+        text: Présentation
+      - href: doc/parametrage.qmd
+        text: Paramètrage
+      - href: doc/tp.qmd
+        text: TP
+    right:
+      - icon: github
+        href: https://github.com/ludo2ne/Git-tuto
+        target: "_blank"
+  page-footer:
+    right: |
+      Website built with [Quarto](https://quarto.org/){.external target="_blank"} <br>
+      [Code source](https://github.com/ludo2ne/Git-tuto){.external target="_blank"}
+  repo-url: https://github.com/ludo2ne/Git-tuto
+  repo-branch: main
+  reader-mode: true
+
+format:
+  html:
+    theme:
+      dark: solar
+      light: cosmo
+    css: styles.css

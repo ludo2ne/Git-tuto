@@ -1,0 +1,127 @@
+---
+title: "Paramétrer Git"
+description: "Installation et paramétrage de Git"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+---
+
+:construction:
+
+## Objectifs {.unnumbered}
+
+- [ ] Installer Git
+- [ ] Configurer Git
+- [ ] Créer un compte GitHub
+
+
+## Installer Git
+
+:construction:
+
+- téléchargez la dernière version de [Git](https://git-scm.com/){target="_blank"}
+
+## Paramètrer Git
+
+:::{.callout-note}
+Le paramètrage de Git n'est pas très drôle et peut faire un peu peur. Mais pas de panique, c'est à faire une et une seule fois sur votre machine !
+:::
+
+
+### Configuration Git Bash
+
+Git Bash est un Terminal où l'on peut écrire des commandes git.
+
+Ouvrir `Git Bash` et entrer une à une les commandes suivantes
+
+```bash
+git config --global user.name "Prenom Nom"
+git config --global user.email prenom.nom@eleve.ensai.fr
+git config -l
+```
+
+La dernière commande permet de vérifier que les 2 attributs `user.name` et `user.email` sont bien renseignés
+
+### Clé SSH
+
+Afin de pouvoir faire des mises à jour sur le dépôt distant, il faut que votre machine (locale) soit reconnue. Vous devez donc fournir une clé d'authentification à GitLab.
+
+Toujours dans Git Bash, lancer une à une ces 2 commandes. La première commande permet de générer une clé publique SSH. La seconde permet de récupérer la valeur de cette clé.
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "prenom.nom@eleve.ensai.fr"
+
+## tapez ENTREE à chaque question
+
+## Récupérez le contenu de la clé avec l'une de ces 2 commandes
+cat $HOME/.ssh/id_rsa.pub 
+## ou avec
+cat /c/Users/idxxxx/.ssh/id_rsa.pub
+```
+
+- La commande cat renvoie tout le contenu de ce fichier
+  - En cas d'échec, vous pouvez aller dans le dossier caché `C:/Users/idxxxx/.ssh/` et ouvrir avec Notepad le fichier `id_rsa.pub`
+  - si vous ne trouvez toujours pas le fichier `id_rsa.pub`, retournez voir le résultat de la commande `ssh-keygen`, il est écrit dans quel dossier la clé a été générée
+- Sélectionner ce contenu et le copier dans notepad pour la prochaine étape
+
+#### Créez une copie de votre clé
+
+Il arrive que le dossier `C:/Users/idxxxx/.ssh` soit supprimé.  
+Il est interessant d'avoir une copie de cette clé pour la restaurer si besoin.
+
+- `cp -r $HOME/.ssh /p` pour copier le dossier dans le disque P:
+
+---
+
+### Créer un compte sur GitLab, GitHub ou autre
+
+- [GitLab](https://gitlab.com/gitlab-org/gitlab){.external target="blank"} est le site qui permet d'héberger le dépôt distant du code ([Créer un compte](https://gitlab.com/users/sign_up){.external target="blank"} )
+- [GitHub](https://github.com/){.external target="blank"} 
+
+### Déclarer votre clé publique SSH à GitLab
+
+- Dans GitLab, aller dans `Preferences` (en haut à droite) puis dans [SSH Keys](https://gitlab.com/-/profile/keys){.external target="blank"}
+  - Key : coller le résultat de l'étape 2
+  - Add SSH Key
+- Dans GitHub, aller dans Paramètres, puis [SSH and GPG Keys](https://github.com/settings/keys){.external target="blank"}
+  - New SSh key
+  - donnez un titre et coller dans `Key` le résultat de l'étape 2
+
+:rainbow:  Bravo le paramètrage est terminé :confetti_ball:
+
+### En cas d'erreurs
+
+#### The authenticity of host xxx can't be established
+
+```
+The authenticity of host 'github.com (140.82.121.4)' can't be established.  
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.    
+
+Please make sure you have the correct access rights
+and the repository exists.
+```
+
+1. Vérifiez que le dossier `C:/users/idxxxx/.ssh` existe et contient les fichiers `id_rsa` et `id_rsa.pub`. Si oui passer à l'étape 2.
+
+Si non, recopiez votre clé dans `C:/users/idxxxx/.ssh` à partir de la sauvegarde que vous avez faite dans `P:/.ssh` lors de la création de la clé. Pour automatiser ceci, vous pouvez créer un script `restore_ssh.bat` sur le bureau contenant le code ci-dessous :
+
+```bash
+set "source=P:\.ssh"
+set "destination=%HOME%\.ssh"
+xcopy /E /H /I /Y "%source%" "%destination%"
+pause
+```
+
+2. Vérifiez que la clé `id_rsa.pub` est bien déclarée dans GitLab ou GitHub.
+Si le problème persiste, regénérez une nouvelle clé ssh et déclarez là dans GitHub ou GitLab.

@@ -1,0 +1,19 @@
+---
+title: "Tuto Git"
+description: "Apprendre les rudiments pou utiliser Git"
+author: "Ludovic Deneuville"
+format: html
+from: markdown+emoji
+---
+
+
+## Contenu
+
+- Une [présentation de Git](doc/presentation.qmd)
+  - Qu'est ce que Git ?
+  - À quoi ça sert ?
+  - Quels sont les avantages de Git ?
+- [Installer et paramètrer](doc/parametrage.qmd) Git
+- Un [TP pour découvrir](doc/tp.qmd) Git
+
+
