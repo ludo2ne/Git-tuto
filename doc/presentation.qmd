@@ -12,7 +12,9 @@ number-sections: true
 number-depth: 3
 ---
 
-## Git, ça sert à quoi ?
+## Git, qu'est ce que c'est ?
+
+Git est un système de contrôle de version distribué, largement utilisé dans le développement logiciel pour suivre les modifications apportées aux fichiers source. Il permet aux développeurs de travailler efficacement en équipe, de gérer les différentes versions du code, de collaborer sur un même projet et de maintenir un historique complet des modifications. Git facilite le développement collaboratif, tout en offrant performance, flexibilité et fiabilité.
 
 - Git
   - Logiciel de **gestion de versions**
@@ -21,14 +23,17 @@ number-depth: 3
 - Git Bash
   - Terminal pour écrire des commandes `git`
   - Possible d'ouvrir via le menu Démarrer, mais aussi inclus dans Visual Studio Code
-- GitLab / GitHub
-  - Logiciel permettant de gérer des fichiers (dépôt)
-  - Partagé par plusieurs personnes
-  - S'utilise avec Git
-  - Propose d'autres fonctionnalités (wiki, gestion des incidents...)
+- GitHub / GitLab
+  - plateforme de développement collaboratif basée sur Git
+  - héberge des dépôts Git
+  - Propose d'autres fonctionnalités (CICD, wiki, gestion des incidents...)
 
 
-## Pourquoi la gestion de version ?
+## Git, ça sert à quoi ?
+
+- Git permet de suivre les modifications apportées aux fichiers et de gérer efficacement les différentes versions
+- Git enregistre un historique complet de toutes les modifications, ce qui permet de retracer l'évolution du projet, d'identifier les changements spécifiques et de revenir à des versions antérieures si nécessaire
+- Git facilite la collaboration entre les membres d'une équipe en permettant à plusieurs personnes de travailler simultanément sur le même projet
 
 ::: {#fig-thinkr}
 ![](img/thinkR_git_avec_sans.png){width=60%}
@@ -38,28 +43,28 @@ Source : [ThinkR](https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionne
 
 ### Sans Git
 
-Quelle est la bonne version du fichier ?
-
 ```
 ├─── Projet info
 │   ├─── old
-│   │   ├─── Rapport.tex
-│   │   ├─── Rapport_new.tex
-│   │   ├─── Rapport_v1.0.tex
-│   │   └─── Rapport_v1.2.tex
-│   ├─── Rapport_old.tex
-│   ├─── Rapport_2022.05.15.tex
-│   └─── Rapport_2022.05.15_new.tex
+│   │   ├─── Rapport.doc
+│   │   ├─── Rapport_new.doc
+│   │   ├─── Rapport_v1.0.doc
+│   │   └─── Rapport_v1.2.doc
+│   ├─── Rapport_old.doc
+│   ├─── Rapport_2022.05.15.doc
+│   └─── Rapport_2022.05.15_new.doc
 ```
+
+:confused: Quelle est la bonne version du fichier ?
 
 ### Avec Git
 
-Un seul fichier + l'hsitorique des modifications
+:blush: Un seul fichier + l'historique des modifications
 
 ```
 ├───Projet info
 │   └───Livrables
-│     └───Rapport.tex
+│     └───Rapport.doc
 
 Date         Heure   Auteur      Message commit
 ----         -----   ------      --------------
@@ -69,9 +74,6 @@ Date         Heure   Auteur      Message commit
 2022.05.29   20h25   bianca      "v1.1"
 2022.05.29   20h12   tryphon     "Création du rapport"
 ```
-
-Git permet de créer des `commit` (points de sauvegardes). Ainsi pour chaque fichier il est possible de consulter une version précédente et éventuellement de revenir en arrière en cas d'erreur.
-
 
 ## Principe général de Git
 
@@ -137,7 +139,8 @@ Il y a deux principaux protocoles pour cloner un dépot git : *ssh* et *https*. 
 
 `git status` affiche l'état actuel du répertoire de travail et de l'index. Elle montre : 
 
-- les fichiers modifiés (*Changes to be committed)
+- les fichiers modifiés prêt à rentrer dans le prochain commit (*Changes to be committed)
+- les autres fichiers modifiés (*Changes not staged for commit*)
 - les fichiers non suivis (*Untracked files*)
 
 Cette commande est à utiliser sans modération pour voir l'état du dépôt !
@@ -149,8 +152,22 @@ Cette commande est à utiliser sans modération pour voir l'état du dépôt !
 
 Autrement dit, si vous faites `git add soleil.txt`, vous dites à git qu'il faut ajouter ce fichier au dépôt et le versionner.
 
-`git add .` permet d'ajouter [tous]{.underline} les fichiers non suivi à l'index
+`git add .` permet d'ajouter [tous]{.underline} les fichiers non suivis à l'index
 
+
+:::{.callout-tip title="Le fichier .gitignore"}
+`.gitignore` est un fichier présent à la racine du dépôt permettant de dire à Git quels fichiers il doit ignorer. Par exemple : 
+
+- si .gitignore contient `*.csv` :arrow_right: tous les fichiers *csv* seront ignorés par Git
+- si .gitignore contient `data/` :arrow_right: le dossier *data* et son contenu sera ignoré
+
+Cela est utile, pour exclure par exemple du dépôt Git :
+
+- des fichiers contenant des mots de passe, des jetons d'accès...
+- des fichiers de données volumineux qui n'ont pas vocation à être versionnés
+- des fichiers de log 
+
+:::
 
 ### git commit
 
@@ -205,6 +222,30 @@ Pour pouvoir pousser, il est nécessaire :
 
 Pour gérer les versions, Git utilise des points de sauvegarde appelés `commits`. Grace à cela, il est possible de consulter les versions antérieures des fichiers.
 
+
+## Les erreurs courantes
+
+### fichier disparu
+
+Si vous venez de faire un `git push` et que votre fichier n'apparait pas sur le dépôt distant, c'est probablement parce que vous avez oublié de l'ajouter à l'index avec `git add <mon_fichier>`.
+
+Autre possibilité : votre fichier est ignoré par git car il fait parti du `.gitignore`
+
+### git push rejected
+
+```
+! [rejected]        main -> main (fetch first)
+error: failed to push some refs
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+Le message d'erreur est assez explicite. Le dépôt distant a été modifié et votre dépôt local n'est donc plus à jour.
+
+Vous devez commencer par mettre à jour votre dépôt local avec `git pull` avant de pousser votre code
 
 ## Ressources {.unnumbered}
 

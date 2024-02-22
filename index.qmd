@@ -1,6 +1,6 @@
 ---
 title: "Tuto Git"
-description: "Apprendre les rudiments pou utiliser Git"
+description: "Apprendre les rudiments pour utiliser Git"
 author: "Ludovic Deneuville"
 format: html
 from: markdown+emoji
