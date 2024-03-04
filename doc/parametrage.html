@@ -176,8 +176,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#configuration-git-bash" id="toc-configuration-git-bash" class="nav-link" data-scroll-target="#configuration-git-bash"><span class="header-section-number">2.1</span> Configuration Git Bash</a></li>
   <li><a href="#clé-ssh" id="toc-clé-ssh" class="nav-link" data-scroll-target="#clé-ssh"><span class="header-section-number">2.2</span> Clé SSH</a></li>
-  <li><a href="#créer-un-compte-sur-gitlab-github-ou-autre" id="toc-créer-un-compte-sur-gitlab-github-ou-autre" class="nav-link" data-scroll-target="#créer-un-compte-sur-gitlab-github-ou-autre"><span class="header-section-number">2.3</span> Créer un compte sur GitLab, GitHub ou autre</a></li>
-  <li><a href="#déclarer-votre-clé-publique-ssh-à-gitlab" id="toc-déclarer-votre-clé-publique-ssh-à-gitlab" class="nav-link" data-scroll-target="#déclarer-votre-clé-publique-ssh-à-gitlab"><span class="header-section-number">2.4</span> Déclarer votre clé publique SSH à GitLab</a></li>
+  <li><a href="#créer-un-compte-sur-github" id="toc-créer-un-compte-sur-github" class="nav-link" data-scroll-target="#créer-un-compte-sur-github"><span class="header-section-number">2.3</span> Créer un compte sur GitHub</a></li>
+  <li><a href="#déclarer-votre-clé-publique-ssh-à-github" id="toc-déclarer-votre-clé-publique-ssh-à-github" class="nav-link" data-scroll-target="#déclarer-votre-clé-publique-ssh-à-github"><span class="header-section-number">2.4</span> Déclarer votre clé publique SSH à GitHub</a></li>
   <li><a href="#en-cas-derreurs" id="toc-en-cas-derreurs" class="nav-link" data-scroll-target="#en-cas-derreurs"><span class="header-section-number">2.5</span> En cas d’erreurs</a></li>
   </ul></li>
   </ul>
@@ -231,9 +231,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="installer-git" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="installer-git"><span class="header-section-number">1</span> Installer Git</h2>
-<p><span class="emoji" data-emoji="construction">🚧</span></p>
-<ul>
-<li>téléchargez la dernière version de <a href="https://git-scm.com/" target="_blank">Git</a></li>
+<ul class="task-list">
+<li><label><input type="checkbox">Suivez les <a href="https://git-scm.com/book/fr/v2/D%C3%A9marrage-rapide-Installation-de-Git" target="_blank">instructions pour installer Git</a></label></li>
 </ul>
 </section>
 <section id="paramètrer-git" class="level2" data-number="2">
@@ -248,7 +247,8 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Le paramètrage de Git n’est pas très drôle et peut faire un peu peur. Mais pas de panique, c’est à faire une et une seule fois sur votre machine !</p>
+<p>Le paramètrage de Git n’est pas très drôle et peut faire un peu peur.<br>
+Mais pas de panique, c’est à faire une et une seule fois sur votre machine !</p>
 </div>
 </div>
 <section id="configuration-git-bash" class="level3" data-number="2.1">
@@ -268,10 +268,8 @@ Note
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">## tapez ENTREE à chaque question</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Récupérez le contenu de la clé avec l'une de ces 2 commandes</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$HOME</span>/.ssh/id_rsa.pub </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">## ou avec</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> /c/Users/idxxxx/.ssh/id_rsa.pub</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Récupérez le contenu de la clé avec la commande</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$HOME</span>/.ssh/id_rsa.pub          <span class="co"># cat /c/Users/idxxxx/.ssh/id_rsa.pub</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>La commande cat renvoie tout le contenu de ce fichier
 <ul>
@@ -290,28 +288,24 @@ Il est interessant d’avoir une copie de cette clé pour la restaurer si besoin
 <hr>
 </section>
 </section>
-<section id="créer-un-compte-sur-gitlab-github-ou-autre" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="créer-un-compte-sur-gitlab-github-ou-autre"><span class="header-section-number">2.3</span> Créer un compte sur GitLab, GitHub ou autre</h3>
+<section id="créer-un-compte-sur-github" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="créer-un-compte-sur-github"><span class="header-section-number">2.3</span> Créer un compte sur GitHub</h3>
+<p>Sur GitHub, vous pourrez héberger votre projet. GitHub fera office de dépôt distant.<br>
+D’autres alternatives existent avec des fonctionnalités similaires : GitLab, Bitbucket…</p>
 <ul>
-<li><a href="https://gitlab.com/gitlab-org/gitlab" class="external" target="blank">GitLab</a> est le site qui permet d’héberger le dépôt distant du code (<a href="https://gitlab.com/users/sign_up" class="external" target="blank">Créer un compte</a> )</li>
-<li><a href="https://github.com/" class="external" target="blank">GitHub</a></li>
+<li><a href="https://github.com/signup" class="external" target="blank">GitHub</a></li>
 </ul>
 </section>
-<section id="déclarer-votre-clé-publique-ssh-à-gitlab" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="déclarer-votre-clé-publique-ssh-à-gitlab"><span class="header-section-number">2.4</span> Déclarer votre clé publique SSH à GitLab</h3>
+<section id="déclarer-votre-clé-publique-ssh-à-github" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="déclarer-votre-clé-publique-ssh-à-github"><span class="header-section-number">2.4</span> Déclarer votre clé publique SSH à GitHub</h3>
 <ul>
-<li>Dans GitLab, aller dans <code>Preferences</code> (en haut à droite) puis dans <a href="https://gitlab.com/-/profile/keys" class="external" target="blank">SSH Keys</a>
+<li>Dans GitHub, aller dans Paramètres, puis <a href="https://github.com/settings/keys" target="blank">SSH and GPG Keys</a>
 <ul>
-<li>Key : coller le résultat de l’étape 2</li>
-<li>Add SSH Key</li>
-</ul></li>
-<li>Dans GitHub, aller dans Paramètres, puis <a href="https://github.com/settings/keys" class="external" target="blank">SSH and GPG Keys</a>
-<ul>
-<li>New SSh key</li>
+<li>New SSH key</li>
 <li>donnez un titre et coller dans <code>Key</code> le résultat de l’étape 2</li>
 </ul></li>
 </ul>
-<p><span class="emoji" data-emoji="rainbow">🌈</span> Bravo le paramètrage est terminé <span class="emoji" data-emoji="confetti_ball">🎊</span></p>
+<p><span class="emoji" data-emoji="confetti_ball">🎊</span> Bravo le paramètrage est terminé</p>
 </section>
 <section id="en-cas-derreurs" class="level3" data-number="2.5">
 <h3 data-number="2.5" class="anchored" data-anchor-id="en-cas-derreurs"><span class="header-section-number">2.5</span> En cas d’erreurs</h3>
