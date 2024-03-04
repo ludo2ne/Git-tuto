@@ -23,14 +23,13 @@ number-depth: 3
 
 ## Installer Git
 
-:construction:
-
-- téléchargez la dernière version de [Git](https://git-scm.com/){target="_blank"}
+- [ ] Suivez les [instructions pour installer Git](https://git-scm.com/book/fr/v2/D%C3%A9marrage-rapide-Installation-de-Git){target="_blank"}
 
 ## Paramètrer Git
 
 :::{.callout-note}
-Le paramètrage de Git n'est pas très drôle et peut faire un peu peur. Mais pas de panique, c'est à faire une et une seule fois sur votre machine !
+Le paramètrage de Git n'est pas très drôle et peut faire un peu peur.  
+Mais pas de panique, c'est à faire une et une seule fois sur votre machine !
 :::
 
 
@@ -59,10 +58,8 @@ ssh-keygen -t rsa -b 4096 -C "prenom.nom@eleve.ensai.fr"
 
 ## tapez ENTREE à chaque question
 
-## Récupérez le contenu de la clé avec l'une de ces 2 commandes
-cat $HOME/.ssh/id_rsa.pub 
-## ou avec
-cat /c/Users/idxxxx/.ssh/id_rsa.pub
+## Récupérez le contenu de la clé avec la commande
+cat $HOME/.ssh/id_rsa.pub          # cat /c/Users/idxxxx/.ssh/id_rsa.pub
 ```
 
 - La commande cat renvoie tout le contenu de ce fichier
@@ -79,21 +76,22 @@ Il est interessant d'avoir une copie de cette clé pour la restaurer si besoin.
 
 ---
 
-### Créer un compte sur GitLab, GitHub ou autre
+### Créer un compte sur GitHub
 
-- [GitLab](https://gitlab.com/gitlab-org/gitlab){.external target="blank"} est le site qui permet d'héberger le dépôt distant du code ([Créer un compte](https://gitlab.com/users/sign_up){.external target="blank"} )
-- [GitHub](https://github.com/){.external target="blank"} 
+Sur GitHub, vous pourrez héberger votre projet. GitHub fera office de dépôt distant.  
+D'autres alternatives existent avec des fonctionnalités similaires : GitLab, Bitbucket...
 
-### Déclarer votre clé publique SSH à GitLab
+- [GitHub](https://github.com/signup){.external target="blank"} 
 
-- Dans GitLab, aller dans `Preferences` (en haut à droite) puis dans [SSH Keys](https://gitlab.com/-/profile/keys){.external target="blank"}
-  - Key : coller le résultat de l'étape 2
-  - Add SSH Key
-- Dans GitHub, aller dans Paramètres, puis [SSH and GPG Keys](https://github.com/settings/keys){.external target="blank"}
-  - New SSh key
+### Déclarer votre clé publique SSH à GitHub
+
+- Dans GitHub, aller dans Paramètres, puis [SSH and GPG Keys](https://github.com/settings/keys){target="blank"}
+  - New SSH key
   - donnez un titre et coller dans `Key` le résultat de l'étape 2
 
-:rainbow:  Bravo le paramètrage est terminé :confetti_ball:
+
+:confetti_ball: Bravo le paramètrage est terminé 
+
 
 ### En cas d'erreurs
 

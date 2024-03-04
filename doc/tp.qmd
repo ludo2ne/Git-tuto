@@ -13,52 +13,46 @@ number-sections: true
 
 ## Objectifs {.unnumbered}
 
-- [ ] vous présenter les fonctionnalités de base de Git
-- [ ] vous faire manipuler les 5 commandes principales (status, add, commit, pull, push)
-- [ ] vous montrer comment résoudre un conflit
+- [ ] Présenter les fonctionnalités de base de Git
+- [ ] Manipuler les 5 commandes principales (status, add, commit, pull, push)
+- [ ] Résoudre un conflit
 - [ ] bonus : retour en arrière, branches...
 
 ## Créer un projet
 
 :information_source: Ce projet permettra d'héberger le dépôt distant
 
-- se connecter à [GitLab](https://gitlab.com/)
-- En haut à gauche, Menu > Projects > [Create new project](https://gitlab.com/projects/new)
-- Create blank project
-  - Project name : **git-tp**
-  - Public
-  - [x] Initialize repository with a README
-  - Create Project
+- se connecter à [GitHub](https://github.com/)
+- En haut à gauche, cliquez sur l'icone *GitHub*, puis sur *New* 
+  - ou directement : [Create a new repository](https://github.com/new)
+- Repository name : *git-tp*
+- Public
+- [x] Add a README file
+- [x] Add .gitignore (python)
+- Create Project
 
----
 
-### Création du fichier .gitignore
+### Le fichier .gitignore
 
-> **.gitignore** est un fichier permettant de dire à Git quels fichiers il > faut ignorer.
-> Par exemple :
->
-> - si .gitignore contient **`*.csv`**
-> - et sur votre dépôt local, vous avez un fichier **`resultats.csv`**
-> - Git fera comme si ce fichier n'existe pas
-> - Ainsi, ce fichier ne sera jamais poussé vers le dépôt distant
+:::{.callout-tip}
+**.gitignore** est un fichier présent à la racine du dépôt permettant de dire à Git quels fichiers il faut ignorer.
+Par exemple :
 
-- Dans GitLab, sur la page de votre projet
-- Aller dans Repository > Files
-- Au milieu , à droite de `git-tp/` cliquer sur l'icone :heavy_plus_sign:
-- New file
-- Select a template type : .gitignore
-- Apply a template : Python
-- Modifier le Commit message
-- Commit changes
+- si .gitignore contient `*.csv`
+- et sur votre dépôt local, vous avez un fichier *resultats.csv*
+- Git fera comme si ce fichier n'existe pas
+- Ainsi, ce fichier ne sera jamais poussé vers le dépôt distant
+:::
 
----
 
 ### Inviter d'autres membres
 
-Vous venez de créer un projet public donc visible par tous. Cependant, vous êtes seul à pouvoir modifier ce projet. Pour autoriser d'autres personnes à écrire sur ce projet (par exemple lors du projet info), il faut donner les droits en écriture :
+Vous venez de créer un projet public donc visible par tous. Cependant, vous êtes seul à pouvoir modifier ce projet. Pour autoriser d'autres personnes à écrire sur ce projet (par exemple lors du projet info), il faut donner les droits en écriture.
 
-- Project informations > Members > Invite members
-- Role : Maintainer or Owner
+Sur la page de votre dépôt, allez dans :
+
+- Settings > Collaborators
+- Add people
 
 Cependant ce n'est pas nécessaire dans le cadre de ce TP, vous pouvez donc passer à la suite.
 
@@ -66,41 +60,44 @@ Cependant ce n'est pas nécessaire dans le cadre de ce TP, vous pouvez donc pass
 
 ## Cloner le projet
 
-:information_source: Le but de cette étape est de créer votre dépôt local en faisant un clone du dépôt distant
+::: {.callout-note}
+Le but de cette étape est de créer votre dépôt local en faisant un clone du dépôt distant
+:::
 
 - Ouvrir Visual Studio Code
 - Ouvrir un Terminal
 - Ouvrir un Terminal Git Bash
   - En haut à droite du terminal, à coté du **+**, cliquer sur la flèche vers le bas **˅**
 - Créer le dossier ci-dessous s'il n'existe pas déjà
-  - `mkdir "P:\Cours\Python"`
+  - `mkdir /p/Cours/Python`
 - Se positionner dans ce dossier
-  - `cd "P:\Cours\Python"`
+  - `cd /p/Cours/Python`
 - Cloner le projet
-  - `git clone git@gitlab.com:???????/git-tp.git`
-    - Remplacer les `??????` par votre nom d'utilisateur GitLab
-    - Ou sinon sur la page GitLab du projet
+  - `git clone git@github.com:???????/git-tp.git`
+    - Remplacer les `??????` par votre nom d'utilisateur GitHub
+    - Ou sinon sur la page GitHub du projet
       - cliquer sur Clone
-      - copier la ligne qui commence par `git@gitlab...`
+      - copier la ligne qui commence par `git@github...`
   - *Are you sure you want to continue connecting (yes/no)?*
     - taper `yes` puis `ENTREE`
   - Votre dépôt local est maintenant créé
 - Ouvrir ce dépôt dans l'explorateur VSCode
   - File > Open Folder
   - git-tp
-- Réouvrir le terminal Git Bash
+- Ré-ouvrir le terminal Git Bash
   - Si ce n'est pas le cas, se positionner dans le dossier suivant :
-    - `cd "P:\Cours\Python\git-tp"`
+    - `cd /p/Cours/Python/git-tp"`
   - un **(main)** apparait dans le terminal, cela signifie bien que vous êtes dans un dépôt Git
 
----
 
 ## Ajouter un nouveau fichier
 
-:information_source: Nous allons ici voir comment :
+::: {.callout-note}
+Nous allons ici voir comment :
 
 - ajouter/modifier des fichiers dans le dépôt local
 - envoyer ces mises à jour au dépôt distant
+:::
 
 Dans le dossier git-tp, créer un fichier `voiture.py` contenant le code suivant :
 
@@ -139,8 +136,7 @@ class Voiture:
   - Vérifier qu'il n'y a pas d'erreur
   - Pour mettre à jour le dépôt distant avec mes modifications locales
 
-:bulb: **Combiner les commandes add et commit**
-
+::: {.callout-tip title="Combiner les commandes add et commit"}
 Dans le cas d'un nouveau fichier, il faut impérativement enchaîner les deux commandes suivantes pour que Git suive ce fichier :
 
 - `git add mon_fichier.py`
@@ -148,40 +144,44 @@ Dans le cas d'un nouveau fichier, il faut impérativement enchaîner les deux co
 
 Si le fichier existait déjà, il est possible de combiner les deux commandes :
 
-- en ajoutant au commit un ***a** qui signifie add
+- en ajoutant au commit un **a** qui signifie add
 - `git commit -am "Modification mon_fichier"`
+:::
 
-:bulb: Si vous créez, non pas un mais plusieurs fichiers, vous pouvez utiliser la commande suivante pour tous les faire suivre par Git : **`git add .`**
 
-:bulb: Il est fortement recommandé de créer des commits très fréquement, par exemple
+:bulb: Si vous créez, non pas un mais plusieurs fichiers, vous pouvez utiliser la commande suivante pour tous les faire suivre par Git : `git add .`
+
+::: {.callout-important}
+
+Il est fortement recommandé de créer des commits très fréquement, par exemple
 
 - Vous venez de modifier une fonction
 - Testez pour vérifier que votre code fonctionne bien
 - Créez un commit
 - Si jamais par la suite vous "cassez tout" et que plus rien ne marche, il est facile de revenir au dernier commit
-
----
+:::
 
 ## Gérer un conflit
 
-> Dans le monde merveilleux de Git, tout se passe bien quand chacun > travaille sur des fichiers différents. Lorsque deux personnes ont > modifié le même fichier, ça peut se compliquer.
+> Dans le monde merveilleux de Git, tout se passe bien quand chacun travaille sur des fichiers différents. Lorsque deux personnes ont modifié le même fichier, ça peut se compliquer.
 >
-> Au moment de la synchronisation des dépôts, Git va tenter de faire un > auto-merge. Celui-ci fonctionnera bien si par exemple l'une des deux > personnes a modifié le début du fichier et l'autre la fin.
+> Au moment de la synchronisation des dépôts, Git va tenter de faire un auto-merge. Celui-ci fonctionnera bien si par exemple l'une des deux personnes a modifié le début du fichier et l'autre la fin.
 >
-> Par contre, si les modifications concernent le même endroit, Git ne peut > pas décider seul quelle est la bonne version et demande à l'utilisateur > de choisir quelles lignes il souhaite conserver.
+> Par contre, si les modifications concernent le même endroit, Git ne peut pas décider seul quelle est la bonne version et demande à l'utilisateur de choisir quelles lignes il souhaite conserver.
 
 Nous allons créer artificiellement un conflit, c'est à dire faire comme si 2 personnes avaient modifié le même fichier. Ce cas de figure arrivera inévitablement lorsque vous travaillerez à plusieurs sur un projet.
 
+::: {.callout-important}
 Il faut bien avoir en tête qu'un conflit :
 
 - ce n'est pas grave
 - ce n'est pas une erreur
 - vous n'avez pas tout cassé
 - :scream: il ne faut pas paniquer, simplement savoir comment le résoudre
+:::
 
----
 
-- Dans GitLab, cliquer sur le fichier `voiture.py`
+- Dans GitHub, cliquer sur le fichier `voiture.py`
 - Puis sur la petite flèche après `Open in web IDE` et `Edit`
 - Cliquer sur `Edit`
   - Remplacer à la dernière ligne 130 par 110
@@ -228,7 +228,7 @@ Il faut bien avoir en tête qu'un conflit :
 - `git status`
 - `git push`
   - cette fois ci, c'est ok, les modifications faites sur le dépôt local sont poussées vers le dépôt distant
-- :tada: Félicitations, vous venez de résoudre votre 1er conflit :champagne:
+- :tada: Félicitations, vous venez de résoudre votre 1er conflit
   - c'était pas compliqué, hein ?
 
 ---
@@ -254,7 +254,7 @@ Comme souvent avec Git, il y a plusieurs manières de faire, ici nous utiliseron
 - Créer un fichier `vehicule.py`
 - Modifier le fichier `voiture.py`
   - par exemple en ajoutant `toto` sur la dernière ligne
-- **`git stash -u`**
+- `git stash -u`
   - Le fichier `vehicule.py` a été supprimé
   - Le fichier `voiture.py` est revenu à l'état du dernier commit
 - il est possible de retrouver les fichiers qui ont été "stashés" (voir commandes stash et pop)
@@ -263,7 +263,7 @@ Comme souvent avec Git, il y a plusieurs manières de faire, ici nous utiliseron
 
 ### Consulter l'historique d'un fichier
 
-#### Dans GitLab, aller sur le fichier `voiture.py`
+#### Dans GitHub, aller sur le fichier `voiture.py`
 
 - Cliquer sur History
 - Cela affiche la liste des commits qui ont mis à jour ce fichier
@@ -271,7 +271,7 @@ Comme souvent avec Git, il y a plusieurs manières de faire, ici nous utiliseron
 #### Dans Git Bash
 
 - `git log voiture.py`
-  - Cela affiche a peu près la même chose que dans GitLab
+  - Cela affiche a peu près la même chose que dans GitHub
     - Faire `ENTREE` pour continuer à défiler
     - Faire `q` comme quit  pour sortir
   - Mais ce n'est pas très lisible, voire très moche
@@ -327,28 +327,28 @@ Comme souvent avec Git, il y a plusieurs manières de faire, ici nous utiliseron
 - Préférez la méthode un peu archaïque qui consiste à retourner dans le passé pour copier ce qui fonctionnait bien avant.
 - Et pour vous faciliter la vie, faites des commits réguliers et ne modifiez pas 50 fichiers dans un commit.
 
-:bulb: Si à un moment vous avez peur de faire une bétise et de perdre tout votre code (par exemple si une commande Git ne se passe pas comme vous l'aviez prévu), il est tout a fait possible de copier votre dépôt. Votre dépôt local est un dossier, allez dans l'explorateur windows, faites `CTRL + C` `CTRL + V` et voila vous avez une copie que vous pouvez garder de coté au cas où ça tourne mal.  
-:bulb: Et surtout n'hésitez pas à demander de l'aide !
+::: {.callout-tip}
+Si à un moment vous avez peur de faire une bétise et de perdre tout votre code (par exemple si une commande Git ne se passe pas comme vous l'aviez prévu), il est tout a fait possible de copier votre dépôt. Votre dépôt local est un dossier, allez dans l'explorateur windows, faites `CTRL + C` `CTRL + V` et voila vous avez une copie que vous pouvez garder de coté au cas où ça tourne mal.  
+:::
 
----
+Et surtout n'hésitez pas à demander de l'aide !
 
-## Fonctionnalités de GitLab
 
-GitLab n'est pas seulement un dépôt distant, il y a de nombreuses fonctionnalités interessantes.
+## Fonctionnalités de GitHub
+
+GitHub n'est pas seulement un dépôt distant, il y a de nombreuses fonctionnalités interessantes.
 
 - Issues : Pour lister et suivre les incidents ou les évolutions du programme
 - Wiki : Pour créer facilement des pages de documentation en langage markdown
 - CI/CD (Continuous Integration/Continuous Delivery) : Cela permet lorsque l'on met à jour le dépôt distant de lancer des tâches automatisées, par exemple pour : tester le code, évaluer la qualité du code, déployer le code sur une machine de production ou de développement...
 
-Voir un exemple avec [ce projet](https://gitlab.com/CalcProgrammer1/OpenRGB/-/wikis/home)
 
----
 
 ## Un petit exo d'application
 
 1. Revenez dans VSCode, ouvrez un terminal Git Bash et positionnez votre terminal dans le dossier `P:\Cours\Python\git-tp` comme cela a été fait au début de la partie 2.
 2. Dans VSCode, sur le constructeur de la classe `voiture`, mettre la valeur par défaut de couleur à `verte` : `def __init__(self, nom, couleur=verte)`
-3. Dans GitLab, faites la même modification sur la classe `voiture` mais en mettant cette fois-ci la couleur `jaune`
+3. Dans GitHub, faites la même modification sur la classe `voiture` mais en mettant cette fois-ci la couleur `jaune`
 4. Créez un nouveau fichier `velo.py` en copiant le contenu du fichier `voiture.py`
 5. Modifier la méthode `accelere()` de `velo.py` pour avoir une vitesse maximale de 80
 6. Créer un point de sauvegarde sur votre dépôt local (add et commit)
@@ -412,4 +412,4 @@ En gros une branche permet de coder et/ou tester une nouvelle fonctionnalité sa
     - `git merge --squash trottinette`
       - cette fois-ci pas de conflits car ils ont été résolu juste avant
     - `git commit -am "ajout fonctionnalité trottinette"`
-  - L'option `--squash` permet de ne pas polluer le main avec tous les commits réalisés sur la branche `trottinette`. Si par la suite vous utilisez GitLab ou GitHub cette option se retrouve directement dans les merge ou les pull requests.
+  - L'option `--squash` permet de ne pas polluer le main avec tous les commits réalisés sur la branche `trottinette`. Si par la suite vous utilisez GitHub ou GitHub cette option se retrouve directement dans les merge ou les pull requests.
