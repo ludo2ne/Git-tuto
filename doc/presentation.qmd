@@ -10,6 +10,7 @@ format:
 from: markdown+emoji
 number-sections: true
 number-depth: 3
+lightbox: true
 ---
 
 ## Git, qu'est ce que c'est ?

@@ -9,6 +9,7 @@ format:
     toc-expand: 3
 from: markdown+emoji
 number-sections: true
+lightbox: true
 ---
 
 ## Objectifs {.unnumbered}
