@@ -1,0 +1,128 @@
+---
+title: "Git TP ENSAI"
+description: "TP de découverte de Git"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+---
+
+
+- Créez un dossier `P:/Cours1A/Git`
+- Allez sur Moodle > Outils bureautiques pour le statisticien > 
+- Onglet [TP - Git](https://foad-moodle.ensai.fr/course/view.php?id=147&section=3){target="_blank"}
+- Téléchargez
+  - [ ] le sujet
+  - [ ] le zip *Tp git*
+  - [ ] Setup windows
+
+
+## Paramétrage
+
+- [ ] Créer un compte sur [GitLab](https://gitlab.com/users/sign_in){target="_blank"}
+- [ ] sur la VM, double cliquez sur le fichier `setup_windows.bat` et suivez les instructions
+- [ ] Ajoutez votre clé ssh
+  - Edit profile > [SSH Keys](https://gitlab.com/-/profile/keys){target="_blank"}
+  - Add new key
+  - Dans le cadre *Key*, clic droit > Coller
+  - Cliquez sur `Add key`
+
+## Créer un projet GitLab
+
+- Sur GitLab > New project > [Create blank project](https://gitlab.com/projects/new#blank_project){target="_blank"}
+  - décochez README
+  - `Create project`
+
+
+## Créer son dépôt local
+
+- [ ] Ouvrez VSCode > Open Folder > Dossier `P:/Cours1A/Git`
+- [ ] Ouvrez un terminal `Git Bash`
+  - `git init --initial-branch=main` pour déclarer le dossier courant comme dépôt local Git
+  - `git remote add origin git@gitlab.com:<username>/TP_initiation_git.git` pour lier votre dépôt local au dépôt distant
+    - en modifiant *username* par votre nom d'utilisateur GitLab
+  - `git status` : pour voir l'état du dépôt
+    - Normalement vous voyez des fichiers *Untracked files* ie non versionnés par Git
+  - `git add .` : ajouter tous les fichiers du dossier à la liste des fichiers suivis par Git
+  - `git status` : pour voir l'état du dépôt
+  - `git commit -m "Initial commit"` : créer un point de sauvegarde
+  - `git push -u origin main` : pousser les modification depuis le dépôt local vers le dépôt distant
+- Si vous actualisez la page GitLab de votre projet, vous devez voir les fichiers 
+
+## Hands on 1
+
+suivez le sujet
+
+
+## Code à coller{.unnumbered}
+
+```{.python filename="voiture.py"}
+class Voiture:
+    
+    def __init__(self, nom, couleur):
+        self.couleur = couleur
+        self.nom = nom
+        self.vitesse = 0
+
+    def accelere(self, increment):
+        if increment > 10:
+            increment = 10
+        self.vitesse = min(130, self.vitesse + increment)
+```
+
+```{.python filename="fibonacci.py"}
+def fibonacci(n):
+    if n < 2:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+
+if __name__ == "__main__":
+    for i in range(1, 101):
+        print(fibonacci(i))
+```
+
+```{.python filename="puissance_rec.py"}
+def puissance_rec(nombre, puissance):
+    if not puissance:
+        return 1
+    elif not puissance % 2:
+        return puissance_rec(nombre, int(puissance / 2)) \
+            * puissance_rec(nombre, int(puissance / 2))
+    else:
+        return nombre * puissance_rec(nombre, puissance - 1)
+```
+
+
+```{.python filename="moto.py"}
+class Moto:
+    def ______init__(self, nom, couleur):
+        self.couleur = couleur
+        self.nom = nom
+        self.vitesse = 0
+
+    def accelere(self, increment):
+        if increment > 15:
+            increment = 15
+        self.vitesse = min(150, self.vitesse + increment)
+```
+
+
+```{.R filename="exo1.R"}
+a <- c(10,5,3,2) 
+a[2] 
+a[3] 
+a[2:3]
+```
+
+```{.R filename="exo2.R"}
+b <- c(11,6,4,3) 
+b[2] 
+b[3] 
+b[2:3]
+```

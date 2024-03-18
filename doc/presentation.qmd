@@ -251,3 +251,6 @@ Vous devez commencer par mettre à jour votre dépôt local avec `git pull` avan
 
 - [Formation Git du Lab INSEE](https://github.com/InseeFrLab/formation-git){.external target="_blank"}
 - [Bonnes pratiques Git](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/){.external target="_blank"}
+- [GitFlow](https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow){.external target="_blank"}
+- [Développement basé sur le tronc](https://www.atlassian.com/fr/continuous-delivery/continuous-integration/trunk-based-development){.external target="_blank"}
+- https://pythonds.linogaliana.fr/content/git/exogit.html
