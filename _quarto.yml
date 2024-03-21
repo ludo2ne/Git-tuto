@@ -17,6 +17,8 @@ website:
         text: TP
       - href: doc/tp-ensai.qmd
         text: TP-ENSAI-2024-03
+      - href: doc/tp-ensai-new.qmd
+        text: TP-ENSAI-2024-10
     right:
       - icon: github
         href: https://github.com/ludo2ne/Git-tuto

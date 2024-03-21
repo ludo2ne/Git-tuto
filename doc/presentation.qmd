@@ -13,6 +13,19 @@ number-depth: 3
 lightbox: true
 ---
 
+## Introduction :construction:
+
+Imaginez que vous faites parti d'une équipe de 5 personnes qui doit coder une application de jeux de cartes.
+
+Comment faites-vous pour mettre en commun votre code ?
+
+- Vous développez votre partie chacun de votre coté et à la fin, vous mettez tout en commun
+- Vous envoyez vos programmes par mail
+- Vous créer un dossier commun que vous mettez à jour manuellement
+
+Dans tous les cas, le risque d'erreur ou de perte d'information est grand. Heureusement, voici Git !
+
+
 ## Git, qu'est ce que c'est ?
 
 Git est un système de contrôle de version distribué, largement utilisé dans le développement logiciel pour suivre les modifications apportées aux fichiers source. Il permet aux développeurs de travailler efficacement en équipe, de gérer les différentes versions du code, de collaborer sur un même projet et de maintenir un historique complet des modifications. Git facilite le développement collaboratif, tout en offrant performance, flexibilité et fiabilité.
