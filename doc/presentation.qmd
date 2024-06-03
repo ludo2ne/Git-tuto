@@ -1,17 +1,67 @@
 ---
-title: "Présentation de Git"
-description: "Git, à quoi ça sert, comment ça marche"
+title: "Introduction à Git"
+description: "[Slides](presentation-slide.html)"
 author: "Ludovic Deneuville"
 format: 
   html:
     toc: true
     toc-location: left
     toc-expand: 3
+  revealjs:
+    theme: moon
+    footer: "[Home](../index.html) --- [Introduction à Git](slides.qmd)"
+    slide-number: c/t                    # collapsed/total
+    slide-level: 3
+    controls: true
+    output-file: presentation-slide.html
 from: markdown+emoji
-number-sections: true
-number-depth: 3
 lightbox: true
 ---
+
+## Git
+
+- Versionner
+- Historique des modifications
+- Travail en groupe
+
+## Pourquoi versionner ?
+
+### Sans Git
+
+```
+├─── Projet info
+│   ├─── old
+│   │   ├─── Rapport.doc
+│   │   ├─── Rapport_new.doc
+│   │   ├─── Rapport_v1.0.doc
+│   │   └─── Rapport_v1.2.doc
+│   ├─── Rapport_old.doc
+│   ├─── Rapport_2022.05.15.doc
+│   └─── Rapport_2022.05.15_new.doc
+```
+
+:confused: Quelle est la bonne version du fichier ?
+
+### Avec Git
+
+:blush: Un seul fichier + l'historique des modifications
+
+```
+├───Projet info
+│   └───Livrables
+│     └───Rapport.doc
+
+Date         Heure   Auteur      Message commit
+----         -----   ------      --------------
+2022.05.29   23h58   bianca      "Version finale"
+2022.05.29   23h40   archibald   "j'avais oublié l'intro"
+2022.05.29   21h32   tryphon     "ajout partie 2"
+2022.05.29   20h25   bianca      "v1.1"
+2022.05.29   20h12   tryphon     "Création du rapport"
+```
+
+
+----
 
 ## Introduction :construction:
 
