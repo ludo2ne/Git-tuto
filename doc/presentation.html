@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
-<meta name="description" content="Git, à quoi ça sert, comment ça marche">
+<meta name="description" content="Slides">
 
-<title>Git tuto - Présentation de Git</title>
+<title>Git tuto - Introduction à Git</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -150,36 +150,42 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction <span class="emoji" data-emoji="construction">🚧</span></a></li>
-  <li><a href="#git-quest-ce-que-cest" id="toc-git-quest-ce-que-cest" class="nav-link" data-scroll-target="#git-quest-ce-que-cest"><span class="header-section-number">2</span> Git, qu’est ce que c’est ?</a></li>
-  <li><a href="#git-ça-sert-à-quoi" id="toc-git-ça-sert-à-quoi" class="nav-link" data-scroll-target="#git-ça-sert-à-quoi"><span class="header-section-number">3</span> Git, ça sert à quoi ?</a>
+  <li><a href="#git" id="toc-git" class="nav-link active" data-scroll-target="#git">Git</a></li>
+  <li><a href="#pourquoi-versionner" id="toc-pourquoi-versionner" class="nav-link" data-scroll-target="#pourquoi-versionner">Pourquoi versionner ?</a>
   <ul class="collapse">
-  <li><a href="#sans-git" id="toc-sans-git" class="nav-link" data-scroll-target="#sans-git"><span class="header-section-number">3.1</span> Sans Git</a></li>
-  <li><a href="#avec-git" id="toc-avec-git" class="nav-link" data-scroll-target="#avec-git"><span class="header-section-number">3.2</span> Avec Git</a></li>
+  <li><a href="#sans-git" id="toc-sans-git" class="nav-link" data-scroll-target="#sans-git">Sans Git</a></li>
+  <li><a href="#avec-git" id="toc-avec-git" class="nav-link" data-scroll-target="#avec-git">Avec Git</a></li>
   </ul></li>
-  <li><a href="#principe-général-de-git" id="toc-principe-général-de-git" class="nav-link" data-scroll-target="#principe-général-de-git"><span class="header-section-number">4</span> Principe général de Git</a></li>
-  <li><a href="#les-principales-commandes" id="toc-les-principales-commandes" class="nav-link" data-scroll-target="#les-principales-commandes"><span class="header-section-number">5</span> Les principales commandes</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction <span class="emoji" data-emoji="construction">🚧</span></a></li>
+  <li><a href="#git-quest-ce-que-cest" id="toc-git-quest-ce-que-cest" class="nav-link" data-scroll-target="#git-quest-ce-que-cest">Git, qu’est ce que c’est ?</a></li>
+  <li><a href="#git-ça-sert-à-quoi" id="toc-git-ça-sert-à-quoi" class="nav-link" data-scroll-target="#git-ça-sert-à-quoi">Git, ça sert à quoi ?</a>
   <ul class="collapse">
-  <li><a href="#git-clone" id="toc-git-clone" class="nav-link" data-scroll-target="#git-clone"><span class="header-section-number">5.1</span> git clone</a></li>
-  <li><a href="#git-status" id="toc-git-status" class="nav-link" data-scroll-target="#git-status"><span class="header-section-number">5.2</span> git status</a></li>
-  <li><a href="#git-add" id="toc-git-add" class="nav-link" data-scroll-target="#git-add"><span class="header-section-number">5.3</span> git add</a></li>
-  <li><a href="#git-commit" id="toc-git-commit" class="nav-link" data-scroll-target="#git-commit"><span class="header-section-number">5.4</span> git commit</a></li>
-  <li><a href="#git-pull" id="toc-git-pull" class="nav-link" data-scroll-target="#git-pull"><span class="header-section-number">5.5</span> git pull</a></li>
-  <li><a href="#git-push" id="toc-git-push" class="nav-link" data-scroll-target="#git-push"><span class="header-section-number">5.6</span> git push</a></li>
+  <li><a href="#sans-git-1" id="toc-sans-git-1" class="nav-link" data-scroll-target="#sans-git-1">Sans Git</a></li>
+  <li><a href="#avec-git-1" id="toc-avec-git-1" class="nav-link" data-scroll-target="#avec-git-1">Avec Git</a></li>
   </ul></li>
-  <li><a href="#exemples" id="toc-exemples" class="nav-link" data-scroll-target="#exemples"><span class="header-section-number">6</span> Exemples</a>
+  <li><a href="#principe-général-de-git" id="toc-principe-général-de-git" class="nav-link" data-scroll-target="#principe-général-de-git">Principe général de Git</a></li>
+  <li><a href="#les-principales-commandes" id="toc-les-principales-commandes" class="nav-link" data-scroll-target="#les-principales-commandes">Les principales commandes</a>
   <ul class="collapse">
-  <li><a href="#exemple-1" id="toc-exemple-1" class="nav-link" data-scroll-target="#exemple-1"><span class="header-section-number">6.1</span> Exemple 1</a></li>
-  <li><a href="#exemple-2" id="toc-exemple-2" class="nav-link" data-scroll-target="#exemple-2"><span class="header-section-number">6.2</span> Exemple 2</a></li>
+  <li><a href="#git-clone" id="toc-git-clone" class="nav-link" data-scroll-target="#git-clone">git clone</a></li>
+  <li><a href="#git-status" id="toc-git-status" class="nav-link" data-scroll-target="#git-status">git status</a></li>
+  <li><a href="#git-add" id="toc-git-add" class="nav-link" data-scroll-target="#git-add">git add</a></li>
+  <li><a href="#git-commit" id="toc-git-commit" class="nav-link" data-scroll-target="#git-commit">git commit</a></li>
+  <li><a href="#git-pull" id="toc-git-pull" class="nav-link" data-scroll-target="#git-pull">git pull</a></li>
+  <li><a href="#git-push" id="toc-git-push" class="nav-link" data-scroll-target="#git-push">git push</a></li>
   </ul></li>
-  <li><a href="#les-erreurs-courantes" id="toc-les-erreurs-courantes" class="nav-link" data-scroll-target="#les-erreurs-courantes"><span class="header-section-number">7</span> Les erreurs courantes</a>
+  <li><a href="#exemples" id="toc-exemples" class="nav-link" data-scroll-target="#exemples">Exemples</a>
   <ul class="collapse">
-  <li><a href="#fichier-disparu" id="toc-fichier-disparu" class="nav-link" data-scroll-target="#fichier-disparu"><span class="header-section-number">7.1</span> fichier disparu</a></li>
-  <li><a href="#git-push-rejected" id="toc-git-push-rejected" class="nav-link" data-scroll-target="#git-push-rejected"><span class="header-section-number">7.2</span> git push rejected</a></li>
+  <li><a href="#exemple-1" id="toc-exemple-1" class="nav-link" data-scroll-target="#exemple-1">Exemple 1</a></li>
+  <li><a href="#exemple-2" id="toc-exemple-2" class="nav-link" data-scroll-target="#exemple-2">Exemple 2</a></li>
+  </ul></li>
+  <li><a href="#les-erreurs-courantes" id="toc-les-erreurs-courantes" class="nav-link" data-scroll-target="#les-erreurs-courantes">Les erreurs courantes</a>
+  <ul class="collapse">
+  <li><a href="#fichier-disparu" id="toc-fichier-disparu" class="nav-link" data-scroll-target="#fichier-disparu">fichier disparu</a></li>
+  <li><a href="#git-push-rejected" id="toc-git-push-rejected" class="nav-link" data-scroll-target="#git-push-rejected">git push rejected</a></li>
   </ul></li>
   <li><a href="#ressources" id="toc-ressources" class="nav-link" data-scroll-target="#ressources">Ressources</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="presentation-slide.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -190,12 +196,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Présentation de Git</h1>
+<h1 class="title">Introduction à Git</h1>
 </div>
 
 <div>
   <div class="description">
-    Git, à quoi ça sert, comment ça marche
+    <a href="presentation-slide.html">Slides</a>
   </div>
 </div>
 
@@ -218,8 +224,48 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction <span class="emoji" data-emoji="construction">🚧</span></h2>
+<section id="git" class="level2">
+<h2 class="anchored" data-anchor-id="git">Git</h2>
+<ul>
+<li>Versionner</li>
+<li>Historique des modifications</li>
+<li>Travail en groupe</li>
+</ul>
+</section>
+<section id="pourquoi-versionner" class="level2">
+<h2 class="anchored" data-anchor-id="pourquoi-versionner">Pourquoi versionner ?</h2>
+<section id="sans-git" class="level3">
+<h3 class="anchored" data-anchor-id="sans-git">Sans Git</h3>
+<pre><code>├─── Projet info
+│   ├─── old
+│   │   ├─── Rapport.doc
+│   │   ├─── Rapport_new.doc
+│   │   ├─── Rapport_v1.0.doc
+│   │   └─── Rapport_v1.2.doc
+│   ├─── Rapport_old.doc
+│   ├─── Rapport_2022.05.15.doc
+│   └─── Rapport_2022.05.15_new.doc</code></pre>
+<p><span class="emoji" data-emoji="confused">😕</span> Quelle est la bonne version du fichier ?</p>
+</section>
+<section id="avec-git" class="level3">
+<h3 class="anchored" data-anchor-id="avec-git">Avec Git</h3>
+<p><span class="emoji" data-emoji="blush">😊</span> Un seul fichier + l’historique des modifications</p>
+<pre><code>├───Projet info
+│   └───Livrables
+│     └───Rapport.doc
+
+Date         Heure   Auteur      Message commit
+----         -----   ------      --------------
+2022.05.29   23h58   bianca      "Version finale"
+2022.05.29   23h40   archibald   "j'avais oublié l'intro"
+2022.05.29   21h32   tryphon     "ajout partie 2"
+2022.05.29   20h25   bianca      "v1.1"
+2022.05.29   20h12   tryphon     "Création du rapport"</code></pre>
+<hr>
+</section>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction <span class="emoji" data-emoji="construction">🚧</span></h2>
 <p>Imaginez que vous faites parti d’une équipe de 5 personnes qui doit coder une application de jeux de cartes.</p>
 <p>Comment faites-vous pour mettre en commun votre code ?</p>
 <ul>
@@ -229,8 +275,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Dans tous les cas, le risque d’erreur ou de perte d’information est grand. Heureusement, voici Git !</p>
 </section>
-<section id="git-quest-ce-que-cest" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="git-quest-ce-que-cest"><span class="header-section-number">2</span> Git, qu’est ce que c’est ?</h2>
+<section id="git-quest-ce-que-cest" class="level2">
+<h2 class="anchored" data-anchor-id="git-quest-ce-que-cest">Git, qu’est ce que c’est ?</h2>
 <p>Git est un système de contrôle de version distribué, largement utilisé dans le développement logiciel pour suivre les modifications apportées aux fichiers source. Il permet aux développeurs de travailler efficacement en équipe, de gérer les différentes versions du code, de collaborer sur un même projet et de maintenir un historique complet des modifications. Git facilite le développement collaboratif, tout en offrant performance, flexibilité et fiabilité.</p>
 <ul>
 <li>Git
@@ -252,8 +298,8 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </section>
-<section id="git-ça-sert-à-quoi" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="git-ça-sert-à-quoi"><span class="header-section-number">3</span> Git, ça sert à quoi ?</h2>
+<section id="git-ça-sert-à-quoi" class="level2">
+<h2 class="anchored" data-anchor-id="git-ça-sert-à-quoi">Git, ça sert à quoi ?</h2>
 <ul>
 <li>Git permet de suivre les modifications apportées aux fichiers et de gérer efficacement les différentes versions</li>
 <li>Git enregistre un historique complet de toutes les modifications, ce qui permet de retracer l’évolution du projet, d’identifier les changements spécifiques et de revenir à des versions antérieures si nécessaire</li>
@@ -269,8 +315,8 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </figcaption>
 </figure>
 </div>
-<section id="sans-git" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="sans-git"><span class="header-section-number">3.1</span> Sans Git</h3>
+<section id="sans-git-1" class="level3">
+<h3 class="anchored" data-anchor-id="sans-git-1">Sans Git</h3>
 <pre><code>├─── Projet info
 │   ├─── old
 │   │   ├─── Rapport.doc
@@ -282,8 +328,8 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 │   └─── Rapport_2022.05.15_new.doc</code></pre>
 <p><span class="emoji" data-emoji="confused">😕</span> Quelle est la bonne version du fichier ?</p>
 </section>
-<section id="avec-git" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="avec-git"><span class="header-section-number">3.2</span> Avec Git</h3>
+<section id="avec-git-1" class="level3">
+<h3 class="anchored" data-anchor-id="avec-git-1">Avec Git</h3>
 <p><span class="emoji" data-emoji="blush">😊</span> Un seul fichier + l’historique des modifications</p>
 <pre><code>├───Projet info
 │   └───Livrables
@@ -298,8 +344,8 @@ Date         Heure   Auteur      Message commit
 2022.05.29   20h12   tryphon     "Création du rapport"</code></pre>
 </section>
 </section>
-<section id="principe-général-de-git" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="principe-général-de-git"><span class="header-section-number">4</span> Principe général de Git</h2>
+<section id="principe-général-de-git" class="level2">
+<h2 class="anchored" data-anchor-id="principe-général-de-git">Principe général de Git</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -341,8 +387,8 @@ Avec Git, vous allez avoir plusieurs dépôts de fichiers :</p>
 <li><code>git push</code> : partager ses mises à jour locale sur le dépôt distant</li>
 </ul>
 </section>
-<section id="les-principales-commandes" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="les-principales-commandes"><span class="header-section-number">5</span> Les principales commandes</h2>
+<section id="les-principales-commandes" class="level2">
+<h2 class="anchored" data-anchor-id="les-principales-commandes">Les principales commandes</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -358,8 +404,8 @@ Note
 <p>Il existe aussi des interfaces graphiques mais elles sont souvent imparfaites et sources d’erreur.</p>
 </div>
 </div>
-<section id="git-clone" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="git-clone"><span class="header-section-number">5.1</span> git clone</h3>
+<section id="git-clone" class="level3">
+<h3 class="anchored" data-anchor-id="git-clone">git clone</h3>
 <p><code>git clone</code> est une commande de Git utilisée pour <u>créer une copie locale complète d’un dépôt distant</u>. Elle télécharge tous les fichiers et l’historique de version du dépôt distant vers votre système local dans un nouveau répertoire.</p>
 <p>Exemples :</p>
 <ul>
@@ -373,8 +419,8 @@ Note
 <li>https : si vous voulez simplement avoir une copie locale du code sans partager vos modifications</li>
 </ul>
 </section>
-<section id="git-status" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="git-status"><span class="header-section-number">5.2</span> git status</h3>
+<section id="git-status" class="level3">
+<h3 class="anchored" data-anchor-id="git-status">git status</h3>
 <p><code>git status</code> affiche l’état actuel du répertoire de travail et de l’index. Elle montre :</p>
 <ul>
 <li>les fichiers modifiés prêt à rentrer dans le prochain commit (*Changes to be committed)</li>
@@ -383,8 +429,8 @@ Note
 </ul>
 <p>Cette commande est à utiliser sans modération pour voir l’état du dépôt !</p>
 </section>
-<section id="git-add" class="level3" data-number="5.3">
-<h3 data-number="5.3" class="anchored" data-anchor-id="git-add"><span class="header-section-number">5.3</span> git add</h3>
+<section id="git-add" class="level3">
+<h3 class="anchored" data-anchor-id="git-add">git add</h3>
 <p><code>git add</code> est utilisée pour ajouter des fichiers à l’index, c’est à dire des fichiers que vous souhaitez versionner.</p>
 <p>Autrement dit, si vous faites <code>git add soleil.txt</code>, vous dites à git qu’il faut ajouter ce fichier au dépôt et le versionner.</p>
 <p><code>git add .</code> permet d’ajouter <u>tous</u> les fichiers non suivis à l’index</p>
@@ -412,13 +458,13 @@ Le fichier .gitignore
 </div>
 </div>
 </section>
-<section id="git-commit" class="level3" data-number="5.4">
-<h3 data-number="5.4" class="anchored" data-anchor-id="git-commit"><span class="header-section-number">5.4</span> git commit</h3>
+<section id="git-commit" class="level3">
+<h3 class="anchored" data-anchor-id="git-commit">git commit</h3>
 <p><code>git commit -m "mon_message"</code> est utilisée pour créer un <u>point de sauvegarde</u>.<br>
 Il est conseillé d’écrire un message court, clair et compréhensible.</p>
 </section>
-<section id="git-pull" class="level3" data-number="5.5">
-<h3 data-number="5.5" class="anchored" data-anchor-id="git-pull"><span class="header-section-number">5.5</span> git pull</h3>
+<section id="git-pull" class="level3">
+<h3 class="anchored" data-anchor-id="git-pull">git pull</h3>
 <p><code>git pull</code> récupère les dernières modifications du dépôt distant et met à jour votre dépôt local.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Les conflits">
 <div class="callout-header d-flex align-content-center">
@@ -444,8 +490,8 @@ Les conflits
 </div>
 </div>
 </section>
-<section id="git-push" class="level3" data-number="5.6">
-<h3 data-number="5.6" class="anchored" data-anchor-id="git-push"><span class="header-section-number">5.6</span> git push</h3>
+<section id="git-push" class="level3">
+<h3 class="anchored" data-anchor-id="git-push">git push</h3>
 <p><code>git push</code> envoie les modifications locales vers le dépôt distant.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -466,18 +512,18 @@ Important
 </div>
 </section>
 </section>
-<section id="exemples" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="exemples"><span class="header-section-number">6</span> Exemples</h2>
-<section id="exemple-1" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="exemple-1"><span class="header-section-number">6.1</span> Exemple 1</h3>
+<section id="exemples" class="level2">
+<h2 class="anchored" data-anchor-id="exemples">Exemples</h2>
+<section id="exemple-1" class="level3">
+<h3 class="anchored" data-anchor-id="exemple-1">Exemple 1</h3>
 <ul>
 <li>Si sur le dépôt distant, le fichier <em>soleil.txt</em> a été créé par une autre personne</li>
 <li>La commande <code>git pull</code> permet de mettre à jour son dépôt local</li>
 <li>Le fichier <code>soleil.txt</code> apparait sur votre dépôt local</li>
 </ul>
 </section>
-<section id="exemple-2" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="exemple-2"><span class="header-section-number">6.2</span> Exemple 2</h3>
+<section id="exemple-2" class="level3">
+<h3 class="anchored" data-anchor-id="exemple-2">Exemple 2</h3>
 <ul>
 <li>En local, vous avez créé le fichier <code>temple.py</code> et modifié le fichier <code>soleil.txt</code></li>
 <li>Faites <code>git add .</code> pour dire à Git que vous souhaitez valider vos modifications</li>
@@ -488,15 +534,15 @@ Important
 <p>Pour gérer les versions, Git utilise des points de sauvegarde appelés <code>commits</code>. Grace à cela, il est possible de consulter les versions antérieures des fichiers.</p>
 </section>
 </section>
-<section id="les-erreurs-courantes" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="les-erreurs-courantes"><span class="header-section-number">7</span> Les erreurs courantes</h2>
-<section id="fichier-disparu" class="level3" data-number="7.1">
-<h3 data-number="7.1" class="anchored" data-anchor-id="fichier-disparu"><span class="header-section-number">7.1</span> fichier disparu</h3>
+<section id="les-erreurs-courantes" class="level2">
+<h2 class="anchored" data-anchor-id="les-erreurs-courantes">Les erreurs courantes</h2>
+<section id="fichier-disparu" class="level3">
+<h3 class="anchored" data-anchor-id="fichier-disparu">fichier disparu</h3>
 <p>Si vous venez de faire un <code>git push</code> et que votre fichier n’apparait pas sur le dépôt distant, c’est probablement parce que vous avez oublié de l’ajouter à l’index avec <code>git add &lt;mon_fichier&gt;</code>.</p>
 <p>Autre possibilité : votre fichier est ignoré par git car il fait parti du <code>.gitignore</code></p>
 </section>
-<section id="git-push-rejected" class="level3" data-number="7.2">
-<h3 data-number="7.2" class="anchored" data-anchor-id="git-push-rejected"><span class="header-section-number">7.2</span> git push rejected</h3>
+<section id="git-push-rejected" class="level3">
+<h3 class="anchored" data-anchor-id="git-push-rejected">git push rejected</h3>
 <pre><code>! [rejected]        main -&gt; main (fetch first)
 error: failed to push some refs
 hint: Updates were rejected because the remote contains work that you do not
@@ -1092,7 +1138,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
