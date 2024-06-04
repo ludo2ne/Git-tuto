@@ -1,6 +1,6 @@
 ---
 title: "Introduction à Git"
-description: "[Slides](presentation-slide.html)"
+description: "[Slides](presentation-slides.html)"
 author: "Ludovic Deneuville"
 format: 
   html:
@@ -9,47 +9,52 @@ format:
     toc-expand: 3
   revealjs:
     theme: moon
-    footer: "[Home](../index.html) --- [Introduction à Git](slides.qmd)"
+    footer: "[Home](../index.html) --- [Introduction à Git](presentation.html)"
     slide-number: c/t                    # collapsed/total
     slide-level: 3
     controls: true
-    output-file: presentation-slide.html
+    output-file: presentation-slides.html
 from: markdown+emoji
 lightbox: true
 ---
 
 ## Git
 
-- Versionner
+- Versionner son code
 - Historique des modifications
 - Travail en groupe
 
+
 ## Pourquoi versionner ?
 
-### Sans Git
+### Pour connaitre la véritable dernière version
+
+::: {.panel-tabset .nav-pills}
+
+#### Sans Git
 
 ```
 ├─── Projet info
 │   ├─── old
-│   │   ├─── Rapport.doc
-│   │   ├─── Rapport_new.doc
-│   │   ├─── Rapport_v1.0.doc
-│   │   └─── Rapport_v1.2.doc
-│   ├─── Rapport_old.doc
-│   ├─── Rapport_2022.05.15.doc
-│   └─── Rapport_2022.05.15_new.doc
+│   │   ├─── Rapport.txt
+│   │   ├─── Rapport_new.txt
+│   │   ├─── Rapport_v1.0.txt
+│   │   └─── Rapport_v1.2.txt
+│   ├─── Rapport_old.txt
+│   ├─── Rapport_2022.05.15.txt
+│   └─── Rapport_2022.05.15_new.txt
 ```
 
 :confused: Quelle est la bonne version du fichier ?
 
-### Avec Git
+#### Avec Git
 
 :blush: Un seul fichier + l'historique des modifications
 
 ```
 ├───Projet info
 │   └───Livrables
-│     └───Rapport.doc
+│     └───Rapport.txt
 
 Date         Heure   Auteur      Message commit
 ----         -----   ------      --------------
@@ -59,6 +64,78 @@ Date         Heure   Auteur      Message commit
 2022.05.29   20h25   bianca      "v1.1"
 2022.05.29   20h12   tryphon     "Création du rapport"
 ```
+
+#### Objectif
+
+::: {#fig-thinkr}
+![](img/thinkR_git_avec_sans.png){width=40%}
+
+Source : [ThinkR](https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/){target="_blank"}
+::: 
+
+:::
+
+
+### Ancien code commenté{.smaller}
+
+::: {.panel-tabset .nav-pills}
+
+#### Sans Git
+
+```{.R filename="analyse.R"}
+library(ggplot2)
+
+data <- data.frame(x = seq(-4, 4, length=100))
+data$y <- dnorm(data$x)
+
+# plot(data$x, data$y, type="l", lwd=2, col="blue",
+#      main="Densité de la loi normale centrée réduite",
+#      xlab="x", ylab="Densité")
+# abline(h=0, col="gray")
+
+ggplot(data, aes(x = x, y = y)) +
+  geom_line(color = "blue", size = 1) +
+  ggtitle("Densité de la loi normale centrée réduite") +
+  xlab("x") +
+  ylab("Densité") +
+  theme_minimal()
+```
+
+
+#### Avec Git
+
+```{.R filename="analyse.R - Commit 05016ab - Date 2024.06.02 - Author tryphon"}
+data$y <- dnorm(data$x)
+
+plot(data$x, data$y, type="l", lwd=2, col="blue",
+     main="Densité de la loi normale centrée réduite",
+     xlab="x", ylab="Densité")
+abline(h=0, col="gray")
+```
+
+
+```{.R filename="analyse.R - Commit f97f766 - Date 2024.06.04 - Author bianca"}
+library(ggplot2)
+
+data <- data.frame(x = seq(-4, 4, length=100))
+data$y <- dnorm(data$x)
+
+ggplot(data, aes(x = x, y = y)) +
+  geom_line(color = "blue", size = 1) +
+  ggtitle("Densité de la loi normale centrée réduite") +
+  xlab("x") +
+  ylab("Densité") +
+  theme_minimal()
+```
+
+:::
+
+
+
+
+
+
+
 
 
 ----
@@ -99,11 +176,7 @@ Git est un système de contrôle de version distribué, largement utilisé dans 
 - Git enregistre un historique complet de toutes les modifications, ce qui permet de retracer l'évolution du projet, d'identifier les changements spécifiques et de revenir à des versions antérieures si nécessaire
 - Git facilite la collaboration entre les membres d'une équipe en permettant à plusieurs personnes de travailler simultanément sur le même projet
 
-::: {#fig-thinkr}
-![](img/thinkR_git_avec_sans.png){width=60%}
 
-Source : [ThinkR](https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/){target="_blank"}
-::: 
 
 ### Sans Git
 
