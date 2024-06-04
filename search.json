@@ -259,71 +259,71 @@
     "text": "Code à coller\n\n\nvoiture.py\n\nclass Voiture:\n    \n    def __init__(self, nom, couleur):\n        self.couleur = couleur\n        self.nom = nom\n        self.vitesse = 0\n\n    def accelere(self, increment):\n        if increment &gt; 10:\n            increment = 10\n        self.vitesse = min(130, self.vitesse + increment)\n\n\n\nfibonacci.py\n\ndef fibonacci(n):\n    if n &lt; 2:\n        return 1\n    else:\n        return fibonacci(n - 1) + fibonacci(n - 2)\n\n\nif __name__ == \"__main__\":\n    for i in range(1, 101):\n        print(fibonacci(i))\n\n\n\npuissance_rec.py\n\ndef puissance_rec(nombre, puissance):\n    if not puissance:\n        return 1\n    elif not puissance % 2:\n        return puissance_rec(nombre, int(puissance / 2)) \\\n            * puissance_rec(nombre, int(puissance / 2))\n    else:\n        return nombre * puissance_rec(nombre, puissance - 1)\n\n\n\nmoto.py\n\nclass Moto:\n    def ______init__(self, nom, couleur):\n        self.couleur = couleur\n        self.nom = nom\n        self.vitesse = 0\n\n    def accelere(self, increment):\n        if increment &gt; 15:\n            increment = 15\n        self.vitesse = min(150, self.vitesse + increment)\n\n\n\nexo1.R\n\na &lt;- c(10,5,3,2) \na[2] \na[3] \na[2:3]\n\n\n\nexo2.R\n\nb &lt;- c(11,6,4,3) \nb[2] \nb[3] \nb[2:3]"
   },
   {
-    "objectID": "doc/presentation-slide.html#git",
-    "href": "doc/presentation-slide.html#git",
+    "objectID": "doc/presentation-slides.html#git",
+    "href": "doc/presentation-slides.html#git",
     "title": "Introduction à Git",
     "section": "Git",
-    "text": "Git\n\nVersionner\nHistorique des modifications\nTravail en groupe"
+    "text": "Git\n\nVersionner son code\nHistorique des modifications\nTravail en groupe"
   },
   {
-    "objectID": "doc/presentation-slide.html#pourquoi-versionner",
-    "href": "doc/presentation-slide.html#pourquoi-versionner",
+    "objectID": "doc/presentation-slides.html#pourquoi-versionner",
+    "href": "doc/presentation-slides.html#pourquoi-versionner",
     "title": "Introduction à Git",
     "section": "Pourquoi versionner ?",
     "text": "Pourquoi versionner ?"
   },
   {
-    "objectID": "doc/presentation-slide.html#introduction",
-    "href": "doc/presentation-slide.html#introduction",
+    "objectID": "doc/presentation-slides.html#introduction",
+    "href": "doc/presentation-slides.html#introduction",
     "title": "Introduction à Git",
     "section": "Introduction 🚧",
     "text": "Introduction 🚧\nImaginez que vous faites parti d’une équipe de 5 personnes qui doit coder une application de jeux de cartes.\nComment faites-vous pour mettre en commun votre code ?\n\nVous développez votre partie chacun de votre coté et à la fin, vous mettez tout en commun\nVous envoyez vos programmes par mail\nVous créer un dossier commun que vous mettez à jour manuellement\n\nDans tous les cas, le risque d’erreur ou de perte d’information est grand. Heureusement, voici Git !"
   },
   {
-    "objectID": "doc/presentation-slide.html#git-quest-ce-que-cest",
-    "href": "doc/presentation-slide.html#git-quest-ce-que-cest",
+    "objectID": "doc/presentation-slides.html#git-quest-ce-que-cest",
+    "href": "doc/presentation-slides.html#git-quest-ce-que-cest",
     "title": "Introduction à Git",
     "section": "Git, qu’est ce que c’est ?",
     "text": "Git, qu’est ce que c’est ?\nGit est un système de contrôle de version distribué, largement utilisé dans le développement logiciel pour suivre les modifications apportées aux fichiers source. Il permet aux développeurs de travailler efficacement en équipe, de gérer les différentes versions du code, de collaborer sur un même projet et de maintenir un historique complet des modifications. Git facilite le développement collaboratif, tout en offrant performance, flexibilité et fiabilité.\n\nGit\n\nLogiciel de gestion de versions\nOpen source, gratuit, très très très utilisé et pas qu’en informatique\ncréé par Linus Torvalds, créateur également du noyau Linux\n\nGit Bash\n\nTerminal pour écrire des commandes git\nPossible d’ouvrir via le menu Démarrer, mais aussi inclus dans Visual Studio Code\n\nGitHub / GitLab\n\nplateforme de développement collaboratif basée sur Git\nhéberge des dépôts Git\nPropose d’autres fonctionnalités (CICD, wiki, gestion des incidents…)"
   },
   {
-    "objectID": "doc/presentation-slide.html#git-ça-sert-à-quoi",
-    "href": "doc/presentation-slide.html#git-ça-sert-à-quoi",
+    "objectID": "doc/presentation-slides.html#git-ça-sert-à-quoi",
+    "href": "doc/presentation-slides.html#git-ça-sert-à-quoi",
     "title": "Introduction à Git",
     "section": "Git, ça sert à quoi ?",
-    "text": "Git, ça sert à quoi ?\n\nGit permet de suivre les modifications apportées aux fichiers et de gérer efficacement les différentes versions\nGit enregistre un historique complet de toutes les modifications, ce qui permet de retracer l’évolution du projet, d’identifier les changements spécifiques et de revenir à des versions antérieures si nécessaire\nGit facilite la collaboration entre les membres d’une équipe en permettant à plusieurs personnes de travailler simultanément sur le même projet\n\n\n\n\n\n\n\nFigure 1: Source : ThinkR"
+    "text": "Git, ça sert à quoi ?\n\nGit permet de suivre les modifications apportées aux fichiers et de gérer efficacement les différentes versions\nGit enregistre un historique complet de toutes les modifications, ce qui permet de retracer l’évolution du projet, d’identifier les changements spécifiques et de revenir à des versions antérieures si nécessaire\nGit facilite la collaboration entre les membres d’une équipe en permettant à plusieurs personnes de travailler simultanément sur le même projet"
   },
   {
-    "objectID": "doc/presentation-slide.html#principe-général-de-git",
-    "href": "doc/presentation-slide.html#principe-général-de-git",
+    "objectID": "doc/presentation-slides.html#principe-général-de-git",
+    "href": "doc/presentation-slides.html#principe-général-de-git",
     "title": "Introduction à Git",
     "section": "Principe général de Git",
     "text": "Principe général de Git\n\n\n\n\n\nflowchart LR\n    github[(Dépot commun)]\n    dev1[(Dépot local 1)]\n    dev2[(Dépot local 2)]\n    dev3[(Dépot local 3)]\n    dev4[(Dépot local 4)]\n    \n    github &lt;--&gt; dev1\n    github &lt;--&gt; dev2\n    dev3 &lt;--&gt; github\n    dev4 &lt;--&gt; github\n\n\n\n\n\n\nGit est distribué, cela signifie que chaque dépôt est une copie complète du projet.\nAvec Git, vous allez avoir plusieurs dépôts de fichiers :\n\nun dépôt commun (dépôt distant)\nun dépôt par contributeur (dépôts locaux)\n\nRemarque : il est tout à fait possible d’avoir plusieurs clones du même dépôt sur son poste\n\n\nGit va aider à synchroniser ces dépôts avec les commandes suivantes :\n\ngit clone : créer une copie du dépôt commun sur son poste\ngit status : voir où l’on en est\ngit add : ajouter de nouveaux fichiers dans le dépôt\ngit commit : créer un point de sauvegarde\ngit pull : récupérer les éventuelles modifications du dépôt distant pour mettre à jour son dépôt local\ngit push : partager ses mises à jour locale sur le dépôt distant"
   },
   {
-    "objectID": "doc/presentation-slide.html#les-principales-commandes",
-    "href": "doc/presentation-slide.html#les-principales-commandes",
+    "objectID": "doc/presentation-slides.html#les-principales-commandes",
+    "href": "doc/presentation-slides.html#les-principales-commandes",
     "title": "Introduction à Git",
     "section": "Les principales commandes",
     "text": "Les principales commandes\n\n\n\n\n\n\nNote\n\n\n😨 Git s’utilise très majoritairement en ligne de commande dans un terminal Git Bash.\n😅 Pas de panique, quelques commandes simples suffisent largement pour travailler avec Git.\nIl existe aussi des interfaces graphiques mais elles sont souvent imparfaites et sources d’erreur."
   },
   {
-    "objectID": "doc/presentation-slide.html#exemples",
-    "href": "doc/presentation-slide.html#exemples",
+    "objectID": "doc/presentation-slides.html#exemples",
+    "href": "doc/presentation-slides.html#exemples",
     "title": "Introduction à Git",
     "section": "Exemples",
     "text": "Exemples"
   },
   {
-    "objectID": "doc/presentation-slide.html#les-erreurs-courantes",
-    "href": "doc/presentation-slide.html#les-erreurs-courantes",
+    "objectID": "doc/presentation-slides.html#les-erreurs-courantes",
+    "href": "doc/presentation-slides.html#les-erreurs-courantes",
     "title": "Introduction à Git",
     "section": "Les erreurs courantes",
     "text": "Les erreurs courantes"
   },
   {
-    "objectID": "doc/presentation-slide.html#ressources",
-    "href": "doc/presentation-slide.html#ressources",
+    "objectID": "doc/presentation-slides.html#ressources",
+    "href": "doc/presentation-slides.html#ressources",
     "title": "Introduction à Git",
     "section": "Ressources",
     "text": "Ressources\n\nFormation Git du Lab INSEE\nBonnes pratiques Git\nGitFlow\nDéveloppement basé sur le tronc\nhttps://pythonds.linogaliana.fr/content/git/exogit.html\n\n\n\n\nHome — Introduction à Git\n\n\n\nFigure 1: Source : ThinkR"
@@ -333,21 +333,21 @@
     "href": "doc/presentation.html",
     "title": "Introduction à Git",
     "section": "",
-    "text": "Versionner\nHistorique des modifications\nTravail en groupe"
+    "text": "Versionner son code\nHistorique des modifications\nTravail en groupe"
   },
   {
     "objectID": "doc/presentation.html#git",
     "href": "doc/presentation.html#git",
     "title": "Introduction à Git",
     "section": "",
-    "text": "Versionner\nHistorique des modifications\nTravail en groupe"
+    "text": "Versionner son code\nHistorique des modifications\nTravail en groupe"
   },
   {
     "objectID": "doc/presentation.html#pourquoi-versionner",
     "href": "doc/presentation.html#pourquoi-versionner",
     "title": "Introduction à Git",
     "section": "Pourquoi versionner ?",
-    "text": "Pourquoi versionner ?\n\nSans Git\n├─── Projet info\n│   ├─── old\n│   │   ├─── Rapport.doc\n│   │   ├─── Rapport_new.doc\n│   │   ├─── Rapport_v1.0.doc\n│   │   └─── Rapport_v1.2.doc\n│   ├─── Rapport_old.doc\n│   ├─── Rapport_2022.05.15.doc\n│   └─── Rapport_2022.05.15_new.doc\n😕 Quelle est la bonne version du fichier ?\n\n\nAvec Git\n😊 Un seul fichier + l’historique des modifications\n├───Projet info\n│   └───Livrables\n│     └───Rapport.doc\n\nDate         Heure   Auteur      Message commit\n----         -----   ------      --------------\n2022.05.29   23h58   bianca      \"Version finale\"\n2022.05.29   23h40   archibald   \"j'avais oublié l'intro\"\n2022.05.29   21h32   tryphon     \"ajout partie 2\"\n2022.05.29   20h25   bianca      \"v1.1\"\n2022.05.29   20h12   tryphon     \"Création du rapport\""
+    "text": "Pourquoi versionner ?\n\nPour connaitre la véritable dernière version\n\nSans GitAvec GitObjectif\n\n\n├─── Projet info\n│   ├─── old\n│   │   ├─── Rapport.txt\n│   │   ├─── Rapport_new.txt\n│   │   ├─── Rapport_v1.0.txt\n│   │   └─── Rapport_v1.2.txt\n│   ├─── Rapport_old.txt\n│   ├─── Rapport_2022.05.15.txt\n│   └─── Rapport_2022.05.15_new.txt\n😕 Quelle est la bonne version du fichier ?\n\n\n😊 Un seul fichier + l’historique des modifications\n├───Projet info\n│   └───Livrables\n│     └───Rapport.txt\n\nDate         Heure   Auteur      Message commit\n----         -----   ------      --------------\n2022.05.29   23h58   bianca      \"Version finale\"\n2022.05.29   23h40   archibald   \"j'avais oublié l'intro\"\n2022.05.29   21h32   tryphon     \"ajout partie 2\"\n2022.05.29   20h25   bianca      \"v1.1\"\n2022.05.29   20h12   tryphon     \"Création du rapport\"\n\n\n\n\n\n\n\n\nFigure 1: Source : ThinkR\n\n\n\n\n\n\n\n\nAncien code commenté\n\nSans GitAvec Git\n\n\n\n\nanalyse.R\n\nlibrary(ggplot2)\n\ndata &lt;- data.frame(x = seq(-4, 4, length=100))\ndata$y &lt;- dnorm(data$x)\n\n# plot(data$x, data$y, type=\"l\", lwd=2, col=\"blue\",\n#      main=\"Densité de la loi normale centrée réduite\",\n#      xlab=\"x\", ylab=\"Densité\")\n# abline(h=0, col=\"gray\")\n\nggplot(data, aes(x = x, y = y)) +\n  geom_line(color = \"blue\", size = 1) +\n  ggtitle(\"Densité de la loi normale centrée réduite\") +\n  xlab(\"x\") +\n  ylab(\"Densité\") +\n  theme_minimal()\n\n\n\n\n\nanalyse.R - Commit 05016ab - Date 2024.06.02 - Author tryphon\n\ndata$y &lt;- dnorm(data$x)\n\nplot(data$x, data$y, type=\"l\", lwd=2, col=\"blue\",\n     main=\"Densité de la loi normale centrée réduite\",\n     xlab=\"x\", ylab=\"Densité\")\nabline(h=0, col=\"gray\")\n\n\n\nanalyse.R - Commit f97f766 - Date 2024.06.04 - Author bianca\n\nlibrary(ggplot2)\n\ndata &lt;- data.frame(x = seq(-4, 4, length=100))\ndata$y &lt;- dnorm(data$x)\n\nggplot(data, aes(x = x, y = y)) +\n  geom_line(color = \"blue\", size = 1) +\n  ggtitle(\"Densité de la loi normale centrée réduite\") +\n  xlab(\"x\") +\n  ylab(\"Densité\") +\n  theme_minimal()"
   },
   {
     "objectID": "doc/presentation.html#introduction",
@@ -368,7 +368,7 @@
     "href": "doc/presentation.html#git-ça-sert-à-quoi",
     "title": "Introduction à Git",
     "section": "Git, ça sert à quoi ?",
-    "text": "Git, ça sert à quoi ?\n\nGit permet de suivre les modifications apportées aux fichiers et de gérer efficacement les différentes versions\nGit enregistre un historique complet de toutes les modifications, ce qui permet de retracer l’évolution du projet, d’identifier les changements spécifiques et de revenir à des versions antérieures si nécessaire\nGit facilite la collaboration entre les membres d’une équipe en permettant à plusieurs personnes de travailler simultanément sur le même projet\n\n\n\n\n\n\n\nFigure 1: Source : ThinkR\n\n\n\n\nSans Git\n├─── Projet info\n│   ├─── old\n│   │   ├─── Rapport.doc\n│   │   ├─── Rapport_new.doc\n│   │   ├─── Rapport_v1.0.doc\n│   │   └─── Rapport_v1.2.doc\n│   ├─── Rapport_old.doc\n│   ├─── Rapport_2022.05.15.doc\n│   └─── Rapport_2022.05.15_new.doc\n😕 Quelle est la bonne version du fichier ?\n\n\nAvec Git\n😊 Un seul fichier + l’historique des modifications\n├───Projet info\n│   └───Livrables\n│     └───Rapport.doc\n\nDate         Heure   Auteur      Message commit\n----         -----   ------      --------------\n2022.05.29   23h58   bianca      \"Version finale\"\n2022.05.29   23h40   archibald   \"j'avais oublié l'intro\"\n2022.05.29   21h32   tryphon     \"ajout partie 2\"\n2022.05.29   20h25   bianca      \"v1.1\"\n2022.05.29   20h12   tryphon     \"Création du rapport\""
+    "text": "Git, ça sert à quoi ?\n\nGit permet de suivre les modifications apportées aux fichiers et de gérer efficacement les différentes versions\nGit enregistre un historique complet de toutes les modifications, ce qui permet de retracer l’évolution du projet, d’identifier les changements spécifiques et de revenir à des versions antérieures si nécessaire\nGit facilite la collaboration entre les membres d’une équipe en permettant à plusieurs personnes de travailler simultanément sur le même projet\n\n\nSans Git\n├─── Projet info\n│   ├─── old\n│   │   ├─── Rapport.doc\n│   │   ├─── Rapport_new.doc\n│   │   ├─── Rapport_v1.0.doc\n│   │   └─── Rapport_v1.2.doc\n│   ├─── Rapport_old.doc\n│   ├─── Rapport_2022.05.15.doc\n│   └─── Rapport_2022.05.15_new.doc\n😕 Quelle est la bonne version du fichier ?\n\n\nAvec Git\n😊 Un seul fichier + l’historique des modifications\n├───Projet info\n│   └───Livrables\n│     └───Rapport.doc\n\nDate         Heure   Auteur      Message commit\n----         -----   ------      --------------\n2022.05.29   23h58   bianca      \"Version finale\"\n2022.05.29   23h40   archibald   \"j'avais oublié l'intro\"\n2022.05.29   21h32   tryphon     \"ajout partie 2\"\n2022.05.29   20h25   bianca      \"v1.1\"\n2022.05.29   20h12   tryphon     \"Création du rapport\""
   },
   {
     "objectID": "doc/presentation.html#principe-général-de-git",

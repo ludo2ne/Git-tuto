@@ -11,7 +11,7 @@
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.554">
+  <meta name="generator" content="quarto-1.4.555">
 
   <meta name="author" content="Ludovic Deneuville">
   <title>Git tuto - Introduction à Git</title>
@@ -32,6 +32,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -346,7 +411,7 @@ Ludovic Deneuville
 <section id="git" class="title-slide slide level2 center">
 <h2>Git</h2>
 <ul>
-<li>Versionner</li>
+<li>Versionner son code</li>
 <li>Historique des modifications</li>
 <li>Travail en groupe</li>
 </ul>
@@ -357,25 +422,28 @@ Ludovic Deneuville
 <h2>Pourquoi versionner ?</h2>
 
 </section>
-<section id="sans-git" class="slide level3">
-<h3>Sans Git</h3>
+<section id="pour-connaitre-la-véritable-dernière-version" class="slide level3">
+<h3>Pour connaitre la véritable dernière version</h3>
+<div class="panel-tabset nav-pills">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Sans Git</a></li><li><a href="#tabset-1-2">Avec Git</a></li><li><a href="#tabset-1-3">Objectif</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-1-1">
 <pre><code>├─── Projet info
 │   ├─── old
-│   │   ├─── Rapport.doc
-│   │   ├─── Rapport_new.doc
-│   │   ├─── Rapport_v1.0.doc
-│   │   └─── Rapport_v1.2.doc
-│   ├─── Rapport_old.doc
-│   ├─── Rapport_2022.05.15.doc
-│   └─── Rapport_2022.05.15_new.doc</code></pre>
+│   │   ├─── Rapport.txt
+│   │   ├─── Rapport_new.txt
+│   │   ├─── Rapport_v1.0.txt
+│   │   └─── Rapport_v1.2.txt
+│   ├─── Rapport_old.txt
+│   ├─── Rapport_2022.05.15.txt
+│   └─── Rapport_2022.05.15_new.txt</code></pre>
 <p><span class="emoji" data-emoji="confused">😕</span> Quelle est la bonne version du fichier ?</p>
-</section>
-<section id="avec-git" class="slide level3">
-<h3>Avec Git</h3>
+</div>
+<div id="tabset-1-2">
 <p><span class="emoji" data-emoji="blush">😊</span> Un seul fichier + l’historique des modifications</p>
 <pre><code>├───Projet info
 │   └───Livrables
-│     └───Rapport.doc
+│     └───Rapport.txt
 
 Date         Heure   Auteur      Message commit
 ----         -----   ------      --------------
@@ -384,6 +452,81 @@ Date         Heure   Auteur      Message commit
 2022.05.29   21h32   tryphon     "ajout partie 2"
 2022.05.29   20h25   bianca      "v1.1"
 2022.05.29   20h12   tryphon     "Création du rapport"</code></pre>
+</div>
+<div id="tabset-1-3">
+<div id="fig-thinkr" class="quarto-figure quarto-figure-center quarto-float">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-thinkr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="img/thinkR_git_avec_sans.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img data-src="img/thinkR_git_avec_sans.png" style="width:40.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-thinkr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/" target="_blank">ThinkR</a>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ancien-code-commenté" class="slide level3 smaller">
+<h3>Ancien code commenté</h3>
+<div class="panel-tabset nav-pills">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Sans Git</a></li><li><a href="#tabset-2-2">Avec Git</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-2-1">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>analyse.R</strong></pre>
+</div>
+<div class="sourceCode" id="cb3" data-filename="analyse.R"><pre class="sourceCode numberSource R number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">length=</span><span class="dv">100</span>))</span>
+<span id="cb3-4"><a></a>data<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(data<span class="sc">$</span>x)</span>
+<span id="cb3-5"><a></a></span>
+<span id="cb3-6"><a></a><span class="co"># plot(data$x, data$y, type="l", lwd=2, col="blue",</span></span>
+<span id="cb3-7"><a></a><span class="co">#      main="Densité de la loi normale centrée réduite",</span></span>
+<span id="cb3-8"><a></a><span class="co">#      xlab="x", ylab="Densité")</span></span>
+<span id="cb3-9"><a></a><span class="co"># abline(h=0, col="gray")</span></span>
+<span id="cb3-10"><a></a></span>
+<span id="cb3-11"><a></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb3-12"><a></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb3-13"><a></a>  <span class="fu">ggtitle</span>(<span class="st">"Densité de la loi normale centrée réduite"</span>) <span class="sc">+</span></span>
+<span id="cb3-14"><a></a>  <span class="fu">xlab</span>(<span class="st">"x"</span>) <span class="sc">+</span></span>
+<span id="cb3-15"><a></a>  <span class="fu">ylab</span>(<span class="st">"Densité"</span>) <span class="sc">+</span></span>
+<span id="cb3-16"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>analyse.R - Commit 05016ab - Date 2024.06.02 - Author tryphon</strong></pre>
+</div>
+<div class="sourceCode" id="cb4" data-filename="analyse.R - Commit 05016ab - Date 2024.06.02 - Author tryphon"><pre class="sourceCode numberSource R number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>data<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(data<span class="sc">$</span>x)</span>
+<span id="cb4-2"><a></a></span>
+<span id="cb4-3"><a></a><span class="fu">plot</span>(data<span class="sc">$</span>x, data<span class="sc">$</span>y, <span class="at">type=</span><span class="st">"l"</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">"blue"</span>,</span>
+<span id="cb4-4"><a></a>     <span class="at">main=</span><span class="st">"Densité de la loi normale centrée réduite"</span>,</span>
+<span id="cb4-5"><a></a>     <span class="at">xlab=</span><span class="st">"x"</span>, <span class="at">ylab=</span><span class="st">"Densité"</span>)</span>
+<span id="cb4-6"><a></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"gray"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>analyse.R - Commit f97f766 - Date 2024.06.04 - Author bianca</strong></pre>
+</div>
+<div class="sourceCode" id="cb5" data-filename="analyse.R - Commit f97f766 - Date 2024.06.04 - Author bianca"><pre class="sourceCode numberSource R number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">length=</span><span class="dv">100</span>))</span>
+<span id="cb5-4"><a></a>data<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(data<span class="sc">$</span>x)</span>
+<span id="cb5-5"><a></a></span>
+<span id="cb5-6"><a></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb5-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-8"><a></a>  <span class="fu">ggtitle</span>(<span class="st">"Densité de la loi normale centrée réduite"</span>) <span class="sc">+</span></span>
+<span id="cb5-9"><a></a>  <span class="fu">xlab</span>(<span class="st">"x"</span>) <span class="sc">+</span></span>
+<span id="cb5-10"><a></a>  <span class="fu">ylab</span>(<span class="st">"Densité"</span>) <span class="sc">+</span></span>
+<span id="cb5-11"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level3">
 
@@ -432,18 +575,8 @@ Date         Heure   Auteur      Message commit
 <li>Git enregistre un historique complet de toutes les modifications, ce qui permet de retracer l’évolution du projet, d’identifier les changements spécifiques et de revenir à des versions antérieures si nécessaire</li>
 <li>Git facilite la collaboration entre les membres d’une équipe en permettant à plusieurs personnes de travailler simultanément sur le même projet</li>
 </ul>
-<div id="fig-thinkr" class="quarto-figure quarto-figure-center quarto-float">
-<figure class="quarto-float quarto-float-fig">
-<div aria-describedby="fig-thinkr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="img/thinkR_git_avec_sans.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img data-src="img/thinkR_git_avec_sans.png" style="width:60.0%"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-thinkr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/" target="_blank">ThinkR</a>
-</figcaption>
-</figure>
-</div>
 </section>
-<section id="sans-git-1" class="slide level3">
+<section id="sans-git-2" class="slide level3">
 <h3>Sans Git</h3>
 <pre><code>├─── Projet info
 │   ├─── old
@@ -456,7 +589,7 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 │   └─── Rapport_2022.05.15_new.doc</code></pre>
 <p><span class="emoji" data-emoji="confused">😕</span> Quelle est la bonne version du fichier ?</p>
 </section>
-<section id="avec-git-1" class="slide level3">
+<section id="avec-git-2" class="slide level3">
 <h3>Avec Git</h3>
 <p><span class="emoji" data-emoji="blush">😊</span> Un seul fichier + l’historique des modifications</p>
 <pre><code>├───Projet info
@@ -703,7 +836,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
-<p><a href="../index.html">Home</a> — <a href="slides.qmd">Introduction à Git</a></p>
+<p><a href="../index.html">Home</a> — <a href="presentation.html">Introduction à Git</a></p>
 </div>
 </div>
 <div class="hidden" aria-hidden="true">
@@ -1096,7 +1229,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","descPosition":"bottom","loop":false});
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom"});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;
