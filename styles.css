@@ -44,3 +44,7 @@ p{
   text-align: justify
 }
 
+/* Hide revealJS speaker notes in the html*/
+.notes {
+  display: none;
+}

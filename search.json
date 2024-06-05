@@ -259,25 +259,74 @@
     "text": "Code à coller\n\n\nvoiture.py\n\nclass Voiture:\n    \n    def __init__(self, nom, couleur):\n        self.couleur = couleur\n        self.nom = nom\n        self.vitesse = 0\n\n    def accelere(self, increment):\n        if increment &gt; 10:\n            increment = 10\n        self.vitesse = min(130, self.vitesse + increment)\n\n\n\nfibonacci.py\n\ndef fibonacci(n):\n    if n &lt; 2:\n        return 1\n    else:\n        return fibonacci(n - 1) + fibonacci(n - 2)\n\n\nif __name__ == \"__main__\":\n    for i in range(1, 101):\n        print(fibonacci(i))\n\n\n\npuissance_rec.py\n\ndef puissance_rec(nombre, puissance):\n    if not puissance:\n        return 1\n    elif not puissance % 2:\n        return puissance_rec(nombre, int(puissance / 2)) \\\n            * puissance_rec(nombre, int(puissance / 2))\n    else:\n        return nombre * puissance_rec(nombre, puissance - 1)\n\n\n\nmoto.py\n\nclass Moto:\n    def ______init__(self, nom, couleur):\n        self.couleur = couleur\n        self.nom = nom\n        self.vitesse = 0\n\n    def accelere(self, increment):\n        if increment &gt; 15:\n            increment = 15\n        self.vitesse = min(150, self.vitesse + increment)\n\n\n\nexo1.R\n\na &lt;- c(10,5,3,2) \na[2] \na[3] \na[2:3]\n\n\n\nexo2.R\n\nb &lt;- c(11,6,4,3) \nb[2] \nb[3] \nb[2:3]"
   },
   {
+    "objectID": "doc/presentation-slides.html#introduction",
+    "href": "doc/presentation-slides.html#introduction",
+    "title": "Introduction à Git",
+    "section": "Introduction",
+    "text": "Introduction\nImaginez que vous faites parti d’une équipe de 5 personnes qui doit coder une application de jeux de cartes.\nComment faites-vous pour mettre en commun votre code ?\n\nVous développez votre partie chacun de votre coté et à la fin, vous mettez tout en commun\nVous envoyez vos programmes par mail\nVous créer un dossier commun que vous mettez à jour manuellement"
+  },
+  {
     "objectID": "doc/presentation-slides.html#git",
     "href": "doc/presentation-slides.html#git",
     "title": "Introduction à Git",
     "section": "Git",
-    "text": "Git\n\nVersionner son code\nHistorique des modifications\nTravail en groupe"
+    "text": "Git\n\nVersionner son code\nHistorique des modifications\nTravail en équipe\nDécentralisé"
   },
   {
     "objectID": "doc/presentation-slides.html#pourquoi-versionner",
     "href": "doc/presentation-slides.html#pourquoi-versionner",
     "title": "Introduction à Git",
     "section": "Pourquoi versionner ?",
-    "text": "Pourquoi versionner ?"
+    "text": "Pourquoi versionner ?\n\nQuelle est la bonne version ?\nComment faire pour revenir en arrière ?\nQui a écrit ce code ? Quand ?\n\n\n\nles questions que l’on peut se poser en projet"
   },
   {
-    "objectID": "doc/presentation-slides.html#introduction",
-    "href": "doc/presentation-slides.html#introduction",
+    "objectID": "doc/presentation-slides.html#la-solution",
+    "href": "doc/presentation-slides.html#la-solution",
     "title": "Introduction à Git",
-    "section": "Introduction 🚧",
-    "text": "Introduction 🚧\nImaginez que vous faites parti d’une équipe de 5 personnes qui doit coder une application de jeux de cartes.\nComment faites-vous pour mettre en commun votre code ?\n\nVous développez votre partie chacun de votre coté et à la fin, vous mettez tout en commun\nVous envoyez vos programmes par mail\nVous créer un dossier commun que vous mettez à jour manuellement\n\nDans tous les cas, le risque d’erreur ou de perte d’information est grand. Heureusement, voici Git !"
+    "section": "La solution",
+    "text": "La solution\n\n\n\n\n\ngit : connard en argot britannique"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#historique",
+    "href": "doc/presentation-slides.html#historique",
+    "title": "Introduction à Git",
+    "section": "Historique",
+    "text": "Historique\n\nCréé par Linus Torvalds en 2005\nPour gérer le développement du noyau Linux\nLe standard incontournable de la gestion de versions\nAnciens outils : CVS, SVN\n\n\n\nStandard : produit qui s’est imposé par l’usage (ex : Moteur de recherche Google, TCP/IP)"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#logiciel",
+    "href": "doc/presentation-slides.html#logiciel",
+    "title": "Introduction à Git",
+    "section": "Logiciel",
+    "text": "Logiciel\n\nLogiciel Libre\nGratuit\nS’utilise en ligne de commande\n\n\n\n\n\n\n\nNote\n\n\n😨 Git s’utilise très majoritairement en ligne de commande dans un terminal Git Bash.\n😅 Pas de panique, quelques commandes simples suffisent largement pour travailler avec Git.\nIl existe aussi des interfaces graphiques mais elles sont souvent imparfaites et sources d’erreur.\n\n\n\n\n\nLogiciel libre :\n\ncode source est ouvert et disponible\npermettant à quiconque de l’utiliser, le modifier, et le distribuer librement\ndifférent de gratuit"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#git-bash",
+    "href": "doc/presentation-slides.html#git-bash",
+    "title": "Introduction à Git",
+    "section": "Git Bash",
+    "text": "Git Bash\n\nTerminal de commande\nPlusieurs manières de lancer (Menu Windows, clic droit, inclus dans VSCode)\n\n\n\nLors de l’installation de Git, choisissez le terminal Unix"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#versionner-son-code",
+    "href": "doc/presentation-slides.html#versionner-son-code",
+    "title": "Introduction à Git",
+    "section": "Versionner son code",
+    "text": "Versionner son code"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#travail-en-équipe",
+    "href": "doc/presentation-slides.html#travail-en-équipe",
+    "title": "Introduction à Git",
+    "section": "Travail en équipe",
+    "text": "Travail en équipe"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#concepts",
+    "href": "doc/presentation-slides.html#concepts",
+    "title": "Introduction à Git",
+    "section": "Concepts",
+    "text": "Concepts\n\nClonage d’un dépôt\nConcept de commit\nCommandes Git Bash\ntxt"
   },
   {
     "objectID": "doc/presentation-slides.html#git-quest-ce-que-cest",
@@ -291,21 +340,14 @@
     "href": "doc/presentation-slides.html#git-ça-sert-à-quoi",
     "title": "Introduction à Git",
     "section": "Git, ça sert à quoi ?",
-    "text": "Git, ça sert à quoi ?\n\nGit permet de suivre les modifications apportées aux fichiers et de gérer efficacement les différentes versions\nGit enregistre un historique complet de toutes les modifications, ce qui permet de retracer l’évolution du projet, d’identifier les changements spécifiques et de revenir à des versions antérieures si nécessaire\nGit facilite la collaboration entre les membres d’une équipe en permettant à plusieurs personnes de travailler simultanément sur le même projet"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#principe-général-de-git",
-    "href": "doc/presentation-slides.html#principe-général-de-git",
-    "title": "Introduction à Git",
-    "section": "Principe général de Git",
-    "text": "Principe général de Git\n\n\n\n\n\nflowchart LR\n    github[(Dépot commun)]\n    dev1[(Dépot local 1)]\n    dev2[(Dépot local 2)]\n    dev3[(Dépot local 3)]\n    dev4[(Dépot local 4)]\n    \n    github &lt;--&gt; dev1\n    github &lt;--&gt; dev2\n    dev3 &lt;--&gt; github\n    dev4 &lt;--&gt; github\n\n\n\n\n\n\nGit est distribué, cela signifie que chaque dépôt est une copie complète du projet.\nAvec Git, vous allez avoir plusieurs dépôts de fichiers :\n\nun dépôt commun (dépôt distant)\nun dépôt par contributeur (dépôts locaux)\n\nRemarque : il est tout à fait possible d’avoir plusieurs clones du même dépôt sur son poste\n\n\nGit va aider à synchroniser ces dépôts avec les commandes suivantes :\n\ngit clone : créer une copie du dépôt commun sur son poste\ngit status : voir où l’on en est\ngit add : ajouter de nouveaux fichiers dans le dépôt\ngit commit : créer un point de sauvegarde\ngit pull : récupérer les éventuelles modifications du dépôt distant pour mettre à jour son dépôt local\ngit push : partager ses mises à jour locale sur le dépôt distant"
+    "text": "Git, ça sert à quoi ?\n\nGit permet de suivre les modifications apportées aux fichiers et de gérer efficacement les différentes versions\nGit enregistre un historique complet de toutes les modifications, ce qui permet de retracer l’évolution du projet, d’identifier les changements spécifiques et de revenir à des versions antérieures si nécessaire\nGit facilite la collaboration entre les membres d’une équipe en permettant à plusieurs personnes de travailler simultanément sur le même projet\n\nGit va aider à synchroniser ces dépôts avec les commandes suivantes :\n\ngit clone : créer une copie du dépôt commun sur son poste\ngit status : voir où l’on en est\ngit add : ajouter de nouveaux fichiers dans le dépôt\ngit commit : créer un point de sauvegarde\ngit pull : récupérer les éventuelles modifications du dépôt distant pour mettre à jour son dépôt local\ngit push : partager ses mises à jour locale sur le dépôt distant"
   },
   {
     "objectID": "doc/presentation-slides.html#les-principales-commandes",
     "href": "doc/presentation-slides.html#les-principales-commandes",
     "title": "Introduction à Git",
     "section": "Les principales commandes",
-    "text": "Les principales commandes\n\n\n\n\n\n\nNote\n\n\n😨 Git s’utilise très majoritairement en ligne de commande dans un terminal Git Bash.\n😅 Pas de panique, quelques commandes simples suffisent largement pour travailler avec Git.\nIl existe aussi des interfaces graphiques mais elles sont souvent imparfaites et sources d’erreur."
+    "text": "Les principales commandes"
   },
   {
     "objectID": "doc/presentation-slides.html#exemples",
@@ -322,39 +364,88 @@
     "text": "Les erreurs courantes"
   },
   {
-    "objectID": "doc/presentation-slides.html#ressources",
-    "href": "doc/presentation-slides.html#ressources",
+    "objectID": "doc/presentation-slides.html#bibliographie",
+    "href": "doc/presentation-slides.html#bibliographie",
     "title": "Introduction à Git",
-    "section": "Ressources",
-    "text": "Ressources\n\nFormation Git du Lab INSEE\nBonnes pratiques Git\nGitFlow\nDéveloppement basé sur le tronc\nhttps://pythonds.linogaliana.fr/content/git/exogit.html\n\n\n\n\nHome — Introduction à Git\n\n\n\nFigure 1: Source : ThinkR"
+    "section": "Bibliographie",
+    "text": "Bibliographie\n\nGit : un élément essentiel au quotidien, Python pour la datascience, Lino Galiana\nFormation Git du Lab INSEE\nBonnes pratiques Git\nGitFlow\nDéveloppement basé sur le tronc\n\n\n\n\nHome — Introduction à Git\n\n\n\nFigure 1: Source : ThinkR"
   },
   {
     "objectID": "doc/presentation.html",
     "href": "doc/presentation.html",
     "title": "Introduction à Git",
     "section": "",
-    "text": "Versionner son code\nHistorique des modifications\nTravail en groupe"
+    "text": "Imaginez que vous faites parti d’une équipe de 5 personnes qui doit coder une application de jeux de cartes.\nComment faites-vous pour mettre en commun votre code ?\n\nVous développez votre partie chacun de votre coté et à la fin, vous mettez tout en commun\nVous envoyez vos programmes par mail\nVous créer un dossier commun que vous mettez à jour manuellement"
+  },
+  {
+    "objectID": "doc/presentation.html#introduction",
+    "href": "doc/presentation.html#introduction",
+    "title": "Introduction à Git",
+    "section": "",
+    "text": "Imaginez que vous faites parti d’une équipe de 5 personnes qui doit coder une application de jeux de cartes.\nComment faites-vous pour mettre en commun votre code ?\n\nVous développez votre partie chacun de votre coté et à la fin, vous mettez tout en commun\nVous envoyez vos programmes par mail\nVous créer un dossier commun que vous mettez à jour manuellement"
   },
   {
     "objectID": "doc/presentation.html#git",
     "href": "doc/presentation.html#git",
     "title": "Introduction à Git",
-    "section": "",
-    "text": "Versionner son code\nHistorique des modifications\nTravail en groupe"
+    "section": "Git",
+    "text": "Git\n\nVersionner son code\nHistorique des modifications\nTravail en équipe\nDécentralisé"
   },
   {
     "objectID": "doc/presentation.html#pourquoi-versionner",
     "href": "doc/presentation.html#pourquoi-versionner",
     "title": "Introduction à Git",
     "section": "Pourquoi versionner ?",
-    "text": "Pourquoi versionner ?\n\nPour connaitre la véritable dernière version\n\nSans GitAvec GitObjectif\n\n\n├─── Projet info\n│   ├─── old\n│   │   ├─── Rapport.txt\n│   │   ├─── Rapport_new.txt\n│   │   ├─── Rapport_v1.0.txt\n│   │   └─── Rapport_v1.2.txt\n│   ├─── Rapport_old.txt\n│   ├─── Rapport_2022.05.15.txt\n│   └─── Rapport_2022.05.15_new.txt\n😕 Quelle est la bonne version du fichier ?\n\n\n😊 Un seul fichier + l’historique des modifications\n├───Projet info\n│   └───Livrables\n│     └───Rapport.txt\n\nDate         Heure   Auteur      Message commit\n----         -----   ------      --------------\n2022.05.29   23h58   bianca      \"Version finale\"\n2022.05.29   23h40   archibald   \"j'avais oublié l'intro\"\n2022.05.29   21h32   tryphon     \"ajout partie 2\"\n2022.05.29   20h25   bianca      \"v1.1\"\n2022.05.29   20h12   tryphon     \"Création du rapport\"\n\n\n\n\n\n\n\n\nFigure 1: Source : ThinkR\n\n\n\n\n\n\n\n\nAncien code commenté\n\nSans GitAvec Git\n\n\n\n\nanalyse.R\n\nlibrary(ggplot2)\n\ndata &lt;- data.frame(x = seq(-4, 4, length=100))\ndata$y &lt;- dnorm(data$x)\n\n# plot(data$x, data$y, type=\"l\", lwd=2, col=\"blue\",\n#      main=\"Densité de la loi normale centrée réduite\",\n#      xlab=\"x\", ylab=\"Densité\")\n# abline(h=0, col=\"gray\")\n\nggplot(data, aes(x = x, y = y)) +\n  geom_line(color = \"blue\", size = 1) +\n  ggtitle(\"Densité de la loi normale centrée réduite\") +\n  xlab(\"x\") +\n  ylab(\"Densité\") +\n  theme_minimal()\n\n\n\n\n\nanalyse.R - Commit 05016ab - Date 2024.06.02 - Author tryphon\n\ndata$y &lt;- dnorm(data$x)\n\nplot(data$x, data$y, type=\"l\", lwd=2, col=\"blue\",\n     main=\"Densité de la loi normale centrée réduite\",\n     xlab=\"x\", ylab=\"Densité\")\nabline(h=0, col=\"gray\")\n\n\n\nanalyse.R - Commit f97f766 - Date 2024.06.04 - Author bianca\n\nlibrary(ggplot2)\n\ndata &lt;- data.frame(x = seq(-4, 4, length=100))\ndata$y &lt;- dnorm(data$x)\n\nggplot(data, aes(x = x, y = y)) +\n  geom_line(color = \"blue\", size = 1) +\n  ggtitle(\"Densité de la loi normale centrée réduite\") +\n  xlab(\"x\") +\n  ylab(\"Densité\") +\n  theme_minimal()"
+    "text": "Pourquoi versionner ?\n\nQuelle est la bonne version ?\nComment faire pour revenir en arrière ?\nQui a écrit ce code ? Quand ?\n\n\n\nles questions que l’on peut se poser en projet\n\n\n\nPour connaitre la véritable dernière version\n\n\nimaginons que vous partagiez un dossier commun\nou encore que ce fichier soit dans des mails\n\n\n\nSans GitAvec GitObjectif\n\n\n├─── Projet info\n│   ├─── old\n│   │   ├─── Rapport.txt\n│   │   ├─── Rapport_new.txt\n│   │   ├─── Rapport_v1.0.txt\n│   │   └─── Rapport_v1.2.txt\n│   ├─── Rapport_old.txt\n│   ├─── Rapport_2022.05.15.txt\n│   └─── Rapport_2022.05.15_new.txt\n😕 Quelle est la bonne version du fichier ?\n\n\n😊 Un seul fichier + l’historique des modifications\n├───Projet info\n│   └───Livrables\n│     └───Rapport.txt\n\nDate         Heure   Auteur      Message commit\n----         -----   ------      --------------\n2022.05.29   23h58   bianca      \"Version finale\"\n2022.05.29   23h40   archibald   \"j'avais oublié l'intro\"\n2022.05.29   21h32   tryphon     \"ajout partie 2\"\n2022.05.29   20h25   bianca      \"v1.1\"\n2022.05.29   20h12   tryphon     \"Création du rapport\"\n\n\n\n\n\n\n\n\nFigure 1: Source : ThinkR\n\n\n\n\n\n\n\n\nAncien code commenté\n\nSans GitAvec Git\n\n\n\n\nanalyse.R\n\nlibrary(ggplot2)\n\ndata &lt;- data.frame(x = seq(-4, 4, length=100))\ndata$y &lt;- dnorm(data$x)\n\n# plot(data$x, data$y, type=\"l\", lwd=2, col=\"blue\",\n#      main=\"Densité de la loi normale centrée réduite\",\n#      xlab=\"x\", ylab=\"Densité\")\n# abline(h=0, col=\"gray\")\n\nggplot(data, aes(x = x, y = y)) +\n  geom_line(color = \"blue\", size = 1) +\n  ggtitle(\"Densité de la loi normale centrée réduite\") +\n  xlab(\"x\") +\n  ylab(\"Densité\") +\n  theme_minimal()\n\n\n\n\n\nanalyse.R - Commit 05016ab - Date 2024.06.02 - Author tryphon\n\ndata$y &lt;- dnorm(data$x)\n\nplot(data$x, data$y, type=\"l\", lwd=2, col=\"blue\",\n     main=\"Densité de la loi normale centrée réduite\",\n     xlab=\"x\", ylab=\"Densité\")\nabline(h=0, col=\"gray\")\n\n\n\n\nanalyse.R - Commit f97f766 - Date 2024.06.04 - Author bianca\n\nlibrary(ggplot2)\n\ndata &lt;- data.frame(x = seq(-4, 4, length=100))\ndata$y &lt;- dnorm(data$x)\n\nggplot(data, aes(x = x, y = y)) +\n  geom_line(color = \"blue\", size = 1) +\n  ggtitle(\"Densité de la loi normale centrée réduite\") +\n  xlab(\"x\") +\n  ylab(\"Densité\") +\n  theme_minimal()\n\n\n\n\n\nVous passez de R-base à ggplot2"
   },
   {
-    "objectID": "doc/presentation.html#introduction",
-    "href": "doc/presentation.html#introduction",
+    "objectID": "doc/presentation.html#la-solution",
+    "href": "doc/presentation.html#la-solution",
     "title": "Introduction à Git",
-    "section": "Introduction 🚧",
-    "text": "Introduction 🚧\nImaginez que vous faites parti d’une équipe de 5 personnes qui doit coder une application de jeux de cartes.\nComment faites-vous pour mettre en commun votre code ?\n\nVous développez votre partie chacun de votre coté et à la fin, vous mettez tout en commun\nVous envoyez vos programmes par mail\nVous créer un dossier commun que vous mettez à jour manuellement\n\nDans tous les cas, le risque d’erreur ou de perte d’information est grand. Heureusement, voici Git !"
+    "section": "La solution",
+    "text": "La solution\n\n\n\n\n\ngit : connard en argot britannique"
+  },
+  {
+    "objectID": "doc/presentation.html#historique",
+    "href": "doc/presentation.html#historique",
+    "title": "Introduction à Git",
+    "section": "Historique",
+    "text": "Historique\n\nCréé par Linus Torvalds en 2005\nPour gérer le développement du noyau Linux\nLe standard incontournable de la gestion de versions\nAnciens outils : CVS, SVN\n\n\n\nStandard : produit qui s’est imposé par l’usage (ex : Moteur de recherche Google, TCP/IP)"
+  },
+  {
+    "objectID": "doc/presentation.html#logiciel",
+    "href": "doc/presentation.html#logiciel",
+    "title": "Introduction à Git",
+    "section": "Logiciel",
+    "text": "Logiciel\n\nLogiciel Libre\nGratuit\nS’utilise en ligne de commande\n\n\n\n\n\n\n\nNote\n\n\n\n😨 Git s’utilise très majoritairement en ligne de commande dans un terminal Git Bash.\n😅 Pas de panique, quelques commandes simples suffisent largement pour travailler avec Git.\nIl existe aussi des interfaces graphiques mais elles sont souvent imparfaites et sources d’erreur.\n\n\n\n\nLogiciel libre :\n\ncode source est ouvert et disponible\npermettant à quiconque de l’utiliser, le modifier, et le distribuer librement\ndifférent de gratuit"
+  },
+  {
+    "objectID": "doc/presentation.html#git-bash",
+    "href": "doc/presentation.html#git-bash",
+    "title": "Introduction à Git",
+    "section": "Git Bash",
+    "text": "Git Bash\n\nTerminal de commande\nPlusieurs manières de lancer (Menu Windows, clic droit, inclus dans VSCode)\n\n\n\nLors de l’installation de Git, choisissez le terminal Unix\n\n\nCommandes Unix\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\nls (ou ll)\nListe le contenu d’un répertoire\n\n\npwd\nAffiche le répertoire courant\n\n\ncd &lt;directory&gt;\nChange le répertoire de travail courant\n\n\nmv &lt;src_file&gt; &lt;dest_file&gt;\nDéplace des fichiers ou des répertoires\n\n\ncp &lt;src_file&gt; &lt;dest_file&gt;\nCopie un fichier ou un répertoire\n\n\nmkdir &lt;directory&gt;\nCrée un nouveau répertoire\n\n\nrm &lt;file_or_dir&gt;\nSupprime des fichiers ou des répertoires\n\n\ntouch &lt;filename&gt;\nCrée un nouveau fichier vide\n\n\ncat &lt;filename&gt;\nAffiche le contenu d’un fichier\n\n\ngrep &lt;text&gt; &lt;filename&gt;\nRechercher dans un fichier\n\n\nman &lt;command_name&gt;\nManuel d’utilisation de la commande\n\n\n\n\n\nce qui est entre &lt; … &gt; est à remplacer\nls : list\ncd : change directory\npwd : print working directory\nmkdir : make directory\npour éditer un fichier : vi, nano\n\n\n\n\nCommandes Unix - Exemples\nPour chaque commande, de nombreuses options sont disponibles\nll *.py                  # liste tous les fichiers python du répertoire courantes\nll *.py &gt; a.txt          # créer un fichier a.txt contenant le résultat de la commande\ncd ..                    # Se positionne dans le répertoire parent\ncd ../projet/src         # remonter dans le dossier parent puis aller dans projet puis src\ncp /p/image.jpg .        # copie le fichier image.jpg du disque P dans le dossier courant (.)\n\n\n\n\n\n\nTip\n\n\n\n\n. représente le dossier courant\n.. représente le dossier parent"
+  },
+  {
+    "objectID": "doc/presentation.html#versionner-son-code",
+    "href": "doc/presentation.html#versionner-son-code",
+    "title": "Introduction à Git",
+    "section": "Versionner son code",
+    "text": "Versionner son code\n\nCréer un commit\n2 étapes pour créer une nouvelle version :\n\ngit add &lt;filename&gt;\n\najouter le fichier à l’index (ie. dire à Git de suivre ce fichier)\ngit add . : pour ajouter tous les fichiers\n\ngit commit -m \"mon message de sauvegarde\"\n\n\n\ngit utilise la sauvegarde incrémentale\nil ne garde que les modifs apportées depuis le dernier commit\nmessage dans commit : “fix:”, “feat:”\n\nhttps://talks.freelancerepublik.com/git-commandes-indispensables-developpeurs/\n\n\n\nExemple\n\nv0Je codev1Schéma\n\n\nVoici votre dépôt avant de commencer à coder.\n├─── Projet info\n│   ├─── src\n│   │   ├─── main.py\n│   └─── doc\n│   │   └─── Rapport.txt\n\n\nVous avez modifié un fichier et créé un nouveau.\n├─── Projet info\n│   ├─── src\n│   │   ├─── main.py               &lt;- fichier modifié\n│   │   ├─── velo.py               &lt;- nouveau fichier\n│   └─── doc\n│   │   └─── Rapport.txt\n\n\nj’ajoute les fichiers créés ou modifiés à l’index :\n\ngit add .\n\nje crée un point de sauvegarde\n\ngit commit -m \"ajout de l'utilisation de velo\"\n\n\n\n\n\nje viens de créer un nouveau commit\nil est possible de consulter les commits précédents\n\ngit checkout &lt;commit_number&gt;\nles fichiers de votre dépôt sont alors dans l’état où ils étaient à ce commit"
+  },
+  {
+    "objectID": "doc/presentation.html#travail-en-équipe",
+    "href": "doc/presentation.html#travail-en-équipe",
+    "title": "Introduction à Git",
+    "section": "Travail en équipe",
+    "text": "Travail en équipe\n\nDépôt local et dépôt distant\n\n1 dépôt distant\n\nappelé aussi remote\nhébergé sur une forge (GitHub, GitLab, Bitbucket…)\n\nn dépôts locaux\n\nclone sur votre machine\ngit permet la synchronisation des dépôts\n\n\n\n\n\n\n\n\nRemarque\n\n\n\nIl est tout à fait possible d’avoir plusieurs clones du même dépôt sur son poste\n\n\n\n\nDépôt local et dépôt distant\n\n\n\n\n\n\nTip\n\n\n\nChaque dépôt est une copie intégrale du projet\n\n\n\n\n\n\n\nflowchart LR\n    github[(Dépot distant)]\n    dev1[(Dépot local 1)]\n    dev2[(Dépot local 2)]\n    dev3[(Dépot local 3)]\n    dev4[(Dépot local 4)]\n    \n    github &lt;--&gt; dev1\n    github &lt;--&gt; dev2\n    dev3 &lt;--&gt; github\n    dev4 &lt;--&gt; github"
+  },
+  {
+    "objectID": "doc/presentation.html#concepts",
+    "href": "doc/presentation.html#concepts",
+    "title": "Introduction à Git",
+    "section": "Concepts",
+    "text": "Concepts\n\nClonage d’un dépôt\nConcept de commit\nCommandes Git Bash\ntxt"
   },
   {
     "objectID": "doc/presentation.html#git-quest-ce-que-cest",
@@ -368,21 +459,14 @@
     "href": "doc/presentation.html#git-ça-sert-à-quoi",
     "title": "Introduction à Git",
     "section": "Git, ça sert à quoi ?",
-    "text": "Git, ça sert à quoi ?\n\nGit permet de suivre les modifications apportées aux fichiers et de gérer efficacement les différentes versions\nGit enregistre un historique complet de toutes les modifications, ce qui permet de retracer l’évolution du projet, d’identifier les changements spécifiques et de revenir à des versions antérieures si nécessaire\nGit facilite la collaboration entre les membres d’une équipe en permettant à plusieurs personnes de travailler simultanément sur le même projet\n\n\nSans Git\n├─── Projet info\n│   ├─── old\n│   │   ├─── Rapport.doc\n│   │   ├─── Rapport_new.doc\n│   │   ├─── Rapport_v1.0.doc\n│   │   └─── Rapport_v1.2.doc\n│   ├─── Rapport_old.doc\n│   ├─── Rapport_2022.05.15.doc\n│   └─── Rapport_2022.05.15_new.doc\n😕 Quelle est la bonne version du fichier ?\n\n\nAvec Git\n😊 Un seul fichier + l’historique des modifications\n├───Projet info\n│   └───Livrables\n│     └───Rapport.doc\n\nDate         Heure   Auteur      Message commit\n----         -----   ------      --------------\n2022.05.29   23h58   bianca      \"Version finale\"\n2022.05.29   23h40   archibald   \"j'avais oublié l'intro\"\n2022.05.29   21h32   tryphon     \"ajout partie 2\"\n2022.05.29   20h25   bianca      \"v1.1\"\n2022.05.29   20h12   tryphon     \"Création du rapport\""
-  },
-  {
-    "objectID": "doc/presentation.html#principe-général-de-git",
-    "href": "doc/presentation.html#principe-général-de-git",
-    "title": "Introduction à Git",
-    "section": "Principe général de Git",
-    "text": "Principe général de Git\n\n\n\n\n\nflowchart LR\n    github[(Dépot commun)]\n    dev1[(Dépot local 1)]\n    dev2[(Dépot local 2)]\n    dev3[(Dépot local 3)]\n    dev4[(Dépot local 4)]\n    \n    github &lt;--&gt; dev1\n    github &lt;--&gt; dev2\n    dev3 &lt;--&gt; github\n    dev4 &lt;--&gt; github\n\n\n\n\n\n\nGit est distribué, cela signifie que chaque dépôt est une copie complète du projet.\nAvec Git, vous allez avoir plusieurs dépôts de fichiers :\n\nun dépôt commun (dépôt distant)\nun dépôt par contributeur (dépôts locaux)\n\nRemarque : il est tout à fait possible d’avoir plusieurs clones du même dépôt sur son poste\n\n\nGit va aider à synchroniser ces dépôts avec les commandes suivantes :\n\ngit clone : créer une copie du dépôt commun sur son poste\ngit status : voir où l’on en est\ngit add : ajouter de nouveaux fichiers dans le dépôt\ngit commit : créer un point de sauvegarde\ngit pull : récupérer les éventuelles modifications du dépôt distant pour mettre à jour son dépôt local\ngit push : partager ses mises à jour locale sur le dépôt distant"
+    "text": "Git, ça sert à quoi ?\n\nGit permet de suivre les modifications apportées aux fichiers et de gérer efficacement les différentes versions\nGit enregistre un historique complet de toutes les modifications, ce qui permet de retracer l’évolution du projet, d’identifier les changements spécifiques et de revenir à des versions antérieures si nécessaire\nGit facilite la collaboration entre les membres d’une équipe en permettant à plusieurs personnes de travailler simultanément sur le même projet\n\nGit va aider à synchroniser ces dépôts avec les commandes suivantes :\n\ngit clone : créer une copie du dépôt commun sur son poste\ngit status : voir où l’on en est\ngit add : ajouter de nouveaux fichiers dans le dépôt\ngit commit : créer un point de sauvegarde\ngit pull : récupérer les éventuelles modifications du dépôt distant pour mettre à jour son dépôt local\ngit push : partager ses mises à jour locale sur le dépôt distant"
   },
   {
     "objectID": "doc/presentation.html#les-principales-commandes",
     "href": "doc/presentation.html#les-principales-commandes",
     "title": "Introduction à Git",
     "section": "Les principales commandes",
-    "text": "Les principales commandes\n\n\n\n\n\n\nNote\n\n\n\n😨 Git s’utilise très majoritairement en ligne de commande dans un terminal Git Bash.\n😅 Pas de panique, quelques commandes simples suffisent largement pour travailler avec Git.\nIl existe aussi des interfaces graphiques mais elles sont souvent imparfaites et sources d’erreur.\n\n\n\ngit clone\ngit clone est une commande de Git utilisée pour créer une copie locale complète d’un dépôt distant. Elle télécharge tous les fichiers et l’historique de version du dépôt distant vers votre système local dans un nouveau répertoire.\nExemples :\n\ngit clone https://github.com:&lt;propietaire_depot&gt;/&lt;nom_du_depot&gt;.git\ngit clone git@github.com:ludo2ne/Git-tuto.git\ngit clone https://github.com/ludo2ne/Git-tuto.git\n\nIl y a deux principaux protocoles pour cloner un dépot git : ssh et https. Sans rentrer dans les détails, l’utilisation suivante est préconisée :\n\nssh : si vous souhaitez modifier le code et le partager (nécéssite d’avoir paramétré une clé ssh)\nhttps : si vous voulez simplement avoir une copie locale du code sans partager vos modifications\n\n\n\ngit status\ngit status affiche l’état actuel du répertoire de travail et de l’index. Elle montre :\n\nles fichiers modifiés prêt à rentrer dans le prochain commit (*Changes to be committed)\nles autres fichiers modifiés (Changes not staged for commit)\nles fichiers non suivis (Untracked files)\n\nCette commande est à utiliser sans modération pour voir l’état du dépôt !\n\n\ngit add\ngit add est utilisée pour ajouter des fichiers à l’index, c’est à dire des fichiers que vous souhaitez versionner.\nAutrement dit, si vous faites git add soleil.txt, vous dites à git qu’il faut ajouter ce fichier au dépôt et le versionner.\ngit add . permet d’ajouter tous les fichiers non suivis à l’index\n\n\n\n\n\n\nLe fichier .gitignore\n\n\n\n.gitignore est un fichier présent à la racine du dépôt permettant de dire à Git quels fichiers il doit ignorer. Par exemple :\n\nsi .gitignore contient *.csv ➡️ tous les fichiers csv seront ignorés par Git\nsi .gitignore contient data/ ➡️ le dossier data et son contenu sera ignoré\n\nCela est utile, pour exclure par exemple du dépôt Git :\n\ndes fichiers contenant des mots de passe, des jetons d’accès…\ndes fichiers de données volumineux qui n’ont pas vocation à être versionnés\ndes fichiers de log\n\n\n\n\n\ngit commit\ngit commit -m \"mon_message\" est utilisée pour créer un point de sauvegarde.\nIl est conseillé d’écrire un message court, clair et compréhensible.\n\n\ngit pull\ngit pull récupère les dernières modifications du dépôt distant et met à jour votre dépôt local.\n\n\n\n\n\n\nLes conflits\n\n\n\nQue se passe-t-il si :\n\nAlice a modifié un fichier et poussé sa modification sur le dépôt distant\nVous avez également modifié le même fichier et vous faites un git pull pour mettre à jour votre dépôt à partir du dépôt distant\n\n😨 Un conflit ! Git ne sait pas choisir quelle est la bonne version entre la votre et celle d’Alice.\n😅 Pas de panique ! Pour résoudre le conflit, il faut simplement :\n\nmodifier le fichier en question pour garder la bonne version\ngit add puis git commit pour valider la résolution du conflit\n\n\n\n\n\ngit push\ngit push envoie les modifications locales vers le dépôt distant.\n\n\n\n\n\n\nImportant\n\n\n\nPour pouvoir pousser, il est nécessaire :\n\nd’avoir au préalable créé au minimum un commit\nque votre dépôt soit à jour (pas de retard de version par rapport au dépôt distant)"
+    "text": "Les principales commandes\n\ngit clone\ngit clone est une commande de Git utilisée pour créer une copie locale complète d’un dépôt distant. Elle télécharge tous les fichiers et l’historique de version du dépôt distant vers votre système local dans un nouveau répertoire.\nExemples :\n\ngit clone https://github.com:&lt;propietaire_depot&gt;/&lt;nom_du_depot&gt;.git\ngit clone git@github.com:ludo2ne/Git-tuto.git\ngit clone https://github.com/ludo2ne/Git-tuto.git\n\nIl y a deux principaux protocoles pour cloner un dépot git : ssh et https. Sans rentrer dans les détails, l’utilisation suivante est préconisée :\n\nssh : si vous souhaitez modifier le code et le partager (nécéssite d’avoir paramétré une clé ssh)\nhttps : si vous voulez simplement avoir une copie locale du code sans partager vos modifications\n\n\n\ngit status\ngit status affiche l’état actuel du répertoire de travail et de l’index. Elle montre :\n\nles fichiers modifiés prêt à rentrer dans le prochain commit (*Changes to be committed)\nles autres fichiers modifiés (Changes not staged for commit)\nles fichiers non suivis (Untracked files)\n\nCette commande est à utiliser sans modération pour voir l’état du dépôt !\n\n\ngit add\ngit add est utilisée pour ajouter des fichiers à l’index, c’est à dire des fichiers que vous souhaitez versionner.\nAutrement dit, si vous faites git add soleil.txt, vous dites à git qu’il faut ajouter ce fichier au dépôt et le versionner.\ngit add . permet d’ajouter tous les fichiers non suivis à l’index\n\n\n\n\n\n\nLe fichier .gitignore\n\n\n\n.gitignore est un fichier présent à la racine du dépôt permettant de dire à Git quels fichiers il doit ignorer. Par exemple :\n\nsi .gitignore contient *.csv ➡️ tous les fichiers csv seront ignorés par Git\nsi .gitignore contient data/ ➡️ le dossier data et son contenu sera ignoré\n\nCela est utile, pour exclure par exemple du dépôt Git :\n\ndes fichiers contenant des mots de passe, des jetons d’accès…\ndes fichiers de données volumineux qui n’ont pas vocation à être versionnés\ndes fichiers de log\n\n\n\n\n\ngit commit\ngit commit -m \"mon_message\" est utilisée pour créer un point de sauvegarde.\nIl est conseillé d’écrire un message court, clair et compréhensible.\n\n\ngit pull\ngit pull récupère les dernières modifications du dépôt distant et met à jour votre dépôt local.\n\n\n\n\n\n\nLes conflits\n\n\n\nQue se passe-t-il si :\n\nAlice a modifié un fichier et poussé sa modification sur le dépôt distant\nVous avez également modifié le même fichier et vous faites un git pull pour mettre à jour votre dépôt à partir du dépôt distant\n\n😨 Un conflit ! Git ne sait pas choisir quelle est la bonne version entre la votre et celle d’Alice.\n😅 Pas de panique ! Pour résoudre le conflit, il faut simplement :\n\nmodifier le fichier en question pour garder la bonne version\ngit add puis git commit pour valider la résolution du conflit\n\n\n\n\n\ngit push\ngit push envoie les modifications locales vers le dépôt distant.\n\n\n\n\n\n\nImportant\n\n\n\nPour pouvoir pousser, il est nécessaire :\n\nd’avoir au préalable créé au minimum un commit\nque votre dépôt soit à jour (pas de retard de version par rapport au dépôt distant)"
   },
   {
     "objectID": "doc/presentation.html#exemples",
@@ -399,10 +483,10 @@
     "text": "Les erreurs courantes\n\nfichier disparu\nSi vous venez de faire un git push et que votre fichier n’apparait pas sur le dépôt distant, c’est probablement parce que vous avez oublié de l’ajouter à l’index avec git add &lt;mon_fichier&gt;.\nAutre possibilité : votre fichier est ignoré par git car il fait parti du .gitignore\n\n\ngit push rejected\n! [rejected]        main -&gt; main (fetch first)\nerror: failed to push some refs\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\nLe message d’erreur est assez explicite. Le dépôt distant a été modifié et votre dépôt local n’est donc plus à jour.\nVous devez commencer par mettre à jour votre dépôt local avec git pull avant de pousser votre code"
   },
   {
-    "objectID": "doc/presentation.html#ressources",
-    "href": "doc/presentation.html#ressources",
+    "objectID": "doc/presentation.html#bibliographie",
+    "href": "doc/presentation.html#bibliographie",
     "title": "Introduction à Git",
-    "section": "Ressources",
-    "text": "Ressources\n\nFormation Git du Lab INSEE\nBonnes pratiques Git\nGitFlow\nDéveloppement basé sur le tronc\nhttps://pythonds.linogaliana.fr/content/git/exogit.html\n\n\n\n\nFigure 1: Source : ThinkR"
+    "section": "Bibliographie",
+    "text": "Bibliographie\n\nGit : un élément essentiel au quotidien, Python pour la datascience, Lino Galiana\nFormation Git du Lab INSEE\nBonnes pratiques Git\nGitFlow\nDéveloppement basé sur le tronc\n\n\n\n\nFigure 1: Source : ThinkR"
   }
 ]

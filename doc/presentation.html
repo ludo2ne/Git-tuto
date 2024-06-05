@@ -184,20 +184,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#git" id="toc-git" class="nav-link active" data-scroll-target="#git">Git</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git">Git</a></li>
   <li><a href="#pourquoi-versionner" id="toc-pourquoi-versionner" class="nav-link" data-scroll-target="#pourquoi-versionner">Pourquoi versionner ?</a>
   <ul class="collapse">
   <li><a href="#pour-connaitre-la-véritable-dernière-version" id="toc-pour-connaitre-la-véritable-dernière-version" class="nav-link" data-scroll-target="#pour-connaitre-la-véritable-dernière-version">Pour connaitre la véritable dernière version</a></li>
   <li><a href="#ancien-code-commenté" id="toc-ancien-code-commenté" class="nav-link" data-scroll-target="#ancien-code-commenté">Ancien code commenté</a></li>
   </ul></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction <span class="emoji" data-emoji="construction">🚧</span></a></li>
-  <li><a href="#git-quest-ce-que-cest" id="toc-git-quest-ce-que-cest" class="nav-link" data-scroll-target="#git-quest-ce-que-cest">Git, qu’est ce que c’est ?</a></li>
-  <li><a href="#git-ça-sert-à-quoi" id="toc-git-ça-sert-à-quoi" class="nav-link" data-scroll-target="#git-ça-sert-à-quoi">Git, ça sert à quoi ?</a>
+  <li><a href="#la-solution" id="toc-la-solution" class="nav-link" data-scroll-target="#la-solution">La solution</a></li>
+  <li><a href="#historique" id="toc-historique" class="nav-link" data-scroll-target="#historique">Historique</a></li>
+  <li><a href="#logiciel" id="toc-logiciel" class="nav-link" data-scroll-target="#logiciel">Logiciel</a></li>
+  <li><a href="#git-bash" id="toc-git-bash" class="nav-link" data-scroll-target="#git-bash">Git Bash</a>
   <ul class="collapse">
-  <li><a href="#sans-git-2" id="toc-sans-git-2" class="nav-link" data-scroll-target="#sans-git-2">Sans Git</a></li>
-  <li><a href="#avec-git-2" id="toc-avec-git-2" class="nav-link" data-scroll-target="#avec-git-2">Avec Git</a></li>
+  <li><a href="#commandes-unix" id="toc-commandes-unix" class="nav-link" data-scroll-target="#commandes-unix">Commandes Unix</a></li>
+  <li><a href="#commandes-unix---exemples" id="toc-commandes-unix---exemples" class="nav-link" data-scroll-target="#commandes-unix---exemples">Commandes Unix - Exemples</a></li>
   </ul></li>
-  <li><a href="#principe-général-de-git" id="toc-principe-général-de-git" class="nav-link" data-scroll-target="#principe-général-de-git">Principe général de Git</a></li>
+  <li><a href="#versionner-son-code" id="toc-versionner-son-code" class="nav-link" data-scroll-target="#versionner-son-code">Versionner son code</a>
+  <ul class="collapse">
+  <li><a href="#créer-un-commit" id="toc-créer-un-commit" class="nav-link" data-scroll-target="#créer-un-commit">Créer un commit</a></li>
+  <li><a href="#exemple" id="toc-exemple" class="nav-link" data-scroll-target="#exemple">Exemple</a></li>
+  </ul></li>
+  <li><a href="#travail-en-équipe" id="toc-travail-en-équipe" class="nav-link" data-scroll-target="#travail-en-équipe">Travail en équipe</a>
+  <ul class="collapse">
+  <li><a href="#dépôt-local-et-dépôt-distant" id="toc-dépôt-local-et-dépôt-distant" class="nav-link" data-scroll-target="#dépôt-local-et-dépôt-distant">Dépôt local et dépôt distant</a></li>
+  <li><a href="#dépôt-local-et-dépôt-distant-1" id="toc-dépôt-local-et-dépôt-distant-1" class="nav-link" data-scroll-target="#dépôt-local-et-dépôt-distant-1">Dépôt local et dépôt distant</a></li>
+  </ul></li>
+  <li><a href="#concepts" id="toc-concepts" class="nav-link" data-scroll-target="#concepts">Concepts</a></li>
+  <li><a href="#git-quest-ce-que-cest" id="toc-git-quest-ce-que-cest" class="nav-link" data-scroll-target="#git-quest-ce-que-cest">Git, qu’est ce que c’est ?</a></li>
+  <li><a href="#git-ça-sert-à-quoi" id="toc-git-ça-sert-à-quoi" class="nav-link" data-scroll-target="#git-ça-sert-à-quoi">Git, ça sert à quoi ?</a></li>
   <li><a href="#les-principales-commandes" id="toc-les-principales-commandes" class="nav-link" data-scroll-target="#les-principales-commandes">Les principales commandes</a>
   <ul class="collapse">
   <li><a href="#git-clone" id="toc-git-clone" class="nav-link" data-scroll-target="#git-clone">git clone</a></li>
@@ -217,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#fichier-disparu" id="toc-fichier-disparu" class="nav-link" data-scroll-target="#fichier-disparu">fichier disparu</a></li>
   <li><a href="#git-push-rejected" id="toc-git-push-rejected" class="nav-link" data-scroll-target="#git-push-rejected">git push rejected</a></li>
   </ul></li>
-  <li><a href="#ressources" id="toc-ressources" class="nav-link" data-scroll-target="#ressources">Ressources</a></li>
+  <li><a href="#bibliographie" id="toc-bibliographie" class="nav-link" data-scroll-target="#bibliographie">Bibliographie</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="presentation-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
 </nav>
@@ -258,18 +272,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Imaginez que vous faites parti d’une équipe de 5 personnes qui doit coder une application de jeux de cartes.</p>
+<p>Comment faites-vous pour mettre en commun votre code ?</p>
+<ul>
+<li>Vous développez votre partie chacun de votre coté et à la fin, vous mettez tout en commun</li>
+<li>Vous envoyez vos programmes par mail</li>
+<li>Vous créer un dossier commun que vous mettez à jour manuellement</li>
+</ul>
+</section>
 <section id="git" class="level2">
 <h2 class="anchored" data-anchor-id="git">Git</h2>
 <ul>
 <li>Versionner son code</li>
 <li>Historique des modifications</li>
-<li>Travail en groupe</li>
+<li>Travail en équipe</li>
+<li>Décentralisé</li>
 </ul>
 </section>
 <section id="pourquoi-versionner" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-versionner">Pourquoi versionner ?</h2>
+<ul>
+<li>Quelle est la bonne version ?</li>
+<li>Comment faire pour revenir en arrière ?</li>
+<li>Qui a écrit ce code ? Quand ?</li>
+</ul>
+<div class="notes">
+<ul>
+<li>les questions que l’on peut se poser en projet</li>
+</ul>
+</div>
 <section id="pour-connaitre-la-véritable-dernière-version" class="level3">
 <h3 class="anchored" data-anchor-id="pour-connaitre-la-véritable-dernière-version">Pour connaitre la véritable dernière version</h3>
+<div class="notes">
+<ul>
+<li>imaginons que vous partagiez un dossier commun</li>
+<li>ou encore que ce fichier soit dans des mails</li>
+</ul>
+</div>
 <div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Sans Git</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Avec Git</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Objectif</a></li></ul>
 <div class="tab-content nav-pills">
@@ -354,6 +395,7 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"x"</span>, <span class="at">ylab=</span><span class="st">"Densité"</span>)</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"gray"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br></p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>analyse.R - Commit f97f766 - Date 2024.06.04 - Author bianca</strong></pre>
@@ -373,19 +415,347 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </div>
 </div>
 </div>
-<hr>
+<div class="notes">
+<p>Vous passez de R-base à ggplot2</p>
+</div>
 </section>
 </section>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction <span class="emoji" data-emoji="construction">🚧</span></h2>
-<p>Imaginez que vous faites parti d’une équipe de 5 personnes qui doit coder une application de jeux de cartes.</p>
-<p>Comment faites-vous pour mettre en commun votre code ?</p>
+<section id="la-solution" class="level2">
+<h2 class="anchored" data-anchor-id="la-solution">La solution</h2>
+<div class="incremental">
+<p><a href="img/git-logo.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/git-logo.jpg" class="r-stretch img-fluid"></a></p>
+</div>
+<div class="notes">
 <ul>
-<li>Vous développez votre partie chacun de votre coté et à la fin, vous mettez tout en commun</li>
-<li>Vous envoyez vos programmes par mail</li>
-<li>Vous créer un dossier commun que vous mettez à jour manuellement</li>
+<li><strong>git</strong> : connard en argot britannique</li>
 </ul>
-<p>Dans tous les cas, le risque d’erreur ou de perte d’information est grand. Heureusement, voici Git !</p>
+</div>
+</section>
+<section id="historique" class="level2">
+<h2 class="anchored" data-anchor-id="historique">Historique</h2>
+<ul>
+<li>Créé par Linus Torvalds en 2005</li>
+<li>Pour gérer le développement du noyau Linux</li>
+<li>Le standard incontournable de la gestion de versions</li>
+<li>Anciens outils : CVS, SVN</li>
+</ul>
+<div class="notes">
+<ul>
+<li>Standard : produit qui s’est imposé par l’usage (ex : Moteur de recherche Google, TCP/IP)</li>
+</ul>
+</div>
+</section>
+<section id="logiciel" class="level2">
+<h2 class="anchored" data-anchor-id="logiciel">Logiciel</h2>
+<ul>
+<li>Logiciel Libre</li>
+<li>Gratuit</li>
+<li>S’utilise en ligne de commande</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="emoji" data-emoji="fearful">😨</span> Git s’utilise très majoritairement en <u>ligne de commande</u> dans un terminal <code>Git Bash</code>.<br>
+<span class="emoji" data-emoji="sweat_smile">😅</span> Pas de panique, quelques commandes simples suffisent largement pour travailler avec Git.</p>
+<p>Il existe aussi des interfaces graphiques mais elles sont souvent imparfaites et sources d’erreur.</p>
+</div>
+</div>
+<div class="notes">
+<ul>
+<li>Logiciel libre :
+<ul>
+<li>code source est ouvert et disponible</li>
+<li>permettant à quiconque de l’utiliser, le modifier, et le distribuer librement</li>
+<li>différent de gratuit</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="git-bash" class="level2">
+<h2 class="anchored" data-anchor-id="git-bash">Git Bash</h2>
+<ul>
+<li>Terminal de commande</li>
+<li>Plusieurs manières de lancer (Menu Windows, clic droit, inclus dans VSCode)</li>
+</ul>
+<p><a href="img/git-bash.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/git-bash.PNG" class="r-stretch img-fluid"></a></p>
+<div class="notes">
+<p>Lors de l’installation de Git, choisissez le terminal Unix</p>
+</div>
+<section id="commandes-unix" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="commandes-unix">Commandes Unix</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 59%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Commande</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ls</code> (ou <code>ll</code>)</td>
+<td>Liste le contenu d’un répertoire</td>
+</tr>
+<tr class="even">
+<td><code>pwd</code></td>
+<td>Affiche le répertoire courant</td>
+</tr>
+<tr class="odd">
+<td><code>cd &lt;directory&gt;</code></td>
+<td>Change le répertoire de travail courant</td>
+</tr>
+<tr class="even">
+<td><code>mv &lt;src_file&gt; &lt;dest_file&gt;</code></td>
+<td>Déplace des fichiers ou des répertoires</td>
+</tr>
+<tr class="odd">
+<td><code>cp &lt;src_file&gt; &lt;dest_file&gt;</code></td>
+<td>Copie un fichier ou un répertoire</td>
+</tr>
+<tr class="even">
+<td><code>mkdir &lt;directory&gt;</code></td>
+<td>Crée un nouveau répertoire</td>
+</tr>
+<tr class="odd">
+<td><code>rm &lt;file_or_dir&gt;</code></td>
+<td>Supprime des fichiers ou des répertoires</td>
+</tr>
+<tr class="even">
+<td><code>touch &lt;filename&gt;</code></td>
+<td>Crée un nouveau fichier vide</td>
+</tr>
+<tr class="odd">
+<td><code>cat &lt;filename&gt;</code></td>
+<td>Affiche le contenu d’un fichier</td>
+</tr>
+<tr class="even">
+<td><code>grep &lt;text&gt; &lt;filename&gt;</code></td>
+<td>Rechercher dans un fichier</td>
+</tr>
+<tr class="odd">
+<td><code>man &lt;command_name&gt;</code></td>
+<td>Manuel d’utilisation de la commande</td>
+</tr>
+</tbody>
+</table>
+<div class="notes">
+<ul>
+<li>ce qui est entre &lt; … &gt; est à remplacer</li>
+<li>ls : list</li>
+<li>cd : change directory</li>
+<li>pwd : print working directory</li>
+<li>mkdir : make directory</li>
+<li>pour éditer un fichier : vi, nano</li>
+</ul>
+</div>
+</section>
+<section id="commandes-unix---exemples" class="level3">
+<h3 class="anchored" data-anchor-id="commandes-unix---exemples">Commandes Unix - Exemples</h3>
+<p>Pour chaque commande, de nombreuses options sont disponibles</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ll</span> <span class="pp">*</span>.py                  <span class="co"># liste tous les fichiers python du répertoire courantes</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ll</span> <span class="pp">*</span>.py <span class="op">&gt;</span> a.txt          <span class="co"># créer un fichier a.txt contenant le résultat de la commande</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..                    <span class="co"># Se positionne dans le répertoire parent</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../projet/src         <span class="co"># remonter dans le dossier parent puis aller dans projet puis src</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> /p/image.jpg .        <span class="co"># copie le fichier image.jpg du disque P dans le dossier courant (.)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>.</code> représente le dossier courant</li>
+<li><code>..</code> représente le dossier parent</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="versionner-son-code" class="level2">
+<h2 class="anchored" data-anchor-id="versionner-son-code">Versionner son code</h2>
+<section id="créer-un-commit" class="level3">
+<h3 class="anchored" data-anchor-id="créer-un-commit">Créer un commit</h3>
+<p>2 étapes pour créer une nouvelle version :</p>
+<ul>
+<li><code>git add &lt;filename&gt;</code>
+<ul>
+<li>ajouter le fichier à l’index (ie. dire à Git de suivre ce fichier)</li>
+<li><code>git add .</code> : pour ajouter tous les fichiers</li>
+</ul></li>
+<li><code>git commit -m "mon message de sauvegarde"</code></li>
+</ul>
+<div class="notes">
+<ul>
+<li>git utilise la sauvegarde incrémentale</li>
+<li>il ne garde que les modifs apportées depuis le dernier commit</li>
+<li>message dans commit : “fix:”, “feat:”</li>
+</ul>
+<p>https://talks.freelancerepublik.com/git-commandes-indispensables-developpeurs/</p>
+</div>
+</section>
+<section id="exemple" class="level3">
+<h3 class="anchored" data-anchor-id="exemple">Exemple</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">v0</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Je code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">v1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">Schéma</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Voici votre dépôt avant de commencer à coder.</p>
+<pre><code>├─── Projet info
+│   ├─── src
+│   │   ├─── main.py
+│   └─── doc
+│   │   └─── Rapport.txt</code></pre>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Vous avez modifié un fichier et créé un nouveau.</p>
+<pre><code>├─── Projet info
+│   ├─── src
+│   │   ├─── main.py               &lt;- fichier modifié
+│   │   ├─── velo.py               &lt;- nouveau fichier
+│   └─── doc
+│   │   └─── Rapport.txt</code></pre>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<p>j’ajoute les fichiers créés ou modifiés à l’index :</p>
+<ul>
+<li><code>git add .</code></li>
+</ul>
+<p>je crée un point de sauvegarde</p>
+<ul>
+<li><code>git commit -m "ajout de l'utilisation de velo"</code></li>
+</ul>
+</div>
+<div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
+<p><a href="img/git-commit.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/git-commit.PNG" class="r-stretch img-fluid"></a></p>
+<ul>
+<li>je viens de créer un nouveau commit</li>
+<li>il est possible de consulter les commits précédents
+<ul>
+<li><code>git checkout &lt;commit_number&gt;</code></li>
+<li>les fichiers de votre dépôt sont alors dans l’état où ils étaient à ce commit</li>
+</ul></li>
+</ul>
+<!--
+
+
+:::{.cell layout-align="default"}
+
+:::{.cell-output-display}
+
+:::{}
+`<figure class=''>`{=html}
+
+:::{}
+
+<pre class="mermaid mermaid-js">gitGraph:
+  commit tag:&quot;v0&quot;
+  commit tag:&quot;v1&quot;
+</pre>
+:::
+`</figure>`{=html}
+:::
+:::
+:::
+
+
+-->
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="travail-en-équipe" class="level2">
+<h2 class="anchored" data-anchor-id="travail-en-équipe">Travail en équipe</h2>
+<section id="dépôt-local-et-dépôt-distant" class="level3">
+<h3 class="anchored" data-anchor-id="dépôt-local-et-dépôt-distant">Dépôt local et dépôt distant</h3>
+<ul>
+<li>1 dépôt distant
+<ul>
+<li>appelé aussi <strong>remote</strong></li>
+<li>hébergé sur une forge (GitHub, GitLab, Bitbucket…)</li>
+</ul></li>
+<li>n dépôts locaux
+<ul>
+<li><strong>clone</strong> sur votre machine</li>
+<li>git permet la synchronisation des dépôts</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Remarque">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remarque
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Il est tout à fait possible d’avoir plusieurs clones du même dépôt sur son poste</p>
+</div>
+</div>
+</section>
+<section id="dépôt-local-et-dépôt-distant-1" class="level3">
+<h3 class="anchored" data-anchor-id="dépôt-local-et-dépôt-distant-1">Dépôt local et dépôt distant</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Chaque dépôt est une copie intégrale du projet</p>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    github[(Dépot distant)]
+    dev1[(Dépot local 1)]
+    dev2[(Dépot local 2)]
+    dev3[(Dépot local 3)]
+    dev4[(Dépot local 4)]
+    
+    github &lt;--&gt; dev1
+    github &lt;--&gt; dev2
+    dev3 &lt;--&gt; github
+    dev4 &lt;--&gt; github
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="concepts" class="level2">
+<h2 class="anchored" data-anchor-id="concepts">Concepts</h2>
+<ul>
+<li>Clonage d’un dépôt</li>
+<li>Concept de commit</li>
+<li>Commandes Git Bash</li>
+<li>txt</li>
+</ul>
+<hr>
 </section>
 <section id="git-quest-ce-que-cest" class="level2">
 <h2 class="anchored" data-anchor-id="git-quest-ce-que-cest">Git, qu’est ce que c’est ?</h2>
@@ -417,68 +787,6 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <li>Git enregistre un historique complet de toutes les modifications, ce qui permet de retracer l’évolution du projet, d’identifier les changements spécifiques et de revenir à des versions antérieures si nécessaire</li>
 <li>Git facilite la collaboration entre les membres d’une équipe en permettant à plusieurs personnes de travailler simultanément sur le même projet</li>
 </ul>
-<section id="sans-git-2" class="level3">
-<h3 class="anchored" data-anchor-id="sans-git-2">Sans Git</h3>
-<pre><code>├─── Projet info
-│   ├─── old
-│   │   ├─── Rapport.doc
-│   │   ├─── Rapport_new.doc
-│   │   ├─── Rapport_v1.0.doc
-│   │   └─── Rapport_v1.2.doc
-│   ├─── Rapport_old.doc
-│   ├─── Rapport_2022.05.15.doc
-│   └─── Rapport_2022.05.15_new.doc</code></pre>
-<p><span class="emoji" data-emoji="confused">😕</span> Quelle est la bonne version du fichier ?</p>
-</section>
-<section id="avec-git-2" class="level3">
-<h3 class="anchored" data-anchor-id="avec-git-2">Avec Git</h3>
-<p><span class="emoji" data-emoji="blush">😊</span> Un seul fichier + l’historique des modifications</p>
-<pre><code>├───Projet info
-│   └───Livrables
-│     └───Rapport.doc
-
-Date         Heure   Auteur      Message commit
-----         -----   ------      --------------
-2022.05.29   23h58   bianca      "Version finale"
-2022.05.29   23h40   archibald   "j'avais oublié l'intro"
-2022.05.29   21h32   tryphon     "ajout partie 2"
-2022.05.29   20h25   bianca      "v1.1"
-2022.05.29   20h12   tryphon     "Création du rapport"</code></pre>
-</section>
-</section>
-<section id="principe-général-de-git" class="level2">
-<h2 class="anchored" data-anchor-id="principe-général-de-git">Principe général de Git</h2>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-    github[(Dépot commun)]
-    dev1[(Dépot local 1)]
-    dev2[(Dépot local 2)]
-    dev3[(Dépot local 3)]
-    dev4[(Dépot local 4)]
-    
-    github &lt;--&gt; dev1
-    github &lt;--&gt; dev2
-    dev3 &lt;--&gt; github
-    dev4 &lt;--&gt; github
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p>Git est <u>distribué</u>, cela signifie que chaque dépôt est une copie complète du projet.<br>
-Avec Git, vous allez avoir plusieurs dépôts de fichiers :</p>
-<ul>
-<li>un dépôt commun (dépôt distant)</li>
-<li>un dépôt par contributeur (dépôts locaux)
-<ul>
-<li>Remarque : il est tout à fait possible d’avoir plusieurs clones du même dépôt sur son poste</li>
-</ul></li>
-</ul>
 <p>Git va aider à synchroniser ces dépôts avec les commandes suivantes :</p>
 <ul>
 <li><code>git clone</code> : créer une copie du dépôt commun sur son poste</li>
@@ -491,21 +799,6 @@ Avec Git, vous allez avoir plusieurs dépôts de fichiers :</p>
 </section>
 <section id="les-principales-commandes" class="level2">
 <h2 class="anchored" data-anchor-id="les-principales-commandes">Les principales commandes</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><span class="emoji" data-emoji="fearful">😨</span> Git s’utilise très majoritairement en <u>ligne de commande</u> dans un terminal <code>Git Bash</code>.<br>
-<span class="emoji" data-emoji="sweat_smile">😅</span> Pas de panique, quelques commandes simples suffisent largement pour travailler avec Git.</p>
-<p>Il existe aussi des interfaces graphiques mais elles sont souvent imparfaites et sources d’erreur.</p>
-</div>
-</div>
 <section id="git-clone" class="level3">
 <h3 class="anchored" data-anchor-id="git-clone">git clone</h3>
 <p><code>git clone</code> est une commande de Git utilisée pour <u>créer une copie locale complète d’un dépôt distant</u>. Elle télécharge tous les fichiers et l’historique de version du dépôt distant vers votre système local dans un nouveau répertoire.</p>
@@ -656,14 +949,14 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 <p>Vous devez commencer par mettre à jour votre dépôt local avec <code>git pull</code> avant de pousser votre code</p>
 </section>
 </section>
-<section id="ressources" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="ressources">Ressources</h2>
+<section id="bibliographie" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="bibliographie">Bibliographie</h2>
 <ul>
+<li><a href="https://pythonds.linogaliana.fr/content/git/introgit.html" class="external" target="_blank">Git : un élément essentiel au quotidien</a>, Python pour la datascience, Lino Galiana</li>
 <li><a href="https://github.com/InseeFrLab/formation-git" class="external" target="_blank">Formation Git du Lab INSEE</a></li>
 <li><a href="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/" class="external" target="_blank">Bonnes pratiques Git</a></li>
 <li><a href="https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow" class="external" target="_blank">GitFlow</a></li>
 <li><a href="https://www.atlassian.com/fr/continuous-delivery/continuous-integration/trunk-based-development" class="external" target="_blank">Développement basé sur le tronc</a></li>
-<li>https://pythonds.linogaliana.fr/content/git/exogit.html</li>
 </ul>
 
 
@@ -1240,7 +1533,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
