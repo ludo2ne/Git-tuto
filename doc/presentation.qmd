@@ -18,16 +18,42 @@ from: markdown+emoji
 lightbox: true
 ---
 
+## Introduction
+
+Imaginez que vous faites parti d'une équipe de 5 personnes qui doit coder une application de jeux de cartes.
+
+Comment faites-vous pour mettre en commun votre code ?
+
+- Vous développez votre partie chacun de votre coté et à la fin, vous mettez tout en commun
+- Vous envoyez vos programmes par mail
+- Vous créer un dossier commun que vous mettez à jour manuellement
+
+
 ## Git
 
 - Versionner son code
 - Historique des modifications
-- Travail en groupe
+- Travail en équipe
+- Décentralisé
 
 
 ## Pourquoi versionner ?
 
+- Quelle est la bonne version ?
+- Comment faire pour revenir en arrière ?
+- Qui a écrit ce code ? Quand ?
+
+::: {.notes}
+- les questions que l'on peut se poser en projet
+:::
+
+
 ### Pour connaitre la véritable dernière version
+
+::: {.notes}
+- imaginons que vous partagiez un dossier commun
+- ou encore que ce fichier soit dans des mails
+:::
 
 ::: {.panel-tabset .nav-pills}
 
@@ -113,6 +139,7 @@ plot(data$x, data$y, type="l", lwd=2, col="blue",
 abline(h=0, col="gray")
 ```
 
+<br>
 
 ```{.R filename="analyse.R - Commit f97f766 - Date 2024.06.04 - Author bianca"}
 library(ggplot2)
@@ -130,27 +157,240 @@ ggplot(data, aes(x = x, y = y)) +
 
 :::
 
+::: {.notes}
+Vous passez de R-base à ggplot2
+:::
+
+## La solution
+
+::: incremental
+![](img/git-logo.jpg){.r-stretch}
+:::
+
+::: {.notes}
+- **git** : connard en argot britannique
+:::
+
+## Historique
+
+- Créé par Linus Torvalds en 2005 
+- Pour gérer le développement du noyau Linux
+- Le standard incontournable de la gestion de versions
+- Anciens outils : CVS, SVN
+
+::: {.notes}
+- Standard : produit qui s'est imposé par l'usage (ex : Moteur de recherche Google, TCP/IP)
+:::
+
+## Logiciel
+
+- Logiciel Libre
+- Gratuit
+- S'utilise en ligne de commande
+
+::: {.callout-note}
+:fearful: Git s'utilise très majoritairement en [ligne de commande]{.underline} dans un terminal `Git Bash`.  
+:sweat_smile: Pas de panique, quelques commandes simples suffisent largement pour travailler avec Git.
+
+Il existe aussi des interfaces graphiques mais elles sont souvent imparfaites et sources d'erreur.
+:::
+
+::: {.notes}
+- Logiciel libre : 
+  - code source est ouvert et disponible
+  - permettant à quiconque de l'utiliser, le modifier, et le distribuer librement
+  - différent de gratuit
+:::
+
+## Git Bash
+
+- Terminal de commande
+- Plusieurs manières de lancer (Menu Windows, clic droit, inclus dans VSCode)
+
+![](img/git-bash.PNG){.r-stretch}
+
+::: {.notes}
+Lors de l'installation de Git, choisissez le terminal Unix
+:::
+
+### Commandes Unix {.smaller}
+
+| Commande                          | Description                                        |
+|-----------------------------------|----------------------------------------------------|
+| `ls` (ou `ll`)                    | Liste le contenu d'un répertoire                   |
+| `pwd`                             | Affiche le répertoire courant                      |
+| `cd <directory>`                  | Change le répertoire de travail courant            |
+| `mv <src_file> <dest_file>`       | Déplace des fichiers ou des répertoires            |
+| `cp <src_file> <dest_file>`       | Copie un fichier ou un répertoire                  |
+| `mkdir <directory>`               | Crée un nouveau répertoire                         |
+| `rm <file_or_dir>`                | Supprime des fichiers ou des répertoires           |
+| `touch <filename>`                | Crée un nouveau fichier vide                       |
+| `cat <filename>`                  | Affiche le contenu d'un fichier                    |
+| `grep <text> <filename>`          | Rechercher dans un fichier                         |
+| `man <command_name>`              | Manuel d'utilisation de la commande                |
+
+::: {.notes}
+- ce qui est entre < ... > est à remplacer
+- ls : list 
+- cd : change directory
+- pwd : print working directory
+- mkdir : make directory
+- pour éditer un fichier : vi, nano
+:::
+
+### Commandes Unix - Exemples
+
+Pour chaque commande, de nombreuses options sont disponibles
+
+```{.bash}
+ll *.py                  # liste tous les fichiers python du répertoire courantes
+ll *.py > a.txt          # créer un fichier a.txt contenant le résultat de la commande
+cd ..                    # Se positionne dans le répertoire parent
+cd ../projet/src         # remonter dans le dossier parent puis aller dans projet puis src
+cp /p/image.jpg .        # copie le fichier image.jpg du disque P dans le dossier courant (.)
+```
+
+::: {.callout-tip}
+- `.` représente le dossier courant
+- `..` représente le dossier parent
+:::
+
+
+## Versionner son code
+
+### Créer un commit
+
+2 étapes pour créer une nouvelle version :
+
+- `git add <filename>`
+  - ajouter le fichier à l'index (ie. dire à Git de suivre ce fichier)
+  - `git add .` : pour ajouter tous les fichiers
+- `git commit -m "mon message de sauvegarde"`
+
+::: {.notes}
+- git utilise la sauvegarde incrémentale
+- il ne garde que les modifs apportées depuis le dernier commit
+- message dans commit : "fix: ", "feat: "
+
+https://talks.freelancerepublik.com/git-commandes-indispensables-developpeurs/
+:::
+
+### Exemple
+
+::: {.panel-tabset .nav-pills}
+
+#### v0
+
+Voici votre dépôt avant de commencer à coder.
+
+```
+├─── Projet info
+│   ├─── src
+│   │   ├─── main.py
+│   └─── doc
+│   │   └─── Rapport.txt
+```
+
+#### Je code
+
+Vous avez modifié un fichier et créé un nouveau.
+
+```
+├─── Projet info
+│   ├─── src
+│   │   ├─── main.py               <- fichier modifié
+│   │   ├─── velo.py               <- nouveau fichier
+│   └─── doc
+│   │   └─── Rapport.txt
+```
+
+#### v1
+
+j'ajoute les fichiers créés ou modifiés à l'index :
+
+- `git add .`
+
+je crée un point de sauvegarde
+
+- `git commit -m "ajout de l'utilisation de velo"`
+
+
+#### Schéma
+
+![](img/git-commit.PNG){.r-stretch}
+
+- je viens de créer un nouveau commit
+- il est possible de consulter les commits précédents
+  - `git checkout <commit_number>`
+  - les fichiers de votre dépôt sont alors dans l'état où ils étaient à ce commit
+
+<!--
+```{mermaid}
+gitGraph:
+  commit tag:"v0"
+  commit tag:"v1"
+```
+-->
+
+:::
+
+
+
+## Travail en équipe
+
+### Dépôt local et dépôt distant
+
+- 1 dépôt distant
+  - appelé aussi **remote**
+  - hébergé sur une forge (GitHub, GitLab, Bitbucket...)
+- n dépôts locaux
+  - **clone** sur votre machine
+  - git permet la synchronisation des dépôts
+
+::: {.callout-note title="Remarque"}
+Il est tout à fait possible d'avoir plusieurs clones du même dépôt sur son poste
+:::
+
+
+### Dépôt local et dépôt distant
+
+::: {.callout-tip}
+Chaque dépôt est une copie intégrale du projet
+:::
+
+```{mermaid}
+flowchart LR
+    github[(Dépot distant)]
+    dev1[(Dépot local 1)]
+    dev2[(Dépot local 2)]
+    dev3[(Dépot local 3)]
+    dev4[(Dépot local 4)]
+    
+    github <--> dev1
+    github <--> dev2
+    dev3 <--> github
+    dev4 <--> github
+```
 
 
 
 
+
+
+
+## Concepts
+
+- Clonage d'un dépôt
+- Concept de commit
+- Commandes Git Bash
+- txt
 
 
 
 
 ----
 
-## Introduction :construction:
 
-Imaginez que vous faites parti d'une équipe de 5 personnes qui doit coder une application de jeux de cartes.
-
-Comment faites-vous pour mettre en commun votre code ?
-
-- Vous développez votre partie chacun de votre coté et à la fin, vous mettez tout en commun
-- Vous envoyez vos programmes par mail
-- Vous créer un dossier commun que vous mettez à jour manuellement
-
-Dans tous les cas, le risque d'erreur ou de perte d'information est grand. Heureusement, voici Git !
 
 
 ## Git, qu'est ce que c'est ?
@@ -178,63 +418,6 @@ Git est un système de contrôle de version distribué, largement utilisé dans 
 
 
 
-### Sans Git
-
-```
-├─── Projet info
-│   ├─── old
-│   │   ├─── Rapport.doc
-│   │   ├─── Rapport_new.doc
-│   │   ├─── Rapport_v1.0.doc
-│   │   └─── Rapport_v1.2.doc
-│   ├─── Rapport_old.doc
-│   ├─── Rapport_2022.05.15.doc
-│   └─── Rapport_2022.05.15_new.doc
-```
-
-:confused: Quelle est la bonne version du fichier ?
-
-### Avec Git
-
-:blush: Un seul fichier + l'historique des modifications
-
-```
-├───Projet info
-│   └───Livrables
-│     └───Rapport.doc
-
-Date         Heure   Auteur      Message commit
-----         -----   ------      --------------
-2022.05.29   23h58   bianca      "Version finale"
-2022.05.29   23h40   archibald   "j'avais oublié l'intro"
-2022.05.29   21h32   tryphon     "ajout partie 2"
-2022.05.29   20h25   bianca      "v1.1"
-2022.05.29   20h12   tryphon     "Création du rapport"
-```
-
-## Principe général de Git
-
-```{mermaid}
-flowchart LR
-    github[(Dépot commun)]
-    dev1[(Dépot local 1)]
-    dev2[(Dépot local 2)]
-    dev3[(Dépot local 3)]
-    dev4[(Dépot local 4)]
-    
-    github <--> dev1
-    github <--> dev2
-    dev3 <--> github
-    dev4 <--> github
-```
-
-Git est [distribué]{.underline}, cela signifie que chaque dépôt est une copie complète du projet.  
-Avec Git, vous allez avoir plusieurs dépôts de fichiers :
-
-- un dépôt commun (dépôt distant)
-- un dépôt par contributeur (dépôts locaux)
-  - Remarque : il est tout à fait possible d'avoir plusieurs clones du même dépôt sur son poste
-
 Git va aider à synchroniser ces dépôts avec les commandes suivantes :
 
 - `git clone` : créer une copie du dépôt commun sur son poste
@@ -248,12 +431,7 @@ Git va aider à synchroniser ces dépôts avec les commandes suivantes :
 ## Les principales commandes
 
 
-:::::: {.callout-note}
-:fearful: Git s'utilise très majoritairement en [ligne de commande]{.underline} dans un terminal `Git Bash`.  
-:sweat_smile: Pas de panique, quelques commandes simples suffisent largement pour travailler avec Git.
 
-Il existe aussi des interfaces graphiques mais elles sont souvent imparfaites et sources d'erreur.
-:::
 
 ### git clone
 
@@ -384,10 +562,12 @@ Le message d'erreur est assez explicite. Le dépôt distant a été modifié et 
 
 Vous devez commencer par mettre à jour votre dépôt local avec `git pull` avant de pousser votre code
 
-## Ressources {.unnumbered}
 
+
+## Bibliographie {.unnumbered}
+
+- [Git : un élément essentiel au quotidien](https://pythonds.linogaliana.fr/content/git/introgit.html){.external target="_blank"}, Python pour la datascience, Lino Galiana
 - [Formation Git du Lab INSEE](https://github.com/InseeFrLab/formation-git){.external target="_blank"}
 - [Bonnes pratiques Git](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/){.external target="_blank"}
 - [GitFlow](https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow){.external target="_blank"}
 - [Développement basé sur le tronc](https://www.atlassian.com/fr/continuous-delivery/continuous-integration/trunk-based-development){.external target="_blank"}
-- https://pythonds.linogaliana.fr/content/git/exogit.html
