@@ -6,7 +6,7 @@ format:
   html:
     toc: true
     toc-location: left
-    toc-expand: 3
+    toc-depth: 2
   revealjs:
     theme: moon
     footer: "[Home](../index.html) --- [Introduction à Git](presentation.html)"
@@ -265,7 +265,7 @@ cp /p/image.jpg .        # copie le fichier image.jpg du disque P dans le dossie
 - `git add <filename>`
   - ajouter le fichier à l'index (ie. dire à Git de suivre ce fichier)
   - `git add .` : pour ajouter tous les fichiers
-- `git commit -m "mon message de sauvegarde"`
+- `git commit -m "<mon message>"`
 
 ::: {.notes}
 - git utilise la sauvegarde incrémentale
@@ -334,9 +334,24 @@ gitGraph:
 
 :::
 
+### Ignorer des fichiers{.smaller}
+
+:::{.callout-tip title="Le fichier .gitignore"}
+`.gitignore` est un fichier présent à la racine du dépôt permettant de dire à Git quels fichiers il doit ignorer. Par exemple : 
+
+- si .gitignore contient `*.csv` :arrow_right: tous les fichiers *csv* seront ignorés par Git
+- si .gitignore contient `data/` :arrow_right: le dossier *data* et son contenu sera ignoré
+
+Cela est utile, pour exclure par exemple du dépôt Git :
+
+- des fichiers contenant des mots de passe, des jetons d'accès...
+- des fichiers de données volumineux qui n'ont pas vocation à être versionnés
+- des fichiers de log 
+
+:::
 
 
-## Travail en équipe
+## Travailler en équipe
 
 ### Dépôt local et dépôt distant
 
@@ -360,17 +375,134 @@ Chaque dépôt est une copie intégrale du projet
 
 ```{mermaid}
 flowchart LR
-    github[(Dépot distant)]
-    dev1[(Dépot local 1)]
-    dev2[(Dépot local 2)]
-    dev3[(Dépot local 3)]
-    dev4[(Dépot local 4)]
+    github[(Dépôt distant)]
+    dev1[(Dépôt local 1)]
+    dev2[(Dépôt local 2)]
+    dev3[(Dépôt local 3)]
+    dev4[(Dépôt local 4)]
     
     github <--> dev1
     github <--> dev2
     dev3 <--> github
     dev4 <--> github
 ```
+
+### Communiquer avec le dépôt distant
+
+- `git pull` : mettre à jour son dépôt local à partir du dépôt distant
+- `git push` : envoyer ses commits locaux sur le dépôt distant
+
+::: {.callout-important}
+Il est important de pousser et puller réguliérement son code pour garder son dépôt à jour.
+:::
+
+
+### git push
+
+```{mermaid}
+flowchart LR
+    dev1[(Dépôt local)]
+    github[(Dépôt distant)]
+    
+    dev1 == push ==> github
+```
+
+Pour pouvoir pousser son code, il est nécessaire :
+
+- d'avoir au préalable créé au minimum un **commit**
+- que votre dépôt local soit à jour 
+  - pas de retard de version par rapport au dépôt distant
+  - si ce n'est pas le cas, il faut commencer par `git pull`
+
+
+### git pull - conflit
+
+Que se passe-t-il si : 
+
+- Alice a modifié un fichier et poussé sa modification sur le dépôt distant
+- Vous avez également modifié le même fichier et vous faites un `git pull` pour mettre à jour votre dépôt à partir du dépôt distant
+
+:fearful: Un conflit ! Git ne sait pas choisir quelle est la bonne version entre la votre et celle d'Alice.
+
+### git pull - conflit
+
+:sweat_smile: Pas de panique ! Pour résoudre le conflit, il faut simplement :
+
+- modifier le fichier en question pour garder la bonne version
+- `git add` puis `git commit` pour valider la résolution du conflit
+
+
+### 2 versions s'opposent
+
+::: {.panel-tabset .nav-pills}
+
+#### Version d'origine
+
+```{.python filename="voiture.py"}
+class Voiture:
+    def __init__(self, couleur):
+        self.couleur = "bleu"
+```
+
+#### Votre version
+
+```{.python filename="voiture.py"}
+class Voiture:
+    def __init__(self, couleur):
+        self.couleur = "noir"
+```
+
+#### Version d'Alice
+
+```{.python filename="voiture.py"}
+class Voiture:
+    def __init__(self, couleur):
+        self.couleur = "blanc"
+```
+::: 
+
+
+### Résoudre un conflit
+
+::: {.panel-tabset .nav-pills}
+
+#### Contexte
+
+- Alice a poussé son code avant vous
+- Vous faîtes donc un `git pull`
+  - En effet, vous devez impérativement mettre à jour votre dépôt local avant de pousser votre code
+- 2 versions s'opposent sur votre dépôt local
+  - `self.couleur = "noir"`
+  - `self.couleur = "blanc"`
+- Git n'est pas capable de choisir laquelle est la bonne
+
+#### Le conflit
+
+- En haut : votre version
+- En bas : celle provenant du dépôt distant
+
+```{.python}
+class Voiture:
+<<<<<<< HEAD
+    def __init__(self, nom, couleur, vitesse_max):
+        self.couleur = "noir"
+=======
+    def __init__(self, nom, couleur, marque):
+        self.couleur = "blanc"
+>>>>>>> a57ae9120dbf97dbab78f82db81f5fc8f48f3821
+```
+
+#### Résolution
+
+Pour résoudre ce conflit, 3 possibilités :
+
+- vous choisissez votre code
+- vous choisissez celui d'Alice
+- vous choisissez un mix des 2
+
+Ensuite, vous validez, créez un commit et poussez le code (`git add .`, puis `git commit -m "<message>"` et `git push`)
+
+:::
 
 
 
@@ -470,19 +602,7 @@ Autrement dit, si vous faites `git add soleil.txt`, vous dites à git qu'il faut
 `git add .` permet d'ajouter [tous]{.underline} les fichiers non suivis à l'index
 
 
-:::{.callout-tip title="Le fichier .gitignore"}
-`.gitignore` est un fichier présent à la racine du dépôt permettant de dire à Git quels fichiers il doit ignorer. Par exemple : 
 
-- si .gitignore contient `*.csv` :arrow_right: tous les fichiers *csv* seront ignorés par Git
-- si .gitignore contient `data/` :arrow_right: le dossier *data* et son contenu sera ignoré
-
-Cela est utile, pour exclure par exemple du dépôt Git :
-
-- des fichiers contenant des mots de passe, des jetons d'accès...
-- des fichiers de données volumineux qui n'ont pas vocation à être versionnés
-- des fichiers de log 
-
-:::
 
 ### git commit
 
@@ -494,18 +614,6 @@ Il est conseillé d'écrire un message court, clair et compréhensible.
 
 `git pull` récupère les dernières modifications du dépôt distant et met à jour votre dépôt local.
 
-:::{.callout-note title="Les conflits"}
-Que se passe-t-il si : 
-
-- Alice a modifié un fichier et poussé sa modification sur le dépôt distant
-- Vous avez également modifié le même fichier et vous faites un `git pull` pour mettre à jour votre dépôt à partir du dépôt distant
-
-:fearful: Un conflit ! Git ne sait pas choisir quelle est la bonne version entre la votre et celle d'Alice.  
-:sweat_smile: Pas de panique ! Pour résoudre le conflit, il faut simplement :
-
-- modifier le fichier en question pour garder la bonne version
-- `git add` puis `git commit` pour valider la résolution du conflit
-:::
 
 
 ### git push
