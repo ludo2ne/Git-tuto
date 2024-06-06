@@ -822,7 +822,7 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <li>ajouter le fichier à l’index (ie. dire à Git de suivre ce fichier)</li>
 <li><code>git add .</code> : pour ajouter tous les fichiers</li>
 </ul></li>
-<li><code>git commit -m "mon message de sauvegarde"</code></li>
+<li><code>git commit -m "&lt;mon message&gt;"</code></li>
 </ul>
 <aside class="notes">
 <ul>
@@ -914,10 +914,38 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </div>
 </div>
 </div>
+</section>
+<section id="ignorer-des-fichiers" class="slide level3 smaller">
+<h3>Ignorer des fichiers</h3>
+<div title="Le fichier .gitignore">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Le fichier .gitignore</strong></p>
+</div>
+<div class="callout-content">
+<p><code>.gitignore</code> est un fichier présent à la racine du dépôt permettant de dire à Git quels fichiers il doit ignorer. Par exemple :</p>
+<ul>
+<li>si .gitignore contient <code>*.csv</code> <span class="emoji" data-emoji="arrow_right">➡️</span> tous les fichiers <em>csv</em> seront ignorés par Git</li>
+<li>si .gitignore contient <code>data/</code> <span class="emoji" data-emoji="arrow_right">➡️</span> le dossier <em>data</em> et son contenu sera ignoré</li>
+</ul>
+<p>Cela est utile, pour exclure par exemple du dépôt Git :</p>
+<ul>
+<li>des fichiers contenant des mots de passe, des jetons d’accès…</li>
+<li>des fichiers de données volumineux qui n’ont pas vocation à être versionnés</li>
+<li>des fichiers de log</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </section></section>
 <section>
-<section id="travail-en-équipe" class="title-slide slide level2 center">
-<h2>Travail en équipe</h2>
+<section id="travailler-en-équipe" class="title-slide slide level2 center">
+<h2>Travailler en équipe</h2>
 
 </section>
 <section id="dépôt-local-et-dépôt-distant" class="slide level3">
@@ -971,11 +999,11 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <p></p><figure class=""><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
-    github[(Dépot distant)]
-    dev1[(Dépot local 1)]
-    dev2[(Dépot local 2)]
-    dev3[(Dépot local 3)]
-    dev4[(Dépot local 4)]
+    github[(Dépôt distant)]
+    dev1[(Dépôt local 1)]
+    dev2[(Dépôt local 2)]
+    dev3[(Dépôt local 3)]
+    dev4[(Dépôt local 4)]
     
     github &lt;--&gt; dev1
     github &lt;--&gt; dev2
@@ -984,6 +1012,155 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </pre>
 </div>
 <p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="communiquer-avec-le-dépôt-distant" class="slide level3">
+<h3>Communiquer avec le dépôt distant</h3>
+<ul>
+<li><code>git pull</code> : mettre à jour son dépôt local à partir du dépôt distant</li>
+<li><code>git push</code> : envoyer ses commits locaux sur le dépôt distant</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Il est important de pousser et puller réguliérement son code pour garder son dépôt à jour.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="git-push" class="slide level3">
+<h3>git push</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    dev1[(Dépôt local)]
+    github[(Dépôt distant)]
+    
+    dev1 == push ==&gt; github
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Pour pouvoir pousser son code, il est nécessaire :</p>
+<ul>
+<li>d’avoir au préalable créé au minimum un <strong>commit</strong></li>
+<li>que votre dépôt local soit à jour
+<ul>
+<li>pas de retard de version par rapport au dépôt distant</li>
+<li>si ce n’est pas le cas, il faut commencer par <code>git pull</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="git-pull---conflit" class="slide level3">
+<h3>git pull - conflit</h3>
+<p>Que se passe-t-il si :</p>
+<ul>
+<li>Alice a modifié un fichier et poussé sa modification sur le dépôt distant</li>
+<li>Vous avez également modifié le même fichier et vous faites un <code>git pull</code> pour mettre à jour votre dépôt à partir du dépôt distant</li>
+</ul>
+<p><span class="emoji" data-emoji="fearful">😨</span> Un conflit ! Git ne sait pas choisir quelle est la bonne version entre la votre et celle d’Alice.</p>
+</section>
+<section id="git-pull---conflit-1" class="slide level3">
+<h3>git pull - conflit</h3>
+<p><span class="emoji" data-emoji="sweat_smile">😅</span> Pas de panique ! Pour résoudre le conflit, il faut simplement :</p>
+<ul>
+<li>modifier le fichier en question pour garder la bonne version</li>
+<li><code>git add</code> puis <code>git commit</code> pour valider la résolution du conflit</li>
+</ul>
+</section>
+<section id="versions-sopposent" class="slide level3">
+<h3>2 versions s’opposent</h3>
+<div class="panel-tabset nav-pills">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Version d’origine</a></li><li><a href="#tabset-4-2">Votre version</a></li><li><a href="#tabset-4-3">Version d’Alice</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-4-1">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>voiture.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb9" data-filename="voiture.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="kw">class</span> Voiture:</span>
+<span id="cb9-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
+<span id="cb9-3"><a></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"bleu"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>voiture.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb10" data-filename="voiture.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="kw">class</span> Voiture:</span>
+<span id="cb10-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
+<span id="cb10-3"><a></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"noir"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-3">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>voiture.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb11" data-filename="voiture.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="kw">class</span> Voiture:</span>
+<span id="cb11-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
+<span id="cb11-3"><a></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"blanc"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="résoudre-un-conflit" class="slide level3">
+<h3>Résoudre un conflit</h3>
+<div class="panel-tabset nav-pills">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Contexte</a></li><li><a href="#tabset-5-2">Le conflit</a></li><li><a href="#tabset-5-3">Résolution</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-5-1">
+<ul>
+<li>Alice a poussé son code avant vous</li>
+<li>Vous faîtes donc un <code>git pull</code>
+<ul>
+<li>En effet, vous devez impérativement mettre à jour votre dépôt local avant de pousser votre code</li>
+</ul></li>
+<li>2 versions s’opposent sur votre dépôt local
+<ul>
+<li><code>self.couleur = "noir"</code></li>
+<li><code>self.couleur = "blanc"</code></li>
+</ul></li>
+<li>Git n’est pas capable de choisir laquelle est la bonne</li>
+</ul>
+</div>
+<div id="tabset-5-2">
+<ul>
+<li>En haut : votre version</li>
+<li>En bas : celle provenant du dépôt distant</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="kw">class</span> Voiture:</span>
+<span id="cb12-2"><a></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb12-3"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, vitesse_max):</span>
+<span id="cb12-4"><a></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"noir"</span></span>
+<span id="cb12-5"><a></a><span class="op">=======</span></span>
+<span id="cb12-6"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, marque):</span>
+<span id="cb12-7"><a></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"blanc"</span></span>
+<span id="cb12-8"><a></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> a57ae9120dbf97dbab78f82db81f5fc8f48f3821</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-5-3">
+<p>Pour résoudre ce conflit, 3 possibilités :</p>
+<ul>
+<li>vous choisissez votre code</li>
+<li>vous choisissez celui d’Alice</li>
+<li>vous choisissez un mix des 2</li>
+</ul>
+<p>Ensuite, vous validez, créez un commit et poussez le code (<code>git add .</code>, puis <code>git commit -m "&lt;message&gt;"</code> et <code>git push</code>)</p>
 </div>
 </div>
 </div>
@@ -1078,31 +1255,6 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <p><code>git add</code> est utilisée pour ajouter des fichiers à l’index, c’est à dire des fichiers que vous souhaitez versionner.</p>
 <p>Autrement dit, si vous faites <code>git add soleil.txt</code>, vous dites à git qu’il faut ajouter ce fichier au dépôt et le versionner.</p>
 <p><code>git add .</code> permet d’ajouter <u>tous</u> les fichiers non suivis à l’index</p>
-<div title="Le fichier .gitignore">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Le fichier .gitignore</strong></p>
-</div>
-<div class="callout-content">
-<p><code>.gitignore</code> est un fichier présent à la racine du dépôt permettant de dire à Git quels fichiers il doit ignorer. Par exemple :</p>
-<ul>
-<li>si .gitignore contient <code>*.csv</code> <span class="emoji" data-emoji="arrow_right">➡️</span> tous les fichiers <em>csv</em> seront ignorés par Git</li>
-<li>si .gitignore contient <code>data/</code> <span class="emoji" data-emoji="arrow_right">➡️</span> le dossier <em>data</em> et son contenu sera ignoré</li>
-</ul>
-<p>Cela est utile, pour exclure par exemple du dépôt Git :</p>
-<ul>
-<li>des fichiers contenant des mots de passe, des jetons d’accès…</li>
-<li>des fichiers de données volumineux qui n’ont pas vocation à être versionnés</li>
-<li>des fichiers de log</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 </section>
 <section id="git-commit" class="slide level3">
 <h3>git commit</h3>
@@ -1112,33 +1264,8 @@ Il est conseillé d’écrire un message court, clair et compréhensible.</p>
 <section id="git-pull" class="slide level3">
 <h3>git pull</h3>
 <p><code>git pull</code> récupère les dernières modifications du dépôt distant et met à jour votre dépôt local.</p>
-<div title="Les conflits">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Les conflits</strong></p>
-</div>
-<div class="callout-content">
-<p>Que se passe-t-il si :</p>
-<ul>
-<li>Alice a modifié un fichier et poussé sa modification sur le dépôt distant</li>
-<li>Vous avez également modifié le même fichier et vous faites un <code>git pull</code> pour mettre à jour votre dépôt à partir du dépôt distant</li>
-</ul>
-<p><span class="emoji" data-emoji="fearful">😨</span> Un conflit ! Git ne sait pas choisir quelle est la bonne version entre la votre et celle d’Alice.<br>
-<span class="emoji" data-emoji="sweat_smile">😅</span> Pas de panique ! Pour résoudre le conflit, il faut simplement :</p>
-<ul>
-<li>modifier le fichier en question pour garder la bonne version</li>
-<li><code>git add</code> puis <code>git commit</code> pour valider la résolution du conflit</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 </section>
-<section id="git-push" class="slide level3">
+<section id="git-push-1" class="slide level3">
 <h3>git push</h3>
 <p><code>git push</code> envoie les modifications locales vers le dépôt distant.</p>
 <div class="callout callout-important callout-titled callout-style-default">
@@ -1610,7 +1737,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","loop":false,"closeEffect":"zoom","selector":".lightbox"});
+    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;

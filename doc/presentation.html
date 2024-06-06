@@ -180,57 +180,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="collapse">
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git">Git</a></li>
-  <li><a href="#pourquoi-versionner" id="toc-pourquoi-versionner" class="nav-link" data-scroll-target="#pourquoi-versionner">Pourquoi versionner ?</a>
-  <ul class="collapse">
-  <li><a href="#pour-connaitre-la-véritable-dernière-version" id="toc-pour-connaitre-la-véritable-dernière-version" class="nav-link" data-scroll-target="#pour-connaitre-la-véritable-dernière-version">Pour connaitre la véritable dernière version</a></li>
-  <li><a href="#ancien-code-commenté" id="toc-ancien-code-commenté" class="nav-link" data-scroll-target="#ancien-code-commenté">Ancien code commenté</a></li>
-  </ul></li>
+  <li><a href="#pourquoi-versionner" id="toc-pourquoi-versionner" class="nav-link" data-scroll-target="#pourquoi-versionner">Pourquoi versionner ?</a></li>
   <li><a href="#la-solution" id="toc-la-solution" class="nav-link" data-scroll-target="#la-solution">La solution</a></li>
   <li><a href="#historique" id="toc-historique" class="nav-link" data-scroll-target="#historique">Historique</a></li>
   <li><a href="#logiciel" id="toc-logiciel" class="nav-link" data-scroll-target="#logiciel">Logiciel</a></li>
-  <li><a href="#git-bash" id="toc-git-bash" class="nav-link" data-scroll-target="#git-bash">Git Bash</a>
-  <ul class="collapse">
-  <li><a href="#commandes-unix" id="toc-commandes-unix" class="nav-link" data-scroll-target="#commandes-unix">Commandes Unix</a></li>
-  <li><a href="#commandes-unix---exemples" id="toc-commandes-unix---exemples" class="nav-link" data-scroll-target="#commandes-unix---exemples">Commandes Unix - Exemples</a></li>
-  </ul></li>
-  <li><a href="#versionner-son-code" id="toc-versionner-son-code" class="nav-link" data-scroll-target="#versionner-son-code">Versionner son code</a>
-  <ul class="collapse">
-  <li><a href="#créer-un-commit" id="toc-créer-un-commit" class="nav-link" data-scroll-target="#créer-un-commit">Créer un commit</a></li>
-  <li><a href="#exemple" id="toc-exemple" class="nav-link" data-scroll-target="#exemple">Exemple</a></li>
-  </ul></li>
-  <li><a href="#travail-en-équipe" id="toc-travail-en-équipe" class="nav-link" data-scroll-target="#travail-en-équipe">Travail en équipe</a>
-  <ul class="collapse">
-  <li><a href="#dépôt-local-et-dépôt-distant" id="toc-dépôt-local-et-dépôt-distant" class="nav-link" data-scroll-target="#dépôt-local-et-dépôt-distant">Dépôt local et dépôt distant</a></li>
-  <li><a href="#dépôt-local-et-dépôt-distant-1" id="toc-dépôt-local-et-dépôt-distant-1" class="nav-link" data-scroll-target="#dépôt-local-et-dépôt-distant-1">Dépôt local et dépôt distant</a></li>
-  </ul></li>
+  <li><a href="#git-bash" id="toc-git-bash" class="nav-link" data-scroll-target="#git-bash">Git Bash</a></li>
+  <li><a href="#versionner-son-code" id="toc-versionner-son-code" class="nav-link" data-scroll-target="#versionner-son-code">Versionner son code</a></li>
+  <li><a href="#travailler-en-équipe" id="toc-travailler-en-équipe" class="nav-link" data-scroll-target="#travailler-en-équipe">Travailler en équipe</a></li>
   <li><a href="#concepts" id="toc-concepts" class="nav-link" data-scroll-target="#concepts">Concepts</a></li>
   <li><a href="#git-quest-ce-que-cest" id="toc-git-quest-ce-que-cest" class="nav-link" data-scroll-target="#git-quest-ce-que-cest">Git, qu’est ce que c’est ?</a></li>
   <li><a href="#git-ça-sert-à-quoi" id="toc-git-ça-sert-à-quoi" class="nav-link" data-scroll-target="#git-ça-sert-à-quoi">Git, ça sert à quoi ?</a></li>
-  <li><a href="#les-principales-commandes" id="toc-les-principales-commandes" class="nav-link" data-scroll-target="#les-principales-commandes">Les principales commandes</a>
-  <ul class="collapse">
-  <li><a href="#git-clone" id="toc-git-clone" class="nav-link" data-scroll-target="#git-clone">git clone</a></li>
-  <li><a href="#git-status" id="toc-git-status" class="nav-link" data-scroll-target="#git-status">git status</a></li>
-  <li><a href="#git-add" id="toc-git-add" class="nav-link" data-scroll-target="#git-add">git add</a></li>
-  <li><a href="#git-commit" id="toc-git-commit" class="nav-link" data-scroll-target="#git-commit">git commit</a></li>
-  <li><a href="#git-pull" id="toc-git-pull" class="nav-link" data-scroll-target="#git-pull">git pull</a></li>
-  <li><a href="#git-push" id="toc-git-push" class="nav-link" data-scroll-target="#git-push">git push</a></li>
-  </ul></li>
-  <li><a href="#exemples" id="toc-exemples" class="nav-link" data-scroll-target="#exemples">Exemples</a>
-  <ul class="collapse">
-  <li><a href="#exemple-1" id="toc-exemple-1" class="nav-link" data-scroll-target="#exemple-1">Exemple 1</a></li>
-  <li><a href="#exemple-2" id="toc-exemple-2" class="nav-link" data-scroll-target="#exemple-2">Exemple 2</a></li>
-  </ul></li>
-  <li><a href="#les-erreurs-courantes" id="toc-les-erreurs-courantes" class="nav-link" data-scroll-target="#les-erreurs-courantes">Les erreurs courantes</a>
-  <ul class="collapse">
-  <li><a href="#fichier-disparu" id="toc-fichier-disparu" class="nav-link" data-scroll-target="#fichier-disparu">fichier disparu</a></li>
-  <li><a href="#git-push-rejected" id="toc-git-push-rejected" class="nav-link" data-scroll-target="#git-push-rejected">git push rejected</a></li>
-  </ul></li>
+  <li><a href="#les-principales-commandes" id="toc-les-principales-commandes" class="nav-link" data-scroll-target="#les-principales-commandes">Les principales commandes</a></li>
+  <li><a href="#exemples" id="toc-exemples" class="nav-link" data-scroll-target="#exemples">Exemples</a></li>
+  <li><a href="#les-erreurs-courantes" id="toc-les-erreurs-courantes" class="nav-link" data-scroll-target="#les-erreurs-courantes">Les erreurs courantes</a></li>
   <li><a href="#bibliographie" id="toc-bibliographie" class="nav-link" data-scroll-target="#bibliographie">Bibliographie</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="presentation-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -596,7 +564,7 @@ Tip
 <li>ajouter le fichier à l’index (ie. dire à Git de suivre ce fichier)</li>
 <li><code>git add .</code> : pour ajouter tous les fichiers</li>
 </ul></li>
-<li><code>git commit -m "mon message de sauvegarde"</code></li>
+<li><code>git commit -m "&lt;mon message&gt;"</code></li>
 </ul>
 <div class="notes">
 <ul>
@@ -677,9 +645,35 @@ Tip
 </div>
 </div>
 </section>
+<section id="ignorer-des-fichiers" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="ignorer-des-fichiers">Ignorer des fichiers</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Le fichier .gitignore">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Le fichier .gitignore
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>.gitignore</code> est un fichier présent à la racine du dépôt permettant de dire à Git quels fichiers il doit ignorer. Par exemple :</p>
+<ul>
+<li>si .gitignore contient <code>*.csv</code> <span class="emoji" data-emoji="arrow_right">➡️</span> tous les fichiers <em>csv</em> seront ignorés par Git</li>
+<li>si .gitignore contient <code>data/</code> <span class="emoji" data-emoji="arrow_right">➡️</span> le dossier <em>data</em> et son contenu sera ignoré</li>
+</ul>
+<p>Cela est utile, pour exclure par exemple du dépôt Git :</p>
+<ul>
+<li>des fichiers contenant des mots de passe, des jetons d’accès…</li>
+<li>des fichiers de données volumineux qui n’ont pas vocation à être versionnés</li>
+<li>des fichiers de log</li>
+</ul>
+</div>
+</div>
 </section>
-<section id="travail-en-équipe" class="level2">
-<h2 class="anchored" data-anchor-id="travail-en-équipe">Travail en équipe</h2>
+</section>
+<section id="travailler-en-équipe" class="level2">
+<h2 class="anchored" data-anchor-id="travailler-en-équipe">Travailler en équipe</h2>
 <section id="dépôt-local-et-dépôt-distant" class="level3">
 <h3 class="anchored" data-anchor-id="dépôt-local-et-dépôt-distant">Dépôt local et dépôt distant</h3>
 <ul>
@@ -729,11 +723,11 @@ Tip
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
-    github[(Dépot distant)]
-    dev1[(Dépot local 1)]
-    dev2[(Dépot local 2)]
-    dev3[(Dépot local 3)]
-    dev4[(Dépot local 4)]
+    github[(Dépôt distant)]
+    dev1[(Dépôt local 1)]
+    dev2[(Dépôt local 2)]
+    dev3[(Dépôt local 3)]
+    dev4[(Dépôt local 4)]
     
     github &lt;--&gt; dev1
     github &lt;--&gt; dev2
@@ -742,6 +736,155 @@ Tip
 </pre>
 </div>
 <p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="communiquer-avec-le-dépôt-distant" class="level3">
+<h3 class="anchored" data-anchor-id="communiquer-avec-le-dépôt-distant">Communiquer avec le dépôt distant</h3>
+<ul>
+<li><code>git pull</code> : mettre à jour son dépôt local à partir du dépôt distant</li>
+<li><code>git push</code> : envoyer ses commits locaux sur le dépôt distant</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Il est important de pousser et puller réguliérement son code pour garder son dépôt à jour.</p>
+</div>
+</div>
+</section>
+<section id="git-push" class="level3">
+<h3 class="anchored" data-anchor-id="git-push">git push</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    dev1[(Dépôt local)]
+    github[(Dépôt distant)]
+    
+    dev1 == push ==&gt; github
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Pour pouvoir pousser son code, il est nécessaire :</p>
+<ul>
+<li>d’avoir au préalable créé au minimum un <strong>commit</strong></li>
+<li>que votre dépôt local soit à jour
+<ul>
+<li>pas de retard de version par rapport au dépôt distant</li>
+<li>si ce n’est pas le cas, il faut commencer par <code>git pull</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="git-pull---conflit" class="level3">
+<h3 class="anchored" data-anchor-id="git-pull---conflit">git pull - conflit</h3>
+<p>Que se passe-t-il si :</p>
+<ul>
+<li>Alice a modifié un fichier et poussé sa modification sur le dépôt distant</li>
+<li>Vous avez également modifié le même fichier et vous faites un <code>git pull</code> pour mettre à jour votre dépôt à partir du dépôt distant</li>
+</ul>
+<p><span class="emoji" data-emoji="fearful">😨</span> Un conflit ! Git ne sait pas choisir quelle est la bonne version entre la votre et celle d’Alice.</p>
+</section>
+<section id="git-pull---conflit-1" class="level3">
+<h3 class="anchored" data-anchor-id="git-pull---conflit-1">git pull - conflit</h3>
+<p><span class="emoji" data-emoji="sweat_smile">😅</span> Pas de panique ! Pour résoudre le conflit, il faut simplement :</p>
+<ul>
+<li>modifier le fichier en question pour garder la bonne version</li>
+<li><code>git add</code> puis <code>git commit</code> pour valider la résolution du conflit</li>
+</ul>
+</section>
+<section id="versions-sopposent" class="level3">
+<h3 class="anchored" data-anchor-id="versions-sopposent">2 versions s’opposent</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Version d’origine</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Votre version</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Version d’Alice</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>voiture.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb9" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Voiture:</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"bleu"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>voiture.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb10" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Voiture:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"noir"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>voiture.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb11" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Voiture:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"blanc"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="résoudre-un-conflit" class="level3">
+<h3 class="anchored" data-anchor-id="résoudre-un-conflit">Résoudre un conflit</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Contexte</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Le conflit</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Résolution</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<ul>
+<li>Alice a poussé son code avant vous</li>
+<li>Vous faîtes donc un <code>git pull</code>
+<ul>
+<li>En effet, vous devez impérativement mettre à jour votre dépôt local avant de pousser votre code</li>
+</ul></li>
+<li>2 versions s’opposent sur votre dépôt local
+<ul>
+<li><code>self.couleur = "noir"</code></li>
+<li><code>self.couleur = "blanc"</code></li>
+</ul></li>
+<li>Git n’est pas capable de choisir laquelle est la bonne</li>
+</ul>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<ul>
+<li>En haut : votre version</li>
+<li>En bas : celle provenant du dépôt distant</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Voiture:</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, vitesse_max):</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"noir"</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="op">=======</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, marque):</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"blanc"</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> a57ae9120dbf97dbab78f82db81f5fc8f48f3821</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
+<p>Pour résoudre ce conflit, 3 possibilités :</p>
+<ul>
+<li>vous choisissez votre code</li>
+<li>vous choisissez celui d’Alice</li>
+<li>vous choisissez un mix des 2</li>
+</ul>
+<p>Ensuite, vous validez, créez un commit et poussez le code (<code>git add .</code>, puis <code>git commit -m "&lt;message&gt;"</code> et <code>git push</code>)</p>
 </div>
 </div>
 </div>
@@ -829,29 +972,6 @@ Tip
 <p><code>git add</code> est utilisée pour ajouter des fichiers à l’index, c’est à dire des fichiers que vous souhaitez versionner.</p>
 <p>Autrement dit, si vous faites <code>git add soleil.txt</code>, vous dites à git qu’il faut ajouter ce fichier au dépôt et le versionner.</p>
 <p><code>git add .</code> permet d’ajouter <u>tous</u> les fichiers non suivis à l’index</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Le fichier .gitignore">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Le fichier .gitignore
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>.gitignore</code> est un fichier présent à la racine du dépôt permettant de dire à Git quels fichiers il doit ignorer. Par exemple :</p>
-<ul>
-<li>si .gitignore contient <code>*.csv</code> <span class="emoji" data-emoji="arrow_right">➡️</span> tous les fichiers <em>csv</em> seront ignorés par Git</li>
-<li>si .gitignore contient <code>data/</code> <span class="emoji" data-emoji="arrow_right">➡️</span> le dossier <em>data</em> et son contenu sera ignoré</li>
-</ul>
-<p>Cela est utile, pour exclure par exemple du dépôt Git :</p>
-<ul>
-<li>des fichiers contenant des mots de passe, des jetons d’accès…</li>
-<li>des fichiers de données volumineux qui n’ont pas vocation à être versionnés</li>
-<li>des fichiers de log</li>
-</ul>
-</div>
-</div>
 </section>
 <section id="git-commit" class="level3">
 <h3 class="anchored" data-anchor-id="git-commit">git commit</h3>
@@ -861,32 +981,9 @@ Il est conseillé d’écrire un message court, clair et compréhensible.</p>
 <section id="git-pull" class="level3">
 <h3 class="anchored" data-anchor-id="git-pull">git pull</h3>
 <p><code>git pull</code> récupère les dernières modifications du dépôt distant et met à jour votre dépôt local.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Les conflits">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Les conflits
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Que se passe-t-il si :</p>
-<ul>
-<li>Alice a modifié un fichier et poussé sa modification sur le dépôt distant</li>
-<li>Vous avez également modifié le même fichier et vous faites un <code>git pull</code> pour mettre à jour votre dépôt à partir du dépôt distant</li>
-</ul>
-<p><span class="emoji" data-emoji="fearful">😨</span> Un conflit ! Git ne sait pas choisir quelle est la bonne version entre la votre et celle d’Alice.<br>
-<span class="emoji" data-emoji="sweat_smile">😅</span> Pas de panique ! Pour résoudre le conflit, il faut simplement :</p>
-<ul>
-<li>modifier le fichier en question pour garder la bonne version</li>
-<li><code>git add</code> puis <code>git commit</code> pour valider la résolution du conflit</li>
-</ul>
-</div>
-</div>
 </section>
-<section id="git-push" class="level3">
-<h3 class="anchored" data-anchor-id="git-push">git push</h3>
+<section id="git-push-1" class="level3">
+<h3 class="anchored" data-anchor-id="git-push-1">git push</h3>
 <p><code>git push</code> envoie les modifications locales vers le dépôt distant.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1533,7 +1630,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
