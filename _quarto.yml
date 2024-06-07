@@ -26,7 +26,7 @@ website:
   page-footer:
     right: |
       Website built with [Quarto](https://quarto.org/){.external target="_blank"} <br>
-      [Code source](https://github.com/ludo2ne/Git-tuto){.external target="_blank"}
+      [Source code](https://github.com/ludo2ne/Git-tuto){.external target="_blank"}
   repo-url: https://github.com/ludo2ne/Git-tuto
   repo-branch: main
   reader-mode: true

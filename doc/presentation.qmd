@@ -315,8 +315,23 @@ La ligne de commande reste très utilisée :
 - Comment faire avec Git
 :::
 
-### Workflow
+### Que versionne-t-on ?
 
+- :white_check_mark: des fichiers de type texte (légers)
+- :white_check_mark: du code source
+- :x: fichiers de données
+- :x: mots de passe
+- :x: outputs : logs, .pdf, .doc
+
+::: {.notes}
+- un dépôt doit rester mince
+- quelques Mo max
+- possible de mettre du doc ou pdf
+  - mais git ne sait comparer que du txt, csv, md
+  - tout ce qui peut s'ouvrir avec notepad
+:::
+
+### Workflow
 
 ::: {.white-box}
 ```{mermaid}
@@ -349,8 +364,6 @@ sequenceDiagram
 ::: {.notes}
 - git utilise la sauvegarde incrémentale
 - il ne garde que les modifs apportées depuis le dernier commit
-- fonctionne bien avec les fichierx txt, csv, md
-- moins bien avec pdf, doc, xls, jpg
 
 https://talks.freelancerepublik.com/git-commandes-indispensables-developpeurs/
 :::
@@ -431,6 +444,23 @@ Utilisez un préfixe à votre message :
 ::: {.notes}
 Suffixe WIP
 :::
+
+### Retour arrière
+
+Si finalement, vous n'avez pas envie de commiter vos modifications ?
+
+| Commande                         | Description                                                                       |
+|----------------------------------|-----------------------------------------------------------------------------------|
+| `git checkout -- <file>`         | Annuler les modifications locales non indexées du fichier                         |
+| `git restore <file>`             | Annuler les modifications locales non indexées du fichier                         |
+| `git reset <file>`               | Desindexer un fichier                                                             |
+| `git reset --hard`               | Revenir à l'état du dernier commit, <br> perdant toutes les modifications locales |
+| `git stash`                      | Sauvegarder et remettre le working directory à l'état du dernier commit           |
+
+::: {.callout-caution}
+Attention avec les commandes contenant les mots *force*, *hard*...
+:::
+
 
 ### Ignorer des fichiers
 
@@ -673,7 +703,7 @@ Pour résoudre ce conflit, 3 possibilités :
 - vous choisissez celui d'Alice
 - vous choisissez un mix des 2
 
-Ensuite, vous validez, créez un commit et poussez le code (`git add .`, puis `git commit -m "<message>"` et `git push`)
+Ensuite, vous validez, créez un commit et poussez le code (`git add .`, puis `git commit -m "<message>"` et `git push`).
 
 :::
 
@@ -685,12 +715,18 @@ Est-ce qu'il y a des fichiers :
 - prêts à être commités ? *Changes to be committed*
 - modifiés non ajoutés à l'index ? *Changes not staged for commit*
 
-Est-ce que votre dépôt local est en avance de n commit par rapport au dépôt distant ?
-
 ::: {.callout-important}
 La commande `git status` permet de répondre à ces questions.
 
 Elle peut être utilisée n'importe quand, sans modération !
+:::
+
+### git status
+
+![](img/git-status.PNG){.r-stretch}
+
+::: {.notes}
+Est-ce que votre dépôt local est en avance de n commit par rapport au dépôt distant ?
 :::
 
 
@@ -702,8 +738,9 @@ Elle peut être utilisée n'importe quand, sans modération !
 - Cliquez sur le bouton `Code`
 - Copiez l'adresse *https* ou *ssh* du dépôt distant
 - `git clone <adresse_depot>`
-  - exemple : `git clone https://github.com/ludo2ne/Git-tuto.git` (https)
-  - exemple : `git clone git@github.com:ludo2ne/Git-tuto.git` (ssh)
+- exemples : 
+  - `git clone https://github.com/ludo2ne/Git-tuto.git` (https)
+  - `git clone git@github.com:ludo2ne/Git-tuto.git` (ssh)
 
 ### Créer sans cloner
 
@@ -750,7 +787,7 @@ Cependant ce cas d'utilisation est assez marginal.
 :::
 
 
-## Résumé - commandes principales
+## Commandes principales
 
 | Commande                    | Description                              |
 |-----------------------------|------------------------------------------|
@@ -761,12 +798,74 @@ Cependant ce cas d'utilisation est assez marginal.
 | `git pull`                  | dépôt local :arrow_right: dépôt distant  |
 | `git push`                  | dépôt local :arrow_left: dépôt distant   |
 
+: {tbl-colwidths="[50,50]"}
 
 ### Autres commandes
 
-- `git diff`
+- `git diff` : différence avec le dernier commit
   - `git diff <filename>`
-- `git checkout <commit_number>`
+- `git checkout <commit_number>` : passer à un commit spécifique
+- `git log` : historique des commits
+  - `git log --all --decorate --oneline --graph`
+
+
+## Travailler dans le cloud
+
+- Autre manière de travailler
+- Services non perennes
+- Sauvegarder votre code
+
+::: {.notes}
+- vous ne travaillerez pas toujours en local
+- mais parfois sur des services à la demande
+- ex : besoin de puissance de calcul
+:::
+
+## Les branches
+
+Imaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.
+
+Seulement vous n'êtes pas encore sûr que :
+
+- cette fonctionnalité sera vraiment utile
+- qu'elle ne va pas tout casser 
+
+### Les branches
+
+Vous aimeriez pouvoir :
+
+- tester votre nouveau code
+- de manière isolée
+- sans polluer le dépôt
+
+::: {.callout-note}
+La branche principale se nomme généralement *main* ou *master*.
+:::
+
+### La solution
+
+- Créez une branche
+- Développez sur cette branche (add, commit, push...)
+- Selon vos conclusions
+  - fusionnez votre branche avec le tronc
+  - supprimez votre branche
+
+:::{ .notes}
+ça vous permet de coder de manière isolée
+:::
+
+### Commandes liées aux branches
+
+| Commande                       | Description                                        |
+|--------------------------------|----------------------------------------------------|
+| `git branch -a`                | Lister toutes les branches                         |
+| `git checkout <branch>`        | Changer de branche                                 |
+| `git checkout -b <branch>`     | Créer et changer de branche                        |
+| `git merge <branch>`           | Fusionner `<branch>` dans la branche actuelle      |
+| `git branch -d <branch>`       | Supprimer la branche                               |
+| `git push origin <branch>`     | Pousser la branche vers le dépôt distant           |
+
+
 
 
 ## Bibliographie {.unnumbered}
