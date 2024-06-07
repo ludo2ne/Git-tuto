@@ -811,6 +811,21 @@ Cependant ce cas d'utilisation est assez marginal.
   - `git log --all --decorate --oneline --graph`
 
 
+::: {.hide-html-render}
+
+## Démo
+
+::: {.notes}
+- aller sur GitHub, cloner
+- créer un fichier, status
+- reset, status
+- modifier un fichier, status
+- commit
+- modifier sur github
+- push
+:::
+:::
+
 ## Travailler dans le cloud
 
 - Autre manière de travailler
