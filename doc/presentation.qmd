@@ -20,21 +20,22 @@ lightbox: true
 
 ## Introduction
 
-Imaginez que vous faites parti d'une équipe de 5 personnes qui doit coder une application de jeux de cartes.
+Vous faites parti d'une équipe de 5 personnes qui doit coder une application de jeux de cartes.
 
-Comment faites-vous pour mettre en commun votre code ?
+:confused: Comment mettre en commun votre code ?
 
-- Vous développez votre partie chacun de votre coté et à la fin, vous mettez tout en commun
+- Vous développez chacun de votre coté et à la fin, vous mettez tout en commun
 - Vous envoyez vos programmes par mail
-- Vous créer un dossier commun que vous mettez à jour manuellement
+- Vous créez un dossier commun
+
+:sweat_smile: En cas d'erreur, comment revenir en arrière ?
 
 
-## Git
+## Au programme
 
-- Versionner son code
-- Historique des modifications
-- Travail en équipe
-- Décentralisé
+- :pushpin: Versionner son code
+- :floppy_disk: Historique des modifications
+- :construction_worker: Travail en équipe
 
 
 ## Pourquoi versionner ?
@@ -45,6 +46,8 @@ Comment faites-vous pour mettre en commun votre code ?
 
 ::: {.notes}
 - les questions que l'on peut se poser en projet
+- Mais qui a écrit cette merde ???
+  - ah ben c'est moi...
 :::
 
 
@@ -53,11 +56,14 @@ Comment faites-vous pour mettre en commun votre code ?
 ::: {.notes}
 - imaginons que vous partagiez un dossier commun
 - ou encore que ce fichier soit dans des mails
+- version v0, v1, v2
+  - même si vous êtes bien intentionné
+  - ça finira par déraper
 :::
 
 ::: {.panel-tabset .nav-pills}
 
-#### Sans Git
+#### Pas bien
 
 ```
 ├─── Projet info
@@ -73,7 +79,7 @@ Comment faites-vous pour mettre en commun votre code ?
 
 :confused: Quelle est la bonne version du fichier ?
 
-#### Avec Git
+#### Bien
 
 :blush: Un seul fichier + l'historique des modifications
 
@@ -104,9 +110,15 @@ Source : [ThinkR](https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionne
 
 ### Ancien code commenté{.smaller}
 
+Vous souhaitez passer de *R-base* à *ggplot2* pour votre graphique.
+
+::: {.notes}
+Mais vous vous dites que c'est mieux de garder l'ancien code au cas où...
+:::
+
 ::: {.panel-tabset .nav-pills}
 
-#### Sans Git
+#### Pas bien
 
 ```{.R filename="analyse.R"}
 library(ggplot2)
@@ -128,7 +140,7 @@ ggplot(data, aes(x = x, y = y)) +
 ```
 
 
-#### Avec Git
+#### Bien
 
 ```{.R filename="analyse.R - Commit 05016ab - Date 2024.06.02 - Author tryphon"}
 data$y <- dnorm(data$x)
@@ -157,11 +169,16 @@ ggplot(data, aes(x = x, y = y)) +
 
 :::
 
-::: {.notes}
-Vous passez de R-base à ggplot2
-:::
 
 ## La solution
+
+<iframe src="https://giphy.com/embed/xTiTnnSVANbHlVU7mw" width="960" height="540" frameBorder="0" class="no-print giphy-embed" allowFullScreen></iframe>
+
+::: {.notes}
+La solution, tous en choeur, c'est ...
+:::
+
+## Git
 
 ::: incremental
 ![](img/git-logo.jpg){.r-stretch}
@@ -171,7 +188,7 @@ Vous passez de R-base à ggplot2
 - **git** : connard en argot britannique
 :::
 
-## Historique
+### Historique
 
 - Créé par Linus Torvalds en 2005 
 - Pour gérer le développement du noyau Linux
@@ -180,26 +197,49 @@ Vous passez de R-base à ggplot2
 
 ::: {.notes}
 - Standard : produit qui s'est imposé par l'usage (ex : Moteur de recherche Google, TCP/IP)
+  - peu causer des problèmes de monopole...
 :::
 
-## Logiciel
+### Logiciel
 
-- Logiciel Libre
+- Logiciel Libre, Open source
 - Gratuit
-- S'utilise en ligne de commande
+- Décentralisé
 
 ::: {.callout-note}
-:fearful: Git s'utilise très majoritairement en [ligne de commande]{.underline} dans un terminal `Git Bash`.  
-:sweat_smile: Pas de panique, quelques commandes simples suffisent largement pour travailler avec Git.
+:fearful: Git s'utilise majoritairement en [**ligne de commande**]{.underline} dans un terminal `Git Bash`.  
+:sweat_smile: Pas de panique, quelques commandes suffisent pour travailler avec Git.
 
 Il existe aussi des interfaces graphiques mais elles sont souvent imparfaites et sources d'erreur.
 :::
 
 ::: {.notes}
-- Logiciel libre : 
+- Logiciel libre
   - code source est ouvert et disponible
   - permettant à quiconque de l'utiliser, le modifier, et le distribuer librement
   - différent de gratuit
+  - légérement différent de Open source
+    - Open Source : avantages pratiques et collaboratifs
+    - Libre : libertés et les droits éthiques des utilisateurs
+- Décentralisé
+  - chaque utilisateur dispose d'une copie complète de l'historique de tout le projet
+:::
+
+### Késako
+
+- **Git**
+  - Logiciel de gestion de versions
+- **Git Bash**
+  - Terminal pour écrire des commandes git
+- **GitHub / GitLab**
+  - Plateforme de développement collaboratif
+  - Héberge des dépôts Git
+  - Propose d'autres fonctionnalités (CI/CD, wiki, gestion des incidents...)
+
+  
+::: {.notes}
+- GitHub racheté par Microsoft en 2018
+- GitLab, Libre, possible d'avoir son propre GitLab interne
 :::
 
 ## Git Bash
@@ -210,7 +250,7 @@ Il existe aussi des interfaces graphiques mais elles sont souvent imparfaites et
 ![](img/git-bash.PNG){.r-stretch}
 
 ::: {.notes}
-Lors de l'installation de Git, choisissez le terminal Unix
+Conseil : lors de l'installation de Git, choisissez le terminal Unix
 :::
 
 ### Commandes Unix {.smaller}
@@ -236,6 +276,8 @@ Lors de l'installation de Git, choisissez le terminal Unix
 - pwd : print working directory
 - mkdir : make directory
 - pour éditer un fichier : vi, nano
+
+Attention avec les commandes *rm*, *kill*
 :::
 
 ### Commandes Unix - Exemples
@@ -243,11 +285,12 @@ Lors de l'installation de Git, choisissez le terminal Unix
 Pour chaque commande, de nombreuses options sont disponibles
 
 ```{.bash}
-ll *.py                  # liste tous les fichiers python du répertoire courantes
-ll *.py > a.txt          # créer un fichier a.txt contenant le résultat de la commande
-cd ..                    # Se positionne dans le répertoire parent
-cd ../projet/src         # remonter dans le dossier parent puis aller dans projet puis src
-cp /p/image.jpg .        # copie le fichier image.jpg du disque P dans le dossier courant (.)
+ll *.py              # liste tous les fichiers python du répertoire courantes
+ll *.py > a.txt      # créer un fichier a.txt contenant le résultat de la commande
+cd ..                # Se positionne dans le répertoire parent
+cd ../projet/src     # remonter dans le dossier parent puis aller dans projet puis src
+cp /p/image.jpg .    # copie le fichier image.jpg du disque P dans le dossier courant
+./setup.sh           # Lancer le programme setup.sh
 ```
 
 ::: {.callout-tip}
@@ -256,7 +299,43 @@ cp /p/image.jpg .        # copie le fichier image.jpg du disque P dans le dossie
 :::
 
 
+::: {.notes}
+La ligne de commande reste très utilisée :
+
+- rapide, efficace
+- automatisation
+  - exemple : renommer 1000 fichiers d'un dossier
+:::
+
+
 ## Versionner son code
+
+::: {.notes}
+- Au début j'ai parlé de versionner
+- Comment faire avec Git
+:::
+
+### Workflow
+
+
+::: {.white-box}
+```{mermaid}
+sequenceDiagram
+    Workspace ->> Staging index: add
+    Staging index ->> Local repository: commit
+    Local repository ->> Remote repository: push
+    Remote repository ->> Workspace: pull
+```
+
+:::
+
+::: {.notes}
+- ça fait un peu peur, pas intuitif au début
+- c'est un peu plus complexe que d'avoir simplement local et remote
+- workspace : tous les fichiers de votre dossier
+- staging : fichier reconnus par git
+- local : sauvegardes du dépôt local
+:::
 
 ### Créer un commit
 
@@ -270,7 +349,8 @@ cp /p/image.jpg .        # copie le fichier image.jpg du disque P dans le dossie
 ::: {.notes}
 - git utilise la sauvegarde incrémentale
 - il ne garde que les modifs apportées depuis le dernier commit
-- message dans commit : "fix: ", "feat: "
+- fonctionne bien avec les fichierx txt, csv, md
+- moins bien avec pdf, doc, xls, jpg
 
 https://talks.freelancerepublik.com/git-commandes-indispensables-developpeurs/
 :::
@@ -306,20 +386,20 @@ Vous avez modifié un fichier et créé un nouveau.
 
 #### v1
 
-j'ajoute les fichiers créés ou modifiés à l'index :
+Vous ajoutez les fichiers créés ou modifiés à l'index :
 
 - `git add .`
 
-je crée un point de sauvegarde
+Vous créez un point de sauvegarde
 
-- `git commit -m "ajout de l'utilisation de velo"`
+- `git commit -m "feat: ajout de l'utilisation de velo"`
 
 
 #### Schéma
 
 ![](img/git-commit.PNG){.r-stretch}
 
-- je viens de créer un nouveau commit
+- vous venez de créer un nouveau commit
 - il est possible de consulter les commits précédents
   - `git checkout <commit_number>`
   - les fichiers de votre dépôt sont alors dans l'état où ils étaient à ce commit
@@ -334,21 +414,43 @@ gitGraph:
 
 :::
 
-### Ignorer des fichiers{.smaller}
+### Message du commit
+
+:pensive: Ce n'est pas toujours évident de trouver un message court et explicite.
+
+::: {.callout-tip}
+Utilisez un préfixe à votre message :
+
+- `feat: ` : nouvelle fonctionnalité
+- `fix: ` : correction
+- `doc: ` : mise à jour documentaire
+- `refactor: ` : mise au propre du code
+- `revert: ` : retour arrière
+:::
+
+::: {.notes}
+Suffixe WIP
+:::
+
+### Ignorer des fichiers
 
 :::{.callout-tip title="Le fichier .gitignore"}
-`.gitignore` est un fichier présent à la racine du dépôt permettant de dire à Git quels fichiers il doit ignorer. Par exemple : 
+`.gitignore` est un fichier présent à la racine du dépôt permettant de dire à Git quels fichiers il doit ignorer. Par exemple, s'il contient : 
 
-- si .gitignore contient `*.csv` :arrow_right: tous les fichiers *csv* seront ignorés par Git
-- si .gitignore contient `data/` :arrow_right: le dossier *data* et son contenu sera ignoré
+- `*.csv` :arrow_right: tous les fichiers *csv* seront ignorés par Git
+- `data/` :arrow_right: le dossier *data* et son contenu sera ignoré
 
 Cela est utile, pour exclure par exemple du dépôt Git :
 
 - des fichiers contenant des mots de passe, des jetons d'accès...
 - des fichiers de données volumineux qui n'ont pas vocation à être versionnés
-- des fichiers de log 
-
+- des fichiers de log
 :::
+
+::: {.notes}
+- c'était pour la partie "gestion du dépôt local"
+- ensuite regardons comment communiquer avec le dépôt distant
+::: 
 
 
 ## Travailler en équipe
@@ -363,14 +465,14 @@ Cela est utile, pour exclure par exemple du dépôt Git :
   - git permet la synchronisation des dépôts
 
 ::: {.callout-note title="Remarque"}
-Il est tout à fait possible d'avoir plusieurs clones du même dépôt sur son poste
+Il est tout à fait possible d'avoir plusieurs clones du même dépôt sur son poste.
 :::
 
 
 ### Dépôt local et dépôt distant
 
-::: {.callout-tip}
-Chaque dépôt est une copie intégrale du projet
+::: {.callout-important}
+Chaque dépôt est une copie intégrale du projet.
 :::
 
 ```{mermaid}
@@ -387,6 +489,10 @@ flowchart LR
     dev4 <--> github
 ```
 
+::: {.notes}
+- Si vous perdez un dépôt, il suffit de repartir d'un autre
+:::
+
 ### Communiquer avec le dépôt distant
 
 - `git pull` : mettre à jour son dépôt local à partir du dépôt distant
@@ -399,6 +505,9 @@ Il est important de pousser et puller réguliérement son code pour garder son d
 
 ### git push
 
+Dépôt local :arrow_right: Dépôt distant
+
+<!-- ne passe pas bien avec revealJS
 ```{mermaid}
 flowchart LR
     dev1[(Dépôt local)]
@@ -406,6 +515,7 @@ flowchart LR
     
     dev1 == push ==> github
 ```
+-->
 
 Pour pouvoir pousser son code, il est nécessaire :
 
@@ -414,6 +524,35 @@ Pour pouvoir pousser son code, il est nécessaire :
   - pas de retard de version par rapport au dépôt distant
   - si ce n'est pas le cas, il faut commencer par `git pull`
 
+  
+### git push - si votre dépôt local n'est pas à jour
+
+Le message est assez explicite
+
+```
+! [rejected]        main -> main (fetch first)
+error: failed to push some refs
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+### git push - fichier disparu
+
+- Vous venez de faire un `git push`
+- Mais votre fichier n'apparait pas sur le dépôt distant...
+- Probablement parce que vous avez oublié de l'ajouter à l'index avec `git add <mon_fichier>`
+
+Autre possibilité : votre fichier est ignoré par git car il fait parti du `.gitignore`
+
+### git push
+
+Dépôt local :arrow_left: Dépôt distant
+
+- Mise à jour de votre dépôt local
+- S'il y a eu des modifications sur le dépôt distant
 
 ### git pull - conflit
 
@@ -431,8 +570,18 @@ Que se passe-t-il si :
 - modifier le fichier en question pour garder la bonne version
 - `git add` puis `git commit` pour valider la résolution du conflit
 
+::: {.notes}
+- conflit ≠ erreur
+- ça arrive
+:::
 
 ### 2 versions s'opposent
+
+::: {.notes}
+- c'est un exemple, il peut y avoir d'autres types
+- git est assez bon pour merge (même si 2 modifs sur même fichier)
+- mais en cas de doute, il ne peut pas choisir
+:::
 
 ::: {.panel-tabset .nav-pills}
 
@@ -464,6 +613,15 @@ class Voiture:
 
 ### Résoudre un conflit
 
+::: {.notes}
+- Permier arrivé, premier servi
+- Git n'est pas un juge
+- Le conflit (après votre pull)
+- VSCode : accept incoming/current/both change
+- supprimer les `<<<<<<<` et `=======` :arrow_right: pas du python
+- si vous relancez votre programme comme ça, il va pas aimer
+:::
+
 ::: {.panel-tabset .nav-pills}
 
 #### Contexte
@@ -472,8 +630,7 @@ class Voiture:
 - Vous faîtes donc un `git pull`
   - En effet, vous devez impérativement mettre à jour votre dépôt local avant de pousser votre code
 - 2 versions s'opposent sur votre dépôt local
-  - `self.couleur = "noir"`
-  - `self.couleur = "blanc"`
+  - `self.couleur = "noir"` vs `self.couleur = "blanc"`
 - Git n'est pas capable de choisir laquelle est la bonne
 
 #### Le conflit
@@ -504,172 +661,96 @@ Ensuite, vous validez, créez un commit et poussez le code (`git add .`, puis `g
 
 :::
 
+## Etat du dépôt local
+
+Est-ce qu'il y a des fichiers : 
+
+- non suivis ? *Untracked files*
+- prêts à être commités ? *Changes to be committed*
+- modifiés non ajoutés à l'index ? *Changes not staged for commit*
+
+Est-ce que votre dépôt local est en avance de n commit par rapport au dépôt distant ?
+
+::: {.callout-important}
+La commande `git status` permet de répondre à ces questions.
+
+Elle peut être utilisée n'importe quand, sans modération !
+:::
 
 
-
-
-
-
-## Concepts
-
-- Clonage d'un dépôt
-- Concept de commit
-- Commandes Git Bash
-- txt
-
-
-
-
-----
-
-
-
-
-## Git, qu'est ce que c'est ?
-
-Git est un système de contrôle de version distribué, largement utilisé dans le développement logiciel pour suivre les modifications apportées aux fichiers source. Il permet aux développeurs de travailler efficacement en équipe, de gérer les différentes versions du code, de collaborer sur un même projet et de maintenir un historique complet des modifications. Git facilite le développement collaboratif, tout en offrant performance, flexibilité et fiabilité.
-
-- Git
-  - Logiciel de **gestion de versions**
-  - Open source, gratuit, très très très utilisé et pas qu'en informatique
-  - créé par Linus Torvalds, créateur également du noyau Linux
-- Git Bash
-  - Terminal pour écrire des commandes `git`
-  - Possible d'ouvrir via le menu Démarrer, mais aussi inclus dans Visual Studio Code
-- GitHub / GitLab
-  - plateforme de développement collaboratif basée sur Git
-  - héberge des dépôts Git
-  - Propose d'autres fonctionnalités (CICD, wiki, gestion des incidents...)
-
-
-## Git, ça sert à quoi ?
-
-- Git permet de suivre les modifications apportées aux fichiers et de gérer efficacement les différentes versions
-- Git enregistre un historique complet de toutes les modifications, ce qui permet de retracer l'évolution du projet, d'identifier les changements spécifiques et de revenir à des versions antérieures si nécessaire
-- Git facilite la collaboration entre les membres d'une équipe en permettant à plusieurs personnes de travailler simultanément sur le même projet
-
-
-
-Git va aider à synchroniser ces dépôts avec les commandes suivantes :
-
-- `git clone` : créer une copie du dépôt commun sur son poste
-- `git status` : voir où l'on en est
-- `git add` : ajouter de nouveaux fichiers dans le dépôt
-- `git commit` : créer un point de sauvegarde
-- `git pull` : récupérer les éventuelles modifications du dépôt distant pour mettre à jour son dépôt local
-- `git push` : partager ses mises à jour locale sur le dépôt distant
-
-
-## Les principales commandes
-
-
-
+## Cloner un dépôt
 
 ### git clone
 
-`git clone` est une commande de Git utilisée pour [créer une copie locale complète d'un dépôt distant]{.underline}. 
-Elle télécharge tous les fichiers et l'historique de version du dépôt distant vers votre système local dans un nouveau répertoire.
+- Allez sur la page du dépôt distant (GitHub, GitLab...)
+- Cliquez sur le bouton `Code`
+- Copiez l'adresse *https* ou *ssh* du dépôt distant
+- `git clone <adresse_depot>`
+  - exemple : `git clone https://github.com/ludo2ne/Git-tuto.git` (https)
+  - exemple : `git clone git@github.com:ludo2ne/Git-tuto.git` (ssh)
 
-Exemples :
+### Créer sans cloner
 
-- `git clone https://github.com:<propietaire_depot>/<nom_du_depot>.git`
-- `git clone git@github.com:ludo2ne/Git-tuto.git`
-- `git clone https://github.com/ludo2ne/Git-tuto.git`
+::: {.callout-note title="Remarque"}
+Il est possible de créer un dépôt local sans cloner un dépôt distant (`git init`).
 
-Il y a deux principaux protocoles pour cloner un dépot git : *ssh* et *https*. Sans rentrer dans les détails, l'utilisation suivante est préconisée :
+Et éventuellement ensuite de le brancher à un dépôt distant.
 
-- ssh : si vous souhaitez modifier le code et le partager (nécéssite d'avoir paramétré une clé ssh)
-- https : si vous voulez simplement avoir une copie locale du code sans partager vos modifications
-
-
-### git status
-
-`git status` affiche l'état actuel du répertoire de travail et de l'index. Elle montre : 
-
-- les fichiers modifiés prêt à rentrer dans le prochain commit (*Changes to be committed)
-- les autres fichiers modifiés (*Changes not staged for commit*)
-- les fichiers non suivis (*Untracked files*)
-
-Cette commande est à utiliser sans modération pour voir l'état du dépôt !
-
-
-### git add
-
-`git add` est utilisée pour ajouter des fichiers à l'index, c'est à dire des fichiers que vous souhaitez versionner.
-
-Autrement dit, si vous faites `git add soleil.txt`, vous dites à git qu'il faut ajouter ce fichier au dépôt et le versionner.
-
-`git add .` permet d'ajouter [tous]{.underline} les fichiers non suivis à l'index
-
-
-
-
-### git commit
-
-`git commit -m "mon_message"` est utilisée pour créer un [point de sauvegarde]{.underline}.  
-Il est conseillé d'écrire un message court, clair et compréhensible.
-
-
-### git pull
-
-`git pull` récupère les dernières modifications du dépôt distant et met à jour votre dépôt local.
-
-
-
-### git push
-
-`git push` envoie les modifications locales vers le dépôt distant.  
-
-::: {.callout-important}
-Pour pouvoir pousser, il est nécessaire :
-
-- d'avoir au préalable créé au minimum un *commit*
-- que votre dépôt soit à jour (pas de retard de version par rapport au dépôt distant)
+Cependant ce cas d'utilisation est assez marginal.
 :::
 
-## Exemples
 
-### Exemple 1
+### https ou ssh ?
 
-- Si sur le dépôt distant, le fichier *soleil.txt* a été créé par une autre personne
-- La commande `git pull` permet de mettre à jour son dépôt local
-- Le fichier `soleil.txt` apparait sur votre dépôt local
+2 protocoles différents pour communiquer avec le dépôt distant.
 
-### Exemple 2
+::: {.panel-tabset .nav-pills}
 
-- En local, vous avez créé le fichier `temple.py` et modifié le fichier `soleil.txt`
-- Faites `git add .` pour dire à Git que vous souhaitez valider vos modifications
-- Créez un point de sauvegarde avec la commande `git commit -m "message de mise à jour"`
-- Puis, la commande `git push` permet de partager cette nouvelle version sur le dépôt distant
-- Sur le dépôt distant, les 2 fichiers seront créés ou mis à jour
+#### https
 
-Pour gérer les versions, Git utilise des points de sauvegarde appelés `commits`. Grace à cela, il est possible de consulter les versions antérieures des fichiers.
+À utiliser si vous voulez simplement avoir une copie locale du code sans partager vos modifications.
+
+- Plus simple, pas besoin de configuration
+- Nécessite un token si vous voulez pousser du code
+- Requiert des saisies répétées du token
+
+#### ssh
+
+À utiliser si vous travaillez en projet.
+
+- Configuration initiale des clés SSH
+- Plus pratique pour des interactions fréquentes
+- Pas de saisie de mot de passe après configuration
+
+:::
+
+::: {.notes}
+- ssh : 
+  - clé publique / clé privée -> config machine
+  - push and pull
+- https : 
+  - token donné par github
+  - pull only
+:::
 
 
-## Les erreurs courantes
+## Résumé - commandes principales
 
-### fichier disparu
+| Commande                    | Description                              |
+|-----------------------------|------------------------------------------|
+| `git clone <adr>`           | Créer un dépôt local sur son poste       |
+| `git status`                | Voir où l'on en est                      |
+| `git add <file>`            | Ajouter pour le prochain commit          |
+| `git commit -m "<msg>"`     | Créer un point de sauvegarde             |
+| `git pull`                  | dépôt local :arrow_right: dépôt distant  |
+| `git push`                  | dépôt local :arrow_left: dépôt distant   |
 
-Si vous venez de faire un `git push` et que votre fichier n'apparait pas sur le dépôt distant, c'est probablement parce que vous avez oublié de l'ajouter à l'index avec `git add <mon_fichier>`.
 
-Autre possibilité : votre fichier est ignoré par git car il fait parti du `.gitignore`
+### Autres commandes
 
-### git push rejected
-
-```
-! [rejected]        main -> main (fetch first)
-error: failed to push some refs
-hint: Updates were rejected because the remote contains work that you do not
-hint: have locally. This is usually caused by another repository pushing to
-hint: the same ref. If you want to integrate the remote changes, use
-hint: 'git pull' before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-```
-
-Le message d'erreur est assez explicite. Le dépôt distant a été modifié et votre dépôt local n'est donc plus à jour.
-
-Vous devez commencer par mettre à jour votre dépôt local avec `git pull` avant de pousser votre code
-
+- `git diff`
+  - `git diff <filename>`
+- `git checkout <commit_number>`
 
 
 ## Bibliographie {.unnumbered}
