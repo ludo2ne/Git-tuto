@@ -513,7 +513,7 @@ Date         Heure   Auteur      Message commit
 <div id="fig-thinkr" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-thinkr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="img/thinkR_git_avec_sans.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img data-src="img/thinkR_git_avec_sans.png" style="width:40.0%"></a>
+<a href="img/thinkR_git_avec_sans.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img data-src="img/thinkR_git_avec_sans.png" style="width:40.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-thinkr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/" target="_blank">ThinkR</a>
@@ -1133,7 +1133,7 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
           display:block!important;
       }</style></aside>
 </section>
-<section id="retour-arrière" class="slide level3">
+<section id="retour-arrière" class="slide level3 smaller">
 <h3>Retour arrière</h3>
 <p>Si finalement, vous n’avez pas envie de commiter vos modifications ?</p>
 <table class="caption-top">
@@ -1734,12 +1734,12 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
       }</style></aside>
 </section></section>
 <section>
-<section id="commandes-principales" class="title-slide slide level2 center">
+<section id="commandes-principales" class="title-slide slide level2 smaller center">
 <h2>Commandes principales</h2>
 <table class="caption-top">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 40%">
+<col style="width: 59%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1821,9 +1821,25 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 <p>Imaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.</p>
 <p>Seulement vous n’êtes pas encore sûr que :</p>
 <ul>
-<li>cette fonctionnalité sera vraiment utile</li>
-<li>qu’elle ne va pas tout casser</li>
+<li>cette fonctionnalité sera vraiment utile <span class="emoji" data-emoji="neutral_face">😐</span></li>
+<li>qu’elle ne va pas tout casser <span class="emoji" data-emoji="cold_sweat">😰</span></li>
 </ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>si c’est tout petit, vous pouvez dev en local en faire un reset au cas où</li>
+<li>sinon utilisez une branche</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="les-branches-1" class="slide level3">
 <h3>Les branches</h3>
@@ -1872,7 +1888,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
           display:block!important;
       }</style></aside>
 </section>
-<section id="commandes-liées-aux-branches" class="slide level3">
+<section id="commandes-liées-aux-branches" class="slide level3 smaller">
 <h3>Commandes liées aux branches</h3>
 <table class="caption-top">
 <colgroup>
@@ -1917,8 +1933,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 <h2>Bibliographie</h2>
 <ul>
 <li><a href="https://pythonds.linogaliana.fr/content/git/introgit.html" class="external" target="_blank">Git : un élément essentiel au quotidien</a>, Python pour la datascience, Lino Galiana</li>
-<li><a href="https://github.com/InseeFrLab/formation-git" class="external" target="_blank">Formation Git du Lab INSEE</a></li>
-<li><a href="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/" class="external" target="_blank">Bonnes pratiques Git</a></li>
+<li><a href="https://collaboratif-git-formation-insee.netlify.app/" class="external" target="_blank">Formation Git du Lab INSEE</a></li>
 <li><a href="https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow" class="external" target="_blank">GitFlow</a></li>
 <li><a href="https://www.atlassian.com/fr/continuous-delivery/continuous-integration/trunk-based-development" class="external" target="_blank">Développement basé sur le tronc</a></li>
 </ul>
@@ -2318,7 +2333,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom","loop":false});
+    <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom"});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;

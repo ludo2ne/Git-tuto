@@ -793,8 +793,8 @@ Tip
 <p>Suffixe WIP</p>
 </div>
 </section>
-<section id="retour-arrière" class="level3">
-<h3 class="anchored" data-anchor-id="retour-arrière">Retour arrière</h3>
+<section id="retour-arrière" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="retour-arrière">Retour arrière</h3>
 <p>Si finalement, vous n’avez pas envie de commiter vos modifications ?</p>
 <table class="caption-top table">
 <colgroup>
@@ -1291,12 +1291,12 @@ Remarque
 </div>
 </section>
 </section>
-<section id="commandes-principales" class="level2">
-<h2 class="anchored" data-anchor-id="commandes-principales">Commandes principales</h2>
+<section id="commandes-principales" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="commandes-principales">Commandes principales</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 40%">
+<col style="width: 59%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1366,9 +1366,25 @@ Remarque
 <p>Imaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.</p>
 <p>Seulement vous n’êtes pas encore sûr que :</p>
 <ul>
-<li>cette fonctionnalité sera vraiment utile</li>
-<li>qu’elle ne va pas tout casser</li>
+<li>cette fonctionnalité sera vraiment utile <span class="emoji" data-emoji="neutral_face">😐</span></li>
+<li>qu’elle ne va pas tout casser <span class="emoji" data-emoji="cold_sweat">😰</span></li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>si c’est tout petit, vous pouvez dev en local en faire un reset au cas où</li>
+<li>sinon utilisez une branche</li>
+</ul>
+</div>
+</div>
 <section id="les-branches-1" class="level3">
 <h3 class="anchored" data-anchor-id="les-branches-1">Les branches</h3>
 <p>Vous aimeriez pouvoir :</p>
@@ -1406,8 +1422,8 @@ Note
 <p>ça vous permet de coder de manière isolée</p>
 </div>
 </section>
-<section id="commandes-liées-aux-branches" class="level3">
-<h3 class="anchored" data-anchor-id="commandes-liées-aux-branches">Commandes liées aux branches</h3>
+<section id="commandes-liées-aux-branches" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="commandes-liées-aux-branches">Commandes liées aux branches</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 38%">
@@ -1452,8 +1468,7 @@ Note
 <h2 class="unnumbered anchored" data-anchor-id="bibliographie">Bibliographie</h2>
 <ul>
 <li><a href="https://pythonds.linogaliana.fr/content/git/introgit.html" class="external" target="_blank">Git : un élément essentiel au quotidien</a>, Python pour la datascience, Lino Galiana</li>
-<li><a href="https://github.com/InseeFrLab/formation-git" class="external" target="_blank">Formation Git du Lab INSEE</a></li>
-<li><a href="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/" class="external" target="_blank">Bonnes pratiques Git</a></li>
+<li><a href="https://collaboratif-git-formation-insee.netlify.app/" class="external" target="_blank">Formation Git du Lab INSEE</a></li>
 <li><a href="https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow" class="external" target="_blank">GitFlow</a></li>
 <li><a href="https://www.atlassian.com/fr/continuous-delivery/continuous-integration/trunk-based-development" class="external" target="_blank">Développement basé sur le tronc</a></li>
 </ul>
@@ -2032,7 +2047,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

@@ -347,14 +347,14 @@
     "href": "doc/presentation-slides.html#les-branches",
     "title": "Introduction à Git",
     "section": "Les branches",
-    "text": "Les branches\nImaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.\nSeulement vous n’êtes pas encore sûr que :\n\ncette fonctionnalité sera vraiment utile\nqu’elle ne va pas tout casser"
+    "text": "Les branches\nImaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.\nSeulement vous n’êtes pas encore sûr que :\n\ncette fonctionnalité sera vraiment utile 😐\nqu’elle ne va pas tout casser 😰\n\n\n\n\n\n\n\nNote\n\n\n\nsi c’est tout petit, vous pouvez dev en local en faire un reset au cas où\nsinon utilisez une branche"
   },
   {
     "objectID": "doc/presentation-slides.html#bibliographie",
     "href": "doc/presentation-slides.html#bibliographie",
     "title": "Introduction à Git",
     "section": "Bibliographie",
-    "text": "Bibliographie\n\nGit : un élément essentiel au quotidien, Python pour la datascience, Lino Galiana\nFormation Git du Lab INSEE\nBonnes pratiques Git\nGitFlow\nDéveloppement basé sur le tronc\n\n\n\n\nHome — Introduction à Git\n\n\n\nFigure 1: Source : ThinkR"
+    "text": "Bibliographie\n\nGit : un élément essentiel au quotidien, Python pour la datascience, Lino Galiana\nFormation Git du Lab INSEE\nGitFlow\nDéveloppement basé sur le tronc\n\n\n\n\nHome — Introduction à Git\n\n\n\nFigure 1: Source : ThinkR"
   },
   {
     "objectID": "doc/presentation.html",
@@ -452,13 +452,13 @@
     "href": "doc/presentation.html#les-branches",
     "title": "Introduction à Git",
     "section": "Les branches",
-    "text": "Les branches\nImaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.\nSeulement vous n’êtes pas encore sûr que :\n\ncette fonctionnalité sera vraiment utile\nqu’elle ne va pas tout casser\n\n\nLes branches\nVous aimeriez pouvoir :\n\ntester votre nouveau code\nde manière isolée\nsans polluer le dépôt\n\n\n\n\n\n\n\nNote\n\n\n\nLa branche principale se nomme généralement main ou master.\n\n\n\n\nLa solution\n\nCréez une branche\nDéveloppez sur cette branche (add, commit, push…)\nSelon vos conclusions\n\nfusionnez votre branche avec le tronc\nsupprimez votre branche\n\n\n\nça vous permet de coder de manière isolée\n\n\n\nCommandes liées aux branches\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\ngit branch -a\nLister toutes les branches\n\n\ngit checkout &lt;branch&gt;\nChanger de branche\n\n\ngit checkout -b &lt;branch&gt;\nCréer et changer de branche\n\n\ngit merge &lt;branch&gt;\nFusionner &lt;branch&gt; dans la branche actuelle\n\n\ngit branch -d &lt;branch&gt;\nSupprimer la branche\n\n\ngit push origin &lt;branch&gt;\nPousser la branche vers le dépôt distant"
+    "text": "Les branches\nImaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.\nSeulement vous n’êtes pas encore sûr que :\n\ncette fonctionnalité sera vraiment utile 😐\nqu’elle ne va pas tout casser 😰\n\n\n\n\n\n\n\nNote\n\n\n\n\nsi c’est tout petit, vous pouvez dev en local en faire un reset au cas où\nsinon utilisez une branche\n\n\n\n\nLes branches\nVous aimeriez pouvoir :\n\ntester votre nouveau code\nde manière isolée\nsans polluer le dépôt\n\n\n\n\n\n\n\nNote\n\n\n\nLa branche principale se nomme généralement main ou master.\n\n\n\n\nLa solution\n\nCréez une branche\nDéveloppez sur cette branche (add, commit, push…)\nSelon vos conclusions\n\nfusionnez votre branche avec le tronc\nsupprimez votre branche\n\n\n\nça vous permet de coder de manière isolée\n\n\n\nCommandes liées aux branches\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\ngit branch -a\nLister toutes les branches\n\n\ngit checkout &lt;branch&gt;\nChanger de branche\n\n\ngit checkout -b &lt;branch&gt;\nCréer et changer de branche\n\n\ngit merge &lt;branch&gt;\nFusionner &lt;branch&gt; dans la branche actuelle\n\n\ngit branch -d &lt;branch&gt;\nSupprimer la branche\n\n\ngit push origin &lt;branch&gt;\nPousser la branche vers le dépôt distant"
   },
   {
     "objectID": "doc/presentation.html#bibliographie",
     "href": "doc/presentation.html#bibliographie",
     "title": "Introduction à Git",
     "section": "Bibliographie",
-    "text": "Bibliographie\n\nGit : un élément essentiel au quotidien, Python pour la datascience, Lino Galiana\nFormation Git du Lab INSEE\nBonnes pratiques Git\nGitFlow\nDéveloppement basé sur le tronc\n\n\n\n\nFigure 1: Source : ThinkR"
+    "text": "Bibliographie\n\nGit : un élément essentiel au quotidien, Python pour la datascience, Lino Galiana\nFormation Git du Lab INSEE\nGitFlow\nDéveloppement basé sur le tronc\n\n\n\n\nFigure 1: Source : ThinkR"
   }
 ]
