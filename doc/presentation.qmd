@@ -448,8 +448,11 @@ Cela est utile, pour exclure par exemple du dépôt Git :
 :::
 
 ::: {.notes}
-- c'était pour la partie "gestion du dépôt local"
-- ensuite regardons comment communiquer avec le dépôt distant
+- En info, il y a souvent plein de fichiers de config
+- :warning: Mots de passe :arrow_right: git garde tout l'historique
+- Next
+  - c'était pour la partie "gestion du dépôt local"
+  - ensuite regardons comment communiquer avec le dépôt distant
 ::: 
 
 
@@ -468,6 +471,10 @@ Cela est utile, pour exclure par exemple du dépôt Git :
 Il est tout à fait possible d'avoir plusieurs clones du même dépôt sur son poste.
 :::
 
+::: {.notes}
+- avoir un accès internet / réseau local pour communiquer avec remote
+- c'était pas nécessaire pour faire des add / commit
+:::
 
 ### Dépôt local et dépôt distant
 
@@ -500,6 +507,10 @@ flowchart LR
 
 ::: {.callout-important}
 Il est important de pousser et puller réguliérement son code pour garder son dépôt à jour.
+:::
+
+::: {.notes}
+- sinon vos versions vont diverger
 :::
 
 
@@ -547,7 +558,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 Autre possibilité : votre fichier est ignoré par git car il fait parti du `.gitignore`
 
-### git push
+### git pull
 
 Dépôt local :arrow_left: Dépôt distant
 
@@ -587,24 +598,24 @@ Que se passe-t-il si :
 
 #### Version d'origine
 
-```{.python filename="voiture.py"}
-class Voiture:
+```{.python filename="velo.py"}
+class Velo:
     def __init__(self, couleur):
         self.couleur = "bleu"
 ```
 
 #### Votre version
 
-```{.python filename="voiture.py"}
-class Voiture:
+```{.python filename="velo.py"}
+class Velo:
     def __init__(self, couleur):
         self.couleur = "noir"
 ```
 
 #### Version d'Alice
 
-```{.python filename="voiture.py"}
-class Voiture:
+```{.python filename="velo.py"}
+class Velo:
     def __init__(self, couleur):
         self.couleur = "blanc"
 ```
@@ -614,12 +625,17 @@ class Voiture:
 ### Résoudre un conflit
 
 ::: {.notes}
-- Permier arrivé, premier servi
-- Git n'est pas un juge
-- Le conflit (après votre pull)
-- VSCode : accept incoming/current/both change
-- supprimer les `<<<<<<<` et `=======` :arrow_right: pas du python
-- si vous relancez votre programme comme ça, il va pas aimer
+- Contexte
+  - Permier arrivé, premier servi
+  - Le conflit (après votre pull)
+- Conflit
+  - Git n'est pas un juge
+  - VSCode : accept incoming/current/both change
+- Résolution
+  - supprimez les `<<<<<<<` et `=======` :arrow_right: pas du python
+  - si vous relancez votre programme comme ça, il va pas aimer
+
+Le conflit se résoud sur son dépôt local !
 :::
 
 ::: {.panel-tabset .nav-pills}
@@ -639,7 +655,7 @@ class Voiture:
 - En bas : celle provenant du dépôt distant
 
 ```{.python}
-class Voiture:
+class Velo:
 <<<<<<< HEAD
     def __init__(self, nom, couleur, vitesse_max):
         self.couleur = "noir"
