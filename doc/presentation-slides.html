@@ -513,7 +513,7 @@ Date         Heure   Auteur      Message commit
 <div id="fig-thinkr" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-thinkr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="img/thinkR_git_avec_sans.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img data-src="img/thinkR_git_avec_sans.png" style="width:40.0%"></a>
+<a href="img/thinkR_git_avec_sans.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img data-src="img/thinkR_git_avec_sans.png" style="width:40.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-thinkr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/" target="_blank">ThinkR</a>
@@ -924,6 +924,37 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
           display:block!important;
       }</style></aside>
 </section>
+<section id="que-versionne-t-on" class="slide level3">
+<h3>Que versionne-t-on ?</h3>
+<ul>
+<li><span class="emoji" data-emoji="white_check_mark">✅</span> des fichiers de type texte (légers)</li>
+<li><span class="emoji" data-emoji="white_check_mark">✅</span> du code source</li>
+<li><span class="emoji" data-emoji="x">❌</span> fichiers de données</li>
+<li><span class="emoji" data-emoji="x">❌</span> mots de passe</li>
+<li><span class="emoji" data-emoji="x">❌</span> outputs : logs, .pdf, .doc</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>un dépôt doit rester mince</li>
+<li>quelques Mo max</li>
+<li>possible de mettre du doc ou pdf
+<ul>
+<li>mais git ne sait comparer que du txt, csv, md</li>
+<li>tout ce qui peut s’ouvrir avec notepad</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="workflow" class="slide level3">
 <h3>Workflow</h3>
 <div class="white-box">
@@ -979,8 +1010,6 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <ul>
 <li>git utilise la sauvegarde incrémentale</li>
 <li>il ne garde que les modifs apportées depuis le dernier commit</li>
-<li>fonctionne bien avec les fichierx txt, csv, md</li>
-<li>moins bien avec pdf, doc, xls, jpg</li>
 </ul>
 <p>https://talks.freelancerepublik.com/git-commandes-indispensables-developpeurs/</p>
 <style type="text/css">
@@ -1104,6 +1133,57 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
           display:block!important;
       }</style></aside>
 </section>
+<section id="retour-arrière" class="slide level3">
+<h3>Retour arrière</h3>
+<p>Si finalement, vous n’avez pas envie de commiter vos modifications ?</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Commande</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>git checkout -- &lt;file&gt;</code></td>
+<td>Annuler les modifications locales non indexées du fichier</td>
+</tr>
+<tr class="even">
+<td><code>git restore &lt;file&gt;</code></td>
+<td>Annuler les modifications locales non indexées du fichier</td>
+</tr>
+<tr class="odd">
+<td><code>git reset &lt;file&gt;</code></td>
+<td>Desindexer un fichier</td>
+</tr>
+<tr class="even">
+<td><code>git reset --hard</code></td>
+<td>Revenir à l’état du dernier commit, <br> perdant toutes les modifications locales</td>
+</tr>
+<tr class="odd">
+<td><code>git stash</code></td>
+<td>Sauvegarder et remettre le working directory à l’état du dernier commit</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Caution</strong></p>
+</div>
+<div class="callout-content">
+<p>Attention avec les commandes contenant les mots <em>force</em>, <em>hard</em>…</p>
+</div>
+</div>
+</div>
+</section>
 <section id="ignorer-des-fichiers" class="slide level3">
 <h3>Ignorer des fichiers</h3>
 <div title="Le fichier .gitignore">
@@ -1133,8 +1213,13 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </div>
 <aside class="notes">
 <ul>
+<li>En info, il y a souvent plein de fichiers de config</li>
+<li><span class="emoji" data-emoji="warning">⚠️</span> Mots de passe <span class="emoji" data-emoji="arrow_right">➡️</span> git garde tout l’historique</li>
+<li>Next
+<ul>
 <li>c’était pour la partie “gestion du dépôt local”</li>
 <li>ensuite regardons comment communiquer avec le dépôt distant</li>
+</ul></li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1182,6 +1267,22 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </div>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>avoir un accès internet / réseau local pour communiquer avec remote</li>
+<li>c’était pas nécessaire pour faire des add / commit</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="dépôt-local-et-dépôt-distant-1" class="slide level3">
 <h3>Dépôt local et dépôt distant</h3>
@@ -1255,6 +1356,21 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </div>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>sinon vos versions vont diverger</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="git-push" class="slide level3">
 <h3>git push</h3>
@@ -1317,8 +1433,8 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 </ul>
 <p>Autre possibilité : votre fichier est ignoré par git car il fait parti du <code>.gitignore</code></p>
 </section>
-<section id="git-push-1" class="slide level3">
-<h3>git push</h3>
+<section id="git-pull" class="slide level3">
+<h3>git pull</h3>
 <p>Dépôt local <span class="emoji" data-emoji="arrow_left">⬅️</span> Dépôt distant</p>
 <ul>
 <li>Mise à jour de votre dépôt local</li>
@@ -1383,9 +1499,9 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 <div id="tabset-4-1">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>voiture.py</strong></pre>
+<pre><strong>velo.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb10" data-filename="voiture.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="kw">class</span> Voiture:</span>
+<div class="sourceCode" id="cb10" data-filename="velo.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="kw">class</span> Velo:</span>
 <span id="cb10-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
 <span id="cb10-3"><a></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"bleu"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1393,9 +1509,9 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 <div id="tabset-4-2">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>voiture.py</strong></pre>
+<pre><strong>velo.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb11" data-filename="voiture.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="kw">class</span> Voiture:</span>
+<div class="sourceCode" id="cb11" data-filename="velo.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="kw">class</span> Velo:</span>
 <span id="cb11-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
 <span id="cb11-3"><a></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"noir"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1403,9 +1519,9 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 <div id="tabset-4-3">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>voiture.py</strong></pre>
+<pre><strong>velo.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb12" data-filename="voiture.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="kw">class</span> Voiture:</span>
+<div class="sourceCode" id="cb12" data-filename="velo.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="kw">class</span> Velo:</span>
 <span id="cb12-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
 <span id="cb12-3"><a></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"blanc"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1417,13 +1533,23 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 <h3>Résoudre un conflit</h3>
 <aside class="notes">
 <ul>
+<li>Contexte
+<ul>
 <li>Permier arrivé, premier servi</li>
-<li>Git n’est pas un juge</li>
 <li>Le conflit (après votre pull)</li>
+</ul></li>
+<li>Conflit
+<ul>
+<li>Git n’est pas un juge</li>
 <li>VSCode : accept incoming/current/both change</li>
-<li>supprimer les <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> et <code>=======</code> <span class="emoji" data-emoji="arrow_right">➡️</span> pas du python</li>
+</ul></li>
+<li>Résolution
+<ul>
+<li>supprimez les <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> et <code>=======</code> <span class="emoji" data-emoji="arrow_right">➡️</span> pas du python</li>
 <li>si vous relancez votre programme comme ça, il va pas aimer</li>
+</ul></li>
 </ul>
+<p>Le conflit se résoud sur son dépôt local !</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1457,7 +1583,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 <li>En haut : votre version</li>
 <li>En bas : celle provenant du dépôt distant</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="kw">class</span> Voiture:</span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="kw">class</span> Velo:</span>
 <span id="cb13-2"><a></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
 <span id="cb13-3"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, vitesse_max):</span>
 <span id="cb13-4"><a></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"noir"</span></span>
@@ -1473,11 +1599,12 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 <li>vous choisissez celui d’Alice</li>
 <li>vous choisissez un mix des 2</li>
 </ul>
-<p>Ensuite, vous validez, créez un commit et poussez le code (<code>git add .</code>, puis <code>git commit -m "&lt;message&gt;"</code> et <code>git push</code>)</p>
+<p>Ensuite, vous validez, créez un commit et poussez le code (<code>git add .</code>, puis <code>git commit -m "&lt;message&gt;"</code> et <code>git push</code>).</p>
 </div>
 </div>
 </div>
 </section></section>
+<section>
 <section id="etat-du-dépôt-local" class="title-slide slide level2 center">
 <h2>Etat du dépôt local</h2>
 <p>Est-ce qu’il y a des fichiers :</p>
@@ -1486,7 +1613,6 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 <li>prêts à être commités ? <em>Changes to be committed</em></li>
 <li>modifiés non ajoutés à l’index ? <em>Changes not staged for commit</em></li>
 </ul>
-<p>Est-ce que votre dépôt local est en avance de n commit par rapport au dépôt distant ?</p>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1502,7 +1628,23 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 </div>
 </div>
 </section>
+<section id="git-status" class="slide level3">
+<h3>git status</h3>
 
+<img data-src="img/git-status.PNG" class="r-stretch"><aside class="notes">
+<p>Est-ce que votre dépôt local est en avance de n commit par rapport au dépôt distant ?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
 <section>
 <section id="cloner-un-dépôt" class="title-slide slide level2 center">
 <h2>Cloner un dépôt</h2>
@@ -1514,10 +1656,11 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 <li>Allez sur la page du dépôt distant (GitHub, GitLab…)</li>
 <li>Cliquez sur le bouton <code>Code</code></li>
 <li>Copiez l’adresse <em>https</em> ou <em>ssh</em> du dépôt distant</li>
-<li><code>git clone &lt;adresse_depot&gt;</code>
+<li><code>git clone &lt;adresse_depot&gt;</code></li>
+<li>exemples :
 <ul>
-<li>exemple : <code>git clone https://github.com/ludo2ne/Git-tuto.git</code> (https)</li>
-<li>exemple : <code>git clone git@github.com:ludo2ne/Git-tuto.git</code> (ssh)</li>
+<li><code>git clone https://github.com/ludo2ne/Git-tuto.git</code> (https)</li>
+<li><code>git clone git@github.com:ludo2ne/Git-tuto.git</code> (ssh)</li>
 </ul></li>
 </ul>
 </section>
@@ -1591,12 +1734,12 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
       }</style></aside>
 </section></section>
 <section>
-<section id="résumé---commandes-principales" class="title-slide slide level2 center">
-<h2>Résumé - commandes principales</h2>
+<section id="commandes-principales" class="title-slide slide level2 center">
+<h2>Commandes principales</h2>
 <table class="caption-top">
 <colgroup>
-<col style="width: 40%">
-<col style="width: 59%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1635,12 +1778,140 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 <section id="autres-commandes" class="slide level3">
 <h3>Autres commandes</h3>
 <ul>
-<li><code>git diff</code>
+<li><code>git diff</code> : différence avec le dernier commit
 <ul>
 <li><code>git diff &lt;filename&gt;</code></li>
 </ul></li>
-<li><code>git checkout &lt;commit_number&gt;</code></li>
+<li><code>git checkout &lt;commit_number&gt;</code> : passer à un commit spécifique</li>
+<li><code>git log</code> : historique des commits
+<ul>
+<li><code>git log --all --decorate --oneline --graph</code></li>
+</ul></li>
 </ul>
+</section></section>
+<section id="travailler-dans-le-cloud" class="title-slide slide level2 center">
+<h2>Travailler dans le cloud</h2>
+<ul>
+<li>Autre manière de travailler</li>
+<li>Services non perennes</li>
+<li>Sauvegarder votre code</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>vous ne travaillerez pas toujours en local</li>
+<li>mais parfois sur des services à la demande</li>
+<li>ex : besoin de puissance de calcul</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section>
+<section id="les-branches" class="title-slide slide level2 center">
+<h2>Les branches</h2>
+<p>Imaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.</p>
+<p>Seulement vous n’êtes pas encore sûr que :</p>
+<ul>
+<li>cette fonctionnalité sera vraiment utile</li>
+<li>qu’elle ne va pas tout casser</li>
+</ul>
+</section>
+<section id="les-branches-1" class="slide level3">
+<h3>Les branches</h3>
+<p>Vous aimeriez pouvoir :</p>
+<ul>
+<li>tester votre nouveau code</li>
+<li>de manière isolée</li>
+<li>sans polluer le dépôt</li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>La branche principale se nomme généralement <em>main</em> ou <em>master</em>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="la-solution-1" class="slide level3">
+<h3>La solution</h3>
+<ul>
+<li>Créez une branche</li>
+<li>Développez sur cette branche (add, commit, push…)</li>
+<li>Selon vos conclusions
+<ul>
+<li>fusionnez votre branche avec le tronc</li>
+<li>supprimez votre branche</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>ça vous permet de coder de manière isolée</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="commandes-liées-aux-branches" class="slide level3">
+<h3>Commandes liées aux branches</h3>
+<table class="caption-top">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Commande</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>git branch -a</code></td>
+<td>Lister toutes les branches</td>
+</tr>
+<tr class="even">
+<td><code>git checkout &lt;branch&gt;</code></td>
+<td>Changer de branche</td>
+</tr>
+<tr class="odd">
+<td><code>git checkout -b &lt;branch&gt;</code></td>
+<td>Créer et changer de branche</td>
+</tr>
+<tr class="even">
+<td><code>git merge &lt;branch&gt;</code></td>
+<td>Fusionner <code>&lt;branch&gt;</code> dans la branche actuelle</td>
+</tr>
+<tr class="odd">
+<td><code>git branch -d &lt;branch&gt;</code></td>
+<td>Supprimer la branche</td>
+</tr>
+<tr class="even">
+<td><code>git push origin &lt;branch&gt;</code></td>
+<td>Pousser la branche vers le dépôt distant</td>
+</tr>
+</tbody>
+</table>
 </section></section>
 <section id="bibliographie" class="title-slide slide level2 unnumbered center">
 <h2>Bibliographie</h2>
@@ -2047,7 +2318,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
+    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom","loop":false});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;
