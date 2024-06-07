@@ -83,6 +83,7 @@ p{
 }
 
 /* Hide revealJS speaker notes in the html*/
-.notes {
+.notes,
+.hide-html-render{
   display: none;
 }
