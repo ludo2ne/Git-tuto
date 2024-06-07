@@ -336,6 +336,13 @@
     "text": "Commandes principales\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\ngit clone &lt;adr&gt;\nCréer un dépôt local sur son poste\n\n\ngit status\nVoir où l’on en est\n\n\ngit add &lt;file&gt;\nAjouter pour le prochain commit\n\n\ngit commit -m \"&lt;msg&gt;\"\nCréer un point de sauvegarde\n\n\ngit pull\ndépôt local ➡️ dépôt distant\n\n\ngit push\ndépôt local ⬅️ dépôt distant"
   },
   {
+    "objectID": "doc/presentation-slides.html#démo",
+    "href": "doc/presentation-slides.html#démo",
+    "title": "Introduction à Git",
+    "section": "Démo",
+    "text": "Démo\n\n\naller sur GitHub, cloner\ncréer un fichier, status\nreset, status\nmodifier un fichier, status\ncommit\nmodifier sur github\npush"
+  },
+  {
     "objectID": "doc/presentation-slides.html#travailler-dans-le-cloud",
     "href": "doc/presentation-slides.html#travailler-dans-le-cloud",
     "title": "Introduction à Git",
@@ -439,6 +446,13 @@
     "title": "Introduction à Git",
     "section": "Commandes principales",
     "text": "Commandes principales\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\ngit clone &lt;adr&gt;\nCréer un dépôt local sur son poste\n\n\ngit status\nVoir où l’on en est\n\n\ngit add &lt;file&gt;\nAjouter pour le prochain commit\n\n\ngit commit -m \"&lt;msg&gt;\"\nCréer un point de sauvegarde\n\n\ngit pull\ndépôt local ➡️ dépôt distant\n\n\ngit push\ndépôt local ⬅️ dépôt distant\n\n\n\n\nAutres commandes\n\ngit diff : différence avec le dernier commit\n\ngit diff &lt;filename&gt;\n\ngit checkout &lt;commit_number&gt; : passer à un commit spécifique\ngit log : historique des commits\n\ngit log --all --decorate --oneline --graph"
+  },
+  {
+    "objectID": "doc/presentation.html#démo",
+    "href": "doc/presentation.html#démo",
+    "title": "Introduction à Git",
+    "section": "Démo",
+    "text": "Démo\n\n\naller sur GitHub, cloner\ncréer un fichier, status\nreset, status\nmodifier un fichier, status\ncommit\nmodifier sur github\npush"
   },
   {
     "objectID": "doc/presentation.html#travailler-dans-le-cloud",
