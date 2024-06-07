@@ -445,7 +445,7 @@ Utilisez un préfixe à votre message :
 Suffixe WIP
 :::
 
-### Retour arrière
+### Retour arrière {.smaller}
 
 Si finalement, vous n'avez pas envie de commiter vos modifications ?
 
@@ -787,7 +787,7 @@ Cependant ce cas d'utilisation est assez marginal.
 :::
 
 
-## Commandes principales
+## Commandes principales {.smaller}
 
 | Commande                    | Description                              |
 |-----------------------------|------------------------------------------|
@@ -798,7 +798,6 @@ Cependant ce cas d'utilisation est assez marginal.
 | `git pull`                  | dépôt local :arrow_right: dépôt distant  |
 | `git push`                  | dépôt local :arrow_left: dépôt distant   |
 
-: {tbl-colwidths="[50,50]"}
 
 ### Autres commandes
 
@@ -827,8 +826,13 @@ Imaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.
 
 Seulement vous n'êtes pas encore sûr que :
 
-- cette fonctionnalité sera vraiment utile
-- qu'elle ne va pas tout casser 
+- cette fonctionnalité sera vraiment utile :neutral_face:
+- qu'elle ne va pas tout casser :cold_sweat: 
+
+::: {.callout-note}
+- si c'est tout petit, vous pouvez dev en local en faire un reset au cas où
+- sinon utilisez une branche
+:::
 
 ### Les branches
 
@@ -854,7 +858,7 @@ La branche principale se nomme généralement *main* ou *master*.
 ça vous permet de coder de manière isolée
 :::
 
-### Commandes liées aux branches
+### Commandes liées aux branches {.smaller}
 
 | Commande                       | Description                                        |
 |--------------------------------|----------------------------------------------------|
@@ -871,7 +875,6 @@ La branche principale se nomme généralement *main* ou *master*.
 ## Bibliographie {.unnumbered}
 
 - [Git : un élément essentiel au quotidien](https://pythonds.linogaliana.fr/content/git/introgit.html){.external target="_blank"}, Python pour la datascience, Lino Galiana
-- [Formation Git du Lab INSEE](https://github.com/InseeFrLab/formation-git){.external target="_blank"}
-- [Bonnes pratiques Git](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/){.external target="_blank"}
+- [Formation Git du Lab INSEE](https://collaboratif-git-formation-insee.netlify.app/){.external target="_blank"}
 - [GitFlow](https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow){.external target="_blank"}
 - [Développement basé sur le tronc](https://www.atlassian.com/fr/continuous-delivery/continuous-integration/trunk-based-development){.external target="_blank"}
