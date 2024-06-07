@@ -169,6 +169,7 @@ ggplot(data, aes(x = x, y = y)) +
 
 :::
 
+::: {.hide-html-render}
 
 ## La solution
 
@@ -176,6 +177,8 @@ ggplot(data, aes(x = x, y = y)) +
 
 ::: {.notes}
 La solution, tous en choeur, c'est ...
+:::
+
 :::
 
 ## Git
