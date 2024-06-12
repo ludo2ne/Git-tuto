@@ -184,26 +184,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#à-faire-à-la-maison" id="toc-à-faire-à-la-maison" class="nav-link active" data-scroll-target="#à-faire-à-la-maison">À faire à la maison</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#concepts-clés" id="toc-concepts-clés" class="nav-link" data-scroll-target="#concepts-clés"><span class="header-section-number">0.1</span> Concepts Clés</a></li>
-  <li><a href="#programme" id="toc-programme" class="nav-link" data-scroll-target="#programme"><span class="header-section-number">0.2</span> Programme</a></li>
+  <li><a href="#concepts-clés" id="toc-concepts-clés" class="nav-link" data-scroll-target="#concepts-clés">Concepts Clés</a></li>
+  <li><a href="#programme" id="toc-programme" class="nav-link" data-scroll-target="#programme">Programme</a></li>
   </ul></li>
-  <li><a href="#avant-de-commencer" id="toc-avant-de-commencer" class="nav-link" data-scroll-target="#avant-de-commencer"><span class="header-section-number">1</span> Avant de commencer</a></li>
+  <li><a href="#git-bash-et-unix" id="toc-git-bash-et-unix" class="nav-link" data-scroll-target="#git-bash-et-unix"><span class="header-section-number">1</span> Git Bash et Unix</a>
+  <ul class="collapse">
+  <li><a href="#création-dune-arborescence" id="toc-création-dune-arborescence" class="nav-link" data-scroll-target="#création-dune-arborescence"><span class="header-section-number">1.1</span> Création d’une arborescence</a></li>
+  <li><a href="#les-fichiers" id="toc-les-fichiers" class="nav-link" data-scroll-target="#les-fichiers"><span class="header-section-number">1.2</span> Les fichiers</a></li>
+  </ul></li>
   <li><a href="#paramétrage-de-git" id="toc-paramétrage-de-git" class="nav-link" data-scroll-target="#paramétrage-de-git"><span class="header-section-number">2</span> Paramétrage de Git</a>
   <ul class="collapse">
-  <li><a href="#le-terminal-git-bash" id="toc-le-terminal-git-bash" class="nav-link" data-scroll-target="#le-terminal-git-bash"><span class="header-section-number">2.1</span> Le terminal Git Bash</a></li>
-  <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration"><span class="header-section-number">2.2</span> Configuration <span class="emoji" data-emoji="construction">🚧</span></a></li>
-  <li><a href="#création-dune-clé-ssh" id="toc-création-dune-clé-ssh" class="nav-link" data-scroll-target="#création-dune-clé-ssh"><span class="header-section-number">2.3</span> Création d’une clé SSH</a></li>
+  <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration"><span class="header-section-number">2.1</span> Configuration</a></li>
+  <li><a href="#création-dune-clé-ssh" id="toc-création-dune-clé-ssh" class="nav-link" data-scroll-target="#création-dune-clé-ssh"><span class="header-section-number">2.2</span> Création d’une clé SSH</a></li>
+  <li><a href="#le-terminal-git-bash" id="toc-le-terminal-git-bash" class="nav-link" data-scroll-target="#le-terminal-git-bash"><span class="header-section-number">2.3</span> Le terminal Git Bash</a></li>
   </ul></li>
-  <li><a href="#créez-un-dépôt-local" id="toc-créez-un-dépôt-local" class="nav-link" data-scroll-target="#créez-un-dépôt-local"><span class="header-section-number">3</span> Créez un dépôt local</a></li>
-  <li><a href="#premiers-pas" id="toc-premiers-pas" class="nav-link" data-scroll-target="#premiers-pas"><span class="header-section-number">4</span> Premiers pas <span class="emoji" data-emoji="construction">🚧</span></a></li>
-  <li><a href="#exercice-dapplication-1" id="toc-exercice-dapplication-1" class="nav-link" data-scroll-target="#exercice-dapplication-1"><span class="header-section-number">5</span> Exercice d’application 1</a></li>
-  <li><a href="#simulation-de-travail-en-groupe" id="toc-simulation-de-travail-en-groupe" class="nav-link" data-scroll-target="#simulation-de-travail-en-groupe"><span class="header-section-number">6</span> Simulation de travail en groupe</a>
+  <li><a href="#créez-un-dépôt-distant" id="toc-créez-un-dépôt-distant" class="nav-link" data-scroll-target="#créez-un-dépôt-distant"><span class="header-section-number">3</span> Créez un dépôt distant</a></li>
+  <li><a href="#créez-un-dépôt-local" id="toc-créez-un-dépôt-local" class="nav-link" data-scroll-target="#créez-un-dépôt-local"><span class="header-section-number">4</span> Créez un dépôt local <span class="emoji" data-emoji="construction">🚧</span></a></li>
+  <li><a href="#premiers-pas" id="toc-premiers-pas" class="nav-link" data-scroll-target="#premiers-pas"><span class="header-section-number">5</span> Premiers pas <span class="emoji" data-emoji="construction">🚧</span></a></li>
+  <li><a href="#exercice-dapplication-1" id="toc-exercice-dapplication-1" class="nav-link" data-scroll-target="#exercice-dapplication-1"><span class="header-section-number">6</span> Exercice d’application 1</a></li>
+  <li><a href="#simulation-de-travail-en-groupe" id="toc-simulation-de-travail-en-groupe" class="nav-link" data-scroll-target="#simulation-de-travail-en-groupe"><span class="header-section-number">7</span> Simulation de travail en groupe</a>
   <ul class="collapse">
-  <li><a href="#avancé" id="toc-avancé" class="nav-link" data-scroll-target="#avancé"><span class="header-section-number">6.1</span> Avancé</a></li>
+  <li><a href="#avancé" id="toc-avancé" class="nav-link" data-scroll-target="#avancé"><span class="header-section-number">7.1</span> Avancé</a></li>
   </ul></li>
-  <li><a href="#exercice-dapplication-2" id="toc-exercice-dapplication-2" class="nav-link" data-scroll-target="#exercice-dapplication-2"><span class="header-section-number">7</span> Exercice d’application 2</a></li>
-  <li><a href="#un-premier-conflit" id="toc-un-premier-conflit" class="nav-link" data-scroll-target="#un-premier-conflit"><span class="header-section-number">8</span> Un premier conflit</a></li>
-  <li><a href="#exercice-dapplication-3" id="toc-exercice-dapplication-3" class="nav-link" data-scroll-target="#exercice-dapplication-3"><span class="header-section-number">9</span> Exercice d’application 3</a></li>
+  <li><a href="#exercice-dapplication-2" id="toc-exercice-dapplication-2" class="nav-link" data-scroll-target="#exercice-dapplication-2"><span class="header-section-number">8</span> Exercice d’application 2</a></li>
+  <li><a href="#un-premier-conflit" id="toc-un-premier-conflit" class="nav-link" data-scroll-target="#un-premier-conflit"><span class="header-section-number">9</span> Un premier conflit</a></li>
+  <li><a href="#exercice-dapplication-3" id="toc-exercice-dapplication-3" class="nav-link" data-scroll-target="#exercice-dapplication-3"><span class="header-section-number">10</span> Exercice d’application 3</a></li>
   </ul>
 </nav>
 </nav>
@@ -256,20 +261,184 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Les consignes de ce TP sont données pour une utilisation de GitLab. Il est cependant tout à fait possible de réaliser ce TP avec GitHub dont l’interface est très ressemblante.</p>
+<p>Les consignes de ce TP sont données pour une utilisation de GitHub. Il est cependant tout à fait possible de réaliser ce TP avec GitLab dont l’interface est très ressemblante.</p>
 <p><span class="emoji" data-emoji="warning">⚠️</span> Il y a tout de même quelques différences :</p>
 <ul>
-<li>Dans GitHub, il ne faut pas créer un projet mais un <strong>Répository</strong></li>
-<li>Pour déclarer la clé SSH dans GitHub : Avatar &gt; Settings &gt; SSH keys</li>
+<li>GitHub Repository = GitLab Projet</li>
+<li>Pour déclarer la clé SSH dans GitLab : cliquez sur votre avatar &gt; Préférences &gt; SSH keys</li>
 </ul>
 </div>
 </div>
 <ul class="task-list">
-<li><label><input type="checkbox">Créer un compte sur <a href="https://about.gitlab.com/" target="_blank">GitLab</a></label>
+<li><label><input type="checkbox">Créer un compte sur <a href="https://github.com/" target="_blank">GitHub</a></label>
 <ul>
-<li>GitLab &gt; Sign-in &gt; <em>Inscrivez-vous maintenant</em></li>
-<li>ou avec <a href="https://gitlab.com/users/sign_up" target="_blank">ce lien direct</a></li>
+<li>GitHub &gt; Sign up</li>
+<li>ou avec <a href="https://github.com/signup" target="_blank">ce lien direct</a></li>
 </ul></li>
+<li><label><input type="checkbox">Lire l’introduction</label></li>
+</ul>
+</section>
+<section id="introduction" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Git est un formidable outil de versionnage de fichiers qui va vous permettre de conserver efficacement l’historique de votre code aussi bien si vous travaillez seul mais également quand vous travaillez à plusieurs. Cet historique est conservé dans ce qu’on appelle un <em>dépôt git</em>.</p>
+<p>Sa conception décentralisée fait qu’il est quasi impossible de perdre une donnée définitivement avec git. En particulier, la perte totale d’un ordinateur hébergeant votre code ne représentera qu’une perte minime de code si vous utilisez git correctement.</p>
+<p>En outre, de nombreux outils de <em>CI/CD</em> (<em>Continuous Intégration / Continuous Deployment</em>) qui rendent possible l’automatisation de l’intégration et du déploiement de votre code s’appuient sur un <em>dépôt git</em>.</p>
+<section id="concepts-clés" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="concepts-clés">Concepts Clés</h3>
+<p>Cependant, comme tout logiciel, git demande un peu d’apprentissage, et de la pratique. Pour commencer, nous aurons besoin de certains concepts essentiels pour une utilisation efficace. Par sa conception décentralisée, un dépôt git peut exister en plusieurs endroits en même temps : sur notre machine, sur chaque machine des membre du projet, ou sur un serveur hébergeant le projet.</p>
+<p>On parlera de la <em>copie distante</em> (<em>remote</em> en anglais) du dépôt dans le cas du serveur distant. En général, une seule copie distante est utilisée, mais par sa nature décentralisée, plusieurs copies distantes sont possibles (possibilité non incluse dans ce TP).</p>
+<p>La copie sur notre machine est la <em>copie locale</em> (<em>local</em> en anglais). Il s’agit de toutes les informations du dépôt concernant l’historique de ses fichiers, et les métadonnées du dépôt. Une distinction subtile est alors faite entre la copie locale et la <em>copie de travail</em> (<em>working copy</em> en anglais) : Nos modifications sur les fichiers du dépôt n’intégrerons la copie locale qu’à notre demande explicite. Cette intégration sera alors effectuée par l’ajout d’une entrée à l’historique du dépôt.</p>
+</section>
+<section id="programme" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="programme">Programme</h3>
+<p>Pour utiliser git, donc pour gérer un dépôt, nous avons accès à de nombreuses commandes. Pour ce TP de découverte vous allez utiliser seulement les commandes suivantes :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 59%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Commande</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>git clone &lt;adr&gt;</code></td>
+<td>Créer un dépôt local sur son poste</td>
+</tr>
+<tr class="even">
+<td><code>git status</code></td>
+<td>Voir où l’on en est</td>
+</tr>
+<tr class="odd">
+<td><code>git add &lt;file&gt;</code></td>
+<td>Ajouter pour le prochain commit</td>
+</tr>
+<tr class="even">
+<td><code>git commit -m "&lt;msg&gt;"</code></td>
+<td>Créer un point de sauvegarde</td>
+</tr>
+<tr class="odd">
+<td><code>git pull</code></td>
+<td>dépôt local <span class="emoji" data-emoji="arrow_right">➡️</span> dépôt distant</td>
+</tr>
+<tr class="even">
+<td><code>git push</code></td>
+<td>dépôt local <span class="emoji" data-emoji="arrow_left">⬅️</span> dépôt distant</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="git-bash-et-unix" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="git-bash-et-unix"><span class="header-section-number">1</span> Git Bash et Unix</h2>
+<p>Avant de nous lancer avec git, prenons quelques minutes pour découvrir le terminal Git Bash et les principales commandes Unix.</p>
+<p>Ces commandes ne sont pas indispensable pour utiliser git, mais il est utile et préférable de les connaitre.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Cliquez sur l’icone Windows (ou Menu Démarrer) et ouvrez l’application <code>Git Bash</code></label>
+<ul>
+<li>cela ouvre un terminal</li>
+</ul></li>
+</ul>
+<p><a href="img/git-bash.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/git-bash.PNG" class="r-stretch img-fluid"></a></p>
+<p>Pour vous aider, voici la <a href="presentation.html#commandes-unix" target="_blank">liste des commandes</a>.</p>
+<section id="création-dune-arborescence" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="création-dune-arborescence"><span class="header-section-number">1.1</span> Création d’une arborescence</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Affichez le répertoire courant</label></li>
+<li><label><input type="checkbox">Positionnez-vous sur le disque <em>P:</em> (<code>/p</code>)</label></li>
+<li><label><input type="checkbox">Listez les fichiers</label></li>
+<li><label><input type="checkbox">S’il n’existe pas, créez un dossier nommé <code>Cours1A</code></label></li>
+<li><label><input type="checkbox">Positionnez-vous dans le dossier <em>Cours1A</em></label></li>
+<li><label><input type="checkbox">Créez un dossier nommé <code>git-initiation</code></label></li>
+<li><label><input type="checkbox">Positionnez-vous dans le dossier <em>git-initiation</em></label></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>pwd</code></li>
+<li><code>cd /p</code></li>
+<li><code>ll</code></li>
+<li><code>mkdir Cours1A</code></li>
+<li><code>cd Cours1A</code></li>
+<li><code>mkdir git-initiation</code></li>
+<li><code>cd git-initiation</code></li>
+</ul>
+<p>Il était également possible de tout faire d’une seule traite :</p>
+<ul>
+<li><code>mkdir -p /p/Cours1A/git-initiation &amp;&amp; cd $_</code></li>
+<li>l’option -p de <em>mkdir</em> crée tous les dossiers et sous-dossiers s’ils n’existent pas déjà</li>
+<li><em>$_</em> : correspond au dernier argument de la commande précédente</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="les-fichiers" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="les-fichiers"><span class="header-section-number">1.2</span> Les fichiers</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Créez un fichier <em>a.txt</em> contenant le résultat de la commande <code>ps</code></label>
+<ul>
+<li>ps liste tous les processus en cours</li>
+<li><code>ps &gt; a.txt</code></li>
+</ul></li>
+<li><label><input type="checkbox">Créez une copie de ce fichier que vous nommerez <em>b.txt</em></label></li>
+<li><label><input type="checkbox">Listez les fichiers du dossier courant</label></li>
+<li><label><input type="checkbox">Affichez le contenu du fichier <em>b.txt</em></label></li>
+<li><label><input type="checkbox">Filtrez le contenu du fichier <em>b.txt</em> pour n’afficher que les lignes contenant <em>ps</em></label>
+<ul>
+<li><code>cat b.txt | grep ps</code></li>
+</ul></li>
+<li><label><input type="checkbox">Renommez le fichier <em>a.txt</em> en <em>c.txt</em></label></li>
+<li><label><input type="checkbox">Listez les fichiers du dossier courant</label></li>
+<li><label><input type="checkbox">Supprimez les fichiers <em>b.txt</em> et <em>c.txt</em></label></li>
+<li><label><input type="checkbox">Créez 5 fichiers avec la commande <code>touch ex{1..5}.py</code></label></li>
+<li><label><input type="checkbox">Listez les fichiers du dossier courant</label></li>
+<li><label><input type="checkbox">Supprimez ces 5 fichiers avec la commande <code>rm ex*.py</code></label></li>
+<li><label><input type="checkbox">Créez un fichier avec la commande <code>touch setup-git.sh</code></label></li>
+</ul>
+</section>
+</section>
+<section id="paramétrage-de-git" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="paramétrage-de-git"><span class="header-section-number">2</span> Paramétrage de Git</h2>
+<section id="configuration" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="configuration"><span class="header-section-number">2.1</span> Configuration</h3>
+<ul class="task-list">
+<li><p><label><input type="checkbox">Dans l’explorer Windows, allez dans le dossier <em>P:/Cours1A/git-initiation</em></label></p></li>
+<li><p><label><input type="checkbox">Ouvrez le fichier <em>setup-git.sh</em> avec <strong>Notepad++</strong> et collez ce contenu</label></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>setup-git.sh</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="setup-git.sh"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Prenom Nom"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email prenom.nom@eleve.ensai.fr</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper store</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.mergeoptions <span class="at">--no-edit</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.editor <span class="st">"code -w"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><label><input type="checkbox">Remplacez <em>Nom</em> et <em>Prenom</em> sur les deux premières lignes et enregistrez</label></p></li>
+<li><p><label><input type="checkbox">Dans Git Bash, exécutez le fichier : <code>./setup-git.sh</code></label></p></li>
+<li><p><label><input type="checkbox">Vérifiez que la configuration est correcte avec <code>git config -l</code></label></p></li>
+</ul>
+</section>
+<section id="création-dune-clé-ssh" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="création-dune-clé-ssh"><span class="header-section-number">2.2</span> Création d’une clé SSH</h3>
+<p>Pour permettre de faire dialoguer notre dépôt local avec le dépôt distant de GitHub, nous allons utiliser le protocole <code>ssh</code> :</p>
+<ul>
+<li>Nous allons générer une clé sur notre machine</li>
+<li>Nous allons ensuite déclarer cette clé à GitHub</li>
 </ul>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -281,114 +450,39 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Il arrive que vous soyez redirigé vers une page où l’on vous demande le nom de votre entreprise et votre numéro de carte bancaire.</p>
-<p>Ne rentrez pas votre numéro de carte bancaire !!!</p>
-<p>Quittez et réessayez plus tard.</p>
+<p>Ce paramètrage SSH est réalisé au niveau de la machine.</p>
+<p>Si par exemple, vous souhaitez utiliser Git sur votre ordinateur personnel, il faudra faire également ce paramétrage.</p>
 </div>
 </div>
+<p>Dans Git Bash :</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Créez un nouveau projet</label>
+<li><label><input type="checkbox">Créez un dossier <em>`</em>/c/Users/id????.ssh* pour stocker votre clé ssh</label>
 <ul>
-<li>GitLab &gt; Projects &gt; <em>New project</em></li>
-<li>ou avec <a href="https://gitlab.com/projects/new" target="_blank">ce lien direct</a></li>
-<li><code>Create blank project</code></li>
-<li>Project name : <em>TP_initiation_git</em></li>
-<li>Visibility Level : <em>Private</em></li>
-<li>Cliquez sur <code>Create project</code></li>
+<li><code>mkdir -p ~/.ssh</code></li>
 </ul></li>
-<li><label><input type="checkbox">Lire l’introduction</label></li>
-</ul>
-</section>
-<section id="introduction" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Git est un formidable outil de versionnage de fichiers qui va vous permettre de conserver efficacement l’historique de votre code aussi bien si vous travaillez seul mais également quand vous travaillez à plusieurs. Cet historique est conservé dans ce qu’on appelle un <em>dépôt git</em>.</p>
-<p>Sa conception décentralisée fait qu’il est quasi impossible de perdre une donnée définitivement avec git (à noter toutefois, que, dans ce TP, nous utiliserons git en mode centralisé, l’utilisation en mode décentralisé étant plus complexe, et moins courante). En particulier, la perte totale d’un ordinateur hébergeant votre code ne représentera qu’une perte minime de code si vous utilisez git correctement.</p>
-<p>En outre, de nombreux outils de <em>CI/CD</em> (<em>Continuous Intégration / Continuous Deployment</em>) qui rendent possible l’automatisation de l’intégration et du déploiement de votre code s’appuient sur un <em>dépôt</em> git.</p>
-<section id="concepts-clés" class="level3" data-number="0.1">
-<h3 data-number="0.1" class="anchored" data-anchor-id="concepts-clés"><span class="header-section-number">0.1</span> Concepts Clés</h3>
-<p>Cependant, comme tout logiciel, git demande un peu d’apprentissage, et de la pratique. Pour commencer, nous aurons besoin de certains concepts essentiels pour une utilisation efficace. Par sa conception décentralisée, un dépôt git peut exister en plusieurs endroits en même temps : sur notre machine, sur chaque machine des membre du projet, ou sur un serveur hébergeant le projet.</p>
-<p>On parlera de la <em>copie distante</em> (<em>remote</em> en anglais) du dépôt dans le cas du serveur distant. En général, une seule copie distante est utilisée, mais par sa nature décentralisée, plusieurs copies distantes sont possibles (possibilité non incluse dans ce TP).</p>
-<p>La copie sur notre machine est la <em>copie locale</em> (<em>local</em> en anglais). Il s’agit de toutes les informations du dépôt concernant l’historique de ses fichiers, et les métadonnées du dépôt. Une distinction subtile est alors faite entre la copie locale et la <em>copie de travail</em> (<em>working copy</em> en anglais) : Nos modifications sur les fichiers du dépôt n’intégrerons la copie locale qu’à notre demande explicite. Cette intégration sera alors effectuée par l’ajout d’une entrée à l’historique du dépôt.</p>
-</section>
-<section id="programme" class="level3" data-number="0.2">
-<h3 data-number="0.2" class="anchored" data-anchor-id="programme"><span class="header-section-number">0.2</span> Programme</h3>
-<p>Pour utiliser git, donc pour gérer un dépôt, nous avons accès à de nombreuses commandes. Pour ce TP de découverte vous allez utiliser seulement les commandes suivantes :</p>
+<li><label><input type="checkbox">Créez une clé ssh</label>
 <ul>
-<li><code>git add</code> pour ajouter un fichier présent dans la copie de travail à la copie locale</li>
-<li><code>git commit</code> pour faire un point de sauvegarde (ajout à l’historique) dans la copie locale avec les modifications des fichiers de la copie de travail</li>
-<li><code>git push</code> pour pousser le code depuis votre copie locale vers la copie distante (envoi de l’historique ajouté à la copie locale par rapport à la copie distante)</li>
-<li><code>git pull</code> pour tirer l’historique de la copie distante vers votre copie de travail (et votre copie locale)</li>
-<li><code>git status</code> pour voir la différence entre la copie de travail et la copie locale</li>
-<li><code>git clone</code></li>
+<li><code>ssh-keygen -t rsa -b 4096 -N '' -q -f ~/.ssh/id_rsa</code></li>
+</ul></li>
+<li><label><input type="checkbox">Copiez le contenu de la clé publique</label>
+<ul>
+<li><code>cat ~/.ssh/id_rsa.pub | clip</code></li>
+<li>c’est comme si vous copiez le contenu du fichier <em>id_rsa.pub</em></li>
+</ul></li>
 </ul>
-<p>Je vous conseille de vous référer à la <a href="https://foad-moodle.ensai.fr/pluginfile.php/6195/mod_resource/content/2/github-git-cheat-sheet.pdf">cheatsheet</a> git disponible sur Moodle (les commandes les plus importantes sont surlignées) pour avoir les commandes git sous les yeux.</p>
-</section>
-</section>
-<section id="avant-de-commencer" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="avant-de-commencer"><span class="header-section-number">1</span> Avant de commencer</h2>
+<p>Déclarez votre clé publique à <em>GitHub</em>, pour pouvoir ensuite faire communiquer dépôts locaux avec les dépôts distants :</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Créez un dossier <code>P:/Cours1A/Git</code></label></li>
-<li><label><input type="checkbox">Allez sur Moodle &gt; Outils bureautiques pour le statisticien</label>
+<li><label><input type="checkbox">GitHub &gt; cliquez sur votre avatar &gt; Settings &gt; SSH and GPG keys</label>
 <ul>
-<li>Onglet <a href="https://foad-moodle.ensai.fr/course/view.php?id=147&amp;section=3" target="_blank">TP - Git</a></li>
+<li><a href="https://github.com/settings/keys" target="_blank">lien direct</a></li>
 </ul></li>
-<li><label><input type="checkbox">Téléchargez</label>
+<li><label><input type="checkbox">Cliquez sur <span style="background-color: green">New SSH key</span></label>
 <ul>
-<li>le sujet</li>
-<li>le zip <em>Tp git</em></li>
-<li>Setup windows</li>
+<li>Title : VM ENSAI</li>
+<li>Key : Collez votre clé publique</li>
+<li><span style="background-color: green">Add SSH key</span></li>
 </ul></li>
 </ul>
-</section>
-<section id="paramétrage-de-git" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="paramétrage-de-git"><span class="header-section-number">2</span> Paramétrage de Git</h2>
-<section id="le-terminal-git-bash" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="le-terminal-git-bash"><span class="header-section-number">2.1</span> Le terminal Git Bash</h3>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Git s’utilise en <u>ligne de commande</u> via <em>Git Bash</em>.</p>
-<p>Il existe des interfaces mais elles ne sont pas aussi complètes. De plus quelques simples commandes permettent de quasiment tout faire.</p>
-</div>
-</div>
-<ul>
-<li><label><input type="checkbox">Allez dans le dossier <code>P:/Cours1A/Git</code></label></li>
-<li><label><input type="checkbox">Clic droit &gt; <em>Git Bash here</em></label></li>
-<li>Créez un dossier <em>depot1</em> et entrez dans ce dossier
-<ul class="task-list">
-<li><label><input type="checkbox"><code>mkdir depot1</code> pour <em>make directory</em></label></li>
-<li><label><input type="checkbox"><code>cd depot1</code> pour <em>change directory</em></label></li>
-</ul></li>
-<li>Afficher le chemin du répertoire courant avec la commande <code>pwd</code> : <em>print working directory</em></li>
-<li><label><input type="checkbox"><code>cd ..</code> pour retourner dans le dossier parent</label></li>
-<li><label><input type="checkbox">créer un dossier depot2</label></li>
-</ul>
-</section>
-<section id="configuration" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="configuration"><span class="header-section-number">2.2</span> Configuration <span class="emoji" data-emoji="construction">🚧</span></h3>
-<ul>
-<li><label><input type="checkbox">setup</label></li>
-<li><code>git init ...</code></li>
-</ul>
-<p>Récupérez le fichier <code>setup</code> disponible sur Moodle en fonction de la machine utilisée.</p>
-<ul>
-<li><p>Windows (VM ou pc perso windows): Fichier pour windows. Double cliquez dessus pour l’exécuter.</p></li>
-<li><p>iOs / Linux : Fichier pour iOs/Linux. Ouvrez un terminal puis faites :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Download</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x setup.sh</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./setup.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<p>Rentrez les informations demandées dans la console. Le script fait toutes l’initialisation pour vous, et copie votre clef dans le presse papier (=fait un “copier” de votre clef pour que vous puissiez la coller). Récupérer également l’archive contenant le code du TP et décompressez-là. Elle contient un fichier <code>README.md</code> et un fichier python avec un simple print.</p>
-</section>
-<section id="création-dune-clé-ssh" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="création-dune-clé-ssh"><span class="header-section-number">2.3</span> Création d’une clé SSH</h3>
 <div class="callout callout-style-default callout-note callout-titled" title="SSH : Comment ça marche ?">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -409,48 +503,49 @@ SSH : Comment ça marche ?
 <li><code>Clé publique</code> : Elle serait comme votre adresse postale. Vous pouvez la partager avec d’autres. Dans SSH, vous placez votre clé publique sur les serveurs ou les ordinateurs auxquels vous souhaitez vous connecter.</li>
 </ul>
 <p>Ces deux clés sont liées. Un message chiffré par la clé publique n’est déchiffrable que par celui qui posséde la clé privée. Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous votre identité car chacun peut déchiffrer ce message avec la clé publique.</p>
-<p>https://www.youtube.com/watch?v=Y-S6GtdLaSU&amp;ab_channel=Grafikart.fr</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Y-S6GtdLaSU" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 </div>
 </div>
-<p>Dans <em>Git Bash</em> - [ ] <code>ssh-keygen -t ed25519 -C "prenom.nom@eleve.ensai.fr"</code></p>
-<p>Déclarez votre clé publique à <em>GitLab</em>, pour pouvoir ensuite faire communiquer dépôts locaux avec les dépôts distants :</p>
+</section>
+<section id="le-terminal-git-bash" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="le-terminal-git-bash"><span class="header-section-number">2.3</span> Le terminal Git Bash</h3>
+<ul>
+<li><label><input type="checkbox">Allez dans le dossier <code>P:/Cours1A/Git</code></label></li>
+<li><label><input type="checkbox">Clic droit &gt; <em>Git Bash here</em></label></li>
+<li>Créez un dossier <em>depot1</em> et entrez dans ce dossier
 <ul class="task-list">
-<li><label><input type="checkbox">GitLab &gt; cliquez sur votre avatar &gt; Préférences &gt; SSH keys</label>
-<ul>
-<li>ou avec <a href="https://gitlab.com/-/profile/keys" target="_blank">ce lien direct</a></li>
+<li><label><input type="checkbox"><code>mkdir depot1</code> pour <em>make directory</em></label></li>
+<li><label><input type="checkbox"><code>cd depot1</code> pour <em>change directory</em></label></li>
 </ul></li>
-<li><label><input type="checkbox">Cliquez sur <em>Add new key</em></label>
+<li>Afficher le chemin du répertoire courant avec la commande <code>pwd</code> : <em>print working directory</em></li>
+<li><label><input type="checkbox"><code>cd ..</code> pour retourner dans le dossier parent</label></li>
+<li><label><input type="checkbox">créer un dossier depot2</label></li>
+</ul>
+</section>
+</section>
+<section id="créez-un-dépôt-distant" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="créez-un-dépôt-distant"><span class="header-section-number">3</span> Créez un dépôt distant</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Créez un <a href="https://github.com/new" target="_blank">nouveau Repository</a> sur GitHub</label>
 <ul>
-<li>Collez votre clé publique</li>
-<li>Title : VM ENSAI</li>
-<li>Supprimez la date d’expiration</li>
-<li>Validez</li>
+<li>GitHub &gt; Repositories &gt; <span style="background-color: green">New</span></li>
+<li>Repository name : <em>tp-git</em></li>
+<li>Visibility Level : <em>Private</em></li>
+<li>Cochez <em>Add a README file</em></li>
+<li>Add .gitignore : <em>Python</em></li>
+<li>Choose a license : <em>MIT Licence</em></li>
+<li>Cliquez sur <span style="background-color: green">Create Repository</span></li>
 </ul></li>
 </ul>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Ce paramètrage SSH est réalisé au niveau de la machine.</p>
-<p>Si par exemple, vous souhaitez utiliser Git sur votre ordinateur personnel, il faudra faire également ce paramétrage.</p>
-</div>
-</div>
 </section>
-</section>
-<section id="créez-un-dépôt-local" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="créez-un-dépôt-local"><span class="header-section-number">3</span> Créez un dépôt local</h2>
-<p>Suite à la création de votre compte GitLab, vous avez créé un projet (autrement dit un dépôt distant).</p>
+<section id="créez-un-dépôt-local" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="créez-un-dépôt-local"><span class="header-section-number">4</span> Créez un dépôt local <span class="emoji" data-emoji="construction">🚧</span></h2>
+<p>Suite à la création de votre compte GitHub, vous avez créé un repo (autrement dit un dépôt distant).</p>
 <p>Vous allez maintenant créer une copie locale en clonant ce projet.</p>
-<p>Sur la page <em>GitLab</em> de votre projet,</p>
+<p>Sur la page <em>GitHub</em> de votre repo,</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Cliquez sur <code>Code</code></label></li>
+<li><label><input type="checkbox">Cliquez sur <span style="background-color: green">Code</span></label></li>
 <li><label><input type="checkbox">Copiez la ligne <em>Clone with SSH</em></label></li>
 <li><label><input type="checkbox">Dans Git Bash, entrez <code>git clone &lt;collez la ligne&gt;</code></label>
 <ul>
@@ -458,8 +553,8 @@ Warning
 </ul></li>
 </ul>
 </section>
-<section id="premiers-pas" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="premiers-pas"><span class="header-section-number">4</span> Premiers pas <span class="emoji" data-emoji="construction">🚧</span></h2>
+<section id="premiers-pas" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="premiers-pas"><span class="header-section-number">5</span> Premiers pas <span class="emoji" data-emoji="construction">🚧</span></h2>
 <ul>
 <li><p>Dans le dossier git-tp, créez un fichier <code>voiture.py</code> contenant le code suivant :</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Voiture:</span>
@@ -500,13 +595,13 @@ Warning
 <p>Pour résumer voilà ce que vous avez fait :</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://nceas.github.io/sasap-training/materials/reproducible_research_in_r_fairbanks/images/git-flowchart.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Zonge git"><img src="https://nceas.github.io/sasap-training/materials/reproducible_research_in_r_fairbanks/images/git-flowchart.png" class="img-fluid figure-img" alt="Zonge git"></a></p>
+<p><a href="https://nceas.github.io/sasap-training/materials/reproducible_research_in_r_fairbanks/images/git-flowchart.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Zonge git"><img src="https://nceas.github.io/sasap-training/materials/reproducible_research_in_r_fairbanks/images/git-flowchart.png" class="img-fluid figure-img" alt="Zonge git"></a></p>
 <figcaption>Zonge git</figcaption>
 </figure>
 </div>
 </section>
-<section id="exercice-dapplication-1" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="exercice-dapplication-1"><span class="header-section-number">5</span> Exercice d’application 1</h2>
+<section id="exercice-dapplication-1" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="exercice-dapplication-1"><span class="header-section-number">6</span> Exercice d’application 1</h2>
 <ol type="1">
 <li><p>Créez un fichier <code>fibonacci.py</code> avec le code suivant</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fibonacci(n):</span>
@@ -532,8 +627,8 @@ Warning
 <li><p>Afficher votre historique</p></li>
 </ol>
 </section>
-<section id="simulation-de-travail-en-groupe" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="simulation-de-travail-en-groupe"><span class="header-section-number">6</span> Simulation de travail en groupe</h2>
+<section id="simulation-de-travail-en-groupe" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="simulation-de-travail-en-groupe"><span class="header-section-number">7</span> Simulation de travail en groupe</h2>
 <p>Pour cette seconde partie, vous allez cloner votre dépôt dans un autre dossier. Cela va permettre de simuler un travail à plusieurs sur le même projet. Sur la page gitlab de votre projet cliquez sur <code>clone</code> et copiez la partie <code>clone with SSH</code>. Dans VScode ouvrez une autre fenêtre et ouvrez le dossier parent du dossier actuel. Dans le terminal de VScode clonez votre projet avec la commande <code>git clone git@gitlab.com:username/TP_initiation_git.git</code> en remplaçant <code>git@gitlab.com:username/TP_initiation_git.git</code> par la partie <code>clone with SSH</code>. Vous devrez voir apparaître un nouveau dossier avec le code disponible sut git. Ouvrez ce dossier avec VScode. Vous devez avoir 2 fenêtres VScode chacune avec le même code (mais chacune correspondant à une copie de travail distincte).</p>
 <p>Dans une des fenêtres créez un fichier <code>moto.py</code> avec le code suivant :</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Moto:</span>
@@ -587,13 +682,13 @@ hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code></pre>
 <p>Git vous signifie que votre copie locale est en retard sur la copie distante. Et comme vous êtes en retard, git ne vous permet pas de pousser vos modifications. Pour avoir le droit d’envoyer votre code sur le dépôt distant vous devez avoir en local au minimum tout l’historique de la copie distante. Récupérez ces modifications distantes avec un <code>git pull</code> puis poussez vos modifications locales.</p>
 <p>Enfin allez récupérer ces modifications que vous venez de pousser dans l’autre fenêtre VScode. Faites un <code>git log --all --decorate --oneline --graph</code> pour voir à quoi ressemble votre historique. Vous allez constater une disjonction puis une fusion. Cette séparation correspond aux deux commits effectués en parallèle.</p>
-<section id="avancé" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="avancé"><span class="header-section-number">6.1</span> Avancé</h3>
+<section id="avancé" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="avancé"><span class="header-section-number">7.1</span> Avancé</h3>
 <p>Lorsque vous maîtriserez <code>git pull</code> et la gestion de conflits (section Hands on 3 ci-dessous), vous pourrez utiliser <code>git pull --rebase</code>. Cette option permet d’éviter la disjonction / fusion inscrite dans l’historique pour n’avoir que la ligne du commit additionnel dans l’historique. L’utilisation de rebase fait partie des bonnes pratiques de git, mais son usage n’est pas nécessaire pour un débutant.</p>
 </section>
 </section>
-<section id="exercice-dapplication-2" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="exercice-dapplication-2"><span class="header-section-number">7</span> Exercice d’application 2</h2>
+<section id="exercice-dapplication-2" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="exercice-dapplication-2"><span class="header-section-number">8</span> Exercice d’application 2</h2>
 <ul>
 <li><p>Dans une des fenêtres VScode modifiez le code de <code>puissance_rec.py</code> pour le code suivant :</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> puissance_rec_smarter(nombre, puissance):</span>
@@ -607,8 +702,8 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 <li><p>Synchronisez les deux codes.</p></li>
 </ul>
 </section>
-<section id="un-premier-conflit" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="un-premier-conflit"><span class="header-section-number">8</span> Un premier conflit</h2>
+<section id="un-premier-conflit" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="un-premier-conflit"><span class="header-section-number">9</span> Un premier conflit</h2>
 <p>Pour le moment vous avez travaillé sans générer le moindre conflit. Or la gestion des conflits est un élément crucial pour utiliser correctement git. Les conflits vont apparaître quand plusieurs commits faits en parallèle sont incohérents (dans le cas de fichiers textes, ceci est le cas lorsque les modifications impactent les mêmes zones de code).</p>
 <p>Dans la première fenêtre VScode, modifiez le fichier <code>voiture.py</code> pour qu’il ressemble à :</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Voiture:</span>
@@ -689,8 +784,8 @@ Automatic merge failed; fix conflicts and then commit the result.</code></pre>
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="va">self</span>.vitesse_max, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Faites maintenant un <code>git add voiture.py</code> puis un <code>git status</code>. Le message va vous dire que tout les conflits sont résolus, mais que vous être encore en train de faire une fusion. Il vous faut maintenant faire un commit pour mettre fin à la fusion. Faites un <code>git log --all --decorate --oneline --graph</code> pour voir à quoi ressemble votre historique après votre commit. Finalement, faites un <code>git push</code>, puis un <code>git pull</code> dans l’autre fenêtre de VSCode.</p>
 </section>
-<section id="exercice-dapplication-3" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="exercice-dapplication-3"><span class="header-section-number">9</span> Exercice d’application 3</h2>
+<section id="exercice-dapplication-3" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="exercice-dapplication-3"><span class="header-section-number">10</span> Exercice d’application 3</h2>
 <ul>
 <li>Dans une des fenêtres de VScode
 <ul>
@@ -711,7 +806,7 @@ Automatic merge failed; fix conflicts and then commit the result.</code></pre>
 
 
 <div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Zonge git</span>
+<span class="glightbox-desc lightbox-desc-2">Zonge git</span>
 </div>
 </section>
 
@@ -1283,7 +1378,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","loop":false,"selector":".lightbox","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","loop":false,"selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
