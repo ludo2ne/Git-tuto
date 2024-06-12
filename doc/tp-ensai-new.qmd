@@ -15,48 +15,31 @@ lightbox: true
 ## À faire à la maison{.unnumbered}
 
 ::: {.callout-note}
-Les consignes de ce TP sont données pour une utilisation de GitLab. Il est cependant tout à fait possible de réaliser ce TP avec GitHub dont l'interface est très ressemblante.
+Les consignes de ce TP sont données pour une utilisation de GitHub. Il est cependant tout à fait possible de réaliser ce TP avec GitLab dont l'interface est très ressemblante.
 
 :warning: Il y a tout de même quelques différences :
 
-- Dans GitHub, il ne faut pas créer un projet mais un **Répository**
-- Pour déclarer la clé SSH dans GitHub : Avatar > Settings > SSH keys
+- GitHub Repository = GitLab Projet
+- Pour déclarer la clé SSH dans GitLab : cliquez sur votre avatar > Préférences > SSH keys
 
 :::
 
-- [ ] Créer un compte sur [GitLab](https://about.gitlab.com/){target="_blank"}
-  - GitLab > Sign-in > *Inscrivez-vous maintenant*
-  - ou avec [ce lien direct](https://gitlab.com/users/sign_up){target="_blank"}
-
-::: {.callout-warning}
-Il arrive que vous soyez redirigé vers une page où l'on vous demande le nom de votre entreprise et votre numéro de carte bancaire.
-
-Ne rentrez pas votre numéro de carte bancaire !!!
-
-Quittez et réessayez plus tard.
-:::
-
-- [ ] Créez un nouveau projet
-  - GitLab > Projects > *New project*
-  - ou avec [ce lien direct](https://gitlab.com/projects/new){target="_blank"}
-  - `Create blank project`
-  - Project name : *TP_initiation_git*
-  - Visibility Level : *Private*
-  - Cliquez sur `Create project`
+- [ ] Créer un compte sur [GitHub](https://github.com/){target="_blank"}
+  - GitHub > Sign up 
+  - ou avec [ce lien direct](https://github.com/signup){target="_blank"}
 - [ ] Lire l'introduction
 
 
-## Introduction{.unnumbered}
+## Introduction {.unnumbered}
 
 Git est un formidable outil de versionnage de fichiers qui va vous permettre de conserver efficacement l'historique de votre code aussi bien si vous travaillez seul mais également quand vous travaillez à plusieurs.
 Cet historique est conservé dans ce qu'on appelle un *dépôt git*.
 
-Sa conception décentralisée fait qu'il est quasi impossible de perdre une donnée définitivement avec git (à noter toutefois, que, dans ce TP, nous utiliserons git en mode centralisé, l'utilisation en mode décentralisé étant plus complexe, et moins courante).
-En particulier, la perte totale d'un ordinateur hébergeant votre code ne représentera qu'une perte minime de code si vous utilisez git correctement.
+Sa conception décentralisée fait qu'il est quasi impossible de perdre une donnée définitivement avec git. En particulier, la perte totale d'un ordinateur hébergeant votre code ne représentera qu'une perte minime de code si vous utilisez git correctement.
 
-En outre, de nombreux outils de *CI/CD* (*Continuous Intégration / Continuous Deployment*) qui rendent possible l'automatisation de l'intégration et du déploiement de votre code s'appuient sur un *dépôt* git.
+En outre, de nombreux outils de *CI/CD* (*Continuous Intégration / Continuous Deployment*) qui rendent possible l'automatisation de l'intégration et du déploiement de votre code s'appuient sur un *dépôt git*.
 
-### Concepts Clés
+### Concepts Clés {.unnumbered}
 
 Cependant, comme tout logiciel, git demande un peu d'apprentissage, et de la pratique. Pour commencer, nous aurons besoin de certains concepts essentiels pour une utilisation efficace. Par sa conception décentralisée, un dépôt git peut exister en plusieurs endroits en même temps : sur notre machine, sur chaque machine des membre du projet, ou sur un serveur hébergeant le projet.
 
@@ -64,77 +47,131 @@ On parlera de la *copie distante* (*remote* en anglais) du dépôt dans le cas d
 
 La copie sur notre machine est la *copie locale* (*local* en anglais). Il s'agit de toutes les informations du dépôt concernant l'historique de ses fichiers, et les métadonnées du dépôt. Une distinction subtile est alors faite entre la copie locale et la *copie de travail* (*working copy* en anglais) : Nos modifications sur les fichiers du dépôt n'intégrerons la copie locale qu'à notre demande explicite. Cette intégration sera alors effectuée par l'ajout d'une entrée à l'historique du dépôt.
 
-### Programme
+### Programme {.unnumbered}
 
 Pour utiliser git, donc pour gérer un dépôt, nous avons accès à de nombreuses commandes.
 Pour ce TP de découverte vous allez utiliser seulement les commandes suivantes :
 
-- `git add` pour ajouter un fichier présent dans la copie de travail à la copie locale
-- `git commit` pour faire un point de sauvegarde (ajout à l'historique) dans la copie locale avec les modifications des fichiers de la copie de travail
-- `git push` pour pousser le code depuis votre copie locale vers la copie distante (envoi de l'historique ajouté à la copie locale par rapport à la copie distante)
-- `git pull` pour tirer l'historique de la copie distante vers votre copie de travail (et votre copie locale)
-- `git status` pour voir  la différence entre la copie de travail et la copie locale
-- `git clone`
+| Commande                    | Description                              |
+|-----------------------------|------------------------------------------|
+| `git clone <adr>`           | Créer un dépôt local sur son poste       |
+| `git status`                | Voir où l'on en est                      |
+| `git add <file>`            | Ajouter pour le prochain commit          |
+| `git commit -m "<msg>"`     | Créer un point de sauvegarde             |
+| `git pull`                  | dépôt local :arrow_right: dépôt distant  |
+| `git push`                  | dépôt local :arrow_left: dépôt distant   |
 
 
-Je vous conseille de vous référer à la [cheatsheet](https://foad-moodle.ensai.fr/pluginfile.php/6195/mod_resource/content/2/github-git-cheat-sheet.pdf) git disponible sur Moodle (les commandes les plus importantes sont surlignées) pour avoir les commandes git sous les yeux.
+## Git Bash et Unix
+
+Avant de nous lancer avec git, prenons quelques minutes pour découvrir le terminal Git Bash et les principales commandes Unix.
+
+Ces commandes ne sont pas indispensable pour utiliser git, mais il est utile et préférable de les connaitre.
+
+- [ ] Cliquez sur l'icone Windows (ou Menu Démarrer) et ouvrez l'application `Git Bash`
+  - cela ouvre un terminal
+
+![](img/git-bash.PNG){.r-stretch}
 
 
-## Avant de commencer
+Pour vous aider, voici la [liste des commandes](presentation.html#commandes-unix){target="_blank"}.
 
-- [ ] Créez un dossier `P:/Cours1A/Git`
-- [ ] Allez sur Moodle > Outils bureautiques pour le statisticien
-  - Onglet [TP - Git](https://foad-moodle.ensai.fr/course/view.php?id=147&section=3){target="_blank"}
-- [ ] Téléchargez
-  - le sujet
-  - le zip *Tp git*
-  - Setup windows
+### Création d'une arborescence
 
+- [ ] Affichez le répertoire courant
+- [ ] Positionnez-vous sur le disque *P:* (`/p`)
+- [ ] Listez les fichiers
+- [ ] S'il n'existe pas, créez un dossier nommé `Cours1A`
+- [ ] Positionnez-vous dans le dossier *Cours1A*
+- [ ] Créez un dossier nommé `git-initiation`
+- [ ] Positionnez-vous dans le dossier *git-initiation*
+
+::: {.callout-tip collapse="true" title="Solution"}
+- `pwd`
+- `cd /p`
+- `ll`
+- `mkdir Cours1A`
+- `cd Cours1A`
+- `mkdir git-initiation`
+- `cd git-initiation`
+
+Il était également possible de tout faire d'une seule traite :
+
+- `mkdir -p /p/Cours1A/git-initiation && cd $_`
+- l'option -p de *mkdir* crée tous les dossiers et sous-dossiers s'ils n'existent pas déjà
+- *$\_* : correspond au dernier argument de la commande précédente
+:::
+
+### Les fichiers
+
+- [ ] Créez un fichier *a.txt* contenant le résultat de la commande `ps` 
+  - ps liste tous les processus en cours
+  - `ps > a.txt`
+- [ ] Créez une copie de ce fichier que vous nommerez *b.txt*
+- [ ] Listez les fichiers du dossier courant
+- [ ] Affichez le contenu du fichier *b.txt*
+- [ ] Filtrez le contenu du fichier *b.txt* pour n'afficher que les lignes contenant *ps*
+  - `cat b.txt | grep ps`
+- [ ] Renommez le fichier *a.txt* en *c.txt*
+- [ ] Listez les fichiers du dossier courant
+- [ ] Supprimez les fichiers *b.txt* et *c.txt*
+- [ ] Créez 5 fichiers avec la commande `touch ex{1..5}.py`
+- [ ] Listez les fichiers du dossier courant
+- [ ] Supprimez ces 5 fichiers avec la commande `rm ex*.py`
+- [ ] Créez un fichier avec la commande `touch setup-git.sh`
 
 ## Paramétrage de Git
 
-### Le terminal Git Bash
 
-::: {.callout-note}
+### Configuration
 
-Git s'utilise en [ligne de commande]{.underline} via *Git Bash*.
-
-Il existe des interfaces mais elles ne sont pas aussi complètes. De plus quelques simples commandes permettent de quasiment tout faire.
-:::
-
-- [ ] Allez dans le dossier `P:/Cours1A/Git`
-- [ ] Clic droit > *Git Bash here*
-- Créez un dossier *depot1* et entrez dans ce dossier
-  - [ ] `mkdir depot1` pour *make directory*
-  - [ ] `cd depot1` pour *change directory*
-- Afficher le chemin du répertoire courant avec la commande `pwd` : *print working directory*
-- [ ] `cd ..` pour retourner dans le dossier parent
-- [ ] créer un dossier depot2
-
-
-
-
-### Configuration :construction:
-
-
-- [ ] setup
-- `git init ...`
-
-Récupérez le fichier `setup` disponible sur Moodle en fonction de la machine utilisée.
-
-- Windows (VM ou pc perso windows): Fichier pour windows. Double cliquez dessus pour l'exécuter. 
-- iOs / Linux : Fichier pour iOs/Linux. Ouvrez un terminal puis faites :
-
-  ```sh
-  cd ~/Download
-  chmod +x setup.sh
-  ./setup.sh
+- [ ] Dans l'explorer Windows, allez dans le dossier *P:/Cours1A/git-initiation*
+- [ ] Ouvrez le fichier *setup-git.sh* avec **Notepad++** et collez ce contenu
+  ```{.bash filename="setup-git.sh"}
+  git config --global user.name "Prenom Nom"
+  git config --global user.email prenom.nom@eleve.ensai.fr
+  git config --global credential.helper store
+  git config --global core.mergeoptions --no-edit
+  git config --global core.editor "code -w"
   ```
-
-Rentrez les informations demandées dans la console. Le script fait toutes l'initialisation pour vous, et copie votre clef dans le presse papier (=fait un "copier" de votre clef pour que vous puissiez la coller). Récupérer également l'archive contenant le code du TP et décompressez-là. Elle contient un fichier `README.md` et un fichier python avec un simple print.
+- [ ] Remplacez *Nom* et *Prenom* sur les deux premières lignes et enregistrez
+- [ ] Dans Git Bash, exécutez le fichier : `./setup-git.sh`
+- [ ] Vérifiez que la configuration est correcte avec `git config -l`
 
 
 ### Création d'une clé SSH
+
+Pour permettre de faire dialoguer notre dépôt local avec le dépôt distant de GitHub, nous allons utiliser le protocole `ssh` :
+
+- Nous allons générer une clé sur notre machine
+- Nous allons ensuite déclarer cette clé à GitHub
+
+::: {.callout-warning}
+Ce paramètrage SSH est réalisé au niveau de la machine.
+
+Si par exemple, vous souhaitez utiliser Git sur votre ordinateur personnel, il faudra faire également ce paramétrage.
+:::
+
+Dans Git Bash :
+
+- [ ] Créez un dossier *`*/c/Users/id????.ssh* pour stocker votre clé ssh
+  - `mkdir -p ~/.ssh`
+- [ ] Créez une clé ssh
+  - `ssh-keygen -t rsa -b 4096 -N '' -q -f ~/.ssh/id_rsa`
+- [ ] Copiez le contenu de la clé publique
+  - `cat ~/.ssh/id_rsa.pub | clip`
+  - c'est comme si vous copiez le contenu du fichier *id_rsa.pub*
+
+Déclarez votre clé publique à *GitHub*, pour pouvoir ensuite faire communiquer dépôts locaux avec les dépôts distants :
+
+- [ ] GitHub > cliquez sur votre avatar > Settings > SSH and GPG keys
+  - [lien direct](https://github.com/settings/keys){target="_blank"}
+- [ ] Cliquez sur [New SSH key]{style="background-color: green"}
+  - Title : VM ENSAI
+  - Key : Collez votre clé publique
+  - [Add SSH key]{style="background-color: green"}
+
+
 
 ::: {.callout-note title="SSH : Comment ça marche ?" collapse="true"}
 
@@ -150,40 +187,45 @@ SSH utilise un mécanisme de clés cryptographiques pour authentifier les ordina
 Ces deux clés sont liées. Un message chiffré par la clé publique n'est déchiffrable que par celui qui posséde la clé privée.
 Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous votre identité car chacun peut déchiffrer ce message avec la clé publique.
 
-https://www.youtube.com/watch?v=Y-S6GtdLaSU&ab_channel=Grafikart.fr
+{{< video https://www.youtube.com/watch?v=Y-S6GtdLaSU&ab_channel=Grafikart.fr >}}
 
 :::
 
-Dans *Git Bash*
-- [ ] `ssh-keygen -t ed25519 -C "prenom.nom@eleve.ensai.fr"`
-
-Déclarez votre clé publique à *GitLab*, pour pouvoir ensuite faire communiquer dépôts locaux avec les dépôts distants :
-
-- [ ] GitLab > cliquez sur votre avatar > Préférences > SSH keys
-  - ou avec [ce lien direct](https://gitlab.com/-/profile/keys){target="_blank"}
-- [ ] Cliquez sur *Add new key* 
-  - Collez votre clé publique
-  - Title : VM ENSAI
-  - Supprimez la date d'expiration
-  - Validez
-
-::: {.callout-warning}
-Ce paramètrage SSH est réalisé au niveau de la machine.
-
-Si par exemple, vous souhaitez utiliser Git sur votre ordinateur personnel, il faudra faire également ce paramétrage.
-:::
 
 
+### Le terminal Git Bash
 
-## Créez un dépôt local
+- [ ] Allez dans le dossier `P:/Cours1A/Git`
+- [ ] Clic droit > *Git Bash here*
+- Créez un dossier *depot1* et entrez dans ce dossier
+  - [ ] `mkdir depot1` pour *make directory*
+  - [ ] `cd depot1` pour *change directory*
+- Afficher le chemin du répertoire courant avec la commande `pwd` : *print working directory*
+- [ ] `cd ..` pour retourner dans le dossier parent
+- [ ] créer un dossier depot2
 
-Suite à la création de votre compte GitLab, vous avez créé un projet (autrement dit un dépôt distant).
+
+## Créez un dépôt distant
+
+- [ ] Créez un [nouveau Repository](https://github.com/new){target="_blank"} sur GitHub
+  - GitHub > Repositories > [New]{style="background-color: green"}
+  - Repository name : *tp-git*
+  - Visibility Level : *Private*
+  - Cochez *Add a README file*
+  - Add .gitignore : *Python*
+  - Choose a license : *MIT Licence*
+  - Cliquez sur [Create Repository]{style="background-color: green"}
+
+
+## Créez un dépôt local :construction:
+
+Suite à la création de votre compte GitHub, vous avez créé un repo (autrement dit un dépôt distant).
 
 Vous allez maintenant créer une copie locale en clonant ce projet. 
 
-Sur la page *GitLab* de votre projet, 
+Sur la page *GitHub* de votre repo, 
 
-- [ ] Cliquez sur `Code`
+- [ ] Cliquez sur [Code]{style="background-color: green"}
 - [ ] Copiez la ligne *Clone with SSH*
 - [ ] Dans Git Bash, entrez `git clone <collez la ligne>`
   - exemple : `git clone git@gitlab.com:ludo2ne/tp_initiation_git.git`
