@@ -9,7 +9,7 @@
 <meta name="author" content="Ludovic Deneuville, Rémi Pépin">
 <meta name="description" content="TP de découverte de Git">
 
-<title>Git tuto - Git TP ENSAI</title>
+<title>Git tuto - Git TP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,6 +107,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -214,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#add-commit-pull-et-push" id="toc-add-commit-pull-et-push" class="nav-link" data-scroll-target="#add-commit-pull-et-push"><span class="header-section-number">7.1</span> Add, Commit, Pull et Push</a></li>
   <li><a href="#historique-du-dépôt" id="toc-historique-du-dépôt" class="nav-link" data-scroll-target="#historique-du-dépôt"><span class="header-section-number">7.2</span> Historique du dépôt</a></li>
   <li><a href="#exercice-dapplication" id="toc-exercice-dapplication" class="nav-link" data-scroll-target="#exercice-dapplication"><span class="header-section-number">7.3</span> Exercice d’application</a></li>
-  <li><a href="#gitignore" id="toc-gitignore" class="nav-link" data-scroll-target="#gitignore"><span class="header-section-number">7.4</span> .gitignore <span class="emoji" data-emoji="construction">🚧</span></a></li>
+  <li><a href="#le-fichier-.gitignore" id="toc-le-fichier-.gitignore" class="nav-link" data-scroll-target="#le-fichier-.gitignore"><span class="header-section-number">7.4</span> Le fichier .gitignore</a></li>
   </ul></li>
   <li><a href="#simulation-de-travail-en-groupe" id="toc-simulation-de-travail-en-groupe" class="nav-link" data-scroll-target="#simulation-de-travail-en-groupe"><span class="header-section-number">8</span> Simulation de travail en groupe</a>
   <ul class="collapse">
@@ -234,7 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Git TP ENSAI</h1>
+<h1 class="title">Git TP</h1>
 </div>
 
 <div>
@@ -630,10 +633,11 @@ Tip
 </section>
 <section id="votre-dépôt-local-dans-vscode" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="votre-dépôt-local-dans-vscode"><span class="header-section-number">6</span> Votre dépôt local dans VSCode</h2>
+<p>Dans Visual Studio Code :</p>
 <ul class="task-list">
 <li><label><input type="checkbox">File &gt; Open Folder</label>
 <ul>
-<li>Allez dans <em>P:1A-initiation</em></li>
+<li>Allez dans <em>P:/Cours1A/git-initiation</em></li>
 <li>Cliquez <u>une seule fois</u> sur le dossier <em>tp-git</em></li>
 <li><code>Séletionner un dossier</code></li>
 <li><em>Yes I trust the authors</em></li>
@@ -657,7 +661,7 @@ Tip
 <li>dans VSCode &gt; clic droit dans l’Explorer &gt; New Folder</li>
 <li>ce dossier contiendra vos programmes</li>
 </ul></li>
-<li><label><input type="checkbox">Créez également à la racine, les dossiers <code>data</code> et <code>doc</code></label></li>
+<li><label><input type="checkbox">Créez également à la racine, le dossier <code>doc</code></label></li>
 <li><label><input type="checkbox">Créez un fichier <code>voiture.py</code></label>
 <ul>
 <li>dans le dossier <em>src</em></li>
@@ -793,7 +797,7 @@ Pour avoir un résultat plus agréable
 </div>
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Pretty log</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">C’est mieux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Alias</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Pretty log</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Alors ?</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Alias</a></li></ul>
 <div class="tab-content nav-pills">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <ul>
@@ -836,11 +840,21 @@ Pour avoir un résultat plus agréable
 </ul>
 <p>Pour résumer voilà ce que vous avez fait :</p>
 <div class="white-box">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://nceas.github.io/sasap-training/materials/reproducible_research_in_r_fairbanks/images/git-flowchart.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Zonge git"><img src="https://nceas.github.io/sasap-training/materials/reproducible_research_in_r_fairbanks/images/git-flowchart.png" class="img-fluid figure-img" alt="Zonge git"></a></p>
-<figcaption>Zonge git</figcaption>
-</figure>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    Workspace -&gt;&gt; Staging index: add
+    Staging index -&gt;&gt; Local repository: commit
+    Local repository -&gt;&gt; Remote repository: push
+    Remote repository -&gt;&gt; Workspace: pull
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -884,9 +898,53 @@ Pour avoir un résultat plus agréable
 <li><p><label><input type="checkbox">Affichez votre historique</label></p></li>
 </ul>
 </section>
-<section id="gitignore" class="level3" data-number="7.4">
-<h3 data-number="7.4" class="anchored" data-anchor-id="gitignore"><span class="header-section-number">7.4</span> .gitignore <span class="emoji" data-emoji="construction">🚧</span></h3>
-<p>data</p>
+<section id="le-fichier-.gitignore" class="level3" data-number="7.4">
+<h3 data-number="7.4" class="anchored" data-anchor-id="le-fichier-.gitignore"><span class="header-section-number">7.4</span> Le fichier .gitignore</h3>
+<p>Grâce à ce fichier, vous pouvez dire à Git d’ignorer certains fichiers.</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox">Créer un dossier <code>data</code> à la racine de votre dépôt</label></p></li>
+<li><p><label><input type="checkbox">Créer un fichier <code>joueuses.csv</code> dans <u>le dossier <em>data</em></u> avec ce contenu</label></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>joueuses.csv</strong></pre>
+</div>
+<div class="sourceCode" id="cb7" data-filename="joueuses.csv"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>id_joueuse,nom,prenom,date_naissance,pays</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>1,Sebag,Marie,1986-10-15,France</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>2,Polgar,Judit,1976-07-23,Hongrie</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>3,Hou,Yifan,1994-02-27,Chine</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>4,Kosteniuk,Alexandra,1984-04-23,Suisse</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>5,Ju,Wenjun,1991-01-31,Chine</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><label><input type="checkbox">Regardez l’état du dépôt</label></p>
+<ul>
+<li>le dossier <em>data</em> apparait dans les <em>Untracked files</em></li>
+</ul></li>
+<li><p><label><input type="checkbox">Ouvrez le fichier <em>.gitignore</em></label></p></li>
+<li><p><label><input type="checkbox">À la fin ajoutez une ligne avec <code>data/</code></label></p></li>
+<li><p><label><input type="checkbox">Regardez l’état du dépôt</label></p>
+<ul>
+<li>le dossier <em>data</em> n’apparait plus car maintenant Git ignore ce dossier et son contenu</li>
+<li>il est bien présent dans votre dépôt local mais il n’arrivera donc jamais sur le dépôt distant</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Certains fichiers ont vocation à rester seulement sur votre dépôt local, par exemple :</p>
+<ul>
+<li>fichiers de données</li>
+<li>fichiers contenant des mots de passe</li>
+<li>fichiers de logs</li>
+</ul>
+</div>
+</div>
 </section>
 </section>
 <section id="simulation-de-travail-en-groupe" class="level2" data-number="8">
@@ -897,16 +955,14 @@ Pour avoir un résultat plus agréable
 <li>soit vous faîtes seul (mais vous gérez 2 dépôts locaux différents)</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="Si vous travaillez à 2">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Si vous travaillez à 2
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Un des 2 membres va créer un dépôt local à partir du dépôt distant de l’autre.</p>
 <ul class="task-list">
@@ -927,9 +983,8 @@ Si vous travaillez à 2
 </ul>
 </div>
 </div>
-</div>
 <div class="callout callout-style-default callout-note callout-titled" title="Si vous faîtes seul">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -938,7 +993,7 @@ Si vous faîtes seul
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Dans l’explorateur Windows :</p>
 <ul>
@@ -969,16 +1024,16 @@ Si vous faîtes seul
 <div class="code-with-filename-file">
 <pre><strong>moto.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb7" data-filename="moto.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Moto:</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur):</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.nom <span class="op">=</span> nom</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelere(<span class="va">self</span>, increment):</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> increment <span class="op">&gt;</span> <span class="dv">15</span>:</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> <span class="dv">15</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">150</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8" data-filename="moto.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Moto:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.nom <span class="op">=</span> nom</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelere(<span class="va">self</span>, increment):</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> increment <span class="op">&gt;</span> <span class="dv">15</span>:</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">150</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> envoie ce fichier vers le dépôt distant : <em>add</em>, <em>commit</em> et <em>push</em></label></p></li>
 <li><p><label><input type="checkbox"><span class="emoji" data-emoji="cat">🐱</span> fait ensuite <code>git pull</code></label></p>
@@ -1000,18 +1055,18 @@ Si vous faîtes seul
 <div class="code-with-filename-file">
 <pre><strong>state-diag.md</strong></pre>
 </div>
-<div class="sourceCode" id="cb8" data-filename="state-diag.md"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```mermaid</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="in">stateDiagram</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="in">    login : Se connecter</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="in">    menu_joueur : Menu Joueur</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="in">    logon : Créer un compte      </span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="in">    [*] --&gt; Accueil      </span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="in">    Accueil --&gt; login</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="in">    login --&gt; menu_joueur      </span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="in">    Accueil --&gt; logon      </span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="in">    Accueil --&gt; quitter</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="in">    quitter --&gt; [*]</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9" data-filename="state-diag.md"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="in">```mermaid</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="in">stateDiagram</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="in">    login : Se connecter</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="in">    menu_joueur : Menu Joueur</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="in">    logon : Créer un compte      </span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="in">    [*] --&gt; Accueil      </span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="in">    Accueil --&gt; login</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="in">    login --&gt; menu_joueur      </span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="in">    Accueil --&gt; logon      </span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="in">    Accueil --&gt; quitter</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="in">    quitter --&gt; [*]</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> envoie son code vers le dépôt distant, ensuite <span class="emoji" data-emoji="cat">🐱</span> fait de même</label></p>
 <ul>
@@ -1103,14 +1158,14 @@ Automatic merge failed; fix conflicts and then commit the result.</code></pre>
 </ul></li>
 </ul>
 <p>Votre code ressemble à cela désormais à :</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelere(<span class="va">self</span>, increment) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> increment <span class="op">&gt;</span> <span class="dv">10</span>:</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">110</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="op">=======</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">150</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="dv">0</span><span class="er">5380ea70dbd5d4e49371af8da7c0ac1df13a010</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelere(<span class="va">self</span>, increment) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> increment <span class="op">&gt;</span> <span class="dv">10</span>:</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">110</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="op">=======</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">150</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="dv">0</span><span class="er">5380ea70dbd5d4e49371af8da7c0ac1df13a010</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>La première partie (entre <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> et <code>=======</code>) correspond au code en que vous aviez dans votre copie de travail</li>
 <li>La seconde partie est le code provenant du dépôt distant</li>
@@ -1183,32 +1238,29 @@ Avoir un conflit, ce n’est pas grave !</p>
 <div class="code-with-filename-file">
 <pre><strong>voiture.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb12" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, vitesse_max<span class="op">=</span><span class="dv">130</span>):</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>      <span class="co">"""Constructeur"""</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.nom <span class="op">=</span> nom</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.vitesse_max <span class="op">=</span> vitesse_max</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, vitesse_max<span class="op">=</span><span class="dv">130</span>):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>      <span class="co">"""Constructeur"""</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.nom <span class="op">=</span> nom</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.vitesse_max <span class="op">=</span> vitesse_max</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p><label><input type="checkbox"><span class="emoji" data-emoji="frog">🐸</span> ajoute un attribut <em>carburant</em></label></p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>voiture.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb13" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, carburant):</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>      <span class="co">"""Constructeur"""</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.nom <span class="op">=</span> nom</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.carburant <span class="op">=</span> carburant</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom, couleur, carburant):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>      <span class="co">"""Constructeur"""</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.nom <span class="op">=</span> nom</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.carburant <span class="op">=</span> carburant</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p><label><input type="checkbox">Synchronisez vos dépôts et résolvez les conflits</label></p></li>
 </ul>
 
 
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-2">Zonge git</span>
-</div>
 </section>
 </section>
 
@@ -1780,7 +1832,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
