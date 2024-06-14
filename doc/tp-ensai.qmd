@@ -1,5 +1,5 @@
 ---
-title: "Git TP ENSAI"
+title: "Git TP"
 description: "TP de découverte de Git"
 author: Ludovic Deneuville, Rémi Pépin
 format: 
@@ -257,7 +257,6 @@ Les composants principaux d'un IDE :
 
 ## Configuration de VSCode :construction:
 
-
 - [ ] Ouvrez l'application `Visual Studio Code`
 - :gear: en bas à gauche > Settings
 - [ ] Fermez pour réouvrez VSCode pour valider la config
@@ -278,8 +277,10 @@ Les composants principaux d'un IDE :
 
 ## Votre dépôt local dans VSCode
 
+Dans Visual Studio Code :
+
 - [ ] File > Open Folder
-  - Allez dans *P:\Cours1A\git-initiation*
+  - Allez dans *P:/Cours1A/git-initiation*
   - Cliquez [une seule fois]{.underline} sur le dossier *tp-git*
   - `Séletionner un dossier`
   - *Yes I trust the authors*
@@ -295,7 +296,7 @@ Vous allez commencer par créer de nouveaux dossiers et fichiers sur votre dép�
 - [ ] Créez un dossier `src`
   - dans VSCode > clic droit dans l'Explorer > New Folder
   - ce dossier contiendra vos programmes
-- [ ] Créez également à la racine, les dossiers `data` et `doc`
+- [ ] Créez également à la racine, le dossier `doc`
 - [ ] Créez un fichier `voiture.py`
   - dans le dossier *src*
   - ouvrez ce fichier et collez ce code 
@@ -406,7 +407,7 @@ Dans le terminal *Git Bash*
   - **origin** : désigne le dépôt distant
 - *q* pour quitter
 
-#### C'est mieux
+#### Alors ?
 
 {{< video https://www.youtube.com/watch?v=tHKc-DBb_ME >}}
 
@@ -429,8 +430,14 @@ Une solution est de créer un alias :
 
 Pour résumer voilà ce que vous avez fait :
 
-:::white-box
-![Zonge git](https://nceas.github.io/sasap-training/materials/reproducible_research_in_r_fairbanks/images/git-flowchart.png)
+::: {.white-box}
+```{mermaid}
+sequenceDiagram
+    Workspace ->> Staging index: add
+    Staging index ->> Local repository: commit
+    Local repository ->> Remote repository: push
+    Remote repository ->> Workspace: pull
+```
 :::
 
 ### Exercice d'application
@@ -466,9 +473,36 @@ Pour résumer voilà ce que vous avez fait :
 - [ ] Affichez votre historique
 
 
-### .gitignore :construction:
+### Le fichier .gitignore
 
-data
+Grâce à ce fichier, vous pouvez dire à Git d'ignorer certains fichiers.
+
+- [ ] Créer un dossier `data` à la racine de votre dépôt
+- [ ] Créer un fichier `joueuses.csv` dans [le dossier *data*]{.underline} avec ce contenu
+  ```{.markdown filename="joueuses.csv"}
+  id_joueuse,nom,prenom,date_naissance,pays
+  1,Sebag,Marie,1986-10-15,France
+  2,Polgar,Judit,1976-07-23,Hongrie
+  3,Hou,Yifan,1994-02-27,Chine
+  4,Kosteniuk,Alexandra,1984-04-23,Suisse
+  5,Ju,Wenjun,1991-01-31,Chine
+  ```
+- [ ] Regardez l'état du dépôt
+  - le dossier *data* apparait dans les *Untracked files*
+- [ ] Ouvrez le fichier *.gitignore*
+- [ ] À la fin ajoutez une ligne avec `data/`
+- [ ] Regardez l'état du dépôt
+  - le dossier *data* n'apparait plus car maintenant Git ignore ce dossier et son contenu
+  - il est bien présent dans votre dépôt local mais il n'arrivera donc jamais sur le dépôt distant
+
+::: {.callout-note}
+Certains fichiers ont vocation à rester seulement sur votre dépôt local, par exemple :
+
+- fichiers de données
+- fichiers contenant des mots de passe
+- fichiers de logs
+:::
+
 
 ## Simulation de travail en groupe
 
@@ -477,7 +511,7 @@ Pour les questions suivantes, vous allez avoir besoin de 2 dépôts locaux et d'
 - soit vous travaillez en bînome (vous avez chacun votre dépôt local)
 - soit vous faîtes seul (mais vous gérez 2 dépôts locaux différents)
 
-:::{.callout-note title="Si vous travaillez à 2" collapse="true"}
+:::{.callout-note title="Si vous travaillez à 2"}
 Un des 2 membres va créer un dépôt local à partir du dépôt distant de l'autre.
 
 - [ ] :frog: fournit à :cat: l'adresse ssh de son repo
