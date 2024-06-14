@@ -513,7 +513,7 @@ Date         Heure   Auteur      Message commit
 <div id="fig-thinkr" class="quarto-figure quarto-figure-center quarto-float">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-thinkr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="img/thinkR_git_avec_sans.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img data-src="img/thinkR_git_avec_sans.png" style="width:40.0%"></a>
+<a href="img/thinkR_git_avec_sans.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img data-src="img/thinkR_git_avec_sans.png" style="width:40.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-thinkr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/" target="_blank">ThinkR</a>
@@ -764,6 +764,11 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 
 <img data-src="img/git-bash.PNG" class="r-stretch"><aside class="notes">
 <p>Conseil : lors de l’installation de Git, choisissez le terminal Unix</p>
+<ul>
+<li>1ere ligne : prompt (username, machine, répertoire actuel)</li>
+<li>2e ligne (commence par $) : commande</li>
+<li>3e ligne : résultat de la commande</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -866,7 +871,7 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <span id="cb6-3"><a></a><span class="bu">cd</span> ..                <span class="co"># Se positionne dans le répertoire parent</span></span>
 <span id="cb6-4"><a></a><span class="bu">cd</span> ../projet/src     <span class="co"># remonter dans le dossier parent puis aller dans projet puis src</span></span>
 <span id="cb6-5"><a></a><span class="fu">cp</span> /p/image.jpg .    <span class="co"># copie le fichier image.jpg du disque P dans le dossier courant</span></span>
-<span id="cb6-6"><a></a><span class="ex">./setup.sh</span>           <span class="co"># Lancer le programme setup.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-6"><a></a><span class="ex">./setup.sh</span>           <span class="co"># Lancer le programme setup.sh du répertoire courant</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -877,13 +882,15 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </div>
 <div class="callout-content">
 <ul>
-<li><code>.</code> représente le dossier courant</li>
-<li><code>..</code> représente le dossier parent</li>
+<li><code>.</code> : représente le dossier courant</li>
+<li><code>..</code> : représente le dossier parent</li>
+<li><code>~</code> : répertoire personnel de l’utilisateur (<code>echo $HOME</code>)</li>
 </ul>
 </div>
 </div>
 </div>
 <aside class="notes">
+<p>répertoire = dossier</p>
 <p>La ligne de commande reste très utilisée :</p>
 <ul>
 <li>rapide, efficace</li>
@@ -903,6 +910,30 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="copier-coller" class="slide level3">
+<h3>Copier-Coller</h3>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>CTRL + C et CTRL + V ne fonctionnent pas !</li>
+<li>CTRL + C : stopper un processus (très utile)</li>
+</ul>
+</div>
+</div>
+</div>
+<p>2 possibilités pour coller du texte :</p>
+<ul>
+<li>Clic droit</li>
+<li>MAJ + INSERT</li>
+</ul>
 </section></section>
 <section>
 <section id="versionner-son-code" class="title-slide slide level2 center">
@@ -2358,7 +2389,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom"});
+    <script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom"});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;

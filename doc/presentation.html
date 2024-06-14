@@ -320,7 +320,7 @@ Date         Heure   Auteur      Message commit
 <div id="fig-thinkr" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-thinkr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="img/thinkR_git_avec_sans.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="img/thinkR_git_avec_sans.png" class="img-fluid figure-img" style="width:40.0%"></a>
+<a href="img/thinkR_git_avec_sans.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="img/thinkR_git_avec_sans.png" class="img-fluid figure-img" style="width:40.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-thinkr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/" target="_blank">ThinkR</a>
@@ -509,6 +509,11 @@ Note
 <p><a href="img/git-bash.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/git-bash.PNG" class="r-stretch img-fluid"></a></p>
 <div class="notes">
 <p>Conseil : lors de l’installation de Git, choisissez le terminal Unix</p>
+<ul>
+<li>1ere ligne : prompt (username, machine, répertoire actuel)</li>
+<li>2e ligne (commence par $) : commande</li>
+<li>3e ligne : résultat de la commande</li>
+</ul>
 </div>
 <section id="commandes-unix" class="level3 smaller">
 <h3 class="smaller anchored" data-anchor-id="commandes-unix">Commandes Unix</h3>
@@ -590,7 +595,7 @@ Note
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..                <span class="co"># Se positionne dans le répertoire parent</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../projet/src     <span class="co"># remonter dans le dossier parent puis aller dans projet puis src</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> /p/image.jpg .    <span class="co"># copie le fichier image.jpg du disque P dans le dossier courant</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">./setup.sh</span>           <span class="co"># Lancer le programme setup.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">./setup.sh</span>           <span class="co"># Lancer le programme setup.sh du répertoire courant</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -602,12 +607,14 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><code>.</code> représente le dossier courant</li>
-<li><code>..</code> représente le dossier parent</li>
+<li><code>.</code> : représente le dossier courant</li>
+<li><code>..</code> : représente le dossier parent</li>
+<li><code>~</code> : répertoire personnel de l’utilisateur (<code>echo $HOME</code>)</li>
 </ul>
 </div>
 </div>
 <div class="notes">
+<p>répertoire = dossier</p>
 <p>La ligne de commande reste très utilisée :</p>
 <ul>
 <li>rapide, efficace</li>
@@ -617,6 +624,30 @@ Tip
 </ul></li>
 </ul>
 </div>
+</section>
+<section id="copier-coller" class="level3">
+<h3 class="anchored" data-anchor-id="copier-coller">Copier-Coller</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>CTRL + C et CTRL + V ne fonctionnent pas !</li>
+<li>CTRL + C : stopper un processus (très utile)</li>
+</ul>
+</div>
+</div>
+<p>2 possibilités pour coller du texte :</p>
+<ul>
+<li>Clic droit</li>
+<li>MAJ + INSERT</li>
+</ul>
 </section>
 </section>
 <section id="versionner-son-code" class="level2">
@@ -2062,7 +2093,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
