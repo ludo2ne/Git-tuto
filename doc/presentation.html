@@ -141,23 +141,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Présentation</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../doc/parametrage.html"> 
-<span class="menu-text">Paramètrage</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../doc/tp.html"> 
-<span class="menu-text">TP</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../doc/tp-ensai.html"> 
-<span class="menu-text">TP-ENSAI-2024-03</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../doc/tp-ensai-new.html"> 
-<span class="menu-text">TP-ENSAI-2024-10</span></a>
+<span class="menu-text">TP ENSAI</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Other</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-other">    
+        <li>
+    <a class="dropdown-item" href="../doc/parametrage.html">
+ <span class="dropdown-text">Paramètrage</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../doc/tp.html">
+ <span class="dropdown-text">TP</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../doc/open-source.html">
+ <span class="dropdown-text">Open Source</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/ludo2ne/Git-tuto" target="_blank"> <i class="bi bi-github" role="img">
 </i> 
@@ -195,6 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#etat-du-dépôt-local" id="toc-etat-du-dépôt-local" class="nav-link" data-scroll-target="#etat-du-dépôt-local">Etat du dépôt local</a></li>
   <li><a href="#cloner-un-dépôt" id="toc-cloner-un-dépôt" class="nav-link" data-scroll-target="#cloner-un-dépôt">Cloner un dépôt</a></li>
   <li><a href="#commandes-principales" id="toc-commandes-principales" class="nav-link" data-scroll-target="#commandes-principales">Commandes principales</a></li>
+  <li><a href="#la-routine-git" id="toc-la-routine-git" class="nav-link" data-scroll-target="#la-routine-git">La routine Git</a></li>
   <li><a href="#démo" id="toc-démo" class="nav-link" data-scroll-target="#démo">Démo</a></li>
   <li><a href="#travailler-dans-le-cloud" id="toc-travailler-dans-le-cloud" class="nav-link" data-scroll-target="#travailler-dans-le-cloud">Travailler dans le cloud</a></li>
   <li><a href="#les-branches" id="toc-les-branches" class="nav-link" data-scroll-target="#les-branches">Les branches</a></li>
@@ -320,7 +328,7 @@ Date         Heure   Auteur      Message commit
 <div id="fig-thinkr" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-thinkr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="img/thinkR_git_avec_sans.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="img/thinkR_git_avec_sans.png" class="img-fluid figure-img" style="width:40.0%"></a>
+<a href="img/thinkR_git_avec_sans.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="img/thinkR_git_avec_sans.png" class="img-fluid figure-img" style="width:40.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-thinkr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/" target="_blank">ThinkR</a>
@@ -1378,6 +1386,25 @@ Remarque
 </ul>
 </section>
 </section>
+<section id="la-routine-git" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="la-routine-git">La routine Git</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">je commence par <code>git pull</code> pour mettre à jour mon dépôt local</label></li>
+<li><label><input type="checkbox">je code</label></li>
+<li><label><input type="checkbox">j’ai fini, je teste mon code, ça marche <span class="emoji" data-emoji="tada">🎉</span></label></li>
+<li><label><input type="checkbox"><code>git status</code> pour voir l’état du dépôt</label></li>
+<li><label><input type="checkbox"><code>git add &lt;filename&gt;</code> pour ajouter mes fichiers au prochain commit</label></li>
+<li><label><input type="checkbox"><code>git commit -m "blabla"</code> pour créer un point de sauvegarde</label></li>
+<li><label><input type="checkbox"><code>git pull</code> pour voir si personne n’a poussé depuis mon dernier pull</label></li>
+<li><label><input type="checkbox">si besoin, je résouds les conflits</label></li>
+<li><label><input type="checkbox">je pousse mon code <code>git push</code></label></li>
+</ul>
+<div class="notes">
+<ul>
+<li>pull : des fois qu’un camarade ait codé la nuit</li>
+</ul>
+</div>
+</section>
 <section id="démo" class="level2 hide-html-render">
 <h2 class="anchored" data-anchor-id="démo">Démo</h2>
 <div class="notes">
@@ -2093,7 +2120,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
