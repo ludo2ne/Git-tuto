@@ -125,7 +125,7 @@ Il était également possible de tout faire d'une seule traite :
 
 ### Configuration
 
-- [ ] Dans l'explorer Windows, allez dans le dossier *P:/Cours1A/git-initiation*
+- [ ] Dans l'explorateur de fichiers Windows (WIN + E), allez dans le dossier `P:/Cours1A/git-initiation`
 - [ ] Ouvrez le fichier *setup-git.sh* avec **Notepad++** et collez ce contenu
   ```{.bash filename="setup-git.sh"}
   git config --global user.name "Prenom Nom"
@@ -217,114 +217,243 @@ Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous v
   - Cliquez sur [Create Repository]{style="background-color: green"}
 
 
-## Créez un dépôt local :construction:
+## Créez un dépôt local
 
-Suite à la création de votre compte GitHub, vous avez créé un repo (autrement dit un dépôt distant).
+Suite à la création de votre compte GitHub, vous avez créé un repo (i.e. un dépôt distant).
 
-Vous allez maintenant créer une copie locale en clonant ce projet. 
+Vous allez maintenant créer une copie locale de ce dépôt en clonant ce projet. 
 
-Sur la page *GitHub* de votre repo, 
+Sur la page GitHub de votre repo, 
 
 - [ ] Cliquez sur [Code]{style="background-color: green"}
 - [ ] Copiez la ligne *Clone with SSH*
-- [ ] Dans Git Bash, entrez `git clone <collez la ligne>`
-  - exemple : `git clone git@gitlab.com:ludo2ne/tp_initiation_git.git`
+- [ ] Dans Git Bash, vérifiez que vous êtes dans le dossier *p/Cours1A/git-initiation*
+  - si ce n'est pas le cas : `cd /p/Cours1A/git-initiation`
+- [ ] Entrez `git clone <collez la ligne>`
+  - exemple : `git clone git@github.com:ludo2ne/tp-gitzzz.git`
+- [ ] Listez le contenu du répertoire courant
+  - Le dossier *tp_initiation_git* est bien présent
+  - vous pouvez également vérifier sa présence via l'explorateur Windows 
+    - WIN + E, puis allez à `P:\Cours1A\git-initiation`
+- [ ] Positionnez-vous dans le dépôt : `cd tp_initiation_git`
+  - à la fin de votre prompt, vous remarquerez l'apparition de [(main)]{style="color: cyan"}
+  - cela signifie que vous êtes dans un dépôt git, sur la branche principale
+
+Vous pouvez fermer *Git Bash*.
+
+Vous allez par la suite utiliser le *Git Bash* (exactement le même) qui est intégré dans l'IDE [Visual Studio Code](https://code.visualstudio.com/){target="_blank"}.
+
+::: {.callout-tip}
+Un IDE (Integrated Development Environment) est une application qui offre des outils complets pour le développement logiciel
+
+Les composants principaux d'un IDE :
+
+- Éditeur de Code
+- Compilateur / Interpréteur
+- Gestionnaire de Projet
+- Terminal Intégré
+:::
 
 
-## Premiers pas :construction:
+## Configuration de VSCode :construction:
 
-* Dans le dossier git-tp, créez un fichier `voiture.py` contenant le code suivant :
 
-  ```{.python}
+- [ ] Ouvrez l'application `Visual Studio Code`
+- :gear: en bas à gauche > Settings
+- [ ] Fermez pour réouvrez VSCode pour valider la config
+
+??? Niveau user ou workspace ???
+
+```{.json filename="User settings"}
+{
+    "files.exclude": {
+        "**/__pycache__": true
+    },
+    "git.openRepositoryInParentFolders": "never",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "editor.inlayHints.enabled": "off",
+    "java.configuration.runtimes": [],
+}
+```
+
+## Votre dépôt local dans VSCode
+
+- [ ] File > Open Folder
+  - Allez dans *P:\Cours1A\git-initiation*
+  - Cliquez [une seule fois]{.underline} sur le dossier *tp-git*
+  - `Séletionner un dossier`
+  - *Yes I trust the authors*
+  - :warning: dans votre explorer en haut à gauche, le dossier parent doit être *tp-git*
+    - si ce n'est pas le cas, recommencez l'Open Folder
+- [ ] Ouvrez un terminal *Git Bash*
+  - Terminal > New Terminal (CTRL + ù)
+
+## Premiers pas avec Git
+
+- [ ] Créez un dossier `src`
+  - dans VSCode > clic droit dans l'Explorer > New Folder
+  - ce dossier contiendra vos programmes
+- [ ] Créez également à la racine, les dossiers `data` et `doc`
+- [ ] Créez un fichier `voiture.py`
+  - dans le dossier *src*
+  - ouvrez ce fichier et collez ce code 
+  ```{.python filename="voiture.py"}
   class Voiture:
+      """Classe représentant une voiture.
+      
+      Attributes
+      ----------
+      nom : str
+          le nom de la voiture.
+      couleur : str
+          la couleur de la voiture.
+      vitesse : int
+          la vitesse de la voiture (initalisée à 0).
+      """
+
       def __init__(self, nom, couleur):
-          self.couleur = couleur
+          """Constructeur"""
           self.nom = nom
+          self.couleur = couleur
           self.vitesse = 0
+      
+      def __str__(self):
+        return f"La voiture {self.nom} de couleur {self.couleur} roule à {self.vitesse} km/h."
+  
   ```
 
-* Dans le terminal VScode, exécutez les commandes suivantes : 
+Dans le terminal *Git Bash* intégré dans VScode, exécutez les commandes suivantes : 
 
-  1. `git status` : permet de voir les différences entre la version de travail du code et le commit le plus récent
+- [ ] `git status`
+  - différences entre la version de travail du code et le commit le plus récent
+  - le dossier `src` apparait dans *Untracked files*
+  - cela signifie que Git a repéré ce dossier mais qu'il ne le versionnera pas
+- [ ] `git add src`
+  - pour faire reconnaitre ce dossier et le placer la zone de transit
+  - ce dossier et ses fichiers seront versionnés dans le prochain commit
+- [ ] `git status`
+  - maintenant le fichier est reconnu par Git
+- [ ] `git commit -m "Création classe voiture"`
+  - permet de faire un commit = un point de sauvegarde pour git = une entrée supplémentaire à l'historique
+  - entre les `" "`, mettez un message court et explicite. Ce message est obligatoire !
+- [ ] `git status` : 
+  - *Your branch is ahead of 'origin/main' by 1 commit*
+  - votre dépôt local est en avance d'un commit par rapport au dépôt distant
+- [ ] `git pull`
+  - récupére les derniers commits disponibles sur le dépôt distant (sur GitHub) 
+  - actuellement il n'y en a pas, mas il faut prendre l'habitude de souvent récupérer les derniers commits
+- [ ] `git push`
+  - pousse vos commits vers le dépôt distant. 
+  - :warning: si vous avez modifiez des fichiers qui ne sont pas dans un commit, ces modifications n'apparaitront pas sur le dépôt distant
 
-     * Le fichier `voiture.py` apparaît dans les *Untracked files*. Cela signifie que Git a repéré ce fichier mais pour le moment il ne le versionnera pas (les fichiers non versionnés sont ignorés par `git commit`)
+Allez sur la page GitHub de votre repo et vérifiez que vos fichiers sont bien arrivés.
 
-  2. `git add voiture.py` : permet de mettre des fichiers dans la zone de transit. Ces fichiers seront versionnés dans le prochain commit.
 
-  3. `git status` : maintenant le fichier est reconnu par Git
+- [ ] Ajouter à la fin du fichier `voiture.py` ce code et [enregistrez]{.underline}
+  ```{.python filename="voiture.py"}
+      def accelere(self, increment) -> None:
+          """Augmente la vitesse de la voiture.
 
-  4. `git commit -m "Création classe voiture"` : permet de faire un commit = un point de sauvegarde pour git = une entrée supplémentaire à l'historique. En règle général, entre les `" "`, mettez un message court et explicite. Si vous omettez le `-m " "` Vscode va ouvrir une fenêtre pour que vous saisissiez le message de commit. Vous pouvez alors écrire le message de commit, puis fermer la fenêtre pour valider le message. Attention si vous n'écrivez rien hors de la zone de commentaire, le commit sera annulé.
+          L'incrément maximal est de 10 km/h.
+          La Vitesse maximale est de 130 km/h.
 
-  5. `git status` : affichera alors `Your branch is ahead of 'origin/main' by 1 commit`, signifiant que votre copie locale est en avance d'un commit par rapport à la copie distante.
-
-  6. `git pull` : permet de récupérer les derniers commits disponible sur la copie distante (= la copie du projet gitlab). Actuellement il n'y en a pas, mas il faut prendre l'habitude de souvent récupérer les derniers commits.
-
-  7. `git push` : permet de pousser vos commits sur le dépôt distant. Attention vous ne poussez que les commits (changements sur la copie locale) et pas toutes vos modifications sur votre copie de travail ! Si une modification que vous avez fait n'apparaît pas sur là copie distante, il est possible que vous n'ayez pas fait de commit avec ces modifications.
-
-* Modifiez `voiture.py` pour qu'il ressemble à ça :
-
-  ```{.python}
-  class Voiture:
-      def __init__(self, nom, couleur):
-          self.couleur = couleur
-          self.nom = nom
-          self.vitesse = 0
-  
-      def accelere(self, increment):
+          Parameters
+          ----------
+          increment : int
+              la valeur de l'accélération demandée (limité à 10)
+          """
           if increment > 10:
               increment = 10
-              self.vitesse = min(130, self.vitesse + increment)
+          self.vitesse = min(130, self.vitesse + increment)
   ```
 
-* Dans le terminal VSCode :
+Dans le terminal *Git Bash*
 
-  1. Faites `git status`, `git add voiture.py`, `git commit -m "Ajout méthode accelere"`, et enfin `git push`, puis vérifiez que le code sur gitlab a bien été modifié.
-
-  2. Regardez votre historique avec un `git log --all --decorate --oneline --graph`
+- [ ] `git status`
+  - le fichier *voiture.py* a été modifié
+- [ ] `git diff` pour voir les différence depuis le dernier commit
+  - *q* pour quitter
+- [ ] `git add .` pour ajouter toutes les modifications de tous les fichiers au prochain commit
+- [ ] Comme précédemment, faite un commit, et un push
+  - pour créer un point de sauvegarde et l'envoyer vers le dépôt distant
+- [ ] Regardez votre historique avec un `git log --all --decorate --oneline --graph`
 
 Pour résumer voilà ce que vous avez fait :
 
+:::white-box
 ![Zonge git](https://nceas.github.io/sasap-training/materials/reproducible_research_in_r_fairbanks/images/git-flowchart.png)
+:::
 
 ## Exercice d'application 1
 
-1. Créez un fichier `fibonacci.py` avec le code suivant
+- [ ] Créez un fichier `fibonacci.py` avec ce code
+  ```{.python filename="fibonacci.py"}
+  def fibonacci(n):
+      """Calcule le n ième terme de la suite de Fibonacci
+      en utilisant un algorithme récursif.
+      """ 
+      if n < 2:
+          return 1
+      else :
+          return fibonacci(n - 1) + fibonacci(n - 2)
+  
+  if __name__ == "__main__":
+      for i in range (1, 15):
+          print(fibonacci(i))
+  ```
+- [ ] Envoyez le sur la copie distante de votre projet GitHub
+- [ ] Créez un fichier `puissance_rec.py` avec le code suivant
+  ```{.python filename="puissance_rec.py"}
+  def puissance_rec(nombre, puissance):
+      if not puissance:
+          return 1
+      elif not puissance % 2:
+          return puissance_rec(nombre, int(puissance / 2)) \
+          * puissance_rec(nombre, int(puissance / 2))
+      else:
+          return nombre * puissance_rec(nombre, puissance - 1)
+  ```
+- [ ] Envoyez le sur la copie distante de votre projet GitHub
+- [ ] Afficher votre historique
 
-   ```{.python}
-   def fibonacci(n):
-       if n < 2:
-           return 1
-       else :
-           return fibonacci(n - 1) + fibonacci(n - 2)
-   
-   if __name__ == "__main__":
-       for i in range (1, 101):
-           print(fibonacci(i))
-   ```
-
-   et envoyez le sur la copie distante de votre projet gitlab
-
-2. Créez un fichier `puissance_rec.py` avec le code suivant
-
-   ```{.python}
-   def puissance_rec(nombre, puissance):
-       if not puissance:
-           return 1
-       elif not puissance % 2:
-           return puissance_rec(nombre, int(puissance / 2)) \
-           * puissance_rec(nombre, int(puissance / 2))
-       else:
-           return nombre * puissance_rec(nombre, puissance - 1)
-   ```
-
-   et envoyez le sur la copie distante de votre projet gitlab
-
-3. Afficher votre historique
 
 ## Simulation de travail en groupe
 
-Pour cette seconde partie, vous allez cloner votre dépôt dans un autre dossier. Cela va permettre de simuler un travail à plusieurs sur le même projet. Sur la page gitlab de votre projet cliquez sur `clone` et copiez la partie `clone with SSH`. Dans VScode ouvrez une autre fenêtre et ouvrez le dossier parent du dossier actuel. Dans le terminal de VScode clonez votre projet avec la commande `git clone git@gitlab.com:username/TP_initiation_git.git` en remplaçant `git@gitlab.com:username/TP_initiation_git.git` par la partie `clone with SSH`.
-Vous devrez voir apparaître un nouveau dossier avec le code disponible sut git. Ouvrez ce dossier avec VScode. Vous devez avoir 2 fenêtres VScode chacune avec le même code (mais chacune correspondant à une copie de travail distincte).
+Pour les questions suivantes, vous allez avoir besoin de 2 dépôts locaux et d'un dépôt distant. Il y a 2 possibilités : 
+
+- soit vous travaillez en bînome (vous avez chacun votre dépôt local)
+- soit vous faîtes seul (mais vous gérez 2 dépôts locaux différents)
+
+:::{.callout-note title="Si vous travaillez à 2"}
+Un des 2 membres va créer un dépôt local à partir du dépôt distant de l'autre.
+
+- [ ] :frog: fournit à :cat: l'adresse ssh de son repo
+- [ ] :frog: donne accès à :cat: à son repo
+  - page GitHub du repo > Settings > Collaborators
+  - [Add people]{style="background-color: green"}
+- [ ] :cat: clone le dépôt distant
+  - explorateur Windows > aller dans *P:/Cours1A/git-initiation/*
+  - créez un dossier `depot2`, et entrez dans ce dossier
+  - clic droit > Open Git Bash here
+  - `git clone <adresse_ssh_depot_distant_de_frog>`
+- [ ] :cat: ouvre ce dépôt avec VScode (File > Open Folder)
+:::
+
+
+:::{.callout-note title="Si vous faîtes seul"}
+Dans l'explorateur Windows :
+
+- [ ] Allez dans *P:/Cours1A/git-initiation*
+- [ ] Créez un dossier `depot2`, et entrez dans ce dossier
+- [ ] Clic droit > Open Git Bash here
+- [ ] Créez un nouveau clone du dépôt distant
+  - `git clone xxx` comme fait précédemment
+- Vous avez donc 2 dépôts locaux distincts
+  - *P:/Cours1A/git-initiation/tp-git* :frog:
+  - *P:/Cours1A/git-initiation/depot2/tp-git* :cat:
+  - ils sont indépendants mais tous deux reliés au dépôt distant
+:::
+
 
 Dans une des fenêtres créez un fichier `moto.py` avec le code suivant :
 

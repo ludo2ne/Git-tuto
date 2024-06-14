@@ -1,6 +1,6 @@
 # Git-tuto
 
-## :construaction: Todo
+## :construction: Todo
 
 - [x] Présentation
 - Maj TP

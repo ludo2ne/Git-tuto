@@ -254,6 +254,10 @@ Il existe aussi des interfaces graphiques mais elles sont souvent imparfaites et
 
 ::: {.notes}
 Conseil : lors de l'installation de Git, choisissez le terminal Unix
+
+- 1ere ligne : prompt (username, machine, répertoire actuel)
+- 2e ligne (commence par $) : commande
+- 3e ligne : résultat de la commande
 :::
 
 ### Commandes Unix {.smaller}
@@ -293,22 +297,38 @@ ll *.py > a.txt      # créer un fichier a.txt contenant le résultat de la comm
 cd ..                # Se positionne dans le répertoire parent
 cd ../projet/src     # remonter dans le dossier parent puis aller dans projet puis src
 cp /p/image.jpg .    # copie le fichier image.jpg du disque P dans le dossier courant
-./setup.sh           # Lancer le programme setup.sh
+./setup.sh           # Lancer le programme setup.sh du répertoire courant
 ```
 
 ::: {.callout-tip}
-- `.` représente le dossier courant
-- `..` représente le dossier parent
+- `.` : représente le dossier courant
+- `..` : représente le dossier parent
+- `~` : répertoire personnel de l'utilisateur (`echo $HOME`)
 :::
 
 
 ::: {.notes}
+répertoire = dossier
+
 La ligne de commande reste très utilisée :
 
 - rapide, efficace
 - automatisation
   - exemple : renommer 1000 fichiers d'un dossier
 :::
+
+
+### Copier-Coller
+
+::: {.callout-warning}
+- CTRL + C et CTRL + V ne fonctionnent pas !
+- CTRL + C : stopper un processus (très utile)
+:::
+
+2 possibilités pour coller du texte :
+
+- Clic droit
+- MAJ + INSERT
 
 
 ## Versionner son code
