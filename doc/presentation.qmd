@@ -831,6 +831,22 @@ Cependant ce cas d'utilisation est assez marginal.
   - `git log --all --decorate --oneline --graph`
 
 
+## La routine Git {.smaller}
+
+- [ ] je commence par `git pull` pour mettre à jour mon dépôt local
+- [ ] je code
+- [ ] j'ai fini, je teste mon code, ça marche :tada:
+- [ ] `git status` pour voir l'état du dépôt
+- [ ] `git add <filename>` pour ajouter mes fichiers au prochain commit
+- [ ] `git commit -m "blabla"` pour créer un point de sauvegarde
+- [ ] `git pull` pour voir si personne n'a poussé depuis mon dernier pull
+- [ ] si besoin, je résouds les conflits
+- [ ] je pousse mon code `git push`
+
+::: {.notes}
+- pull : des fois qu'un camarade ait codé la nuit
+:::
+
 ::: {.hide-html-render}
 
 ## Démo
@@ -845,6 +861,7 @@ Cependant ce cas d'utilisation est assez marginal.
 - push
 :::
 :::
+
 
 ## Travailler dans le cloud
 

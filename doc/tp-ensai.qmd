@@ -1,7 +1,7 @@
 ---
 title: "Git TP ENSAI"
 description: "TP de découverte de Git"
-author: "Ludovic Deneuville"
+author: Ludovic Deneuville, Rémi Pépin
 format: 
   html:
     toc: true
@@ -12,118 +12,688 @@ number-sections: true
 lightbox: true
 ---
 
+## À faire à la maison{.unnumbered}
 
-- Créez un dossier `P:/Cours1A/Git`
-- Allez sur Moodle > Outils bureautiques pour le statisticien > 
-- Onglet [TP - Git](https://foad-moodle.ensai.fr/course/view.php?id=147&section=3){target="_blank"}
-- Téléchargez
-  - [ ] le sujet
-  - [ ] le zip *Tp git*
-  - [ ] Setup windows
+::: {.callout-note}
+Les consignes de ce TP sont données pour une utilisation de GitHub. Il est cependant tout à fait possible de réaliser ce TP avec GitLab dont l'interface est très ressemblante.
 
+:warning: Il y a tout de même quelques différences :
 
-## Paramétrage
+- GitHub Repository = GitLab Projet
+- Pour déclarer la clé SSH dans GitLab : cliquez sur votre avatar > Préférences > SSH keys
 
-- [ ] Créer un compte sur [GitLab](https://gitlab.com/users/sign_in){target="_blank"}
-- [ ] sur la VM, double cliquez sur le fichier `setup_windows.bat` et suivez les instructions
-- [ ] Ajoutez votre clé ssh
-  - Edit profile > [SSH Keys](https://gitlab.com/-/profile/keys){target="_blank"}
-  - Add new key
-  - Dans le cadre *Key*, clic droit > Coller
-  - Cliquez sur `Add key`
+:::
 
-## Créer un projet GitLab
-
-- Sur GitLab > New project > [Create blank project](https://gitlab.com/projects/new#blank_project){target="_blank"}
-  - décochez README
-  - `Create project`
+- [ ] Créer un compte sur [GitHub](https://github.com/){target="_blank"}
+  - GitHub > Sign up 
+  - ou avec [ce lien direct](https://github.com/signup){target="_blank"}
+- [ ] Lire l'introduction
 
 
-## Créer son dépôt local
+## Introduction {.unnumbered}
 
-- [ ] Ouvrez VSCode > Open Folder > Dossier `P:/Cours1A/Git`
-- [ ] Ouvrez un terminal `Git Bash`
-  - `git init --initial-branch=main` pour déclarer le dossier courant comme dépôt local Git
-  - `git remote add origin git@gitlab.com:<username>/TP_initiation_git.git` pour lier votre dépôt local au dépôt distant
-    - en modifiant *username* par votre nom d'utilisateur GitLab
-  - `git status` : pour voir l'état du dépôt
-    - Normalement vous voyez des fichiers *Untracked files* ie non versionnés par Git
-  - `git add .` : ajouter tous les fichiers du dossier à la liste des fichiers suivis par Git
-  - `git status` : pour voir l'état du dépôt
-  - `git commit -m "Initial commit"` : créer un point de sauvegarde
-  - `git push -u origin main` : pousser les modification depuis le dépôt local vers le dépôt distant
-- Si vous actualisez la page GitLab de votre projet, vous devez voir les fichiers 
+Git est un formidable outil de versionnage de fichiers qui va vous permettre de conserver efficacement l'historique de votre code aussi bien si vous travaillez seul mais également quand vous travaillez à plusieurs.
+Cet historique est conservé dans ce qu'on appelle un *dépôt git*.
 
-## Hands on 1
+Sa conception décentralisée fait qu'il est quasi impossible de perdre une donnée définitivement avec git. En particulier, la perte totale d'un ordinateur hébergeant votre code ne représentera qu'une perte minime de code si vous utilisez git correctement.
 
-suivez le sujet
+En outre, de nombreux outils de *CI/CD* (*Continuous Intégration / Continuous Deployment*) qui rendent possible l'automatisation de l'intégration et du déploiement de votre code s'appuient sur un *dépôt git*.
+
+### Concepts Clés {.unnumbered}
+
+Cependant, comme tout logiciel, git demande un peu d'apprentissage, et de la pratique. Pour commencer, nous aurons besoin de certains concepts essentiels pour une utilisation efficace. Par sa conception décentralisée, un dépôt git peut exister en plusieurs endroits en même temps : sur notre machine, sur chaque machine des membre du projet, ou sur un serveur hébergeant le projet.
+
+On parlera de la *copie distante* (*remote* en anglais) du dépôt dans le cas du serveur distant. En général, une seule copie distante est utilisée, mais par sa nature décentralisée, plusieurs copies distantes sont possibles (possibilité non incluse dans ce TP).
+
+La copie sur notre machine est la *copie locale* (*local* en anglais). Il s'agit de toutes les informations du dépôt concernant l'historique de ses fichiers, et les métadonnées du dépôt. Une distinction subtile est alors faite entre la copie locale et la *copie de travail* (*working copy* en anglais) : Nos modifications sur les fichiers du dépôt n'intégrerons la copie locale qu'à notre demande explicite. Cette intégration sera alors effectuée par l'ajout d'une entrée à l'historique du dépôt.
+
+### Programme {.unnumbered}
+
+Pour utiliser git, donc pour gérer un dépôt, nous avons accès à de nombreuses commandes.
+Pour ce TP de découverte vous allez utiliser seulement les commandes suivantes :
+
+| Commande                    | Description                              |
+|-----------------------------|------------------------------------------|
+| `git clone <adr>`           | Créer un dépôt local sur son poste       |
+| `git status`                | Voir où l'on en est                      |
+| `git add <file>`            | Ajouter pour le prochain commit          |
+| `git commit -m "<msg>"`     | Créer un point de sauvegarde             |
+| `git pull`                  | dépôt local :arrow_right: dépôt distant  |
+| `git push`                  | dépôt local :arrow_left: dépôt distant   |
 
 
-## Code à coller{.unnumbered}
+## Git Bash et Unix
 
-```{.python filename="voiture.py"}
-class Voiture:
-    
-    def __init__(self, nom, couleur):
-        self.couleur = couleur
-        self.nom = nom
-        self.vitesse = 0
+Avant de nous lancer avec git, prenons quelques minutes pour découvrir le terminal Git Bash et les principales commandes Unix.
 
-    def accelere(self, increment):
+Ces commandes ne sont pas indispensables pour utiliser git, mais il est utile et préférable de les connaitre.
+
+- [ ] Cliquez sur l'icone Windows (ou Menu Démarrer) et ouvrez l'application `Git Bash`
+  - cela ouvre un terminal
+
+![](img/git-bash.PNG){.r-stretch}
+
+
+Pour vous aider, voici la [liste des commandes](presentation.html#commandes-unix){target="_blank"}.
+
+### Création d'une arborescence
+
+- [ ] Affichez le répertoire courant
+- [ ] Positionnez-vous sur le disque *P:* (`/p`)
+- [ ] Listez les fichiers
+- [ ] S'il n'existe pas, créez un dossier nommé `Cours1A`
+- [ ] Positionnez-vous dans le dossier *Cours1A*
+- [ ] Créez un dossier nommé `git-initiation`
+- [ ] Positionnez-vous dans le dossier *git-initiation*
+
+::: {.callout-tip collapse="true" title="Solution"}
+- `pwd`
+- `cd /p`
+- `ll`
+- `mkdir Cours1A`
+- `cd Cours1A`
+- `mkdir git-initiation`
+- `cd git-initiation`
+
+Il était également possible de tout faire d'une seule traite :
+
+- `mkdir -p /p/Cours1A/git-initiation && cd $_`
+- l'option -p de *mkdir* crée tous les dossiers et sous-dossiers s'ils n'existent pas déjà
+- *$\_* : correspond au dernier argument de la commande précédente
+:::
+
+### Les fichiers
+
+- [ ] Créez un fichier *a.txt* contenant le résultat de la commande `ps` 
+  - ps liste tous les processus en cours
+  - `ps > a.txt`
+- [ ] Créez une copie de ce fichier que vous nommerez *b.txt*
+- [ ] Listez les fichiers du dossier courant
+- [ ] Affichez le contenu du fichier *b.txt*
+- [ ] Filtrez le contenu du fichier *b.txt* pour n'afficher que les lignes contenant *ps*
+  - `cat b.txt | grep ps`
+- [ ] Renommez le fichier *a.txt* en *c.txt*
+- [ ] Listez les fichiers du dossier courant
+- [ ] Supprimez les fichiers *b.txt* et *c.txt*
+- [ ] Créez 5 fichiers avec la commande `touch ex{1..5}.py`
+- [ ] Listez les fichiers du dossier courant
+- [ ] Supprimez ces 5 fichiers avec la commande `rm ex*.py`
+- [ ] Créez un fichier avec la commande `touch setup-git.sh`
+
+## Paramétrage de Git
+
+
+### Configuration
+
+- [ ] Dans l'explorateur de fichiers Windows (WIN + E), allez dans le dossier `P:/Cours1A/git-initiation`
+- [ ] Ouvrez le fichier *setup-git.sh* avec **Notepad++** et collez ce contenu
+  ```{.bash filename="setup-git.sh"}
+  git config --global user.name "Prenom Nom"
+  git config --global user.email prenom.nom@eleve.ensai.fr
+  git config --global credential.helper store
+  git config --global core.mergeoptions --no-edit
+  git config --global core.editor "code -w"
+  ```
+- [ ] Remplacez *Nom* et *Prenom* sur les deux premières lignes et enregistrez
+- [ ] Dans Git Bash, exécutez le fichier : `./setup-git.sh`
+- [ ] Vérifiez que la configuration est correcte avec `git config -l`
+
+
+### Création d'une clé SSH
+
+Pour permettre de faire dialoguer notre dépôt local avec le dépôt distant de GitHub, nous allons utiliser le protocole `ssh` :
+
+- Nous allons générer une clé sur notre machine
+- Nous allons ensuite déclarer cette clé à GitHub
+
+::: {.callout-warning}
+Ce paramètrage SSH est réalisé au niveau de la machine.
+
+Si par exemple, vous souhaitez utiliser Git sur votre ordinateur personnel, il faudra faire également ce paramétrage.
+:::
+
+Dans Git Bash :
+
+- [ ] Créez un dossier *`*/c/Users/id????.ssh* pour stocker votre clé ssh
+  - `mkdir -p ~/.ssh`
+- [ ] Créez une clé ssh
+  - `ssh-keygen -t rsa -b 4096 -N '' -q -f ~/.ssh/id_rsa`
+- [ ] Copiez le contenu de la clé publique
+  - `cat ~/.ssh/id_rsa.pub | clip`
+  - c'est comme si vous copiez le contenu du fichier *id_rsa.pub*
+
+Déclarez votre clé publique à *GitHub*, pour pouvoir ensuite faire communiquer dépôts locaux avec les dépôts distants :
+
+- [ ] GitHub > cliquez sur votre avatar > Settings > SSH and GPG keys
+  - [lien direct](https://github.com/settings/keys){target="_blank"}
+- [ ] Cliquez sur [New SSH key]{style="background-color: green"}
+  - Title : VM ENSAI
+  - Key : Collez votre clé publique
+  - [Add SSH key]{style="background-color: green"}
+
+
+
+::: {.callout-note title="SSH : Comment ça marche ?" collapse="true"}
+
+SSH (Secure Shell) est un protocole permettant de se connecter à un autre ordinateur sur un réseau de manière sécurisée.
+
+SSH chiffre toutes les informations échangées afin de protéger les données.
+
+SSH utilise un mécanisme de clés cryptographiques pour authentifier les ordinateurs et les utilisateurs, garantissant que la connexion est effectuée avec le bon serveur et sans intervention malveillante :
+
+- `Clé privée` : C'est comme la clé de votre maison. Vous la gardez en sécurité avec vous et ne la partagez avec personne. Cette clé reste sur votre ordinateur et sert à prouver votre identité.
+- `Clé publique` : Elle serait comme votre adresse postale. Vous pouvez la partager avec d'autres. Dans SSH, vous placez votre clé publique sur les serveurs ou les ordinateurs auxquels vous souhaitez vous connecter.
+
+Ces deux clés sont liées. Un message chiffré par la clé publique n'est déchiffrable que par celui qui posséde la clé privée.
+Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous votre identité car chacun peut déchiffrer ce message avec la clé publique.
+
+{{< video https://www.youtube.com/watch?v=Y-S6GtdLaSU&ab_channel=Grafikart.fr >}}
+
+:::
+
+
+
+### Le terminal Git Bash
+
+- [ ] Allez dans le dossier `P:/Cours1A/Git`
+- [ ] Clic droit > *Git Bash here*
+- Créez un dossier *depot1* et entrez dans ce dossier
+  - [ ] `mkdir depot1` pour *make directory*
+  - [ ] `cd depot1` pour *change directory*
+- Afficher le chemin du répertoire courant avec la commande `pwd` : *print working directory*
+- [ ] `cd ..` pour retourner dans le dossier parent
+- [ ] créer un dossier depot2
+
+
+## Créez un dépôt distant
+
+- [ ] Créez un [nouveau Repository](https://github.com/new){target="_blank"} sur GitHub
+  - GitHub > Repositories > [New]{style="background-color: green"}
+  - Repository name : *tp-git*
+  - Visibility Level : *Private*
+  - Cochez *Add a README file*
+  - Add .gitignore : *Python*
+  - Choose a license : *MIT Licence*
+  - Cliquez sur [Create Repository]{style="background-color: green"}
+
+
+## Créez un dépôt local
+
+Suite à la création de votre compte GitHub, vous avez créé un repo (i.e. un dépôt distant).
+
+Vous allez maintenant créer une copie locale de ce dépôt en clonant ce projet. 
+
+Sur la page GitHub de votre repo, 
+
+- [ ] Cliquez sur [Code]{style="background-color: green"}
+- [ ] Copiez la ligne *Clone with SSH*
+- [ ] Dans Git Bash, vérifiez que vous êtes dans le dossier *p/Cours1A/git-initiation*
+  - si ce n'est pas le cas : `cd /p/Cours1A/git-initiation`
+- [ ] Entrez `git clone <collez la ligne>`
+  - exemple : `git clone git@github.com:ludo2ne/tp-gitzzz.git`
+- [ ] Listez le contenu du répertoire courant
+  - Le dossier *tp_initiation_git* est bien présent
+  - vous pouvez également vérifier sa présence via l'explorateur Windows 
+    - WIN + E, puis allez à `P:\Cours1A\git-initiation`
+- [ ] Positionnez-vous dans le dépôt : `cd tp_initiation_git`
+  - à la fin de votre prompt, vous remarquerez l'apparition de [(main)]{style="color: cyan"}
+  - cela signifie que vous êtes dans un dépôt git, sur la branche principale
+
+Vous pouvez fermer *Git Bash*.
+
+Vous allez par la suite utiliser le *Git Bash* (exactement le même) qui est intégré dans l'IDE [Visual Studio Code](https://code.visualstudio.com/){target="_blank"}.
+
+::: {.callout-tip}
+Un IDE (Integrated Development Environment) est une application qui offre des outils complets pour le développement logiciel
+
+Les composants principaux d'un IDE :
+
+- Éditeur de Code
+- Compilateur / Interpréteur
+- Gestionnaire de Projet
+- Terminal Intégré
+:::
+
+
+## Configuration de VSCode :construction:
+
+
+- [ ] Ouvrez l'application `Visual Studio Code`
+- :gear: en bas à gauche > Settings
+- [ ] Fermez pour réouvrez VSCode pour valider la config
+
+??? Niveau user ou workspace ???
+
+```{.json filename="User settings"}
+{
+    "files.exclude": {
+        "**/__pycache__": true
+    },
+    "git.openRepositoryInParentFolders": "never",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "editor.inlayHints.enabled": "off",
+    "java.configuration.runtimes": [],
+}
+```
+
+## Votre dépôt local dans VSCode
+
+- [ ] File > Open Folder
+  - Allez dans *P:\Cours1A\git-initiation*
+  - Cliquez [une seule fois]{.underline} sur le dossier *tp-git*
+  - `Séletionner un dossier`
+  - *Yes I trust the authors*
+  - :warning: dans votre explorer en haut à gauche, le dossier parent doit être *tp-git*
+    - si ce n'est pas le cas, recommencez l'Open Folder
+- [ ] Ouvrez un terminal *Git Bash*
+  - Terminal > New Terminal (CTRL + ù)
+
+## Premiers pas avec Git
+
+Vous allez commencer par créer de nouveaux dossiers et fichiers sur votre dépôt local.
+
+- [ ] Créez un dossier `src`
+  - dans VSCode > clic droit dans l'Explorer > New Folder
+  - ce dossier contiendra vos programmes
+- [ ] Créez également à la racine, les dossiers `data` et `doc`
+- [ ] Créez un fichier `voiture.py`
+  - dans le dossier *src*
+  - ouvrez ce fichier et collez ce code 
+  ```{.python filename="voiture.py"}
+  class Voiture:
+      """Classe représentant une voiture.
+      
+      Attributes
+      ----------
+      nom : str
+          le nom de la voiture.
+      couleur : str
+          la couleur de la voiture.
+      vitesse : int
+          la vitesse de la voiture (initalisée à 0).
+      """
+
+      def __init__(self, nom, couleur):
+          """Constructeur"""
+          self.nom = nom
+          self.couleur = couleur
+          self.vitesse = 0
+      
+      def __str__(self):
+        return f"La voiture {self.nom} de couleur {self.couleur} roule à {self.vitesse} km/h."
+  
+  ```
+  
+### Add, Commit, Pull et Push
+
+C'est l'enchainement de commandes qu'il faut connaitre ! (avec une pincée de *status* si besoin)
+
+Dans le terminal *Git Bash* intégré dans VScode, exécutez les commandes suivantes : 
+
+- [ ] `git status`
+  - différences entre la version de travail du code et le commit le plus récent
+  - le dossier `src` apparait dans *Untracked files*
+  - cela signifie que Git a repéré ce dossier mais qu'il ne le versionnera pas
+- [ ] `git add src`
+  - pour faire reconnaitre ce dossier et le placer la zone de transit
+  - ce dossier et ses fichiers seront versionnés dans le prochain commit
+- [ ] `git status`
+  - maintenant le fichier est reconnu par Git
+- [ ] `git commit -m "Création classe voiture"`
+  - permet de faire un commit = un point de sauvegarde pour git = une entrée supplémentaire à l'historique
+  - entre les `" "`, mettez un message court et explicite. Ce message est obligatoire !
+- [ ] `git status` : 
+  - *Your branch is ahead of 'origin/main' by 1 commit*
+  - votre dépôt local est en avance d'un commit par rapport au dépôt distant
+- [ ] `git pull`
+  - récupére les derniers commits disponibles sur le dépôt distant (sur GitHub) 
+  - actuellement il n'y en a pas, mas il faut prendre l'habitude de souvent récupérer les derniers commits
+- [ ] `git push`
+  - pousse vos commits vers le dépôt distant. 
+  - :warning: si vous avez modifié des fichiers qui ne sont pas dans un commit, ces modifications n'apparaitront pas sur le dépôt distant
+
+Allez sur la page GitHub de votre repo et vérifiez que vos fichiers sont bien arrivés.
+
+
+- [ ] Ajouter à la fin du fichier `voiture.py` ce code et [enregistrez]{.underline}
+  ```{.python filename="voiture.py"}
+      def accelere(self, increment) -> None:
+          """Augmente la vitesse de la voiture.
+
+          L'incrément maximal est de 10 km/h.
+          La Vitesse maximale est de 130 km/h.
+
+          Parameters
+          ----------
+          increment : int
+              la valeur de l'accélération demandée (limité à 10)
+          """
+          if increment > 10:
+              increment = 10
+          self.vitesse = min(130, self.vitesse + increment)
+  ```
+
+Dans le terminal *Git Bash*
+
+- [ ] `git status`
+  - le fichier *voiture.py* a été modifié
+- [ ] `git diff` pour voir les différence depuis le dernier commit
+  - *q* pour quitter
+- [ ] `git add .` pour ajouter toutes les modifications de tous les fichiers au prochain commit
+- [ ] Comme précédemment, faites un *commit* pour créer un point de sauvegarde
+
+### Historique du dépôt
+
+- [ ] Sur GitHub, vous pouvez consulter l'historique du dépôt distant
+  - en cliquant sur *Commit* (en dessous du bouton [Code]{style="background-color: green"})
+  - historique d'un fichier en ouvrant ce fichier et en cliquant sur *History*
+- [ ] Regardez l'historique de votre dépôt local avec `git log`
+  - ce n'est pas aisément lisible
+  - heureusement il est possible d'améliorer cette commande
+
+::: {.callout-tip title="Pour avoir un résultat plus agréable"}
+
+:::{.panel-tabset .nav-pills}
+
+#### Pretty log
+
+- `git log --pretty=format:'%C(yellow)%h %C(green)%ad %C(blue)%an%C(green)%d %Creset%s' --date=relative`
+- chaque ligne représente un commit
+- la première colonne correspond au numéro court de commit
+- vous remarquez un décalage entre *HEAD* et *origin/HEAD* (entre dépôt local et distant)
+  - **HEAD** : pointeur qui représente la version actuelle du code dans votre espace de travail
+  - **main** (ou master) : nom de la branche principale par défaut
+  - **origin** : désigne le dépôt distant
+- *q* pour quitter
+
+#### C'est mieux
+
+{{< video https://www.youtube.com/watch?v=tHKc-DBb_ME >}}
+
+#### Alias
+
+Ce n'est pas évident de se souvenir de commandes aussi longues.
+
+Une solution est de créer un alias :
+
+- [ ] Créer par exemple l'alias blog (beautiful log)
+  - `git config --global alias.blog "log --pretty=format:'%C(yellow)%h %C(green)%ad %C(blue)%an%C(green)%d %Creset%s' --date=relative"`
+- [ ] Maintenant `git blog` suffit pour lancer la même commande
+
+:::
+:::
+
+- [ ] Faites un *push* pour envoyer votre commit vers le dépôt distant
+- [ ] Regardez de nouveau votre historique
+  - les 2 dépôts sont de nouveau synchronisés
+
+Pour résumer voilà ce que vous avez fait :
+
+:::white-box
+![Zonge git](https://nceas.github.io/sasap-training/materials/reproducible_research_in_r_fairbanks/images/git-flowchart.png)
+:::
+
+### Exercice d'application
+
+- [ ] Créez un fichier `fibonacci.py` avec ce code
+  ```{.python filename="fibonacci.py"}
+  def fibonacci(n):
+      """Calcule le n ième terme de la suite de Fibonacci
+      en utilisant un algorithme récursif.
+      """ 
+      if n < 2:
+          return 1
+      else :
+          return fibonacci(n - 1) + fibonacci(n - 2)
+  
+  if __name__ == "__main__":
+      for i in range (1, 15):
+          print(fibonacci(i))
+  ```
+- [ ] Envoyez le sur la copie distante de votre projet GitHub
+- [ ] Créez un fichier `puissance_rec.py` avec le code suivant
+  ```{.python filename="puissance_rec.py"}
+  def puissance_rec(nombre, puissance):
+      if not puissance:
+          return 1
+      elif not puissance % 2:
+          return puissance_rec(nombre, int(puissance / 2)) \
+          * puissance_rec(nombre, int(puissance / 2))
+      else:
+          return nombre * puissance_rec(nombre, puissance - 1)
+  ```
+- [ ] Envoyez le sur la copie distante de votre projet GitHub
+- [ ] Affichez votre historique
+
+
+### .gitignore :construction:
+
+data
+
+## Simulation de travail en groupe
+
+Pour les questions suivantes, vous allez avoir besoin de 2 dépôts locaux et d'un dépôt distant. Il y a 2 possibilités : 
+
+- soit vous travaillez en bînome (vous avez chacun votre dépôt local)
+- soit vous faîtes seul (mais vous gérez 2 dépôts locaux différents)
+
+:::{.callout-note title="Si vous travaillez à 2" collapse="true"}
+Un des 2 membres va créer un dépôt local à partir du dépôt distant de l'autre.
+
+- [ ] :frog: fournit à :cat: l'adresse ssh de son repo
+- [ ] :frog: donne accès à :cat: à son repo
+  - page GitHub du repo > Settings > Collaborators
+  - [Add people]{style="background-color: green"}
+- [ ] :cat: clone le dépôt distant
+  - explorateur Windows > aller dans *P:/Cours1A/git-initiation/*
+  - créez un dossier `depot2`, et entrez dans ce dossier
+  - clic droit > Open Git Bash here
+  - `git clone <adresse_ssh_depot_distant_de_frog>`
+- [ ] :cat: ouvre ce dépôt avec VScode (File > Open Folder)
+:::
+
+
+:::{.callout-note title="Si vous faîtes seul" collapse="true"}
+Dans l'explorateur Windows :
+
+- [ ] Allez dans *P:/Cours1A/git-initiation*
+- [ ] Créez un dossier `depot2`, et entrez dans ce dossier
+- [ ] Clic droit > Open Git Bash here
+- [ ] Créez un nouveau clone du dépôt distant
+  - `git clone xxx` comme fait précédemment
+- Vous avez donc 2 dépôts locaux distincts
+  - *P:/Cours1A/git-initiation/tp-git* :frog:
+  - *P:/Cours1A/git-initiation/depot2/tp-git* :cat:
+  - ils sont indépendants mais tous deux reliés au même dépôt distant
+- [ ] Ouvrez un autre VSCode pour gérer votre second dépôt
+  - File > Open Folder > *P:/Cours1A/git-initiation/depot2/tp-git*
+:::
+
+- [ ] :frog: crée un fichier `moto.py` (dans le dossier src) avec le code suivant dans son dépôt local :
+  ```{.python filename="moto.py"}
+  class Moto:
+      def __init__(self, nom, couleur):
+          self.couleur = couleur
+          self.nom = nom
+          self.vitesse = 0
+          
+      def accelere(self, increment):
+          if increment > 15:
+              increment = 15
+          self.vitesse = min(150, self.vitesse + increment)
+  ```
+- [ ] :frog: envoie ce fichier vers le dépôt distant : *add*, *commit* et *push*
+- [ ] :cat: fait ensuite `git pull`
+  - il récupére le fichier *moto.py* dans son dépôt local
+- [ ] Inversez les rôles (optionnel)
+  - :cat: crée un fichier `velo.py` et le pousse
+  - :frog: le récupère
+
+
+Nous allons maintenant illustrer le fait que votre dépôt local doit être impérativement à jour pour pousser du code.
+
+Vous allez faire en parallèle (1, 2, 3, partez) :
+
+- [ ] :cat: crée dans *src* le fichier `trottinette.py` en s'inspirant de *moto.py*
+- [ ] :frog: crée dans le dossier *doc* le fichier `state-diag.md` avec ce code
+  ````{.markdown filename="state-diag.md"}
+  ```mermaid
+  stateDiagram
+      login : Se connecter
+      menu_joueur : Menu Joueur
+      logon : Créer un compte      
+      [*] --> Accueil      
+      Accueil --> login
+      login --> menu_joueur      
+      Accueil --> logon      
+      Accueil --> quitter
+      quitter --> [*]
+  ```
+  ````
+- [ ] :frog: envoie son code vers le dépôt distant, ensuite :cat: fait de même
+  - `git add .`
+  - `git commit -m "<complétez>"`
+  - `git push`
+
+::: {.callout-important}
+- Pour :frog: qui a poussé son code en premier :arrow_right: tout s'est bien passé
+- Pour :cat:, il a du recevoir ce genre de message
+  ```{.text}
+  ! [rejected]        master -> dev (fetch first)
+  error: failed to push some refs to 'git@github.com:ludo2ne/tp-git.git'
+  hint: Updates were rejected because the remote contains work that you do
+  hint: not have locally. This is usually caused by another repository pushing
+  hint: to the same ref. You may want to first integrate the remote changes
+  hint: (e.g., 'git pull ...') before pushing again.
+  hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+  ```
+:::
+
+- [ ] :cat: commence par `git pull`
+  - si vous lisez le message, c'est assez clair
+  - votre dépôt local est en retard de version par rapport au dépôt distant qui fait foi
+  - vous devez donc mettre à jour votre dépôt local avant de pousser
+- [ ] :cat: fait enfin `git push`
+- [ ] Maintenant c'est :frog: qui a son dépôt local en retard
+  - il fait donc un *pull*
+
+
+<!--
+### Avancé
+
+Lorsque vous maîtriserez `git pull` et la gestion de conflits (section Hands on 3 ci-dessous), vous pourrez utiliser `git pull --rebase`. Cette option permet d'éviter la disjonction / fusion inscrite dans l'historique pour n'avoir que la ligne du commit additionnel dans l'historique. L'utilisation de rebase fait partie des bonnes pratiques de git, mais son usage n'est pas nécessaire pour un débutant.
+
+-->
+
+### Exercice d'application
+
+- [ ] :cat: modifie et pousse le fichier `fibonacci.py`
+- [ ] :frog: modifie et pousse le fichier `puissance_rec.py`
+- [ ] Synchronisez vos dépôts pour avoir tous la dernière version
+
+
+### Un premier conflit
+
+Pour le moment vous avez travaillé sur des fichiers différents, donc git arrive à gérer la situation.
+
+Maintenant, que se passe-t-il si vous modifiez tous les deux le même fichier ?
+
+Vous allez tous les 2 travailler sur le fichier `voiture.py`. Dans la méthode *accelere()* :
+
+- [ ] :cat: remplace 130 par 150
+- [ ] :cat: commit et pousse son code (*add*, *commit*, *push*)
+- [ ] De son côté, :frog: remplace 130 par 110
+- [ ] :frog: commit et pousse son code (*add*, *commit*, *push*)
+  - si vous avez bien compris, vous savez que le push ne va pas fonctionner
+- [ ] :frog: doit commencer par mettre à jour son dépôt local : `git pull`
+  - Et là c'est le conflit...
+  ```
+  remote: Enumerating objects: 7, done.
+  remote: Counting objects: 100% (7/7), done.
+  remote: Compressing objects: 100% (3/3), done.
+  remote: Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+  Unpacking objects: 100% (4/4), 1015 bytes | 8.00 KiB/s, done.
+  From github.com:ludo2ne/tp-git
+     c27c708..05380ea  main       -> origin/main
+  Auto-merging src/voiture.py
+  CONFLICT (content): Merge conflict in src/voiture.py
+  Automatic merge failed; fix conflicts and then commit the result.
+  ```
+  - Git vous prévient qu'il n'est pas arrivé à fusionner les commits automatiquement
+  - Un conflit est généré quand les mêmes lignes d'un fichier sont modifiés par 2 commits de manière différente
+  
+Votre code ressemble à cela désormais à :
+
+```{.python}
+    def accelere(self, increment) -> None:
         if increment > 10:
             increment = 10
-        self.vitesse = min(130, self.vitesse + increment)
-```
-
-```{.python filename="fibonacci.py"}
-def fibonacci(n):
-    if n < 2:
-        return 1
-    else:
-        return fibonacci(n - 1) + fibonacci(n - 2)
-
-
-if __name__ == "__main__":
-    for i in range(1, 101):
-        print(fibonacci(i))
-```
-
-```{.python filename="puissance_rec.py"}
-def puissance_rec(nombre, puissance):
-    if not puissance:
-        return 1
-    elif not puissance % 2:
-        return puissance_rec(nombre, int(puissance / 2)) \
-            * puissance_rec(nombre, int(puissance / 2))
-    else:
-        return nombre * puissance_rec(nombre, puissance - 1)
-```
-
-
-```{.python filename="moto.py"}
-class Moto:
-    def ______init__(self, nom, couleur):
-        self.couleur = couleur
-        self.nom = nom
-        self.vitesse = 0
-
-    def accelere(self, increment):
-        if increment > 15:
-            increment = 15
+<<<<<<< HEAD
+        self.vitesse = min(110, self.vitesse + increment)
+=======
         self.vitesse = min(150, self.vitesse + increment)
+>>>>>>> 05380ea70dbd5d4e49371af8da7c0ac1df13a010
 ```
 
+- La première partie (entre `<<<<<<< HEAD` et `=======`) correspond au code en que vous aviez dans votre copie de travail
+- La seconde partie est le code provenant du dépôt distant
+- Plusieurs choix s'offrent à vous :
+  - Imposer votre version (110)
+  - Accepter la version de :cat: (150)
+  - Choisir une toute autre version (par exemple 120)
 
-```{.R filename="exo1.R"}
-a <- c(10,5,3,2) 
-a[2] 
-a[3] 
-a[2:3]
-```
+Résolvons ce conflit
 
-```{.R filename="exo2.R"}
-b <- c(11,6,4,3) 
-b[2] 
-b[3] 
-b[2:3]
-```
+- [ ] :frog: conserve uniquement la ligne avec 110
+  - et supprime toutes les autres lignes de  `<<<<<<<` à `>>>>>>>`
+  - autre possibilité offerte par VSCode, cliquer sur *Accept Current Change*
+- [ ] :frog: sauvegarde le fichier 
+- [ ] :frog: commit et pousse son code (*add*, *commit -m "resolve merge"*, *push*)
+  - vous remarquerez qu'avant le commit, le prompt affichait [(main|MERGING)]{style="color: cyan"}
+  - ce qui signifie que vous êtes en train de fusionner du code
+- [ ] :cat: fait un *pull* pour mettre à jour son dépôt local
+
+::: {.callout-important}
+Avoir un conflit, ce n'est pas grave !  
+Avoir un conflit, ce n'est pas grave !  
+Avoir un conflit, ce n'est pas grave !  
+Avoir un conflit, ce n'est pas grave !  
+Avoir un conflit, ce n'est pas grave !  
+
+**Conflit ≠ Erreur**
+
+Cela arrive simplement quand Git rencontre 2 versions et il n'a pas de :crystal_ball:, ni de :game_die: pour choisir laquelle est la bonne.
+:::
+
+::: {.callout-tip title="Éviter les conflits"}
+- Essayez de ne pas coder en même temps sur les mêmes fichiers
+- Faites des *pull* et *push* réguliers
+
+Plus le code de votre dépôt local sera "proche" de celui du dépôt distant, moins vous en aurez.
+
+En effet, si vous codez pendant 5 jours sans jamais pousser votre code, vous prenez le risque que d'autres personnes modifient les mêmes fichiers et poussent avant leur code.
+:::
+
+### Exercice d'application
+
+Dans le constructeur de la classe *Voiture* :
+
+- [ ] :cat: ajoute un attribut *vitesse_max* qui vaut par défaut 130
+  ```{.python filename="voiture.py"}
+      def __init__(self, nom, couleur, vitesse_max=130):
+        """Constructeur"""
+        self.nom = nom
+        self.couleur = couleur
+        self.vitesse = 0
+        self.vitesse_max = vitesse_max
+  ```
+- [ ] :frog: ajoute un attribut *carburant*
+  ```{.python filename="voiture.py"}
+      def __init__(self, nom, couleur, carburant):
+        """Constructeur"""
+        self.nom = nom
+        self.couleur = couleur
+        self.vitesse = 0
+        self.carburant = carburant
+  ```
+- [ ] Synchronisez vos dépôts et résolvez les conflits
