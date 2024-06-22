@@ -364,7 +364,6 @@ sequenceDiagram
     Local repository ->> Remote repository: push
     Remote repository ->> Workspace: pull
 ```
-
 :::
 
 ::: {.notes}
@@ -593,7 +592,7 @@ Pour pouvoir pousser son code, il est nécessaire :
 
 Le message est assez explicite
 
-```
+```{.default}
 ! [rejected]        main -> main (fetch first)
 error: failed to push some refs
 hint: Updates were rejected because the remote contains work that you do not
@@ -929,7 +928,7 @@ La branche principale se nomme généralement *main* ou *master*.
 
 ## Bibliographie {.unnumbered}
 
-- [Git : un élément essentiel au quotidien](https://pythonds.linogaliana.fr/content/git/introgit.html){.external target="_blank"}, Python pour la datascience, Lino Galiana
-- [Formation Git du Lab INSEE](https://collaboratif-git-formation-insee.netlify.app/){.external target="_blank"}
-- [GitFlow](https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow){.external target="_blank"}
-- [Développement basé sur le tronc](https://www.atlassian.com/fr/continuous-delivery/continuous-integration/trunk-based-development){.external target="_blank"}
+- [Git : un élément essentiel au quotidien](https://pythonds.linogaliana.fr/content/git/introgit.html){target="_blank"}, Python pour la datascience, Lino Galiana
+- [Formation Git du Lab INSEE](https://collaboratif-git-formation-insee.netlify.app/){target="_blank"}
+- [GitFlow](https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow){target="_blank"}
+- [Développement basé sur le tronc](https://www.atlassian.com/fr/continuous-delivery/continuous-integration/trunk-based-development){target="_blank"}

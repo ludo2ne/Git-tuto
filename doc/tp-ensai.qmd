@@ -33,7 +33,7 @@ Les consignes de ce TP sont données pour une utilisation de GitHub. Il est cepe
 ## Introduction {.unnumbered}
 
 Git est un formidable outil de versionnage de fichiers qui va vous permettre de conserver efficacement l'historique de votre code aussi bien si vous travaillez seul mais également quand vous travaillez à plusieurs.
-Cet historique est conservé dans ce qu'on appelle un *dépôt git*.
+Cet historique est conservé dans ce que l'on appelle un *dépôt git*.
 
 Sa conception décentralisée fait qu'il est quasi impossible de perdre une donnée définitivement avec git. En particulier, la perte totale d'un ordinateur hébergeant votre code ne représentera qu'une perte minime de code si vous utilisez git correctement.
 
@@ -43,7 +43,7 @@ En outre, de nombreux outils de *CI/CD* (*Continuous Intégration / Continuous D
 
 Cependant, comme tout logiciel, git demande un peu d'apprentissage, et de la pratique. Pour commencer, nous aurons besoin de certains concepts essentiels pour une utilisation efficace. Par sa conception décentralisée, un dépôt git peut exister en plusieurs endroits en même temps : sur notre machine, sur chaque machine des membre du projet, ou sur un serveur hébergeant le projet.
 
-On parlera de la *copie distante* (*remote* en anglais) du dépôt dans le cas du serveur distant. En général, une seule copie distante est utilisée, mais par sa nature décentralisée, plusieurs copies distantes sont possibles (possibilité non incluse dans ce TP).
+Nous parlerons de la *copie distante* (*remote* en anglais) du dépôt dans le cas du serveur distant. En général, une seule copie distante est utilisée, mais par sa nature décentralisée, plusieurs copies distantes sont possibles (possibilité non incluse dans ce TP).
 
 La copie sur notre machine est la *copie locale* (*local* en anglais). Il s'agit de toutes les informations du dépôt concernant l'historique de ses fichiers, et les métadonnées du dépôt. Une distinction subtile est alors faite entre la copie locale et la *copie de travail* (*working copy* en anglais) : Nos modifications sur les fichiers du dépôt n'intégrerons la copie locale qu'à notre demande explicite. Cette intégration sera alors effectuée par l'ajout d'une entrée à l'historique du dépôt.
 
@@ -592,7 +592,7 @@ Vous allez faire en parallèle (1, 2, 3, partez) :
 ::: {.callout-important}
 - Pour :frog: qui a poussé son code en premier :arrow_right: tout s'est bien passé
 - Pour :cat:, il a du recevoir ce genre de message
-  ```{.text}
+  ```{.default}
   ! [rejected]        master -> dev (fetch first)
   error: failed to push some refs to 'git@github.com:ludo2ne/tp-git.git'
   hint: Updates were rejected because the remote contains work that you do
@@ -641,7 +641,7 @@ Vous allez tous les 2 travailler sur le fichier `voiture.py`. Dans la méthode *
   - si vous avez bien compris, vous savez que le push ne va pas fonctionner
 - [ ] :frog: doit commencer par mettre à jour son dépôt local : `git pull`
   - Et là c'est le conflit...
-  ```
+  ```{.default}
   remote: Enumerating objects: 7, done.
   remote: Counting objects: 100% (7/7), done.
   remote: Compressing objects: 100% (3/3), done.
