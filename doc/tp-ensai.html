@@ -296,13 +296,13 @@ Note
 </section>
 <section id="introduction" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Git est un formidable outil de versionnage de fichiers qui va vous permettre de conserver efficacement l’historique de votre code aussi bien si vous travaillez seul mais également quand vous travaillez à plusieurs. Cet historique est conservé dans ce qu’on appelle un <em>dépôt git</em>.</p>
+<p>Git est un formidable outil de versionnage de fichiers qui va vous permettre de conserver efficacement l’historique de votre code aussi bien si vous travaillez seul mais également quand vous travaillez à plusieurs. Cet historique est conservé dans ce que l’on appelle un <em>dépôt git</em>.</p>
 <p>Sa conception décentralisée fait qu’il est quasi impossible de perdre une donnée définitivement avec git. En particulier, la perte totale d’un ordinateur hébergeant votre code ne représentera qu’une perte minime de code si vous utilisez git correctement.</p>
 <p>En outre, de nombreux outils de <em>CI/CD</em> (<em>Continuous Intégration / Continuous Deployment</em>) qui rendent possible l’automatisation de l’intégration et du déploiement de votre code s’appuient sur un <em>dépôt git</em>.</p>
 <section id="concepts-clés" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="concepts-clés">Concepts Clés</h3>
 <p>Cependant, comme tout logiciel, git demande un peu d’apprentissage, et de la pratique. Pour commencer, nous aurons besoin de certains concepts essentiels pour une utilisation efficace. Par sa conception décentralisée, un dépôt git peut exister en plusieurs endroits en même temps : sur notre machine, sur chaque machine des membre du projet, ou sur un serveur hébergeant le projet.</p>
-<p>On parlera de la <em>copie distante</em> (<em>remote</em> en anglais) du dépôt dans le cas du serveur distant. En général, une seule copie distante est utilisée, mais par sa nature décentralisée, plusieurs copies distantes sont possibles (possibilité non incluse dans ce TP).</p>
+<p>Nous parlerons de la <em>copie distante</em> (<em>remote</em> en anglais) du dépôt dans le cas du serveur distant. En général, une seule copie distante est utilisée, mais par sa nature décentralisée, plusieurs copies distantes sont possibles (possibilité non incluse dans ce TP).</p>
 <p>La copie sur notre machine est la <em>copie locale</em> (<em>local</em> en anglais). Il s’agit de toutes les informations du dépôt concernant l’historique de ses fichiers, et les métadonnées du dépôt. Une distinction subtile est alors faite entre la copie locale et la <em>copie de travail</em> (<em>working copy</em> en anglais) : Nos modifications sur les fichiers du dépôt n’intégrerons la copie locale qu’à notre demande explicite. Cette intégration sera alors effectuée par l’ajout d’une entrée à l’historique du dépôt.</p>
 </section>
 <section id="programme" class="level3 unnumbered">
@@ -1088,13 +1088,13 @@ Important
 <ul>
 <li><p>Pour <span class="emoji" data-emoji="frog">🐸</span> qui a poussé son code en premier <span class="emoji" data-emoji="arrow_right">➡️</span> tout s’est bien passé</p></li>
 <li><p>Pour <span class="emoji" data-emoji="cat">🐱</span>, il a du recevoir ce genre de message</p>
-<pre class="text"><code>! [rejected]        master -&gt; dev (fetch first)
-error: failed to push some refs to 'git@github.com:ludo2ne/tp-git.git'
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code></pre></li>
+<div class="sourceCode" id="cb10"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>! [rejected]        master -&gt; dev (fetch first)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>error: failed to push some refs to 'git@github.com:ludo2ne/tp-git.git'</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>hint: Updates were rejected because the remote contains work that you do</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>hint: not have locally. This is usually caused by another repository pushing</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>hint: to the same ref. You may want to first integrate the remote changes</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>hint: (e.g., 'git pull ...') before pushing again.</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>hint: See the 'Note about fast-forwards' in 'git push --help' for details.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </div>
 </div>
@@ -1142,16 +1142,16 @@ Lorsque vous maîtriserez `git pull` et la gestion de conflits (section Hands on
 <ul>
 <li>Et là c’est le conflit…</li>
 </ul>
-<pre><code>remote: Enumerating objects: 7, done.
-remote: Counting objects: 100% (7/7), done.
-remote: Compressing objects: 100% (3/3), done.
-remote: Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
-Unpacking objects: 100% (4/4), 1015 bytes | 8.00 KiB/s, done.
-From github.com:ludo2ne/tp-git
-   c27c708..05380ea  main       -&gt; origin/main
-Auto-merging src/voiture.py
-CONFLICT (content): Merge conflict in src/voiture.py
-Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>remote: Enumerating objects: 7, done.</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>remote: Counting objects: 100% (7/7), done.</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>remote: Compressing objects: 100% (3/3), done.</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>remote: Total 4 (delta 2), reused 0 (delta 0), pack-reused 0</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>Unpacking objects: 100% (4/4), 1015 bytes | 8.00 KiB/s, done.</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>From github.com:ludo2ne/tp-git</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>   c27c708..05380ea  main       -&gt; origin/main</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>Auto-merging src/voiture.py</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>CONFLICT (content): Merge conflict in src/voiture.py</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>Automatic merge failed; fix conflicts and then commit the result.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Git vous prévient qu’il n’est pas arrivé à fusionner les commits automatiquement</li>
 <li>Un conflit est généré quand les mêmes lignes d’un fichier sont modifiés par 2 commits de manière différente</li>
@@ -1832,7 +1832,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

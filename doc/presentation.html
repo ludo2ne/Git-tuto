@@ -1068,13 +1068,13 @@ Important
 <section id="git-push---si-votre-dépôt-local-nest-pas-à-jour" class="level3">
 <h3 class="anchored" data-anchor-id="git-push---si-votre-dépôt-local-nest-pas-à-jour">git push - si votre dépôt local n’est pas à jour</h3>
 <p>Le message est assez explicite</p>
-<pre><code>! [rejected]        main -&gt; main (fetch first)
-error: failed to push some refs
-hint: Updates were rejected because the remote contains work that you do not
-hint: have locally. This is usually caused by another repository pushing to
-hint: the same ref. If you want to integrate the remote changes, use
-hint: 'git pull' before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>! [rejected]        main -&gt; main (fetch first)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>error: failed to push some refs</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>hint: Updates were rejected because the remote contains work that you do not</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>hint: have locally. This is usually caused by another repository pushing to</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>hint: the same ref. If you want to integrate the remote changes, use</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>hint: 'git pull' before pushing again.</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>hint: See the 'Note about fast-forwards' in 'git push --help' for details.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="git-push---fichier-disparu" class="level3">
 <h3 class="anchored" data-anchor-id="git-push---fichier-disparu">git push - fichier disparu</h3>
@@ -1540,10 +1540,10 @@ Note
 <section id="bibliographie" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="bibliographie">Bibliographie</h2>
 <ul>
-<li><a href="https://pythonds.linogaliana.fr/content/git/introgit.html" class="external" target="_blank">Git : un élément essentiel au quotidien</a>, Python pour la datascience, Lino Galiana</li>
-<li><a href="https://collaboratif-git-formation-insee.netlify.app/" class="external" target="_blank">Formation Git du Lab INSEE</a></li>
-<li><a href="https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow" class="external" target="_blank">GitFlow</a></li>
-<li><a href="https://www.atlassian.com/fr/continuous-delivery/continuous-integration/trunk-based-development" class="external" target="_blank">Développement basé sur le tronc</a></li>
+<li><a href="https://pythonds.linogaliana.fr/content/git/introgit.html" target="_blank">Git : un élément essentiel au quotidien</a>, Python pour la datascience, Lino Galiana</li>
+<li><a href="https://collaboratif-git-formation-insee.netlify.app/" target="_blank">Formation Git du Lab INSEE</a></li>
+<li><a href="https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow" target="_blank">GitFlow</a></li>
+<li><a href="https://www.atlassian.com/fr/continuous-delivery/continuous-integration/trunk-based-development" target="_blank">Développement basé sur le tronc</a></li>
 </ul>
 
 
@@ -2120,7 +2120,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","selector":".lightbox","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

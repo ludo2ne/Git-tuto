@@ -1447,13 +1447,13 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <section id="git-push---si-votre-dépôt-local-nest-pas-à-jour" class="slide level3">
 <h3>git push - si votre dépôt local n’est pas à jour</h3>
 <p>Le message est assez explicite</p>
-<pre><code>! [rejected]        main -&gt; main (fetch first)
-error: failed to push some refs
-hint: Updates were rejected because the remote contains work that you do not
-hint: have locally. This is usually caused by another repository pushing to
-hint: the same ref. If you want to integrate the remote changes, use
-hint: 'git pull' before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a></a>! [rejected]        main -&gt; main (fetch first)</span>
+<span id="cb9-2"><a></a>error: failed to push some refs</span>
+<span id="cb9-3"><a></a>hint: Updates were rejected because the remote contains work that you do not</span>
+<span id="cb9-4"><a></a>hint: have locally. This is usually caused by another repository pushing to</span>
+<span id="cb9-5"><a></a>hint: the same ref. If you want to integrate the remote changes, use</span>
+<span id="cb9-6"><a></a>hint: 'git pull' before pushing again.</span>
+<span id="cb9-7"><a></a>hint: See the 'Note about fast-forwards' in 'git push --help' for details.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="git-push---fichier-disparu" class="slide level3">
 <h3>git push - fichier disparu</h3>
@@ -2018,10 +2018,10 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
 <section id="bibliographie" class="title-slide slide level2 unnumbered center">
 <h2>Bibliographie</h2>
 <ul>
-<li><a href="https://pythonds.linogaliana.fr/content/git/introgit.html" class="external" target="_blank">Git : un élément essentiel au quotidien</a>, Python pour la datascience, Lino Galiana</li>
-<li><a href="https://collaboratif-git-formation-insee.netlify.app/" class="external" target="_blank">Formation Git du Lab INSEE</a></li>
-<li><a href="https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow" class="external" target="_blank">GitFlow</a></li>
-<li><a href="https://www.atlassian.com/fr/continuous-delivery/continuous-integration/trunk-based-development" class="external" target="_blank">Développement basé sur le tronc</a></li>
+<li><a href="https://pythonds.linogaliana.fr/content/git/introgit.html" target="_blank">Git : un élément essentiel au quotidien</a>, Python pour la datascience, Lino Galiana</li>
+<li><a href="https://collaboratif-git-formation-insee.netlify.app/" target="_blank">Formation Git du Lab INSEE</a></li>
+<li><a href="https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow" target="_blank">GitFlow</a></li>
+<li><a href="https://www.atlassian.com/fr/continuous-delivery/continuous-integration/trunk-based-development" target="_blank">Développement basé sur le tronc</a></li>
 </ul>
 
 <div class="quarto-auto-generated-content">
@@ -2419,7 +2419,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.</code
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom","selector":".lightbox"});
+    <script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;
