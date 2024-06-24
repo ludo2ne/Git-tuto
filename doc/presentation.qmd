@@ -454,13 +454,14 @@ gitGraph:
 :pensive: Ce n'est pas toujours évident de trouver un message court et explicite.
 
 ::: {.callout-tip}
-Utilisez un préfixe à votre message :
+Utilisez un **préfixe** à votre message selon le pattern `<type>: <sujet>`:
 
-- `feat: ` : nouvelle fonctionnalité
-- `fix: ` : correction
-- `doc: ` : mise à jour documentaire
-- `refactor: ` : mise au propre du code
-- `revert: ` : retour arrière
+- `doc: ` mise à jour documentaire
+- `feat: ` nouvelle fonctionnalité
+- `fix: ` correction
+- `refactor: ` mise au propre du code
+- `revert: ` retour arrière
+- `test:` Modification des tests
 :::
 
 ::: {.notes}

@@ -13,6 +13,10 @@ number-depth: 3
 lightbox: true
 ---
 
+:construction:
+
+- <https://github.com/InseeFrLab/utilitR/blob/master/CONTRIBUTING.md>
+- <https://grafikart.fr/tutoriels/fork-pull-request-591>
 
 ## Contribuer à un projet Open Source
 
@@ -26,29 +30,10 @@ lightbox: true
   - vers le dépot original/master
   - Message
 
-Pour mettre à jour son fork
+Pour mettre à jour son fork :
+
   - `git remote add upstream https://dépot_original`
   - `git remote -v`
   - `git fecth upstream` pour récupérer les branches du upstream
   - `git branch -a`
   - `git merge upstream/master` pour fusionner upstream/master vers ma propre branche master
-  
-Pour plus d'infos : https://grafikart.fr/tutoriels/fork-pull-request-591
-
-
-
-
-## Nommer ses commits
-
-<type>: <sujet>
-
-Type définit le type de commit
-
-- build: Système de build (example : gulp, webpack, npm)
-- ci: Intégration continue (example scopes: Travis, Circle, BrowserStack, SauceLabs)
-- docs: Documentation
-- feat: Ajout d'une fonctionnalité
-- fix: Correction de bogue
-- perf: Amélioration des performances
-- refactor: Changement du code qui ne change rien au fonctionnement
-- test: Modification des tests
