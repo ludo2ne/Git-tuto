@@ -1,9 +1,14 @@
-
+var:
+  url-repo: https://github.com/ludo2ne/Git-tuto   # to call this value : {{< meta var.url-repo >}}
+  
 project:
   type: website
 
 website:
   title: "Git tuto"
+  repo-url: "{{< meta var.url-repo >}}"
+  repo-branch: main
+  reader-mode: true
   navbar:
     background: "#447099"
     left:
@@ -23,15 +28,12 @@ website:
           - href: doc/open-source.qmd
             text: Open Source
       - icon: github
-        href: https://github.com/ludo2ne/Git-tuto
+        href: "{{< meta var.url-repo >}}"
         target: "_blank"
   page-footer:
     right: |
       Website built with [Quarto](https://quarto.org/){.external target="_blank"} <br>
-      [Source code](https://github.com/ludo2ne/Git-tuto){.external target="_blank"}
-  repo-url: https://github.com/ludo2ne/Git-tuto
-  repo-branch: main
-  reader-mode: true
+      [Source code]({{< meta var.url-repo >}}){.external target="_blank"}
 
 format:
   html:

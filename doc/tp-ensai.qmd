@@ -86,7 +86,7 @@ Pour vous aider, voici la [liste des commandes](presentation.html#commandes-unix
 - [ ] Créez un dossier nommé `git-initiation`
 - [ ] Positionnez-vous dans le dossier *git-initiation*
 
-::: {.callout-tip collapse="true" title="Solution"}
+::: {.callout-note collapse="true" title="Solution"}
 - `pwd`
 - `cd /p`
 - `ll`
@@ -105,7 +105,7 @@ Il était également possible de tout faire d'une seule traite :
 ### Les fichiers
 
 - [ ] Créez un fichier *a.txt* contenant le résultat de la commande `ps` 
-  - ps liste tous les processus en cours
+  - *ps* liste tous les processus en cours
   - `ps > a.txt`
 - [ ] Créez une copie de ce fichier que vous nommerez *b.txt*
 - [ ] Listez les fichiers du dossier courant
@@ -114,14 +114,24 @@ Il était également possible de tout faire d'une seule traite :
   - `cat b.txt | grep ps`
 - [ ] Renommez le fichier *a.txt* en *c.txt*
 - [ ] Listez les fichiers du dossier courant
+
+::: {.callout-tip title="Raccourcis très utiles"}
+- :arrow_up: et :arrow_down: pour naviguer dans l'historique des dernières commandes et éviter de retaper 10 fois la même commande
+- TAB pour l'autocomplétion
+  - Tapez `cat b`, puis appuyez sur la touche *TAB*
+  - Il n'y a qu'un seul fichier commençant par *b* donc l'autocomplétion s'effectue
+  - La touche *TAB* se situe à gauche du clavier dessous `²` et dessus :lock: 
+:::
+
 - [ ] Supprimez les fichiers *b.txt* et *c.txt*
 - [ ] Créez 5 fichiers avec la commande `touch ex{1..5}.py`
 - [ ] Listez les fichiers du dossier courant
 - [ ] Supprimez ces 5 fichiers avec la commande `rm ex*.py`
 - [ ] Créez un fichier avec la commande `touch setup-git.sh`
 
-## Paramétrage de Git
+Pour aller plus loin, vous pouvez consulter le chapitre [Linux 101](https://ensae-reproductibilite.github.io/website/chapters/linux-101.html) du cours de *Mise en production* de l'ENSAE.
 
+## Paramétrage de Git
 
 ### Configuration
 
