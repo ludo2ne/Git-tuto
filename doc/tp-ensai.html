@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.4.557">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -371,7 +371,7 @@ Note
 <li><label><input type="checkbox">Créez un dossier nommé <code>git-initiation</code></label></li>
 <li><label><input type="checkbox">Positionnez-vous dans le dossier <em>git-initiation</em></label></li>
 </ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout callout-style-default callout-note callout-titled" title="Solution">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -407,7 +407,7 @@ Solution
 <ul class="task-list">
 <li><label><input type="checkbox">Créez un fichier <em>a.txt</em> contenant le résultat de la commande <code>ps</code></label>
 <ul>
-<li>ps liste tous les processus en cours</li>
+<li><em>ps</em> liste tous les processus en cours</li>
 <li><code>ps &gt; a.txt</code></li>
 </ul></li>
 <li><label><input type="checkbox">Créez une copie de ce fichier que vous nommerez <em>b.txt</em></label></li>
@@ -419,12 +419,36 @@ Solution
 </ul></li>
 <li><label><input type="checkbox">Renommez le fichier <em>a.txt</em> en <em>c.txt</em></label></li>
 <li><label><input type="checkbox">Listez les fichiers du dossier courant</label></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Raccourcis très utiles">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Raccourcis très utiles
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="emoji" data-emoji="arrow_up">⬆️</span> et <span class="emoji" data-emoji="arrow_down">⬇️</span> pour naviguer dans l’historique des dernières commandes et éviter de retaper 10 fois la même commande</li>
+<li>TAB pour l’autocomplétion
+<ul>
+<li>Tapez <code>cat b</code>, puis appuyez sur la touche <em>TAB</em></li>
+<li>Il n’y a qu’un seul fichier commençant par <em>b</em> donc l’autocomplétion s’effectue</li>
+<li>La touche <em>TAB</em> se situe à gauche du clavier dessous <code>²</code> et dessus <span class="emoji" data-emoji="lock">🔒</span></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<ul class="task-list">
 <li><label><input type="checkbox">Supprimez les fichiers <em>b.txt</em> et <em>c.txt</em></label></li>
 <li><label><input type="checkbox">Créez 5 fichiers avec la commande <code>touch ex{1..5}.py</code></label></li>
 <li><label><input type="checkbox">Listez les fichiers du dossier courant</label></li>
 <li><label><input type="checkbox">Supprimez ces 5 fichiers avec la commande <code>rm ex*.py</code></label></li>
 <li><label><input type="checkbox">Créez un fichier avec la commande <code>touch setup-git.sh</code></label></li>
 </ul>
+<p>Pour aller plus loin, vous pouvez consulter le chapitre <a href="https://ensae-reproductibilite.github.io/website/chapters/linux-101.html">Linux 101</a> du cours de <em>Mise en production</em> de l’ENSAE.</p>
 </section>
 </section>
 <section id="paramétrage-de-git" class="level2" data-number="2">
@@ -500,7 +524,7 @@ Warning
 </ul></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="SSH : Comment ça marche ?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -509,7 +533,7 @@ SSH : Comment ça marche ?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>SSH (Secure Shell) est un protocole permettant de se connecter à un autre ordinateur sur un réseau de manière sécurisée.</p>
 <p>SSH chiffre toutes les informations échangées afin de protéger les données.</p>
@@ -984,7 +1008,7 @@ Si vous travaillez à 2
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Si vous faîtes seul">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -993,7 +1017,7 @@ Si vous faîtes seul
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Dans l’explorateur Windows :</p>
 <ul>
@@ -1832,7 +1856,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","openEffect":"zoom","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
