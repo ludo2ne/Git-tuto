@@ -1,0 +1,22 @@
+---
+title: "Gitflow"
+description: "Workflow Gitflow"
+author: Ludovic Deneuville
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+lightbox: true
+---
+
+:construction:
+
+
+[Workflow Gitflow](https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow){target="_blank"}
+
+vs
+
+[Développement basé sur le tronc](https://www.atlassian.com/fr/continuous-delivery/continuous-integration/trunk-based-development){target="_blank"}

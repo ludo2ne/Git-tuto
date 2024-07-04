@@ -13,7 +13,17 @@ from: markdown+emoji
   - Qu'est ce que Git ?
   - À quoi ça sert ?
   - Quels sont les avantages de Git ?
-- [Installer et paramètrer](doc/parametrage.qmd) Git
-- Un [TP pour découvrir](doc/tp.qmd) Git
+- Un [TP pour découvrir](doc/tp-ensai.qmd) Git
+  - Commandes Unix
+  - Git Bash
+  - Paramétrage de Git
+  - Créer un dépôt
+  - Commandes principales
 
+Pour aller plus loin :
+
+- Les branches
+- GitFlow
+- Ingération continue
+- Open Source
 

@@ -116,7 +116,7 @@ Il était également possible de tout faire d'une seule traite :
 - [ ] Listez les fichiers du dossier courant
 
 ::: {.callout-tip title="Raccourcis très utiles"}
-- :arrow_up: et :arrow_down: pour naviguer dans l'historique des dernières commandes et éviter de retaper 10 fois la même commande
+- Les flèches :arrow_up: et :arrow_down: pour naviguer dans l'historique des dernières commandes et éviter de retaper 10 fois la même commande
 - TAB pour l'autocomplétion
   - Tapez `cat b`, puis appuyez sur la touche *TAB*
   - Il n'y a qu'un seul fichier commençant par *b* donc l'autocomplétion s'effectue
@@ -129,7 +129,7 @@ Il était également possible de tout faire d'une seule traite :
 - [ ] Supprimez ces 5 fichiers avec la commande `rm ex*.py`
 - [ ] Créez un fichier avec la commande `touch setup-git.sh`
 
-Pour aller plus loin, vous pouvez consulter le chapitre [Linux 101](https://ensae-reproductibilite.github.io/website/chapters/linux-101.html) du cours de *Mise en production* de l'ENSAE.
+Pour aller plus loin, vous pouvez consulter le chapitre [Linux 101](https://ensae-reproductibilite.github.io/website/chapters/linux-101.html){target="_blank"} du cours de *Mise en production* de l'ENSAE.
 
 ## Paramétrage de Git
 

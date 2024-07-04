@@ -18,15 +18,15 @@ website:
         text: Présentation
       - href: doc/tp-ensai.qmd
         text: TP ENSAI
-    right:
-      - text: Other
+      - text: Aller plus loin
         menu:
-          - href: doc/parametrage.qmd
-            text: Paramètrage
-          - href: doc/tp.qmd
-            text: TP
+          - href: doc/branches.qmd
+            text: Les branches
+          - href: doc/gitflow.qmd
+            text: Gitflow
           - href: doc/open-source.qmd
             text: Open Source
+    right:
       - icon: github
         href: "{{< meta var.url-repo >}}"
         target: "_blank"
