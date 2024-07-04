@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.557">
+<meta name="generator" content="quarto-1.5.53">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
 <meta name="description" content="TP de découverte de Git">
 
-<title>Git tuto - Git TP</title>
+<title>Git TP – Git tuto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -138,20 +138,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../doc/tp-ensai.html"> 
 <span class="menu-text">TP ENSAI</span></a>
   </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Other</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-aller-plus-loin" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Aller plus loin</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-other">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-aller-plus-loin">    
         <li>
-    <a class="dropdown-item" href="../doc/parametrage.html">
- <span class="dropdown-text">Paramètrage</span></a>
+    <a class="dropdown-item" href="../doc/branches.html">
+ <span class="dropdown-text">Les branches</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../doc/tp.html">
- <span class="dropdown-text">TP</span></a>
+    <a class="dropdown-item" href="../doc/gitflow.html">
+ <span class="dropdown-text">Gitflow</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../doc/open-source.html">
@@ -159,6 +157,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/ludo2ne/Git-tuto" target="_blank"> <i class="bi bi-github" role="img">
 </i> 
@@ -166,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -204,17 +204,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#fonctionnalités-de-github" id="toc-fonctionnalités-de-github" class="nav-link" data-scroll-target="#fonctionnalités-de-github"><span class="header-section-number">6</span> Fonctionnalités de GitHub</a></li>
   <li><a href="#un-petit-exo-dapplication" id="toc-un-petit-exo-dapplication" class="nav-link" data-scroll-target="#un-petit-exo-dapplication"><span class="header-section-number">7</span> Un petit exo d’application</a></li>
-  <li><a href="#les-branches" id="toc-les-branches" class="nav-link" data-scroll-target="#les-branches"><span class="header-section-number">8</span> Les branches</a>
-  <ul class="collapse">
-  <li><a href="#a-quoi-sert-une-branche" id="toc-a-quoi-sert-une-branche" class="nav-link" data-scroll-target="#a-quoi-sert-une-branche"><span class="header-section-number">8.1</span> A quoi sert une branche ?</a></li>
-  <li><a href="#un-petit-exemple-pour-y-voir-plus-clair" id="toc-un-petit-exemple-pour-y-voir-plus-clair" class="nav-link" data-scroll-target="#un-petit-exemple-pour-y-voir-plus-clair"><span class="header-section-number">8.2</span> Un petit exemple pour y voir plus clair</a></li>
-  </ul></li>
   </ul>
 </nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -738,88 +733,8 @@ Tip
 <li>Créer un point de sauvegarde sur votre dépôt local (add et commit)</li>
 <li>Synchronisez vos dépôts et résolvez les conflits (pull et push)</li>
 </ol>
-<hr>
-</section>
-<section id="les-branches" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="les-branches"><span class="header-section-number">8</span> Les branches</h2>
-<p><span class="emoji" data-emoji="information_source">ℹ️</span> Uniquement si vous êtes à l’aise</p>
-<section id="a-quoi-sert-une-branche" class="level3" data-number="8.1">
-<h3 data-number="8.1" class="anchored" data-anchor-id="a-quoi-sert-une-branche"><span class="header-section-number">8.1</span> A quoi sert une branche ?</h3>
-<p>Imaginez vous avez votre code qui fonctionne bien mais qui est tout moche (avec des duplications…). Comme vous êtes sérieux, vous voulez faire tout bien comme il faut et mettre tout au propre.</p>
-<p>Vous faites vos corrections, faites de commits, et puis à un moment vous en avez marre car plus rien ne fonctionne. Vous avez envie de retourner en arrière, ce qui est possible avec ce que l’on a vu précédemment mais pas trivial ni très propre.</p>
-<p>Si vous connaissiez les branches voici ce que vous auriez fait :</p>
-<ol type="1">
-<li>créer une branche nommée “refonte”</li>
-<li>Développer, Commiter sur cette branche</li>
-<li>Si à la fin ce que vous avez fait sur cette branche vous plait alors fusion de cette branche avec la branche principale <strong>main</strong></li>
-<li>Sinon vous pouvez simplement supprimer cette branche</li>
-</ol>
-<p>En gros une branche permet de coder et/ou tester une nouvelle fonctionnalité sans polluer la branche principale.</p>
-<hr>
-</section>
-<section id="un-petit-exemple-pour-y-voir-plus-clair" class="level3" data-number="8.2">
-<h3 data-number="8.2" class="anchored" data-anchor-id="un-petit-exemple-pour-y-voir-plus-clair"><span class="header-section-number">8.2</span> Un petit exemple pour y voir plus clair</h3>
-<ul>
-<li>imaginons que vous voulez ajouter une classe trottinette, mais vous n’êtes pas encore sûr, alors vous testez sur une branche</li>
-<li><code>git checkout -b trottinette</code>
-<ul>
-<li>création d’une branche trottinette</li>
-<li><em>Switched to a new branch ‘trottinette’</em>
-<ul>
-<li>et comme l’indique le message, avec cette commande vous êtes directement positionné sur cette branche</li>
-</ul></li>
-</ul></li>
-<li>Créez un fichier <code>trottinette.py</code></li>
-<li>Modifiez la vitesse de voiture à 210 parce que vous êtes un malade</li>
-<li>add puis commit</li>
-<li><code>git push</code> pour partager sur le dépôt distant
-<ul>
-<li>Git dit que cette branche n’est pas connue sur le dépôt distant</li>
-<li>Mais comme il est sympa, il donne la commande pour la créer</li>
-<li><code>git push --set-upstream origin trottinette</code></li>
-</ul></li>
-<li>Ensuite revenons sur la branche principale <code>main</code>
-<ul>
-<li><code>git checkout main</code></li>
-</ul></li>
-<li>Modifiez la vitesse maximale de voiture à 90 parce qu’en fait vous êtes très prudent puis commit</li>
-<li>Maintenant, après mûre réflexion, vous vous dites que la trottinette c’est trop bien et qu’il faut l’intégrer à la branche main</li>
-<li>Vous avec envie de fusionner directement les branches <code>trottinette</code> et <code>main</code>
-<ul>
-<li><code>git merge trottinette</code></li>
-<li>Seulement il y a un conflit et c’est fait exprés</li>
-<li>Il a été dit plus haut que la branche <strong>main</strong> doit rester le plus propre possible, ainsi on va éviter de la polluer avec des commits de gestion de conflit. Les conflits doivent être réglé sur les autres branches</li>
-<li>Annulons ce merge
-<ul>
-<li><code>git merge --abort</code></li>
-</ul></li>
-</ul></li>
-<li>Voici comment nous allons procéder pour faire cela proprement
-<ul>
-<li>On retourne sur la branche <code>trottinette</code>
-<ul>
-<li><code>git checkout trottinette</code></li>
-</ul></li>
-<li>Nous allons faire la fusion sur cette branche
-<ul>
-<li><code>git merge main</code></li>
-<li>nous résolvons le conflit puis commit</li>
-</ul></li>
-<li>Maintenant que les 2 branches sont synchronisées, retournons sur la branche <code>main</code>
-<ul>
-<li><code>git checkout main</code></li>
-<li><code>git merge --squash trottinette</code>
-<ul>
-<li>cette fois-ci pas de conflits car ils ont été résolu juste avant</li>
-</ul></li>
-<li><code>git commit -am "ajout fonctionnalité trottinette"</code></li>
-</ul></li>
-<li>L’option <code>--squash</code> permet de ne pas polluer le main avec tous les commits réalisés sur la branche <code>trottinette</code>. Si par la suite vous utilisez GitHub ou GitHub cette option se retrouve directement dans les merge ou les pull requests.</li>
-</ul></li>
-</ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1002,18 +917,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1045,7 +949,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/ludo2ne\.github\.io\/Git-tuto\/");
@@ -1053,7 +979,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

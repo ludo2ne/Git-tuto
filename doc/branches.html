@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.557">
+<meta name="generator" content="quarto-1.5.53">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
-<meta name="description" content="Installation et paramétrage de Git">
+<meta name="description" content="Utiliser les branches">
 
-<title>Git tuto - Paramétrer Git</title>
+<title>Les branches – Git tuto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -121,7 +87,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -138,20 +104,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../doc/tp-ensai.html"> 
 <span class="menu-text">TP ENSAI</span></a>
   </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Other</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-aller-plus-loin" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Aller plus loin</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-other">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-aller-plus-loin">    
         <li>
-    <a class="dropdown-item" href="../doc/parametrage.html">
- <span class="dropdown-text">Paramètrage</span></a>
+    <a class="dropdown-item" href="../doc/branches.html">
+ <span class="dropdown-text">Les branches</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../doc/tp.html">
- <span class="dropdown-text">TP</span></a>
+    <a class="dropdown-item" href="../doc/gitflow.html">
+ <span class="dropdown-text">Gitflow</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../doc/open-source.html">
@@ -159,6 +123,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/ludo2ne/Git-tuto" target="_blank"> <i class="bi bi-github" role="img">
 </i> 
@@ -166,7 +132,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -185,34 +151,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#objectifs" id="toc-objectifs" class="nav-link active" data-scroll-target="#objectifs">Objectifs</a></li>
-  <li><a href="#installer-git" id="toc-installer-git" class="nav-link" data-scroll-target="#installer-git"><span class="header-section-number">1</span> Installer Git</a></li>
-  <li><a href="#paramètrer-git" id="toc-paramètrer-git" class="nav-link" data-scroll-target="#paramètrer-git"><span class="header-section-number">2</span> Paramètrer Git</a>
-  <ul class="collapse">
-  <li><a href="#configuration-git-bash" id="toc-configuration-git-bash" class="nav-link" data-scroll-target="#configuration-git-bash"><span class="header-section-number">2.1</span> Configuration Git Bash</a></li>
-  <li><a href="#clé-ssh" id="toc-clé-ssh" class="nav-link" data-scroll-target="#clé-ssh"><span class="header-section-number">2.2</span> Clé SSH</a></li>
-  <li><a href="#créer-un-compte-sur-github" id="toc-créer-un-compte-sur-github" class="nav-link" data-scroll-target="#créer-un-compte-sur-github"><span class="header-section-number">2.3</span> Créer un compte sur GitHub</a></li>
-  <li><a href="#déclarer-votre-clé-publique-ssh-à-github" id="toc-déclarer-votre-clé-publique-ssh-à-github" class="nav-link" data-scroll-target="#déclarer-votre-clé-publique-ssh-à-github"><span class="header-section-number">2.4</span> Déclarer votre clé publique SSH à GitHub</a></li>
-  <li><a href="#en-cas-derreurs" id="toc-en-cas-derreurs" class="nav-link" data-scroll-target="#en-cas-derreurs"><span class="header-section-number">2.5</span> En cas d’erreurs</a></li>
-  </ul></li>
+  <li><a href="#a-quoi-sert-une-branche" id="toc-a-quoi-sert-une-branche" class="nav-link active" data-scroll-target="#a-quoi-sert-une-branche"><span class="header-section-number">1</span> A quoi sert une branche ?</a></li>
+  <li><a href="#un-petit-exemple-pour-y-voir-plus-clair" id="toc-un-petit-exemple-pour-y-voir-plus-clair" class="nav-link" data-scroll-target="#un-petit-exemple-pour-y-voir-plus-clair"><span class="header-section-number">2</span> Un petit exemple pour y voir plus clair</a></li>
   </ul>
 </nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Paramétrer Git</h1>
+<h1 class="title">Les branches</h1>
 </div>
 
 <div>
   <div class="description">
-    Installation et paramétrage de Git
+    Utiliser les branches
   </div>
 </div>
 
@@ -236,121 +194,81 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><span class="emoji" data-emoji="construction">🚧</span></p>
-<section id="objectifs" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="objectifs">Objectifs</h2>
-<ul class="task-list">
-<li><label><input type="checkbox">Installer Git</label></li>
-<li><label><input type="checkbox">Configurer Git</label></li>
-<li><label><input type="checkbox">Créer un compte GitHub</label></li>
-</ul>
-</section>
-<section id="installer-git" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="installer-git"><span class="header-section-number">1</span> Installer Git</h2>
-<ul class="task-list">
-<li><label><input type="checkbox">Suivez les <a href="https://git-scm.com/book/fr/v2/D%C3%A9marrage-rapide-Installation-de-Git" target="_blank">instructions pour installer Git</a></label></li>
-</ul>
-</section>
-<section id="paramètrer-git" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="paramètrer-git"><span class="header-section-number">2</span> Paramètrer Git</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Le paramètrage de Git n’est pas très drôle et peut faire un peu peur.<br>
-Mais pas de panique, c’est à faire une et une seule fois sur votre machine !</p>
-</div>
-</div>
-<section id="configuration-git-bash" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="configuration-git-bash"><span class="header-section-number">2.1</span> Configuration Git Bash</h3>
-<p>Git Bash est un Terminal où l’on peut écrire des commandes git.</p>
-<p>Ouvrir <code>Git Bash</code> et entrer une à une les commandes suivantes</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Prenom Nom"</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email prenom.nom@eleve.ensai.fr</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>La dernière commande permet de vérifier que les 2 attributs <code>user.name</code> et <code>user.email</code> sont bien renseignés</p>
-</section>
-<section id="clé-ssh" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="clé-ssh"><span class="header-section-number">2.2</span> Clé SSH</h3>
-<p>Afin de pouvoir faire des mises à jour sur le dépôt distant, il faut que votre machine (locale) soit reconnue. Vous devez donc fournir une clé d’authentification à GitLab.</p>
-<p>Toujours dans Git Bash, lancer une à une ces 2 commandes. La première commande permet de générer une clé publique SSH. La seconde permet de récupérer la valeur de cette clé.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa <span class="at">-b</span> 4096 <span class="at">-C</span> <span class="st">"prenom.nom@eleve.ensai.fr"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">## tapez ENTREE à chaque question</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Récupérez le contenu de la clé avec la commande</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$HOME</span>/.ssh/id_rsa.pub          <span class="co"># cat /c/Users/idxxxx/.ssh/id_rsa.pub</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>La commande cat renvoie tout le contenu de ce fichier
-<ul>
-<li>En cas d’échec, vous pouvez aller dans le dossier caché <code>C:/Users/idxxxx/.ssh/</code> et ouvrir avec Notepad le fichier <code>id_rsa.pub</code></li>
-<li>si vous ne trouvez toujours pas le fichier <code>id_rsa.pub</code>, retournez voir le résultat de la commande <code>ssh-keygen</code>, il est écrit dans quel dossier la clé a été générée</li>
-</ul></li>
-<li>Sélectionner ce contenu et le copier dans notepad pour la prochaine étape</li>
-</ul>
-<section id="créez-une-copie-de-votre-clé" class="level4">
-<h4 class="anchored" data-anchor-id="créez-une-copie-de-votre-clé">Créez une copie de votre clé</h4>
-<p>Il arrive que le dossier <code>C:/Users/idxxxx/.ssh</code> soit supprimé.<br>
-Il est interessant d’avoir une copie de cette clé pour la restaurer si besoin.</p>
-<ul>
-<li><code>cp -r $HOME/.ssh /p</code> pour copier le dossier dans le disque P:</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="créer-un-compte-sur-github" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="créer-un-compte-sur-github"><span class="header-section-number">2.3</span> Créer un compte sur GitHub</h3>
-<p>Sur GitHub, vous pourrez héberger votre projet. GitHub fera office de dépôt distant.<br>
-D’autres alternatives existent avec des fonctionnalités similaires : GitLab, Bitbucket…</p>
-<ul>
-<li><a href="https://github.com/signup" class="external" target="blank">GitHub</a></li>
-</ul>
-</section>
-<section id="déclarer-votre-clé-publique-ssh-à-github" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="déclarer-votre-clé-publique-ssh-à-github"><span class="header-section-number">2.4</span> Déclarer votre clé publique SSH à GitHub</h3>
-<ul>
-<li>Dans GitHub, aller dans Paramètres, puis <a href="https://github.com/settings/keys" target="blank">SSH and GPG Keys</a>
-<ul>
-<li>New SSH key</li>
-<li>donnez un titre et coller dans <code>Key</code> le résultat de l’étape 2</li>
-</ul></li>
-</ul>
-<p><span class="emoji" data-emoji="confetti_ball">🎊</span> Bravo le paramètrage est terminé</p>
-</section>
-<section id="en-cas-derreurs" class="level3" data-number="2.5">
-<h3 data-number="2.5" class="anchored" data-anchor-id="en-cas-derreurs"><span class="header-section-number">2.5</span> En cas d’erreurs</h3>
-<section id="the-authenticity-of-host-xxx-cant-be-established" class="level4">
-<h4 class="anchored" data-anchor-id="the-authenticity-of-host-xxx-cant-be-established">The authenticity of host xxx can’t be established</h4>
-<pre><code>The authenticity of host 'github.com (140.82.121.4)' can't be established.  
-ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
-This key is not known by any other names
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
-git@github.com: Permission denied (publickey).
-fatal: Could not read from remote repository.    
-
-Please make sure you have the correct access rights
-and the repository exists.</code></pre>
+<section id="a-quoi-sert-une-branche" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="a-quoi-sert-une-branche"><span class="header-section-number">1</span> A quoi sert une branche ?</h2>
+<p>Imaginez vous avez votre code qui fonctionne bien mais qui est tout moche (avec des duplications…). Comme vous êtes sérieux, vous voulez faire tout bien comme il faut et mettre tout au propre.</p>
+<p>Vous faites vos corrections, faites de commits, et puis à un moment vous en avez marre car plus rien ne fonctionne. Vous avez envie de retourner en arrière, ce qui est possible avec ce que l’on a vu précédemment mais pas trivial ni très propre.</p>
+<p>Si vous connaissiez les branches voici ce que vous auriez fait :</p>
 <ol type="1">
-<li>Vérifiez que le dossier <code>C:/users/idxxxx/.ssh</code> existe et contient les fichiers <code>id_rsa</code> et <code>id_rsa.pub</code>. Si oui passer à l’étape 2.</li>
+<li>créer une branche nommée “refonte”</li>
+<li>Développer, Commiter sur cette branche</li>
+<li>Si à la fin ce que vous avez fait sur cette branche vous plait alors fusion de cette branche avec la branche principale <strong>main</strong></li>
+<li>Sinon vous pouvez simplement supprimer cette branche</li>
 </ol>
-<p>Si non, recopiez votre clé dans <code>C:/users/idxxxx/.ssh</code> à partir de la sauvegarde que vous avez faite dans <code>P:/.ssh</code> lors de la création de la clé. Pour automatiser ceci, vous pouvez créer un script <code>restore_ssh.bat</code> sur le bureau contenant le code ci-dessous :</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="st">"source=P:\.ssh"</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="st">"destination=%HOME%\.ssh"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">xcopy</span> /E /H /I /Y <span class="st">"%source%"</span> <span class="st">"%destination%"</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pause</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li>Vérifiez que la clé <code>id_rsa.pub</code> est bien déclarée dans GitLab ou GitHub. Si le problème persiste, regénérez une nouvelle clé ssh et déclarez là dans GitHub ou GitLab.</li>
-</ol>
+<p>En gros une branche permet de coder et/ou tester une nouvelle fonctionnalité sans polluer la branche principale.</p>
+</section>
+<section id="un-petit-exemple-pour-y-voir-plus-clair" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="un-petit-exemple-pour-y-voir-plus-clair"><span class="header-section-number">2</span> Un petit exemple pour y voir plus clair</h2>
+<ul>
+<li>imaginons que vous voulez ajouter une classe trottinette, mais vous n’êtes pas encore sûr, alors vous testez sur une branche</li>
+<li><code>git checkout -b trottinette</code>
+<ul>
+<li>création d’une branche trottinette</li>
+<li><em>Switched to a new branch ‘trottinette’</em>
+<ul>
+<li>et comme l’indique le message, avec cette commande vous êtes directement positionné sur cette branche</li>
+</ul></li>
+</ul></li>
+<li>Créez un fichier <code>trottinette.py</code></li>
+<li>Modifiez la vitesse de voiture à 210 parce que vous êtes un malade</li>
+<li>add puis commit</li>
+<li><code>git push</code> pour partager sur le dépôt distant
+<ul>
+<li>Git dit que cette branche n’est pas connue sur le dépôt distant</li>
+<li>Mais comme il est sympa, il donne la commande pour la créer</li>
+<li><code>git push --set-upstream origin trottinette</code></li>
+</ul></li>
+<li>Ensuite revenons sur la branche principale <code>main</code>
+<ul>
+<li><code>git checkout main</code></li>
+</ul></li>
+<li>Modifiez la vitesse maximale de voiture à 90 parce qu’en fait vous êtes très prudent puis commit</li>
+<li>Maintenant, après mûre réflexion, vous vous dites que la trottinette c’est trop bien et qu’il faut l’intégrer à la branche main</li>
+<li>Vous avec envie de fusionner directement les branches <code>trottinette</code> et <code>main</code>
+<ul>
+<li><code>git merge trottinette</code></li>
+<li>Seulement il y a un conflit et c’est fait exprés</li>
+<li>Il a été dit plus haut que la branche <strong>main</strong> doit rester le plus propre possible, ainsi on va éviter de la polluer avec des commits de gestion de conflit. Les conflits doivent être réglé sur les autres branches</li>
+<li>Annulons ce merge
+<ul>
+<li><code>git merge --abort</code></li>
+</ul></li>
+</ul></li>
+<li>Voici comment nous allons procéder pour faire cela proprement
+<ul>
+<li>On retourne sur la branche <code>trottinette</code>
+<ul>
+<li><code>git checkout trottinette</code></li>
+</ul></li>
+<li>Nous allons faire la fusion sur cette branche
+<ul>
+<li><code>git merge main</code></li>
+<li>nous résolvons le conflit puis commit</li>
+</ul></li>
+<li>Maintenant que les 2 branches sont synchronisées, retournons sur la branche <code>main</code>
+<ul>
+<li><code>git checkout main</code></li>
+<li><code>git merge --squash trottinette</code>
+<ul>
+<li>cette fois-ci pas de conflits car ils ont été résolu juste avant</li>
+</ul></li>
+<li><code>git commit -am "ajout fonctionnalité trottinette"</code></li>
+</ul></li>
+<li>L’option <code>--squash</code> permet de ne pas polluer le main avec tous les commits réalisés sur la branche <code>trottinette</code>. Si par la suite vous utilisez GitHub ou GitHub cette option se retrouve directement dans les merge ou les pull requests.</li>
+</ul></li>
+</ul>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -533,18 +451,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -576,7 +483,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/ludo2ne\.github\.io\/Git-tuto\/");
@@ -584,7 +513,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
