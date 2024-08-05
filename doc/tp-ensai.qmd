@@ -176,10 +176,10 @@ Déclarez votre clé publique à *GitHub*, pour pouvoir ensuite faire communique
 
 - [ ] GitHub > cliquez sur votre avatar > Settings > SSH and GPG keys
   - [lien direct](https://github.com/settings/keys){target="_blank"}
-- [ ] Cliquez sur [New SSH key]{style="background-color: green"}
+- [ ] Cliquez sur [New SSH key]{.green-button}
   - Title : VM ENSAI
   - Key : Collez votre clé publique
-  - [Add SSH key]{style="background-color: green"}
+  - [Add SSH key]{.green-button}
 
 
 
@@ -218,13 +218,13 @@ Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous v
 ## Créez un dépôt distant
 
 - [ ] Créez un [nouveau Repository](https://github.com/new){target="_blank"} sur GitHub
-  - GitHub > Repositories > [New]{style="background-color: green"}
+  - GitHub > Repositories > [New]{.green-button}
   - Repository name : *tp-git*
   - Visibility Level : *Private*
   - Cochez *Add a README file*
   - Add .gitignore : *Python*
   - Choose a license : *MIT Licence*
-  - Cliquez sur [Create Repository]{style="background-color: green"}
+  - Cliquez sur [Create Repository]{.green-button}
 
 
 ## Créez un dépôt local
@@ -235,7 +235,7 @@ Vous allez maintenant créer une copie locale de ce dépôt en clonant ce projet
 
 Sur la page GitHub de votre repo, 
 
-- [ ] Cliquez sur [Code]{style="background-color: green"}
+- [ ] Cliquez sur [Code]{.green-button}
 - [ ] Copiez la ligne *Clone with SSH*
 - [ ] Dans Git Bash, vérifiez que vous êtes dans le dossier *p/Cours1A/git-initiation*
   - si ce n'est pas le cas : `cd /p/Cours1A/git-initiation`
@@ -396,7 +396,7 @@ Dans le terminal *Git Bash*
 ### Historique du dépôt
 
 - [ ] Sur GitHub, vous pouvez consulter l'historique du dépôt distant
-  - en cliquant sur *Commit* (en dessous du bouton [Code]{style="background-color: green"})
+  - en cliquant sur *Commit* (en dessous du bouton [Code]{.green-button})
   - historique d'un fichier en ouvrant ce fichier et en cliquant sur *History*
 - [ ] Regardez l'historique de votre dépôt local avec `git log`
   - ce n'est pas aisément lisible
@@ -527,7 +527,7 @@ Un des 2 membres va créer un dépôt local à partir du dépôt distant de l'au
 - [ ] :frog: fournit à :cat: l'adresse ssh de son repo
 - [ ] :frog: donne accès à :cat: à son repo
   - page GitHub du repo > Settings > Collaborators
-  - [Add people]{style="background-color: green"}
+  - [Add people]{.green-button}
 - [ ] :cat: clone le dépôt distant
   - explorateur Windows > aller dans *P:/Cours1A/git-initiation/*
   - créez un dossier `depot2`, et entrez dans ce dossier
