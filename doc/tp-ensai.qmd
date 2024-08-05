@@ -151,10 +151,10 @@ Pour aller plus loin, vous pouvez consulter le chapitre [Linux 101](https://ensa
 
 ### Création d'une clé SSH
 
-Pour permettre de faire dialoguer notre dépôt local avec le dépôt distant de GitHub, nous allons utiliser le protocole `ssh` :
+Pour permettre de faire dialoguer notre dépôt local avec le dépôt distant de GitHub, vous utiliserez le protocole `SSH`. Pour cela, vous allez :
 
-- Nous allons générer une clé sur notre machine
-- Nous allons ensuite déclarer cette clé à GitHub
+- générer une paire de clés (publique/privée) sur notre machine
+- déclarer votre clé publique à GitHub
 
 ::: {.callout-warning}
 Ce paramètrage SSH est réalisé au niveau de la machine.
@@ -164,9 +164,9 @@ Si par exemple, vous souhaitez utiliser Git sur votre ordinateur personnel, il f
 
 Dans Git Bash :
 
-- [ ] Créez un dossier *`*/c/Users/id????.ssh* pour stocker votre clé ssh
+- [ ] Créez un dossier */c/Users/id????.ssh* pour stocker votre clé ssh
   - `mkdir -p ~/.ssh`
-- [ ] Créez une clé ssh
+- [ ] Créez une clé SSH
   - `ssh-keygen -t rsa -b 4096 -N '' -q -f ~/.ssh/id_rsa`
 - [ ] Copiez le contenu de la clé publique
   - `cat ~/.ssh/id_rsa.pub | clip`
