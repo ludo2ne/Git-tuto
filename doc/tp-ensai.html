@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.53">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -475,10 +475,10 @@ Raccourcis très utiles
 </section>
 <section id="création-dune-clé-ssh" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="création-dune-clé-ssh"><span class="header-section-number">2.2</span> Création d’une clé SSH</h3>
-<p>Pour permettre de faire dialoguer notre dépôt local avec le dépôt distant de GitHub, nous allons utiliser le protocole <code>ssh</code> :</p>
+<p>Pour permettre de faire dialoguer notre dépôt local avec le dépôt distant de GitHub, vous utiliserez le protocole <code>SSH</code>. Pour cela, vous allez :</p>
 <ul>
-<li>Nous allons générer une clé sur notre machine</li>
-<li>Nous allons ensuite déclarer cette clé à GitHub</li>
+<li>générer une paire de clés (publique/privée) sur notre machine</li>
+<li>déclarer votre clé publique à GitHub</li>
 </ul>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -496,11 +496,11 @@ Warning
 </div>
 <p>Dans Git Bash :</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Créez un dossier <em>`</em>/c/Users/id????.ssh* pour stocker votre clé ssh</label>
+<li><label><input type="checkbox">Créez un dossier <em>/c/Users/id????.ssh</em> pour stocker votre clé ssh</label>
 <ul>
 <li><code>mkdir -p ~/.ssh</code></li>
 </ul></li>
-<li><label><input type="checkbox">Créez une clé ssh</label>
+<li><label><input type="checkbox">Créez une clé SSH</label>
 <ul>
 <li><code>ssh-keygen -t rsa -b 4096 -N '' -q -f ~/.ssh/id_rsa</code></li>
 </ul></li>
@@ -1867,7 +1867,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
