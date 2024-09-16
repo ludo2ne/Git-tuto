@@ -265,25 +265,14 @@ Les composants principaux d'un IDE :
 :::
 
 
-## Configuration de VSCode :construction:
+## Visual Studio Code - Config
+
+Commençons par déclarer *Git Bash* comme le terminal par défaut. C'est plus pratique et convivial lorsque l'on utilise *git*.
 
 - [ ] Ouvrez l'application `Visual Studio Code`
-- :gear: en bas à gauche > Settings
-- [ ] Fermez pour réouvrez VSCode pour valider la config
-
-??? Niveau user ou workspace ???
-
-```{.json filename="User settings"}
-{
-    "files.exclude": {
-        "**/__pycache__": true
-    },
-    "git.openRepositoryInParentFolders": "never",
-    "terminal.integrated.defaultProfile.windows": "Git Bash",
-    "editor.inlayHints.enabled": "off",
-    "java.configuration.runtimes": [],
-}
-```
+- [ ] en bas à gauche, cliquez sur :gear:, puis Settings
+- [ ] Dans la barre de recherche, collez : `terminal.integrated.defaultProfile.windows`
+- [ ] Choisissez *Git Bash*
 
 ## Votre dépôt local dans VSCode
 
@@ -292,7 +281,7 @@ Dans Visual Studio Code :
 - [ ] File > Open Folder
   - Allez dans *P:/Cours1A/git-initiation*
   - Cliquez [une seule fois]{.underline} sur le dossier *tp-git*
-  - `Séletionner un dossier`
+  - `Sélectionner un dossier`
   - *Yes I trust the authors*
   - :warning: dans votre explorer en haut à gauche, le dossier parent doit être *tp-git*
     - si ce n'est pas le cas, recommencez l'Open Folder

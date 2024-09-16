@@ -18,6 +18,23 @@ from: markdown+emoji
 lightbox: true
 ---
 
+
+## Introduction
+
+- Outil indispensable
+- Pas d'évaluation immédiate 
+  - mais utilisé toute la scolarité et vie pro
+
+::: {.notes}
+- Présentation perso en 1min
+- Évalué en Compléments d'info 2A
+- Suivi d'un TP
+- :warning: valable pour tous les TP
+  - n'allez pas trop vite
+  - suivez précisément les consignes
+:::
+
+
 ## Introduction
 
 Vous faites parti d'une équipe de 5 personnes qui doit coder une application de jeux de cartes.
@@ -262,6 +279,11 @@ Conseil : lors de l'installation de Git, choisissez le terminal Unix
 
 ### Commandes Unix {.smaller}
 
+
+::: {.panel-tabset .nav-pills}
+
+#### Commandes
+
 | Commande                          | Description                                        |
 |-----------------------------------|----------------------------------------------------|
 | `ls` (ou `ll`)                    | Liste le contenu d'un répertoire                   |
@@ -274,7 +296,23 @@ Conseil : lors de l'installation de Git, choisissez le terminal Unix
 | `touch <filename>`                | Crée un nouveau fichier vide                       |
 | `cat <filename>`                  | Affiche le contenu d'un fichier                    |
 | `grep <text> <filename>`          | Rechercher dans un fichier                         |
-| `man <command_name>`              | Manuel d'utilisation de la commande                |
+
+#### Signification
+
+| Commande                          | Signification                                      |
+|-----------------------------------|----------------------------------------------------|
+| `ls`                              | list                                               |
+| `pwd`                             | print working directory                            |
+| `cd <directory>`                  | change directory                                   |
+| `mv <src_file> <dest_file>`       | move                                               |
+| `cp <src_file> <dest_file>`       | copy                                               |
+| `mkdir <directory>`               | make directory                                     |
+| `rm <file_or_dir>`                | remove                                             |
+| `touch <filename>`                |                                                    |
+| `cat <filename>`                  | concatenate                                        |
+| `grep <text> <filename>`          | global regular expression print                    |
+
+::: 
 
 ::: {.notes}
 - ce qui est entre < ... > est à remplacer
@@ -283,6 +321,7 @@ Conseil : lors de l'installation de Git, choisissez le terminal Unix
 - pwd : print working directory
 - mkdir : make directory
 - pour éditer un fichier : vi, nano
+- man <command_name>
 
 Attention avec les commandes *rm*, *kill*
 :::
@@ -292,12 +331,12 @@ Attention avec les commandes *rm*, *kill*
 Pour chaque commande, de nombreuses options sont disponibles
 
 ```{.bash}
-ll *.py              # liste tous les fichiers python du répertoire courantes
-ll *.py > a.txt      # créer un fichier a.txt contenant le résultat de la commande
-cd ..                # Se positionne dans le répertoire parent
+ll *.py              # liste tous les fichiers python du répertoire courant
+ll *.py > a.txt      # crée un fichier a.txt contenant le résultat de la commande
+cd ..                # se positionne dans le répertoire parent
 cd ../projet/src     # remonter dans le dossier parent puis aller dans projet puis src
 cp /p/image.jpg .    # copie le fichier image.jpg du disque P dans le dossier courant
-./setup.sh           # Lancer le programme setup.sh du répertoire courant
+./setup.sh           # lance le programme setup.sh du répertoire courant
 ```
 
 ::: {.callout-tip}
@@ -379,7 +418,7 @@ sequenceDiagram
 2 étapes pour créer une nouvelle version :
 
 - `git add <filename>`
-  - ajouter le fichier à l'index (ie. dire à Git de suivre ce fichier)
+  - ajouter le fichier à l'index (i.e. dire à Git de suivre ce fichier)
   - `git add .` : pour ajouter tous les fichiers
 - `git commit -m "<mon message>"`
 
@@ -396,9 +435,7 @@ https://talks.freelancerepublik.com/git-commandes-indispensables-developpeurs/
 
 #### v0
 
-Voici votre dépôt avant de commencer à coder.
-
-```
+```{.txt}
 ├─── Projet info
 │   ├─── src
 │   │   ├─── main.py
@@ -406,11 +443,11 @@ Voici votre dépôt avant de commencer à coder.
 │   │   └─── Rapport.txt
 ```
 
+Votre dépôt avant de commencer à coder.
+
 #### Je code
 
-Vous avez modifié un fichier et créé un nouveau.
-
-```
+```{.txt}
 ├─── Projet info
 │   ├─── src
 │   │   ├─── main.py               <- fichier modifié
@@ -418,6 +455,11 @@ Vous avez modifié un fichier et créé un nouveau.
 │   └─── doc
 │   │   └─── Rapport.txt
 ```
+
+Vous avez :
+
+- modifié un fichier
+- créé un nouveau fichier
 
 #### v1
 
@@ -437,7 +479,6 @@ Vous créez un point de sauvegarde
 - vous venez de créer un nouveau commit
 - il est possible de consulter les commits précédents
   - `git checkout <commit_number>`
-  - les fichiers de votre dépôt sont alors dans l'état où ils étaient à ce commit
 
 <!--
 ```{mermaid}
@@ -447,6 +488,10 @@ gitGraph:
 ```
 -->
 
+:::
+
+:::{.notes}
+`git checkout <commit_number>` : les fichiers de votre dépôt sont alors dans l'état où ils étaient à ce commit
 :::
 
 ### Message du commit
@@ -470,7 +515,7 @@ Suffixe WIP
 
 ### Retour arrière {.smaller}
 
-Si finalement, vous n'avez pas envie de commiter vos modifications ?
+Si finalement, vous n'avez pas envie de « commiter » vos modifications ?
 
 | Commande                         | Description                                                                       |
 |----------------------------------|-----------------------------------------------------------------------------------|
@@ -479,6 +524,8 @@ Si finalement, vous n'avez pas envie de commiter vos modifications ?
 | `git reset <file>`               | Desindexer un fichier                                                             |
 | `git reset --hard`               | Revenir à l'état du dernier commit, <br> perdant toutes les modifications locales |
 | `git stash`                      | Sauvegarder et remettre le working directory à l'état du dernier commit           |
+
+: {tbl-colwidths="[35,65]"}
 
 ::: {.callout-caution}
 Attention avec les commandes contenant les mots *force*, *hard*...
@@ -496,7 +543,7 @@ Attention avec les commandes contenant les mots *force*, *hard*...
 Cela est utile, pour exclure par exemple du dépôt Git :
 
 - des fichiers contenant des mots de passe, des jetons d'accès...
-- des fichiers de données volumineux qui n'ont pas vocation à être versionnés
+- des fichiers volumineux de données qui n'ont pas vocation à être versionnés
 - des fichiers de log
 :::
 
@@ -527,6 +574,11 @@ Il est tout à fait possible d'avoir plusieurs clones du même dépôt sur son p
 ::: {.notes}
 - avoir un accès internet / réseau local pour communiquer avec remote
 - c'était pas nécessaire pour faire des add / commit
+
+Commencer dessin avec :
+
+- un remote v0
+- 2 clones de Bob et Alice en v0
 :::
 
 ### Dépôt local et dépôt distant
@@ -564,6 +616,11 @@ Il est important de pousser et puller réguliérement son code pour garder son d
 
 ::: {.notes}
 - sinon vos versions vont diverger
+
+IMPORTANT : 
+
+- Vous faites toujours vos actions sur un dépôt local
+- Vous ne modifiez jamais le dépôt distant
 :::
 
 
@@ -589,11 +646,14 @@ Pour pouvoir pousser son code, il est nécessaire :
   - si ce n'est pas le cas, il faut commencer par `git pull`
 
   
+::: {.notes}
+Vous pouvez push plusieurs commits
+:::
+
+  
 ### git push - si votre dépôt local n'est pas à jour
 
-Le message est assez explicite
-
-```{.default}
+```{.txt}
 ! [rejected]        main -> main (fetch first)
 error: failed to push some refs
 hint: Updates were rejected because the remote contains work that you do not
@@ -603,6 +663,8 @@ hint: 'git pull' before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
 
+Le message est assez explicite.
+
 ### git push - fichier disparu
 
 - Vous venez de faire un `git push`
@@ -611,12 +673,20 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 Autre possibilité : votre fichier est ignoré par git car il fait parti du `.gitignore`
 
+::: {.notes}
+ça arrive quand vous voulez aller trop vite
+:::
+
 ### git pull
 
 Dépôt local :arrow_left: Dépôt distant
 
 - Mise à jour de votre dépôt local
 - S'il y a eu des modifications sur le dépôt distant
+
+::: {.notes}
+Un pull se fait généralement après un commit.
+:::
 
 ### git pull - conflit
 
@@ -657,20 +727,20 @@ class Velo:
         self.couleur = "bleu"
 ```
 
-#### Votre version
-
-```{.python filename="velo.py"}
-class Velo:
-    def __init__(self, couleur):
-        self.couleur = "noir"
-```
-
 #### Version d'Alice
 
 ```{.python filename="velo.py"}
 class Velo:
     def __init__(self, couleur):
         self.couleur = "blanc"
+```
+
+#### Votre version
+
+```{.python filename="velo.py"}
+class Velo:
+    def __init__(self, couleur):
+        self.couleur = "noir"
 ```
 ::: 
 
@@ -821,6 +891,9 @@ Cependant ce cas d'utilisation est assez marginal.
 | `git pull`                  | dépôt local :arrow_right: dépôt distant  |
 | `git push`                  | dépôt local :arrow_left: dépôt distant   |
 
+:::{.notes}
+clone : bouton vert code sur GitHub, GitLab
+:::
 
 ### Autres commandes
 
