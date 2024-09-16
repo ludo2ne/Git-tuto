@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ludo2ne.github.io/Git-tuto/doc/tp-old.html</loc>
-    <lastmod>2024-08-05T09:22:34.497Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/Git-tuto/doc/gitflow.html</loc>
-    <lastmod>2024-08-05T09:22:34.497Z</lastmod>
+    <loc>https://ludo2ne.github.io/Git-tuto/index.html</loc>
+    <lastmod>2024-09-16T14:36:05.436Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/Git-tuto/doc/branches.html</loc>
-    <lastmod>2024-08-05T09:22:34.497Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/Git-tuto/index.html</loc>
-    <lastmod>2024-08-05T09:22:34.497Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/Git-tuto/doc/tp-ensai.html</loc>
-    <lastmod>2024-08-05T09:22:34.497Z</lastmod>
+    <lastmod>2024-09-16T14:36:05.436Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/Git-tuto/doc/open-source.html</loc>
-    <lastmod>2024-08-05T09:22:34.497Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/Git-tuto/doc/presentation-slides.html</loc>
-    <lastmod>2024-08-05T09:22:34.497Z</lastmod>
+    <lastmod>2024-09-16T14:36:05.436Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/Git-tuto/doc/presentation.html</loc>
-    <lastmod>2024-08-05T09:22:34.497Z</lastmod>
+    <lastmod>2024-09-16T14:36:05.436Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/Git-tuto/doc/presentation-slides.html</loc>
+    <lastmod>2024-09-16T14:36:05.436Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/Git-tuto/doc/gitflow.html</loc>
+    <lastmod>2024-09-16T14:36:05.436Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/Git-tuto/doc/tp-ensai.html</loc>
+    <lastmod>2024-09-16T14:36:05.436Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/Git-tuto/doc/tp-old.html</loc>
+    <lastmod>2024-09-16T14:36:05.436Z</lastmod>
   </url>
 </urlset>

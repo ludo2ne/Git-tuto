@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -192,6 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul class="collapse">
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#introduction-1" id="toc-introduction-1" class="nav-link" data-scroll-target="#introduction-1">Introduction</a></li>
   <li><a href="#au-programme" id="toc-au-programme" class="nav-link" data-scroll-target="#au-programme">Au programme</a></li>
   <li><a href="#pourquoi-versionner" id="toc-pourquoi-versionner" class="nav-link" data-scroll-target="#pourquoi-versionner">Pourquoi versionner ?</a></li>
   <li><a href="#la-solution" id="toc-la-solution" class="nav-link" data-scroll-target="#la-solution">La solution</a></li>
@@ -249,6 +250,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<ul>
+<li>Outil indispensable</li>
+<li>Pas d’évaluation immédiate
+<ul>
+<li>mais utilisé toute la scolarité et vie pro</li>
+</ul></li>
+</ul>
+<div class="notes">
+<ul>
+<li>Présentation perso en 1min</li>
+<li>Évalué en Compléments d’info 2A</li>
+<li>Suivi d’un TP</li>
+<li><span class="emoji" data-emoji="warning">⚠️</span> valable pour tous les TP
+<ul>
+<li>n’allez pas trop vite</li>
+<li>suivez précisément les consignes</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="introduction-1" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-1">Introduction</h2>
 <p>Vous faites parti d’une équipe de 5 personnes qui doit coder une application de jeux de cartes.</p>
 <p><span class="emoji" data-emoji="confused">😕</span> Comment mettre en commun votre code ?</p>
 <ul>
@@ -525,6 +548,10 @@ Note
 </div>
 <section id="commandes-unix" class="level3 smaller">
 <h3 class="smaller anchored" data-anchor-id="commandes-unix">Commandes Unix</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Commandes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Signification</a></li></ul>
+<div class="tab-content nav-pills">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 40%">
@@ -577,12 +604,67 @@ Note
 <td><code>grep &lt;text&gt; &lt;filename&gt;</code></td>
 <td>Rechercher dans un fichier</td>
 </tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 59%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Commande</th>
+<th>Signification</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td><code>man &lt;command_name&gt;</code></td>
-<td>Manuel d’utilisation de la commande</td>
+<td><code>ls</code></td>
+<td>list</td>
+</tr>
+<tr class="even">
+<td><code>pwd</code></td>
+<td>print working directory</td>
+</tr>
+<tr class="odd">
+<td><code>cd &lt;directory&gt;</code></td>
+<td>change directory</td>
+</tr>
+<tr class="even">
+<td><code>mv &lt;src_file&gt; &lt;dest_file&gt;</code></td>
+<td>move</td>
+</tr>
+<tr class="odd">
+<td><code>cp &lt;src_file&gt; &lt;dest_file&gt;</code></td>
+<td>copy</td>
+</tr>
+<tr class="even">
+<td><code>mkdir &lt;directory&gt;</code></td>
+<td>make directory</td>
+</tr>
+<tr class="odd">
+<td><code>rm &lt;file_or_dir&gt;</code></td>
+<td>remove</td>
+</tr>
+<tr class="even">
+<td><code>touch &lt;filename&gt;</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>cat &lt;filename&gt;</code></td>
+<td>concatenate</td>
+</tr>
+<tr class="even">
+<td><code>grep &lt;text&gt; &lt;filename&gt;</code></td>
+<td>global regular expression print</td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>
 <div class="notes">
 <ul>
 <li>ce qui est entre &lt; … &gt; est à remplacer</li>
@@ -591,6 +673,7 @@ Note
 <li>pwd : print working directory</li>
 <li>mkdir : make directory</li>
 <li>pour éditer un fichier : vi, nano</li>
+<li>man <command_name></command_name></li>
 </ul>
 <p>Attention avec les commandes <em>rm</em>, <em>kill</em></p>
 </div>
@@ -598,12 +681,12 @@ Note
 <section id="commandes-unix---exemples" class="level3">
 <h3 class="anchored" data-anchor-id="commandes-unix---exemples">Commandes Unix - Exemples</h3>
 <p>Pour chaque commande, de nombreuses options sont disponibles</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ll</span> <span class="pp">*</span>.py              <span class="co"># liste tous les fichiers python du répertoire courantes</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ll</span> <span class="pp">*</span>.py <span class="op">&gt;</span> a.txt      <span class="co"># créer un fichier a.txt contenant le résultat de la commande</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..                <span class="co"># Se positionne dans le répertoire parent</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ll</span> <span class="pp">*</span>.py              <span class="co"># liste tous les fichiers python du répertoire courant</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ll</span> <span class="pp">*</span>.py <span class="op">&gt;</span> a.txt      <span class="co"># crée un fichier a.txt contenant le résultat de la commande</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..                <span class="co"># se positionne dans le répertoire parent</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../projet/src     <span class="co"># remonter dans le dossier parent puis aller dans projet puis src</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> /p/image.jpg .    <span class="co"># copie le fichier image.jpg du disque P dans le dossier courant</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">./setup.sh</span>           <span class="co"># Lancer le programme setup.sh du répertoire courant</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">./setup.sh</span>           <span class="co"># lance le programme setup.sh du répertoire courant</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -723,7 +806,7 @@ Warning
 <ul>
 <li><code>git add &lt;filename&gt;</code>
 <ul>
-<li>ajouter le fichier à l’index (ie. dire à Git de suivre ce fichier)</li>
+<li>ajouter le fichier à l’index (i.e.&nbsp;dire à Git de suivre ce fichier)</li>
 <li><code>git add .</code> : pour ajouter tous les fichiers</li>
 </ul></li>
 <li><code>git commit -m "&lt;mon message&gt;"</code></li>
@@ -739,26 +822,30 @@ Warning
 <section id="exemple" class="level3">
 <h3 class="anchored" data-anchor-id="exemple">Exemple</h3>
 <div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">v0</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Je code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">v1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">Schéma</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">v0</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Je code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">v1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false">Schéma</a></li></ul>
 <div class="tab-content nav-pills">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<p>Voici votre dépôt avant de commencer à coder.</p>
-<pre><code>├─── Projet info
-│   ├─── src
-│   │   ├─── main.py
-│   └─── doc
-│   │   └─── Rapport.txt</code></pre>
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="sourceCode" id="cb7"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>├─── Projet info</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>│   ├─── src</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>│   │   ├─── main.py</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>│   └─── doc</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>│   │   └─── Rapport.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Votre dépôt avant de commencer à coder.</p>
 </div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<p>Vous avez modifié un fichier et créé un nouveau.</p>
-<pre><code>├─── Projet info
-│   ├─── src
-│   │   ├─── main.py               &lt;- fichier modifié
-│   │   ├─── velo.py               &lt;- nouveau fichier
-│   └─── doc
-│   │   └─── Rapport.txt</code></pre>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="sourceCode" id="cb8"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>├─── Projet info</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>│   ├─── src</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>│   │   ├─── main.py               &lt;- fichier modifié</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>│   │   ├─── velo.py               &lt;- nouveau fichier</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>│   └─── doc</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>│   │   └─── Rapport.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Vous avez :</p>
+<ul>
+<li>modifié un fichier</li>
+<li>créé un nouveau fichier</li>
+</ul>
 </div>
-<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
 <p>Vous ajoutez les fichiers créés ou modifiés à l’index :</p>
 <ul>
 <li><code>git add .</code></li>
@@ -768,14 +855,13 @@ Warning
 <li><code>git commit -m "feat: ajout de l'utilisation de velo"</code></li>
 </ul>
 </div>
-<div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
+<div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
 <p><a href="img/git-commit.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/git-commit.PNG" class="r-stretch img-fluid"></a></p>
 <ul>
 <li>vous venez de créer un nouveau commit</li>
 <li>il est possible de consulter les commits précédents
 <ul>
 <li><code>git checkout &lt;commit_number&gt;</code></li>
-<li>les fichiers de votre dépôt sont alors dans l’état où ils étaient à ce commit</li>
 </ul></li>
 </ul>
 <!--
@@ -813,6 +899,9 @@ Warning
 </div>
 </div>
 </div>
+<div class="notes">
+<p><code>git checkout &lt;commit_number&gt;</code> : les fichiers de votre dépôt sont alors dans l’état où ils étaient à ce commit</p>
+</div>
 </section>
 <section id="message-du-commit" class="level3">
 <h3 class="anchored" data-anchor-id="message-du-commit">Message du commit</h3>
@@ -844,11 +933,11 @@ Tip
 </section>
 <section id="retour-arrière" class="level3 smaller">
 <h3 class="smaller anchored" data-anchor-id="retour-arrière">Retour arrière</h3>
-<p>Si finalement, vous n’avez pas envie de commiter vos modifications ?</p>
+<p>Si finalement, vous n’avez pas envie de « commiter » vos modifications ?</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 29%">
-<col style="width: 70%">
+<col style="width: 35%">
+<col style="width: 65%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -913,7 +1002,7 @@ Le fichier .gitignore
 <p>Cela est utile, pour exclure par exemple du dépôt Git :</p>
 <ul>
 <li>des fichiers contenant des mots de passe, des jetons d’accès…</li>
-<li>des fichiers de données volumineux qui n’ont pas vocation à être versionnés</li>
+<li>des fichiers volumineux de données qui n’ont pas vocation à être versionnés</li>
 <li>des fichiers de log</li>
 </ul>
 </div>
@@ -964,6 +1053,11 @@ Remarque
 <ul>
 <li>avoir un accès internet / réseau local pour communiquer avec remote</li>
 <li>c’était pas nécessaire pour faire des add / commit</li>
+</ul>
+<p>Commencer dessin avec :</p>
+<ul>
+<li>un remote v0</li>
+<li>2 clones de Bob et Alice en v0</li>
 </ul>
 </div>
 </section>
@@ -1033,6 +1127,11 @@ Important
 <ul>
 <li>sinon vos versions vont diverger</li>
 </ul>
+<p>IMPORTANT :</p>
+<ul>
+<li>Vous faites toujours vos actions sur un dépôt local</li>
+<li>Vous ne modifiez jamais le dépôt distant</li>
+</ul>
 </div>
 </section>
 <section id="git-push" class="level3">
@@ -1081,17 +1180,20 @@ Important
 <li>si ce n’est pas le cas, il faut commencer par <code>git pull</code></li>
 </ul></li>
 </ul>
+<div class="notes">
+<p>Vous pouvez push plusieurs commits</p>
+</div>
 </section>
 <section id="git-push---si-votre-dépôt-local-nest-pas-à-jour" class="level3">
 <h3 class="anchored" data-anchor-id="git-push---si-votre-dépôt-local-nest-pas-à-jour">git push - si votre dépôt local n’est pas à jour</h3>
-<p>Le message est assez explicite</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>! [rejected]        main -&gt; main (fetch first)</span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>! [rejected]        main -&gt; main (fetch first)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>error: failed to push some refs</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>hint: Updates were rejected because the remote contains work that you do not</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>hint: have locally. This is usually caused by another repository pushing to</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>hint: the same ref. If you want to integrate the remote changes, use</span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>hint: 'git pull' before pushing again.</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>hint: See the 'Note about fast-forwards' in 'git push --help' for details.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Le message est assez explicite.</p>
 </section>
 <section id="git-push---fichier-disparu" class="level3">
 <h3 class="anchored" data-anchor-id="git-push---fichier-disparu">git push - fichier disparu</h3>
@@ -1101,6 +1203,9 @@ Important
 <li>Probablement parce que vous avez oublié de l’ajouter à l’index avec <code>git add &lt;mon_fichier&gt;</code></li>
 </ul>
 <p>Autre possibilité : votre fichier est ignoré par git car il fait parti du <code>.gitignore</code></p>
+<div class="notes">
+<p>ça arrive quand vous voulez aller trop vite</p>
+</div>
 </section>
 <section id="git-pull" class="level3">
 <h3 class="anchored" data-anchor-id="git-pull">git pull</h3>
@@ -1109,6 +1214,9 @@ Important
 <li>Mise à jour de votre dépôt local</li>
 <li>S’il y a eu des modifications sur le dépôt distant</li>
 </ul>
+<div class="notes">
+<p>Un pull se fait généralement après un commit.</p>
+</div>
 </section>
 <section id="git-pull---conflit" class="level3">
 <h3 class="anchored" data-anchor-id="git-pull---conflit">git pull - conflit</h3>
@@ -1143,9 +1251,9 @@ Important
 </ul>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Version d’origine</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Votre version</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Version d’Alice</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Version d’origine</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Version d’Alice</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Votre version</a></li></ul>
 <div class="tab-content nav-pills">
-<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>velo.py</strong></pre>
@@ -1155,24 +1263,24 @@ Important
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"bleu"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>velo.py</strong></pre>
 </div>
 <div class="sourceCode" id="cb11" data-filename="velo.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Velo:</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"noir"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"blanc"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>velo.py</strong></pre>
 </div>
 <div class="sourceCode" id="cb12" data-filename="velo.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Velo:</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, couleur):</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"blanc"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"noir"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1201,9 +1309,9 @@ Important
 <p>Le conflit se résoud sur son dépôt local !</p>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Contexte</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Le conflit</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Résolution</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Contexte</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Le conflit</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-3" role="tab" aria-controls="tabset-6-3" aria-selected="false">Résolution</a></li></ul>
 <div class="tab-content nav-pills">
-<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
 <ul>
 <li>Alice a poussé son code avant vous</li>
 <li>Vous faîtes donc un <code>git pull</code>
@@ -1217,7 +1325,7 @@ Important
 <li>Git n’est pas capable de choisir laquelle est la bonne</li>
 </ul>
 </div>
-<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
 <ul>
 <li>En haut : votre version</li>
 <li>En bas : celle provenant du dépôt distant</li>
@@ -1231,7 +1339,7 @@ Important
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> <span class="st">"blanc"</span></span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> a57ae9120dbf97dbab78f82db81f5fc8f48f3821</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
+<div id="tabset-6-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-3-tab">
 <p>Pour résoudre ce conflit, 3 possibilités :</p>
 <ul>
 <li>vous choisissez votre code</li>
@@ -1312,9 +1420,9 @@ Remarque
 <h3 class="anchored" data-anchor-id="https-ou-ssh">https ou ssh ?</h3>
 <p>2 protocoles différents pour communiquer avec le dépôt distant.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">https</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">ssh</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">https</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">ssh</a></li></ul>
 <div class="tab-content nav-pills">
-<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
 <p>À utiliser si vous voulez simplement avoir une copie locale du code sans partager vos modifications.</p>
 <ul>
 <li>Plus simple, pas besoin de configuration</li>
@@ -1322,7 +1430,7 @@ Remarque
 <li>Requiert des saisies répétées du token</li>
 </ul>
 </div>
-<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
 <p>À utiliser si vous travaillez en projet.</p>
 <ul>
 <li>Configuration initiale des clés SSH</li>
@@ -1388,6 +1496,9 @@ Remarque
 </tr>
 </tbody>
 </table>
+<div class="notes">
+<p>clone : bouton vert code sur GitHub, GitLab</p>
+</div>
 <section id="autres-commandes" class="level3">
 <h3 class="anchored" data-anchor-id="autres-commandes">Autres commandes</h3>
 <ul>
@@ -2145,7 +2256,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
