@@ -281,7 +281,7 @@ Dans Visual Studio Code :
 - [ ] File > Open Folder
   - Allez dans *P:/Cours1A/git-initiation*
   - Cliquez [une seule fois]{.underline} sur le dossier *tp-git*
-  - `Sélectionner un dossier`
+  - Puis sur le bouton [Sélectionner un dossier]{.grey-button}
   - *Yes I trust the authors*
   - :warning: dans votre explorer en haut à gauche, le dossier parent doit être *tp-git*
     - si ce n'est pas le cas, recommencez l'Open Folder
@@ -592,7 +592,7 @@ Vous allez faire en parallèle (1, 2, 3, partez) :
 - Pour :frog: qui a poussé son code en premier :arrow_right: tout s'est bien passé
 - Pour :cat:, il a du recevoir ce genre de message
   ```{.default}
-  ! [rejected]        master -> dev (fetch first)
+  ! [rejected]        main -> dev (fetch first)
   error: failed to push some refs to 'git@github.com:ludo2ne/tp-git.git'
   hint: Updates were rejected because the remote contains work that you do
   hint: not have locally. This is usually caused by another repository pushing
