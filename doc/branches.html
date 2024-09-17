@@ -211,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="2" class="anchored" data-anchor-id="un-petit-exemple-pour-y-voir-plus-clair"><span class="header-section-number">2</span> Un petit exemple pour y voir plus clair</h2>
 <ul>
 <li>imaginons que vous voulez ajouter une classe trottinette, mais vous n’êtes pas encore sûr, alors vous testez sur une branche</li>
-<li><code>git checkout -b trottinette</code>
+<li><code>git switch -c trottinette</code>
 <ul>
 <li>création d’une branche trottinette</li>
 <li><em>Switched to a new branch ‘trottinette’</em>
@@ -230,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li>Ensuite revenons sur la branche principale <code>main</code>
 <ul>
-<li><code>git checkout main</code></li>
+<li><code>git switch main</code></li>
 </ul></li>
 <li>Modifiez la vitesse maximale de voiture à 90 parce qu’en fait vous êtes très prudent puis commit</li>
 <li>Maintenant, après mûre réflexion, vous vous dites que la trottinette c’est trop bien et qu’il faut l’intégrer à la branche main</li>
@@ -248,7 +248,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>On retourne sur la branche <code>trottinette</code>
 <ul>
-<li><code>git checkout trottinette</code></li>
+<li><code>git switch trottinette</code></li>
 </ul></li>
 <li>Nous allons faire la fusion sur cette branche
 <ul>
@@ -257,7 +257,7 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li>Maintenant que les 2 branches sont synchronisées, retournons sur la branche <code>main</code>
 <ul>
-<li><code>git checkout main</code></li>
+<li><code>git switch main</code></li>
 <li><code>git merge --squash trottinette</code>
 <ul>
 <li>cette fois-ci pas de conflits car ils ont été résolu juste avant</li>

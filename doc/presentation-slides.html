@@ -833,7 +833,7 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>ls</code> (ou <code>ll</code>)</td>
+<td><code>ls</code></td>
 <td>Liste le contenu d’un répertoire</td>
 </tr>
 <tr class="even">
@@ -936,7 +936,7 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <aside class="notes">
 <ul>
 <li>ce qui est entre &lt; … &gt; est à remplacer</li>
-<li>ls : list</li>
+<li>ll : ls -l</li>
 <li>cd : change directory</li>
 <li>pwd : print working directory</li>
 <li>mkdir : make directory</li>
@@ -959,8 +959,8 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <section id="commandes-unix---exemples" class="slide level3">
 <h3>Commandes Unix - Exemples</h3>
 <p>Pour chaque commande, de nombreuses options sont disponibles</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="ex">ll</span> <span class="pp">*</span>.py              <span class="co"># liste tous les fichiers python du répertoire courant</span></span>
-<span id="cb6-2"><a></a><span class="ex">ll</span> <span class="pp">*</span>.py <span class="op">&gt;</span> a.txt      <span class="co"># crée un fichier a.txt contenant le résultat de la commande</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="fu">ls</span> <span class="pp">*</span>.py              <span class="co"># liste tous les fichiers python du répertoire courant</span></span>
+<span id="cb6-2"><a></a><span class="fu">ls</span> <span class="pp">*</span>.py <span class="op">&gt;</span> a.txt      <span class="co"># crée un fichier a.txt contenant le résultat de la commande</span></span>
 <span id="cb6-3"><a></a><span class="bu">cd</span> ..                <span class="co"># se positionne dans le répertoire parent</span></span>
 <span id="cb6-4"><a></a><span class="bu">cd</span> ../projet/src     <span class="co"># remonter dans le dossier parent puis aller dans projet puis src</span></span>
 <span id="cb6-5"><a></a><span class="fu">cp</span> /p/image.jpg .    <span class="co"># copie le fichier image.jpg du disque P dans le dossier courant</span></span>
@@ -1296,22 +1296,18 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>git checkout -- &lt;file&gt;</code></td>
-<td>Annuler les modifications locales non indexées du fichier</td>
-</tr>
-<tr class="even">
 <td><code>git restore &lt;file&gt;</code></td>
 <td>Annuler les modifications locales non indexées du fichier</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>git reset &lt;file&gt;</code></td>
 <td>Desindexer un fichier</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>git reset --hard</code></td>
 <td>Revenir à l’état du dernier commit, <br> perdant toutes les modifications locales</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>git stash</code></td>
 <td>Sauvegarder et remettre le working directory à l’état du dernier commit</td>
 </tr>
@@ -2177,11 +2173,11 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 <td>Lister toutes les branches</td>
 </tr>
 <tr class="even">
-<td><code>git checkout &lt;branch&gt;</code></td>
+<td><code>git switch &lt;branch&gt;</code></td>
 <td>Changer de branche</td>
 </tr>
 <tr class="odd">
-<td><code>git checkout -b &lt;branch&gt;</code></td>
+<td><code>git switch -c &lt;branch&gt;</code></td>
 <td>Créer et changer de branche</td>
 </tr>
 <tr class="even">
@@ -2611,7 +2607,7 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false});
+    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","loop":false});
     (function() {
       let previousOnload = window.onload;
       window.onload = () => {
