@@ -3,6 +3,7 @@
 ## :construction: Todo
 
 - [ ] Créer son repo pour un projet
+- [ ] Compte GitHub : Utiliser son mail perso
 - TP avancé
   - [ ] branches
   - [ ] Gitflow vs Trunc based dev

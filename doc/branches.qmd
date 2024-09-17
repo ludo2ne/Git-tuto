@@ -33,7 +33,7 @@ En gros une branche permet de coder et/ou tester une nouvelle fonctionnalité sa
 ## Un petit exemple pour y voir plus clair
 
 - imaginons que vous voulez ajouter une classe trottinette, mais vous n'êtes pas encore sûr, alors vous testez sur une branche
-- `git checkout -b trottinette`
+- `git switch -c trottinette`
   - création d'une branche trottinette
   - *Switched to a new branch 'trottinette'*
     - et comme l'indique le message, avec cette commande vous êtes directement positionné sur cette branche
@@ -45,7 +45,7 @@ En gros une branche permet de coder et/ou tester une nouvelle fonctionnalité sa
   - Mais comme il est sympa, il donne la commande pour la créer
   - `git push --set-upstream origin trottinette`
 - Ensuite revenons sur la branche principale `main`
-  - `git checkout main`
+  - `git switch main`
 - Modifiez la vitesse maximale de voiture à 90 parce qu'en fait vous êtes très prudent puis commit
 - Maintenant, après mûre réflexion, vous vous dites que la trottinette c'est trop bien et qu'il faut l'intégrer à la branche main
 - Vous avec envie de fusionner directement les branches `trottinette` et `main`
@@ -56,12 +56,12 @@ En gros une branche permet de coder et/ou tester une nouvelle fonctionnalité sa
     - `git merge --abort`
 - Voici comment nous allons procéder pour faire cela proprement
   - On retourne sur la branche `trottinette`
-    - `git checkout trottinette`
+    - `git switch trottinette`
   - Nous allons faire la fusion sur cette branche
     - `git merge main`
     - nous résolvons le conflit puis commit
   - Maintenant que les 2 branches sont synchronisées, retournons sur la branche `main`
-    - `git checkout main`
+    - `git switch main`
     - `git merge --squash trottinette`
       - cette fois-ci pas de conflits car ils ont été résolu juste avant
     - `git commit -am "ajout fonctionnalité trottinette"`

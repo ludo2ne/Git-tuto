@@ -286,7 +286,7 @@ Conseil : lors de l'installation de Git, choisissez le terminal Unix
 
 | Commande                          | Description                                        |
 |-----------------------------------|----------------------------------------------------|
-| `ls` (ou `ll`)                    | Liste le contenu d'un répertoire                   |
+| `ls`                              | Liste le contenu d'un répertoire                   |
 | `pwd`                             | Affiche le répertoire courant                      |
 | `cd <directory>`                  | Change le répertoire de travail courant            |
 | `mv <src_file> <dest_file>`       | Déplace des fichiers ou des répertoires            |
@@ -316,7 +316,7 @@ Conseil : lors de l'installation de Git, choisissez le terminal Unix
 
 ::: {.notes}
 - ce qui est entre < ... > est à remplacer
-- ls : list 
+- ll : ls -l
 - cd : change directory
 - pwd : print working directory
 - mkdir : make directory
@@ -331,8 +331,8 @@ Attention avec les commandes *rm*, *kill*
 Pour chaque commande, de nombreuses options sont disponibles
 
 ```{.bash}
-ll *.py              # liste tous les fichiers python du répertoire courant
-ll *.py > a.txt      # crée un fichier a.txt contenant le résultat de la commande
+ls *.py              # liste tous les fichiers python du répertoire courant
+ls *.py > a.txt      # crée un fichier a.txt contenant le résultat de la commande
 cd ..                # se positionne dans le répertoire parent
 cd ../projet/src     # remonter dans le dossier parent puis aller dans projet puis src
 cp /p/image.jpg .    # copie le fichier image.jpg du disque P dans le dossier courant
@@ -519,7 +519,6 @@ Si finalement, vous n'avez pas envie de « commiter » vos modifications ?
 
 | Commande                         | Description                                                                       |
 |----------------------------------|-----------------------------------------------------------------------------------|
-| `git checkout -- <file>`         | Annuler les modifications locales non indexées du fichier                         |
 | `git restore <file>`             | Annuler les modifications locales non indexées du fichier                         |
 | `git reset <file>`               | Desindexer un fichier                                                             |
 | `git reset --hard`               | Revenir à l'état du dernier commit, <br> perdant toutes les modifications locales |
@@ -991,8 +990,8 @@ La branche principale se nomme généralement *main* ou *master*.
 | Commande                       | Description                                        |
 |--------------------------------|----------------------------------------------------|
 | `git branch -a`                | Lister toutes les branches                         |
-| `git checkout <branch>`        | Changer de branche                                 |
-| `git checkout -b <branch>`     | Créer et changer de branche                        |
+| `git switch <branch>`          | Changer de branche                                 |
+| `git switch -c <branch>`       | Créer et changer de branche                        |
 | `git merge <branch>`           | Fusionner `<branch>` dans la branche actuelle      |
 | `git branch -d <branch>`       | Supprimer la branche                               |
 | `git push origin <branch>`     | Pousser la branche vers le dépôt distant           |
