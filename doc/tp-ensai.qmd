@@ -205,7 +205,7 @@ Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous v
 
 ### Le terminal Git Bash
 
-- [ ] Allez dans le dossier `P:/Cours1A/Git`
+- [ ] Allez dans le dossier `P:/Cours1A/git-initiation`
 - [ ] Clic droit > *Git Bash here*
 - Créez un dossier *depot1* et entrez dans ce dossier
   - [ ] `mkdir depot1` pour *make directory*
@@ -239,13 +239,14 @@ Sur la page GitHub de votre repo,
 - [ ] Copiez la ligne *Clone with SSH*
 - [ ] Dans Git Bash, vérifiez que vous êtes dans le dossier *p/Cours1A/git-initiation*
   - si ce n'est pas le cas : `cd /p/Cours1A/git-initiation`
+- [ ] Allez dans le dossier *depot1*
 - [ ] Entrez `git clone <collez la ligne>`
   - exemple : `git clone git@github.com:ludo2ne/tp-gitzzz.git`
 - [ ] Listez le contenu du répertoire courant
-  - Le dossier *tp_initiation_git* est bien présent
+  - Le dossier *tp-git* est bien présent
   - vous pouvez également vérifier sa présence via l'explorateur Windows 
-    - WIN + E, puis allez à `P:\Cours1A\git-initiation`
-- [ ] Positionnez-vous dans le dépôt : `cd tp_initiation_git`
+    - WIN + E, puis allez à `P:\Cours1A\git-initiation\depot1`
+- [ ] Positionnez-vous dans le dépôt : `cd tp-git`
   - à la fin de votre prompt, vous remarquerez l'apparition de [(main)]{style="color: cyan"}
   - cela signifie que vous êtes dans un dépôt git, sur la branche principale
 
@@ -279,7 +280,7 @@ Commençons par déclarer *Git Bash* comme le terminal par défaut. C'est plus p
 Dans Visual Studio Code :
 
 - [ ] File > Open Folder
-  - Allez dans *P:/Cours1A/git-initiation*
+  - Allez dans *P:/Cours1A/git-initiation/depot1*
   - Cliquez [une seule fois]{.underline} sur le dossier *tp-git*
   - Puis sur le bouton [Sélectionner un dossier]{.grey-button}
   - *Yes I trust the authors*
