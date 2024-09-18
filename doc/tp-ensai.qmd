@@ -355,6 +355,7 @@ Dans le terminal *Git Bash* intégré dans VScode, exécutez les commandes suiva
 
 Allez sur la page GitHub de votre repo et vérifiez que vos fichiers sont bien arrivés.
 
+Retournez sur VSCode.
 
 - [ ] Ajouter à la fin du fichier `voiture.py` ce code et [enregistrez]{.underline}
   ```{.python filename="voiture.py"}
