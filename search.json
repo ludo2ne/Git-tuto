@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Tuto Git",
-    "section": "",
-    "text": "Une présentation de Git\n\nQu’est ce que Git ?\nÀ quoi ça sert ?\nQuels sont les avantages de Git ?\n\nUn TP pour découvrir Git\n\nCommandes Unix\nGit Bash\nParamétrage de Git\nCréer un dépôt\nCommandes principales\n\n\nPour aller plus loin :\n\nLes branches\nGitFlow\nIngération continue\nOpen Source"
-  },
-  {
-    "objectID": "index.html#contenu",
-    "href": "index.html#contenu",
-    "title": "Tuto Git",
-    "section": "",
-    "text": "Une présentation de Git\n\nQu’est ce que Git ?\nÀ quoi ça sert ?\nQuels sont les avantages de Git ?\n\nUn TP pour découvrir Git\n\nCommandes Unix\nGit Bash\nParamétrage de Git\nCréer un dépôt\nCommandes principales\n\n\nPour aller plus loin :\n\nLes branches\nGitFlow\nIngération continue\nOpen Source"
-  },
-  {
     "objectID": "doc/branches.html",
     "href": "doc/branches.html",
     "title": "Les branches",
@@ -47,6 +33,146 @@
     "title": "Open source",
     "section": "1 Contribuer à un projet Open Source",
     "text": "1 Contribuer à un projet Open Source\n\nFaire un fork du projet\nCloner en local votre fork\nCréer une branche (IMPORTANT pour éviter les conflits)\n\nCorriger sur cette branche\nPousser la branche\n\nCreer une pull request\n\ndepuis mon dépot/ma branche\nvers le dépot original/master\nMessage\n\n\nPour mettre à jour son fork :\n\ngit remote add upstream https://dépot_original\ngit remote -v\ngit fecth upstream pour récupérer les branches du upstream\ngit branch -a\ngit merge upstream/master pour fusionner upstream/master vers ma propre branche master"
+  },
+  {
+    "objectID": "doc/gitflow.html",
+    "href": "doc/gitflow.html",
+    "title": "Gitflow",
+    "section": "",
+    "text": "🚧\nWorkflow Gitflow\nvs\nDéveloppement basé sur le tronc"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Tuto Git",
+    "section": "",
+    "text": "Une présentation de Git\n\nQu’est ce que Git ?\nÀ quoi ça sert ?\nQuels sont les avantages de Git ?\n\nUn TP pour découvrir Git\n\nCommandes Unix\nGit Bash\nParamétrage de Git\nCréer un dépôt\nCommandes principales\n\n\nPour aller plus loin :\n\nLes branches\nGitFlow\nIngération continue\nOpen Source"
+  },
+  {
+    "objectID": "index.html#contenu",
+    "href": "index.html#contenu",
+    "title": "Tuto Git",
+    "section": "",
+    "text": "Une présentation de Git\n\nQu’est ce que Git ?\nÀ quoi ça sert ?\nQuels sont les avantages de Git ?\n\nUn TP pour découvrir Git\n\nCommandes Unix\nGit Bash\nParamétrage de Git\nCréer un dépôt\nCommandes principales\n\n\nPour aller plus loin :\n\nLes branches\nGitFlow\nIngération continue\nOpen Source"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#introduction",
+    "href": "doc/presentation-slides.html#introduction",
+    "title": "Introduction à Git",
+    "section": "Introduction",
+    "text": "Introduction\n\nOutil indispensable\nPas d’évaluation immédiate\n\nmais utilisé toute la scolarité et vie pro\n\n\n\n\nPrésentation perso en 1min\nÉvalué en Compléments d’info 2A\nSuivi d’un TP\n⚠️ valable pour tous les TP\n\nn’allez pas trop vite\nsuivez précisément les consignes"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#introduction-1",
+    "href": "doc/presentation-slides.html#introduction-1",
+    "title": "Introduction à Git",
+    "section": "Introduction",
+    "text": "Introduction\nVous faites parti d’une équipe de 5 personnes qui doit coder une application de jeux de cartes.\n😕 Comment mettre en commun votre code ?\n\nVous développez chacun de votre coté et à la fin, vous mettez tout en commun\nVous envoyez vos programmes par mail\nVous créez un dossier commun\n\n😅 En cas d’erreur, comment revenir en arrière ?"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#au-programme",
+    "href": "doc/presentation-slides.html#au-programme",
+    "title": "Introduction à Git",
+    "section": "Au programme",
+    "text": "Au programme\n\n📌 Versionner son code\n💾 Historique des modifications\n👷 Travail en équipe"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#pourquoi-versionner",
+    "href": "doc/presentation-slides.html#pourquoi-versionner",
+    "title": "Introduction à Git",
+    "section": "Pourquoi versionner ?",
+    "text": "Pourquoi versionner ?\n\nQuelle est la bonne version ?\nComment faire pour revenir en arrière ?\nQui a écrit ce code ? Quand ?\n\n\n\nles questions que l’on peut se poser en projet\nMais qui a écrit cette merde ???\n\nah ben c’est moi…"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#la-solution",
+    "href": "doc/presentation-slides.html#la-solution",
+    "title": "Introduction à Git",
+    "section": "La solution",
+    "text": "La solution\n\n\n\nLa solution, tous en choeur, c’est …"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#git",
+    "href": "doc/presentation-slides.html#git",
+    "title": "Introduction à Git",
+    "section": "Git",
+    "text": "Git\n\n\n\n\n\ngit : connard en argot britannique"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#git-bash",
+    "href": "doc/presentation-slides.html#git-bash",
+    "title": "Introduction à Git",
+    "section": "Git Bash",
+    "text": "Git Bash\n\nTerminal de commande\nPlusieurs manières de lancer (Menu Windows, clic droit, inclus dans VSCode)\n\n\n\nConseil : lors de l’installation de Git, choisissez le terminal Unix\n\n1ere ligne : prompt (username, machine, répertoire actuel)\n2e ligne (commence par $) : commande\n3e ligne : résultat de la commande"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#versionner-son-code",
+    "href": "doc/presentation-slides.html#versionner-son-code",
+    "title": "Introduction à Git",
+    "section": "Versionner son code",
+    "text": "Versionner son code\n\n\nAu début j’ai parlé de versionner\nComment faire avec Git"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#travailler-en-équipe",
+    "href": "doc/presentation-slides.html#travailler-en-équipe",
+    "title": "Introduction à Git",
+    "section": "Travailler en équipe",
+    "text": "Travailler en équipe"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#etat-du-dépôt-local",
+    "href": "doc/presentation-slides.html#etat-du-dépôt-local",
+    "title": "Introduction à Git",
+    "section": "Etat du dépôt local",
+    "text": "Etat du dépôt local\nEst-ce qu’il y a des fichiers :\n\nnon suivis ? Untracked files\nprêts à être commités ? Changes to be committed\nmodifiés non ajoutés à l’index ? Changes not staged for commit\n\n\n\n\n\n\n\nImportant\n\n\nLa commande git status permet de répondre à ces questions.\nElle peut être utilisée n’importe quand, sans modération !"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#cloner-un-dépôt",
+    "href": "doc/presentation-slides.html#cloner-un-dépôt",
+    "title": "Introduction à Git",
+    "section": "Cloner un dépôt",
+    "text": "Cloner un dépôt"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#commandes-principales",
+    "href": "doc/presentation-slides.html#commandes-principales",
+    "title": "Introduction à Git",
+    "section": "Commandes principales",
+    "text": "Commandes principales\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\ngit clone &lt;adr&gt;\nCréer un dépôt local sur son poste\n\n\ngit status\nVoir où l’on en est\n\n\ngit add &lt;file&gt;\nAjouter pour le prochain commit\n\n\ngit commit -m \"&lt;msg&gt;\"\nCréer un point de sauvegarde\n\n\ngit pull\ndépôt local ➡️ dépôt distant\n\n\ngit push\ndépôt local ⬅️ dépôt distant\n\n\n\n\nclone : bouton vert code sur GitHub, GitLab"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#la-routine-git",
+    "href": "doc/presentation-slides.html#la-routine-git",
+    "title": "Introduction à Git",
+    "section": "La routine Git",
+    "text": "La routine Git\n\nje commence par git pull pour mettre à jour mon dépôt local\nje code\nj’ai fini, je teste mon code, ça marche 🎉\ngit status pour voir l’état du dépôt\ngit add &lt;filename&gt; pour ajouter mes fichiers au prochain commit\ngit commit -m \"blabla\" pour créer un point de sauvegarde\ngit pull pour voir si personne n’a poussé depuis mon dernier pull\nsi besoin, je résouds les conflits\nje pousse mon code git push\n\n\n\npull : des fois qu’un camarade ait codé la nuit"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#démo",
+    "href": "doc/presentation-slides.html#démo",
+    "title": "Introduction à Git",
+    "section": "Démo",
+    "text": "Démo\n\n\naller sur GitHub, cloner\ncréer un fichier, status\nreset, status\nmodifier un fichier, status\ncommit\nmodifier sur github\npush"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#travailler-dans-le-cloud",
+    "href": "doc/presentation-slides.html#travailler-dans-le-cloud",
+    "title": "Introduction à Git",
+    "section": "Travailler dans le cloud",
+    "text": "Travailler dans le cloud\n\nAutre manière de travailler\nServices non perennes\nSauvegarder votre code\n\n\n\nvous ne travaillerez pas toujours en local\nmais parfois sur des services à la demande\nex : besoin de puissance de calcul"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#les-branches",
+    "href": "doc/presentation-slides.html#les-branches",
+    "title": "Introduction à Git",
+    "section": "Les branches",
+    "text": "Les branches\nImaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.\nSeulement vous n’êtes pas encore sûr que :\n\ncette fonctionnalité sera vraiment utile 😐\nqu’elle ne va pas tout casser 😰\n\n\n\n\n\n\n\nNote\n\n\n\nsi c’est tout petit, vous pouvez dev en local en faire un reset au cas où\nsinon utilisez une branche"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#bibliographie",
+    "href": "doc/presentation-slides.html#bibliographie",
+    "title": "Introduction à Git",
+    "section": "Bibliographie",
+    "text": "Bibliographie\n\nGit : un élément essentiel au quotidien, Python pour la datascience, Lino Galiana\nFormation Git du Lab INSEE\nGitFlow\nDéveloppement basé sur le tronc\n\n\n\n\nHome — Introduction à Git"
   },
   {
     "objectID": "doc/presentation.html",
@@ -175,132 +301,6 @@
     "text": "Bibliographie\n\nGit : un élément essentiel au quotidien, Python pour la datascience, Lino Galiana\nFormation Git du Lab INSEE\nGitFlow\nDéveloppement basé sur le tronc"
   },
   {
-    "objectID": "doc/presentation-slides.html#introduction",
-    "href": "doc/presentation-slides.html#introduction",
-    "title": "Introduction à Git",
-    "section": "Introduction",
-    "text": "Introduction\n\nOutil indispensable\nPas d’évaluation immédiate\n\nmais utilisé toute la scolarité et vie pro\n\n\n\n\nPrésentation perso en 1min\nÉvalué en Compléments d’info 2A\nSuivi d’un TP\n⚠️ valable pour tous les TP\n\nn’allez pas trop vite\nsuivez précisément les consignes"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#introduction-1",
-    "href": "doc/presentation-slides.html#introduction-1",
-    "title": "Introduction à Git",
-    "section": "Introduction",
-    "text": "Introduction\nVous faites parti d’une équipe de 5 personnes qui doit coder une application de jeux de cartes.\n😕 Comment mettre en commun votre code ?\n\nVous développez chacun de votre coté et à la fin, vous mettez tout en commun\nVous envoyez vos programmes par mail\nVous créez un dossier commun\n\n😅 En cas d’erreur, comment revenir en arrière ?"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#au-programme",
-    "href": "doc/presentation-slides.html#au-programme",
-    "title": "Introduction à Git",
-    "section": "Au programme",
-    "text": "Au programme\n\n📌 Versionner son code\n💾 Historique des modifications\n👷 Travail en équipe"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#pourquoi-versionner",
-    "href": "doc/presentation-slides.html#pourquoi-versionner",
-    "title": "Introduction à Git",
-    "section": "Pourquoi versionner ?",
-    "text": "Pourquoi versionner ?\n\nQuelle est la bonne version ?\nComment faire pour revenir en arrière ?\nQui a écrit ce code ? Quand ?\n\n\n\nles questions que l’on peut se poser en projet\nMais qui a écrit cette merde ???\n\nah ben c’est moi…"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#la-solution",
-    "href": "doc/presentation-slides.html#la-solution",
-    "title": "Introduction à Git",
-    "section": "La solution",
-    "text": "La solution\n\n\n\nLa solution, tous en choeur, c’est …"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#git",
-    "href": "doc/presentation-slides.html#git",
-    "title": "Introduction à Git",
-    "section": "Git",
-    "text": "Git\n\n\n\n\n\ngit : connard en argot britannique"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#git-bash",
-    "href": "doc/presentation-slides.html#git-bash",
-    "title": "Introduction à Git",
-    "section": "Git Bash",
-    "text": "Git Bash\n\nTerminal de commande\nPlusieurs manières de lancer (Menu Windows, clic droit, inclus dans VSCode)\n\n\n\nConseil : lors de l’installation de Git, choisissez le terminal Unix\n\n1ere ligne : prompt (username, machine, répertoire actuel)\n2e ligne (commence par $) : commande\n3e ligne : résultat de la commande"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#versionner-son-code",
-    "href": "doc/presentation-slides.html#versionner-son-code",
-    "title": "Introduction à Git",
-    "section": "Versionner son code",
-    "text": "Versionner son code\n\n\nAu début j’ai parlé de versionner\nComment faire avec Git"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#travailler-en-équipe",
-    "href": "doc/presentation-slides.html#travailler-en-équipe",
-    "title": "Introduction à Git",
-    "section": "Travailler en équipe",
-    "text": "Travailler en équipe"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#etat-du-dépôt-local",
-    "href": "doc/presentation-slides.html#etat-du-dépôt-local",
-    "title": "Introduction à Git",
-    "section": "Etat du dépôt local",
-    "text": "Etat du dépôt local\nEst-ce qu’il y a des fichiers :\n\nnon suivis ? Untracked files\nprêts à être commités ? Changes to be committed\nmodifiés non ajoutés à l’index ? Changes not staged for commit\n\n\n\n\n\n\n\nImportant\n\n\nLa commande git status permet de répondre à ces questions.\nElle peut être utilisée n’importe quand, sans modération !"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#cloner-un-dépôt",
-    "href": "doc/presentation-slides.html#cloner-un-dépôt",
-    "title": "Introduction à Git",
-    "section": "Cloner un dépôt",
-    "text": "Cloner un dépôt"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#commandes-principales",
-    "href": "doc/presentation-slides.html#commandes-principales",
-    "title": "Introduction à Git",
-    "section": "Commandes principales",
-    "text": "Commandes principales\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\ngit clone &lt;adr&gt;\nCréer un dépôt local sur son poste\n\n\ngit status\nVoir où l’on en est\n\n\ngit add &lt;file&gt;\nAjouter pour le prochain commit\n\n\ngit commit -m \"&lt;msg&gt;\"\nCréer un point de sauvegarde\n\n\ngit pull\ndépôt local ➡️ dépôt distant\n\n\ngit push\ndépôt local ⬅️ dépôt distant\n\n\n\n\nclone : bouton vert code sur GitHub, GitLab"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#la-routine-git",
-    "href": "doc/presentation-slides.html#la-routine-git",
-    "title": "Introduction à Git",
-    "section": "La routine Git",
-    "text": "La routine Git\n\nje commence par git pull pour mettre à jour mon dépôt local\nje code\nj’ai fini, je teste mon code, ça marche 🎉\ngit status pour voir l’état du dépôt\ngit add &lt;filename&gt; pour ajouter mes fichiers au prochain commit\ngit commit -m \"blabla\" pour créer un point de sauvegarde\ngit pull pour voir si personne n’a poussé depuis mon dernier pull\nsi besoin, je résouds les conflits\nje pousse mon code git push\n\n\n\npull : des fois qu’un camarade ait codé la nuit"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#démo",
-    "href": "doc/presentation-slides.html#démo",
-    "title": "Introduction à Git",
-    "section": "Démo",
-    "text": "Démo\n\n\naller sur GitHub, cloner\ncréer un fichier, status\nreset, status\nmodifier un fichier, status\ncommit\nmodifier sur github\npush"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#travailler-dans-le-cloud",
-    "href": "doc/presentation-slides.html#travailler-dans-le-cloud",
-    "title": "Introduction à Git",
-    "section": "Travailler dans le cloud",
-    "text": "Travailler dans le cloud\n\nAutre manière de travailler\nServices non perennes\nSauvegarder votre code\n\n\n\nvous ne travaillerez pas toujours en local\nmais parfois sur des services à la demande\nex : besoin de puissance de calcul"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#les-branches",
-    "href": "doc/presentation-slides.html#les-branches",
-    "title": "Introduction à Git",
-    "section": "Les branches",
-    "text": "Les branches\nImaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.\nSeulement vous n’êtes pas encore sûr que :\n\ncette fonctionnalité sera vraiment utile 😐\nqu’elle ne va pas tout casser 😰\n\n\n\n\n\n\n\nNote\n\n\n\nsi c’est tout petit, vous pouvez dev en local en faire un reset au cas où\nsinon utilisez une branche"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#bibliographie",
-    "href": "doc/presentation-slides.html#bibliographie",
-    "title": "Introduction à Git",
-    "section": "Bibliographie",
-    "text": "Bibliographie\n\nGit : un élément essentiel au quotidien, Python pour la datascience, Lino Galiana\nFormation Git du Lab INSEE\nGitFlow\nDéveloppement basé sur le tronc\n\n\n\n\nHome — Introduction à Git"
-  },
-  {
-    "objectID": "doc/gitflow.html",
-    "href": "doc/gitflow.html",
-    "title": "Gitflow",
-    "section": "",
-    "text": "🚧\nWorkflow Gitflow\nvs\nDéveloppement basé sur le tronc"
-  },
-  {
     "objectID": "doc/tp-ensai.html",
     "href": "doc/tp-ensai.html",
     "title": "Git TP",
@@ -333,7 +333,7 @@
     "href": "doc/tp-ensai.html#paramétrage-de-git",
     "title": "Git TP",
     "section": "2 Paramétrage de Git",
-    "text": "2 Paramétrage de Git\n\n2.1 Configuration\n\nDans l’explorateur de fichiers Windows (WIN + E), allez dans le dossier P:/Cours1A/git-initiation\nOuvrez le fichier setup-git.sh avec Notepad++ et collez ce contenu\n\n\nsetup-git.sh\n\ngit config --global user.name \"Prenom Nom\"\ngit config --global user.email prenom.nom@eleve.ensai.fr\ngit config --global credential.helper store\ngit config --global core.mergeoptions --no-edit\ngit config --global core.editor \"code -w\"\n\nRemplacez Nom et Prenom sur les deux premières lignes et enregistrez\nDans Git Bash, exécutez le fichier : ./setup-git.sh\nVérifiez que la configuration est correcte avec git config -l\n\n\n\n2.2 Création d’une clé SSH\nPour permettre de faire dialoguer notre dépôt local avec le dépôt distant de GitHub, vous utiliserez le protocole SSH. Pour cela, vous allez :\n\ngénérer une paire de clés (publique/privée) sur notre machine\ndéclarer votre clé publique à GitHub\n\n\n\n\n\n\n\nWarning\n\n\n\nCe paramètrage SSH est réalisé au niveau de la machine.\nSi par exemple, vous souhaitez utiliser Git sur votre ordinateur personnel, il faudra faire également ce paramétrage.\n\n\nDans Git Bash :\n\nCréez un dossier /c/Users/id????.ssh pour stocker votre clé ssh\n\nmkdir -p ~/.ssh\n\nCréez une clé SSH\n\nssh-keygen -t rsa -b 4096 -N '' -q -f ~/.ssh/id_rsa\n\nCopiez le contenu de la clé publique\n\ncat ~/.ssh/id_rsa.pub | clip\nc’est comme si vous copiez le contenu du fichier id_rsa.pub\n\n\nDéclarez votre clé publique à GitHub, pour pouvoir ensuite faire communiquer dépôts locaux avec les dépôts distants :\n\nGitHub &gt; cliquez sur votre avatar &gt; Settings &gt; SSH and GPG keys\n\nlien direct\n\nCliquez sur New SSH key\n\nTitle : VM ENSAI\nKey : Collez votre clé publique\nAdd SSH key\n\n\n\n\n\n\n\n\nSSH : Comment ça marche ?\n\n\n\n\n\nSSH (Secure Shell) est un protocole permettant de se connecter à un autre ordinateur sur un réseau de manière sécurisée.\nSSH chiffre toutes les informations échangées afin de protéger les données.\nSSH utilise un mécanisme de clés cryptographiques pour authentifier les ordinateurs et les utilisateurs, garantissant que la connexion est effectuée avec le bon serveur et sans intervention malveillante :\n\nClé privée : C’est comme la clé de votre maison. Vous la gardez en sécurité avec vous et ne la partagez avec personne. Cette clé reste sur votre ordinateur et sert à prouver votre identité.\nClé publique : Elle serait comme votre adresse postale. Vous pouvez la partager avec d’autres. Dans SSH, vous placez votre clé publique sur les serveurs ou les ordinateurs auxquels vous souhaitez vous connecter.\n\nCes deux clés sont liées. Un message chiffré par la clé publique n’est déchiffrable que par celui qui posséde la clé privée. Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous votre identité car chacun peut déchiffrer ce message avec la clé publique.\n\n\n\n\n\n\n2.3 Le terminal Git Bash\n\nAllez dans le dossier P:/Cours1A/Git\nClic droit &gt; Git Bash here\nCréez un dossier depot1 et entrez dans ce dossier\n\nmkdir depot1 pour make directory\ncd depot1 pour change directory\n\nAfficher le chemin du répertoire courant avec la commande pwd : print working directory\ncd .. pour retourner dans le dossier parent\ncréer un dossier depot2"
+    "text": "2 Paramétrage de Git\n\n2.1 Configuration\n\nDans l’explorateur de fichiers Windows (WIN + E), allez dans le dossier P:/Cours1A/git-initiation\nOuvrez le fichier setup-git.sh avec Notepad++ et collez ce contenu\n\n\nsetup-git.sh\n\ngit config --global user.name \"Prenom Nom\"\ngit config --global user.email prenom.nom@eleve.ensai.fr\ngit config --global credential.helper store\ngit config --global core.mergeoptions --no-edit\ngit config --global core.editor \"code -w\"\n\nRemplacez Nom et Prenom sur les deux premières lignes et enregistrez\nDans Git Bash, exécutez le fichier : ./setup-git.sh\nVérifiez que la configuration est correcte avec git config -l\n\n\n\n2.2 Création d’une clé SSH\nPour permettre de faire dialoguer notre dépôt local avec le dépôt distant de GitHub, vous utiliserez le protocole SSH. Pour cela, vous allez :\n\ngénérer une paire de clés (publique/privée) sur notre machine\ndéclarer votre clé publique à GitHub\n\n\n\n\n\n\n\nWarning\n\n\n\nCe paramètrage SSH est réalisé au niveau de la machine.\nSi par exemple, vous souhaitez utiliser Git sur votre ordinateur personnel, il faudra faire également ce paramétrage.\n\n\nDans Git Bash :\n\nCréez un dossier /c/Users/id????.ssh pour stocker votre clé ssh\n\nmkdir -p ~/.ssh\n\nCréez une clé SSH\n\nssh-keygen -t rsa -b 4096 -N '' -q -f ~/.ssh/id_rsa\n\nCopiez le contenu de la clé publique\n\ncat ~/.ssh/id_rsa.pub | clip\nc’est comme si vous copiez le contenu du fichier id_rsa.pub\n\n\nDéclarez votre clé publique à GitHub, pour pouvoir ensuite faire communiquer dépôts locaux avec les dépôts distants :\n\nGitHub &gt; cliquez sur votre avatar &gt; Settings &gt; SSH and GPG keys\n\nlien direct\n\nCliquez sur New SSH key\n\nTitle : VM ENSAI\nKey : Collez votre clé publique\nAdd SSH key\n\n\n\n\n\n\n\n\nSSH : Comment ça marche ?\n\n\n\n\n\nSSH (Secure Shell) est un protocole permettant de se connecter à un autre ordinateur sur un réseau de manière sécurisée.\nSSH chiffre toutes les informations échangées afin de protéger les données.\nSSH utilise un mécanisme de clés cryptographiques pour authentifier les ordinateurs et les utilisateurs, garantissant que la connexion est effectuée avec le bon serveur et sans intervention malveillante :\n\nClé privée : C’est comme la clé de votre maison. Vous la gardez en sécurité avec vous et ne la partagez avec personne. Cette clé reste sur votre ordinateur et sert à prouver votre identité.\nClé publique : Elle serait comme votre adresse postale. Vous pouvez la partager avec d’autres. Dans SSH, vous placez votre clé publique sur les serveurs ou les ordinateurs auxquels vous souhaitez vous connecter.\n\nCes deux clés sont liées. Un message chiffré par la clé publique n’est déchiffrable que par celui qui posséde la clé privée. Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous votre identité car chacun peut déchiffrer ce message avec la clé publique.\n\n\n\n\n\n\n2.3 Le terminal Git Bash\n\nAllez dans le dossier P:/Cours1A/git-initiation\nClic droit &gt; Git Bash here\nCréez un dossier depot1 et entrez dans ce dossier\n\nmkdir depot1 pour make directory\ncd depot1 pour change directory\n\nAfficher le chemin du répertoire courant avec la commande pwd : print working directory\ncd .. pour retourner dans le dossier parent\ncréer un dossier depot2"
   },
   {
     "objectID": "doc/tp-ensai.html#créez-un-dépôt-distant",
@@ -347,7 +347,7 @@
     "href": "doc/tp-ensai.html#créez-un-dépôt-local",
     "title": "Git TP",
     "section": "4 Créez un dépôt local",
-    "text": "4 Créez un dépôt local\nSuite à la création de votre compte GitHub, vous avez créé un repo (i.e. un dépôt distant).\nVous allez maintenant créer une copie locale de ce dépôt en clonant ce projet.\nSur la page GitHub de votre repo,\n\nCliquez sur Code\nCopiez la ligne Clone with SSH\nDans Git Bash, vérifiez que vous êtes dans le dossier p/Cours1A/git-initiation\n\nsi ce n’est pas le cas : cd /p/Cours1A/git-initiation\n\nEntrez git clone &lt;collez la ligne&gt;\n\nexemple : git clone git@github.com:ludo2ne/tp-gitzzz.git\n\nListez le contenu du répertoire courant\n\nLe dossier tp_initiation_git est bien présent\nvous pouvez également vérifier sa présence via l’explorateur Windows\n\nWIN + E, puis allez à P:\\Cours1A\\git-initiation\n\n\nPositionnez-vous dans le dépôt : cd tp_initiation_git\n\nà la fin de votre prompt, vous remarquerez l’apparition de (main)\ncela signifie que vous êtes dans un dépôt git, sur la branche principale\n\n\nVous pouvez fermer Git Bash.\nVous allez par la suite utiliser le Git Bash (exactement le même) qui est intégré dans l’IDE Visual Studio Code.\n\n\n\n\n\n\nTip\n\n\n\nUn IDE (Integrated Development Environment) est une application qui offre des outils complets pour le développement logiciel\nLes composants principaux d’un IDE :\n\nÉditeur de Code\nCompilateur / Interpréteur\nGestionnaire de Projet\nTerminal Intégré"
+    "text": "4 Créez un dépôt local\nSuite à la création de votre compte GitHub, vous avez créé un repo (i.e. un dépôt distant).\nVous allez maintenant créer une copie locale de ce dépôt en clonant ce projet.\nSur la page GitHub de votre repo,\n\nCliquez sur Code\nCopiez la ligne Clone with SSH\nDans Git Bash, vérifiez que vous êtes dans le dossier p/Cours1A/git-initiation\n\nsi ce n’est pas le cas : cd /p/Cours1A/git-initiation\n\nAllez dans le dossier depot1\nEntrez git clone &lt;collez la ligne&gt;\n\nexemple : git clone git@github.com:ludo2ne/tp-gitzzz.git\n\nListez le contenu du répertoire courant\n\nLe dossier tp-git est bien présent\nvous pouvez également vérifier sa présence via l’explorateur Windows\n\nWIN + E, puis allez à P:\\Cours1A\\git-initiation\\depot1\n\n\nPositionnez-vous dans le dépôt : cd tp-git\n\nà la fin de votre prompt, vous remarquerez l’apparition de (main)\ncela signifie que vous êtes dans un dépôt git, sur la branche principale\n\n\nVous pouvez fermer Git Bash.\nVous allez par la suite utiliser le Git Bash (exactement le même) qui est intégré dans l’IDE Visual Studio Code.\n\n\n\n\n\n\nTip\n\n\n\nUn IDE (Integrated Development Environment) est une application qui offre des outils complets pour le développement logiciel\nLes composants principaux d’un IDE :\n\nÉditeur de Code\nCompilateur / Interpréteur\nGestionnaire de Projet\nTerminal Intégré"
   },
   {
     "objectID": "doc/tp-ensai.html#visual-studio-code---config",
@@ -361,7 +361,7 @@
     "href": "doc/tp-ensai.html#votre-dépôt-local-dans-vscode",
     "title": "Git TP",
     "section": "6 Votre dépôt local dans VSCode",
-    "text": "6 Votre dépôt local dans VSCode\nDans Visual Studio Code :\n\nFile &gt; Open Folder\n\nAllez dans P:/Cours1A/git-initiation\nCliquez une seule fois sur le dossier tp-git\nPuis sur le bouton Sélectionner un dossier\nYes I trust the authors\n⚠️ dans votre explorer en haut à gauche, le dossier parent doit être tp-git\n\nsi ce n’est pas le cas, recommencez l’Open Folder\n\n\nOuvrez un terminal Git Bash\n\nTerminal &gt; New Terminal (CTRL + ù)"
+    "text": "6 Votre dépôt local dans VSCode\nDans Visual Studio Code :\n\nFile &gt; Open Folder\n\nAllez dans P:/Cours1A/git-initiation/depot1\nCliquez une seule fois sur le dossier tp-git\nPuis sur le bouton Sélectionner un dossier\nYes I trust the authors\n⚠️ dans votre explorer en haut à gauche, le dossier parent doit être tp-git\n\nsi ce n’est pas le cas, recommencez l’Open Folder\n\n\nOuvrez un terminal Git Bash\n\nTerminal &gt; New Terminal (CTRL + ù)"
   },
   {
     "objectID": "doc/tp-ensai.html#premiers-pas-avec-git",
