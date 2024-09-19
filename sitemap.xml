@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ludo2ne.github.io/Git-tuto/index.html</loc>
-    <lastmod>2024-09-18T12:13:22.948Z</lastmod>
-  </url>
-  <url>
     <loc>https://ludo2ne.github.io/Git-tuto/doc/branches.html</loc>
-    <lastmod>2024-09-18T12:13:22.944Z</lastmod>
+    <lastmod>2024-09-19T07:56:43.496Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/Git-tuto/doc/open-source.html</loc>
-    <lastmod>2024-09-18T12:13:22.948Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/Git-tuto/doc/presentation.html</loc>
-    <lastmod>2024-09-18T12:13:22.948Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/Git-tuto/doc/presentation-slides.html</loc>
-    <lastmod>2024-09-18T12:13:22.948Z</lastmod>
+    <lastmod>2024-09-19T07:56:43.498Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/Git-tuto/doc/gitflow.html</loc>
-    <lastmod>2024-09-18T12:13:22.944Z</lastmod>
+    <lastmod>2024-09-19T07:56:43.496Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/Git-tuto/index.html</loc>
+    <lastmod>2024-09-19T07:56:43.499Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/Git-tuto/doc/presentation-slides.html</loc>
+    <lastmod>2024-09-19T07:56:43.498Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/Git-tuto/doc/presentation.html</loc>
+    <lastmod>2024-09-19T07:56:43.498Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/Git-tuto/doc/tp-ensai.html</loc>
-    <lastmod>2024-09-18T12:13:22.948Z</lastmod>
+    <lastmod>2024-09-19T07:56:43.499Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/Git-tuto/doc/tp-old.html</loc>
-    <lastmod>2024-09-18T12:13:22.948Z</lastmod>
+    <lastmod>2024-09-19T07:56:43.499Z</lastmod>
   </url>
 </urlset>

@@ -578,30 +578,64 @@ SSH : Comment ça marche ?
 <li>Cliquez sur <span class="green-button">Create Repository</span></li>
 </ul></li>
 </ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dans le cadre de ce TP, il est interdit d’éditer des fichiers directement sur GitHub. Ce n’est pas une bonne pratique.</p>
+<p>Toutes les modifications doivent être faites sur votre clone local et ensuite envoyées vers GitHub.</p>
+</div>
+</div>
 </section>
 <section id="créez-un-dépôt-local" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="créez-un-dépôt-local"><span class="header-section-number">4</span> Créez un dépôt local</h2>
-<p>Suite à la création de votre compte GitHub, vous avez créé un repo (i.e.&nbsp;un dépôt distant).</p>
+<p>Suite à la création de votre compte GitHub, vous avez créé un <strong>Repository</strong> (i.e.&nbsp;un dépôt distant).</p>
 <p>Vous allez maintenant créer une copie locale de ce dépôt en clonant ce projet.</p>
-<p>Sur la page GitHub de votre repo,</p>
+<p>Sur la page GitHub de votre repo :</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Cliquez sur <span class="green-button">Code</span></label></li>
 <li><label><input type="checkbox">Copiez la ligne <em>Clone with SSH</em></label></li>
-<li><label><input type="checkbox">Dans Git Bash, vérifiez que vous êtes dans le dossier <em>p/Cours1A/git-initiation</em></label>
+</ul>
+<p>Dans Git Bash :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Positionnez-vous dans le dossier <em>p/Cours1A/git-initiation/depot1</em></label>
 <ul>
-<li>si ce n’est pas le cas : <code>cd /p/Cours1A/git-initiation</code></li>
+<li><code>cd /p/Cours1A/git-initiation/depot1</code></li>
 </ul></li>
-<li><label><input type="checkbox">Allez dans le dossier <em>depot1</em></label></li>
-<li><label><input type="checkbox">Entrez <code>git clone &lt;collez la ligne&gt;</code></label>
+<li><label><input type="checkbox">Créez votre clone</label>
 <ul>
-<li>exemple : <code>git clone git@github.com:ludo2ne/tp-gitzzz.git</code></li>
+<li><code>git clone &lt;collez l'adresse ssh&gt;</code></li>
+<li>exemple : <em>git clone git@github.com:ludo2ne/tp-git.git</em></li>
 </ul></li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lors du clonage, vous allez peut-être avoir la question suivante :</p>
+<p><strong>Are you sure you want to continue connecting (yes/no/[fingerprint])?</strong></p>
+<p>Écrivez <code>yes</code> puis ENTREE.</p>
+</div>
+</div>
+<ul class="task-list">
 <li><label><input type="checkbox">Listez le contenu du répertoire courant</label>
 <ul>
-<li>Le dossier <em>tp-git</em> est bien présent</li>
+<li>Le dossier <em>tp-git</em> est apparu <span class="emoji" data-emoji="arrow_right">➡️</span> c’est votre clone local</li>
 <li>vous pouvez également vérifier sa présence via l’explorateur Windows
 <ul>
-<li>WIN + E, puis allez à <code>P:\Cours1A\git-initiation\depot1</code></li>
+<li>WIN + E, puis allez à <em>P:1A-initiation</em></li>
 </ul></li>
 </ul></li>
 <li><label><input type="checkbox">Positionnez-vous dans le dépôt : <code>cd tp-git</code></label>
@@ -611,18 +645,18 @@ SSH : Comment ça marche ?
 </ul></li>
 </ul>
 <p>Vous pouvez fermer <em>Git Bash</em>.</p>
-<p>Vous allez par la suite utiliser le <em>Git Bash</em> (exactement le même) qui est intégré dans l’IDE <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<p>Vous allez par la suite utiliser le <em>Git Bash</em> (exactement le même) qui est intégré dans l’IDE <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>. Vous allez utiliser ce logiciel pour la majorité des cours d’informatique de l’ENSAI.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Définition">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Définition
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Un IDE (Integrated Development Environment) est une application qui offre des outils complets pour le développement logiciel</p>
+<p>Un IDE (Integrated Development Environment) est une application qui offre des outils complets pour le développement logiciel.</p>
 <p>Les composants principaux d’un IDE :</p>
 <ul>
 <li>Éditeur de Code</li>
@@ -637,15 +671,15 @@ Tip
 <h2 data-number="5" class="anchored" data-anchor-id="visual-studio-code---config"><span class="header-section-number">5</span> Visual Studio Code - Config</h2>
 <p>Commençons par déclarer <em>Git Bash</em> comme le terminal par défaut. C’est plus pratique et convivial lorsque l’on utilise <em>git</em>.</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Ouvrez l’application <code>Visual Studio Code</code></label></li>
-<li><label><input type="checkbox">en bas à gauche, cliquez sur <span class="emoji" data-emoji="gear">⚙️</span>, puis Settings</label></li>
+<li><label><input type="checkbox">Ouvrez l’application <strong>Visual Studio Code</strong></label></li>
+<li><label><input type="checkbox">En bas à gauche, cliquez sur <span class="emoji" data-emoji="gear">⚙️</span>, puis Settings</label></li>
 <li><label><input type="checkbox">Dans la barre de recherche, collez : <code>terminal.integrated.defaultProfile.windows</code></label></li>
 <li><label><input type="checkbox">Choisissez <em>Git Bash</em></label></li>
 </ul>
 </section>
 <section id="votre-dépôt-local-dans-vscode" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="votre-dépôt-local-dans-vscode"><span class="header-section-number">6</span> Votre dépôt local dans VSCode</h2>
-<p>Dans Visual Studio Code :</p>
+<p>Vous allez maintenant ouvrir votre dépôt local avec Visual Studio Code :</p>
 <ul class="task-list">
 <li><label><input type="checkbox">File &gt; Open Folder</label>
 <ul>
@@ -660,7 +694,7 @@ Tip
 </ul></li>
 <li><label><input type="checkbox">Ouvrez un terminal <em>Git Bash</em></label>
 <ul>
-<li>Terminal &gt; New Terminal (CTRL + ù)</li>
+<li>Terminal &gt; New Terminal (raccourci : CTRL + ù)</li>
 </ul></li>
 </ul>
 </section>
@@ -673,7 +707,10 @@ Tip
 <li>dans VSCode &gt; clic droit dans l’Explorer &gt; New Folder</li>
 <li>ce dossier contiendra vos programmes</li>
 </ul></li>
-<li><label><input type="checkbox">Créez également à la racine, le dossier <code>doc</code></label></li>
+<li><label><input type="checkbox">Créez également à la racine, le dossier <code>doc</code></label>
+<ul>
+<li><span class="emoji" data-emoji="bulb">💡</span> racine du dépôt = dossier <em>tp-git</em></li>
+</ul></li>
 <li><label><input type="checkbox">Créez un fichier <code>voiture.py</code></label>
 <ul>
 <li>dans le dossier <em>src</em></li>
@@ -703,12 +740,26 @@ Tip
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="ss">f"La voiture </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>nom<span class="sc">}</span><span class="ss"> de couleur </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>couleur<span class="sc">}</span><span class="ss"> roule à </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>vitesse<span class="sc">}</span><span class="ss"> km/h."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="ss">f"La voiture </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>nom<span class="sc">}</span><span class="ss"> de couleur </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>couleur<span class="sc">}</span><span class="ss"> roule à </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>vitesse<span class="sc">}</span><span class="ss"> km/h."</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
+<li><label><input type="checkbox">Enregistrez ce fichier</label></li>
 </ul>
 <section id="add-commit-pull-et-push" class="level3" data-number="7.1">
 <h3 data-number="7.1" class="anchored" data-anchor-id="add-commit-pull-et-push"><span class="header-section-number">7.1</span> Add, Commit, Pull et Push</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>C’est l’enchainement de commandes qu’il faut connaitre ! (avec une pincée de <em>status</em> si besoin)</p>
+</div>
+</div>
+<p>Avant de commencer, vérifiez dans votre terminal que vous êtes bien positionné à la racine de votre dépôt. C’est à dire que le texte jaune de votre prompt est : <em>/p/Cours1A/git-initiation/depot1/tp-git</em></p>
 <p>Dans le terminal <em>Git Bash</em> intégré dans VScode, exécutez les commandes suivantes :</p>
 <ul class="task-list">
 <li><label><input type="checkbox"><code>git status</code></label>
@@ -748,7 +799,22 @@ Tip
 </ul></li>
 </ul>
 <p>Allez sur la page GitHub de votre repo et vérifiez que vos fichiers sont bien arrivés.</p>
-<p>Retournez sur VSCode.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Ça ne marche pas">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ça ne marche pas
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous avez tout bien fait mais votre fichier <em>voiture.py</em> n’est pas à jour sur GitHub. <span class="emoji" data-emoji="confused">😕</span></p>
+<p>La cause dans 95 % des cas est que votre fichier <em>voiture.py</em> n’a pas été enregistré.</p>
+<p>Solution : enregistrez le fichier et recommencez (Add, Commit, Pull et Push). <span class="emoji" data-emoji="weary">😩</span></p>
+</div>
+</div>
+<p>Retournez sur VSCode :</p>
 <ul class="task-list">
 <li><p><label><input type="checkbox">Ajouter à la fin du fichier <code>voiture.py</code> ce code et <u>enregistrez</u></label></p>
 <div class="code-with-filename">
@@ -997,7 +1063,7 @@ Si vous travaillez à 2
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Si vous faîtes seul">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1006,7 +1072,7 @@ Si vous faîtes seul
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Dans l’explorateur Windows :</p>
 <ul>
@@ -1856,7 +1922,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
