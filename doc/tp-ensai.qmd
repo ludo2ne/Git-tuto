@@ -226,26 +226,44 @@ Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous v
   - Choose a license : *MIT Licence*
   - Cliquez sur [Create Repository]{.green-button}
 
+::: {.callout-important}
+Dans le cadre de ce TP, il est interdit d'éditer des fichiers directement sur GitHub. Ce n'est pas une bonne pratique.
+
+Toutes les modifications doivent être faites sur votre clone local et ensuite envoyées vers GitHub.
+:::
+
 
 ## Créez un dépôt local
 
-Suite à la création de votre compte GitHub, vous avez créé un repo (i.e. un dépôt distant).
+Suite à la création de votre compte GitHub, vous avez créé un **Repository** (i.e. un dépôt distant).
 
 Vous allez maintenant créer une copie locale de ce dépôt en clonant ce projet. 
 
-Sur la page GitHub de votre repo, 
+Sur la page GitHub de votre repo :
 
 - [ ] Cliquez sur [Code]{.green-button}
 - [ ] Copiez la ligne *Clone with SSH*
-- [ ] Dans Git Bash, vérifiez que vous êtes dans le dossier *p/Cours1A/git-initiation*
-  - si ce n'est pas le cas : `cd /p/Cours1A/git-initiation`
-- [ ] Allez dans le dossier *depot1*
-- [ ] Entrez `git clone <collez la ligne>`
-  - exemple : `git clone git@github.com:ludo2ne/tp-gitzzz.git`
+
+Dans Git Bash :
+
+- [ ] Positionnez-vous dans le dossier *p/Cours1A/git-initiation/depot1*
+  - `cd /p/Cours1A/git-initiation/depot1`
+- [ ] Créez votre clone
+  - `git clone <collez l'adresse ssh>`
+  - exemple : *git clone git@github.com:ludo2ne/tp-git.git*
+
+::: {.callout-caution}
+Lors du clonage, vous allez peut-être avoir la question suivante :
+
+**Are you sure you want to continue connecting (yes/no/[fingerprint])?**
+
+Écrivez `yes` puis ENTREE.
+:::
+
 - [ ] Listez le contenu du répertoire courant
-  - Le dossier *tp-git* est bien présent
+  - Le dossier *tp-git* est apparu :arrow_right: c'est votre clone local
   - vous pouvez également vérifier sa présence via l'explorateur Windows 
-    - WIN + E, puis allez à `P:\Cours1A\git-initiation\depot1`
+    - WIN + E, puis allez à *P:\Cours1A\git-initiation\depot1*
 - [ ] Positionnez-vous dans le dépôt : `cd tp-git`
   - à la fin de votre prompt, vous remarquerez l'apparition de [(main)]{style="color: cyan"}
   - cela signifie que vous êtes dans un dépôt git, sur la branche principale
@@ -253,9 +271,10 @@ Sur la page GitHub de votre repo,
 Vous pouvez fermer *Git Bash*.
 
 Vous allez par la suite utiliser le *Git Bash* (exactement le même) qui est intégré dans l'IDE [Visual Studio Code](https://code.visualstudio.com/){target="_blank"}.
+Vous allez utiliser ce logiciel pour la majorité des cours d'informatique de l'ENSAI.
 
-::: {.callout-tip}
-Un IDE (Integrated Development Environment) est une application qui offre des outils complets pour le développement logiciel
+::: {.callout-tip title="Définition"}
+Un IDE (Integrated Development Environment) est une application qui offre des outils complets pour le développement logiciel.
 
 Les composants principaux d'un IDE :
 
@@ -270,14 +289,14 @@ Les composants principaux d'un IDE :
 
 Commençons par déclarer *Git Bash* comme le terminal par défaut. C'est plus pratique et convivial lorsque l'on utilise *git*.
 
-- [ ] Ouvrez l'application `Visual Studio Code`
-- [ ] en bas à gauche, cliquez sur :gear:, puis Settings
+- [ ] Ouvrez l'application **Visual Studio Code**
+- [ ] En bas à gauche, cliquez sur :gear:, puis Settings
 - [ ] Dans la barre de recherche, collez : `terminal.integrated.defaultProfile.windows`
 - [ ] Choisissez *Git Bash*
 
 ## Votre dépôt local dans VSCode
 
-Dans Visual Studio Code :
+Vous allez maintenant ouvrir votre dépôt local avec Visual Studio Code :
 
 - [ ] File > Open Folder
   - Allez dans *P:/Cours1A/git-initiation/depot1*
@@ -287,7 +306,7 @@ Dans Visual Studio Code :
   - :warning: dans votre explorer en haut à gauche, le dossier parent doit être *tp-git*
     - si ce n'est pas le cas, recommencez l'Open Folder
 - [ ] Ouvrez un terminal *Git Bash*
-  - Terminal > New Terminal (CTRL + ù)
+  - Terminal > New Terminal (raccourci : CTRL + ù)
 
 ## Premiers pas avec Git
 
@@ -297,6 +316,7 @@ Vous allez commencer par créer de nouveaux dossiers et fichiers sur votre dép�
   - dans VSCode > clic droit dans l'Explorer > New Folder
   - ce dossier contiendra vos programmes
 - [ ] Créez également à la racine, le dossier `doc`
+  - :bulb: racine du dépôt = dossier *tp-git*
 - [ ] Créez un fichier `voiture.py`
   - dans le dossier *src*
   - ouvrez ce fichier et collez ce code 
@@ -321,13 +341,17 @@ Vous allez commencer par créer de nouveaux dossiers et fichiers sur votre dép�
           self.vitesse = 0
       
       def __str__(self):
-        return f"La voiture {self.nom} de couleur {self.couleur} roule à {self.vitesse} km/h."
-  
+        return f"La voiture {self.nom} de couleur {self.couleur} roule à {self.vitesse} km/h."  
   ```
+- [ ] Enregistrez ce fichier
   
 ### Add, Commit, Pull et Push
 
+::: {.callout-important}
 C'est l'enchainement de commandes qu'il faut connaitre ! (avec une pincée de *status* si besoin)
+:::
+
+Avant de commencer, vérifiez dans votre terminal que vous êtes bien positionné à la racine de votre dépôt. C'est à dire que le texte jaune de votre prompt est : */p/Cours1A/git-initiation/depot1/tp-git* 
 
 Dans le terminal *Git Bash* intégré dans VScode, exécutez les commandes suivantes : 
 
@@ -355,7 +379,16 @@ Dans le terminal *Git Bash* intégré dans VScode, exécutez les commandes suiva
 
 Allez sur la page GitHub de votre repo et vérifiez que vos fichiers sont bien arrivés.
 
-Retournez sur VSCode.
+::: {.callout-warning title="Ça ne marche pas"}
+Vous avez tout bien fait mais votre fichier *voiture.py* n'est pas à jour sur GitHub. :confused:
+
+La cause dans 95 % des cas est que votre fichier *voiture.py* n'a pas été enregistré.
+
+Solution : enregistrez le fichier et recommencez (Add, Commit, Pull et Push). :weary:
+
+:::
+
+Retournez sur VSCode :
 
 - [ ] Ajouter à la fin du fichier `voiture.py` ce code et [enregistrez]{.underline}
   ```{.python filename="voiture.py"}
