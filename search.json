@@ -1,24 +1,17 @@
 [
   {
-    "objectID": "doc/branches.html",
-    "href": "doc/branches.html",
-    "title": "Les branches",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Tuto Git",
     "section": "",
-    "text": "🚧"
+    "text": "Une présentation de Git\n\nQu’est ce que Git ?\nÀ quoi ça sert ?\nQuels sont les avantages de Git ?\n\nUn TP pour découvrir Git\n\nCommandes Unix\nGit Bash\nParamétrage de Git\nCréer un dépôt\nCommandes principales\n\n\nPour aller plus loin :\n\nLes branches\nGitFlow\nIngération continue\nOpen Source"
   },
   {
-    "objectID": "doc/branches.html#a-quoi-sert-une-branche",
-    "href": "doc/branches.html#a-quoi-sert-une-branche",
-    "title": "Les branches",
-    "section": "1 A quoi sert une branche ?",
-    "text": "1 A quoi sert une branche ?\nImaginez vous avez votre code qui fonctionne bien mais qui est tout moche (avec des duplications…). Comme vous êtes sérieux, vous voulez faire tout bien comme il faut et mettre tout au propre.\nVous faites vos corrections, faites de commits, et puis à un moment vous en avez marre car plus rien ne fonctionne. Vous avez envie de retourner en arrière, ce qui est possible avec ce que l’on a vu précédemment mais pas trivial ni très propre.\nSi vous connaissiez les branches voici ce que vous auriez fait :\n\ncréer une branche nommée “refonte”\nDévelopper, Commiter sur cette branche\nSi à la fin ce que vous avez fait sur cette branche vous plait alors fusion de cette branche avec la branche principale main\nSinon vous pouvez simplement supprimer cette branche\n\nEn gros une branche permet de coder et/ou tester une nouvelle fonctionnalité sans polluer la branche principale."
-  },
-  {
-    "objectID": "doc/branches.html#un-petit-exemple-pour-y-voir-plus-clair",
-    "href": "doc/branches.html#un-petit-exemple-pour-y-voir-plus-clair",
-    "title": "Les branches",
-    "section": "2 Un petit exemple pour y voir plus clair",
-    "text": "2 Un petit exemple pour y voir plus clair\n\nimaginons que vous voulez ajouter une classe trottinette, mais vous n’êtes pas encore sûr, alors vous testez sur une branche\ngit switch -c trottinette\n\ncréation d’une branche trottinette\nSwitched to a new branch ‘trottinette’\n\net comme l’indique le message, avec cette commande vous êtes directement positionné sur cette branche\n\n\nCréez un fichier trottinette.py\nModifiez la vitesse de voiture à 210 parce que vous êtes un malade\nadd puis commit\ngit push pour partager sur le dépôt distant\n\nGit dit que cette branche n’est pas connue sur le dépôt distant\nMais comme il est sympa, il donne la commande pour la créer\ngit push --set-upstream origin trottinette\n\nEnsuite revenons sur la branche principale main\n\ngit switch main\n\nModifiez la vitesse maximale de voiture à 90 parce qu’en fait vous êtes très prudent puis commit\nMaintenant, après mûre réflexion, vous vous dites que la trottinette c’est trop bien et qu’il faut l’intégrer à la branche main\nVous avec envie de fusionner directement les branches trottinette et main\n\ngit merge trottinette\nSeulement il y a un conflit et c’est fait exprés\nIl a été dit plus haut que la branche main doit rester le plus propre possible, ainsi on va éviter de la polluer avec des commits de gestion de conflit. Les conflits doivent être réglé sur les autres branches\nAnnulons ce merge\n\ngit merge --abort\n\n\nVoici comment nous allons procéder pour faire cela proprement\n\nOn retourne sur la branche trottinette\n\ngit switch trottinette\n\nNous allons faire la fusion sur cette branche\n\ngit merge main\nnous résolvons le conflit puis commit\n\nMaintenant que les 2 branches sont synchronisées, retournons sur la branche main\n\ngit switch main\ngit merge --squash trottinette\n\ncette fois-ci pas de conflits car ils ont été résolu juste avant\n\ngit commit -am \"ajout fonctionnalité trottinette\"\n\nL’option --squash permet de ne pas polluer le main avec tous les commits réalisés sur la branche trottinette. Si par la suite vous utilisez GitHub ou GitHub cette option se retrouve directement dans les merge ou les pull requests."
+    "objectID": "index.html#contenu",
+    "href": "index.html#contenu",
+    "title": "Tuto Git",
+    "section": "",
+    "text": "Une présentation de Git\n\nQu’est ce que Git ?\nÀ quoi ça sert ?\nQuels sont les avantages de Git ?\n\nUn TP pour découvrir Git\n\nCommandes Unix\nGit Bash\nParamétrage de Git\nCréer un dépôt\nCommandes principales\n\n\nPour aller plus loin :\n\nLes branches\nGitFlow\nIngération continue\nOpen Source"
   },
   {
     "objectID": "doc/open-source.html",
@@ -35,144 +28,67 @@
     "text": "1 Contribuer à un projet Open Source\n\nFaire un fork du projet\nCloner en local votre fork\nCréer une branche (IMPORTANT pour éviter les conflits)\n\nCorriger sur cette branche\nPousser la branche\n\nCreer une pull request\n\ndepuis mon dépot/ma branche\nvers le dépot original/master\nMessage\n\n\nPour mettre à jour son fork :\n\ngit remote add upstream https://dépot_original\ngit remote -v\ngit fecth upstream pour récupérer les branches du upstream\ngit branch -a\ngit merge upstream/master pour fusionner upstream/master vers ma propre branche master"
   },
   {
-    "objectID": "doc/gitflow.html",
-    "href": "doc/gitflow.html",
-    "title": "Gitflow",
+    "objectID": "doc/tp-old.html",
+    "href": "doc/tp-old.html",
+    "title": "Git TP",
     "section": "",
-    "text": "🚧\nWorkflow Gitflow\nvs\nDéveloppement basé sur le tronc"
+    "text": "Présenter les fonctionnalités de base de Git\nManipuler les 5 commandes principales (status, add, commit, pull, push)\nRésoudre un conflit\nbonus : retour en arrière, branches…"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Tuto Git",
+    "objectID": "doc/tp-old.html#objectifs",
+    "href": "doc/tp-old.html#objectifs",
+    "title": "Git TP",
     "section": "",
-    "text": "Une présentation de Git\n\nQu’est ce que Git ?\nÀ quoi ça sert ?\nQuels sont les avantages de Git ?\n\nUn TP pour découvrir Git\n\nCommandes Unix\nGit Bash\nParamétrage de Git\nCréer un dépôt\nCommandes principales\n\n\nPour aller plus loin :\n\nLes branches\nGitFlow\nIngération continue\nOpen Source"
+    "text": "Présenter les fonctionnalités de base de Git\nManipuler les 5 commandes principales (status, add, commit, pull, push)\nRésoudre un conflit\nbonus : retour en arrière, branches…"
   },
   {
-    "objectID": "index.html#contenu",
-    "href": "index.html#contenu",
-    "title": "Tuto Git",
-    "section": "",
-    "text": "Une présentation de Git\n\nQu’est ce que Git ?\nÀ quoi ça sert ?\nQuels sont les avantages de Git ?\n\nUn TP pour découvrir Git\n\nCommandes Unix\nGit Bash\nParamétrage de Git\nCréer un dépôt\nCommandes principales\n\n\nPour aller plus loin :\n\nLes branches\nGitFlow\nIngération continue\nOpen Source"
+    "objectID": "doc/tp-old.html#créer-un-projet",
+    "href": "doc/tp-old.html#créer-un-projet",
+    "title": "Git TP",
+    "section": "1 Créer un projet",
+    "text": "1 Créer un projet\nℹ️ Ce projet permettra d’héberger le dépôt distant\n\nse connecter à GitHub\nEn haut à gauche, cliquez sur l’icone GitHub, puis sur New\n\nou directement : Create a new repository\n\nRepository name : git-tp\nPublic\nAdd a README file\nAdd .gitignore (python)\nCreate Project\n\n\n1.1 Le fichier .gitignore\n\n\n\n\n\n\nTip\n\n\n\n.gitignore est un fichier présent à la racine du dépôt permettant de dire à Git quels fichiers il faut ignorer. Par exemple :\n\nsi .gitignore contient *.csv\net sur votre dépôt local, vous avez un fichier resultats.csv\nGit fera comme si ce fichier n’existe pas\nAinsi, ce fichier ne sera jamais poussé vers le dépôt distant\n\n\n\n\n\n1.2 Inviter d’autres membres\nVous venez de créer un projet public donc visible par tous. Cependant, vous êtes seul à pouvoir modifier ce projet. Pour autoriser d’autres personnes à écrire sur ce projet (par exemple lors du projet info), il faut donner les droits en écriture.\nSur la page de votre dépôt, allez dans :\n\nSettings &gt; Collaborators\nAdd people\n\nCependant ce n’est pas nécessaire dans le cadre de ce TP, vous pouvez donc passer à la suite."
   },
   {
-    "objectID": "doc/presentation-slides.html#introduction",
-    "href": "doc/presentation-slides.html#introduction",
-    "title": "Introduction à Git",
-    "section": "Introduction",
-    "text": "Introduction\n\nOutil indispensable\nPas d’évaluation immédiate\n\nmais utilisé toute la scolarité et vie pro\n\n\n\n\nPrésentation perso en 1min\nÉvalué en Compléments d’info 2A\nSuivi d’un TP\n⚠️ valable pour tous les TP\n\nn’allez pas trop vite\nsuivez précisément les consignes"
+    "objectID": "doc/tp-old.html#cloner-le-projet",
+    "href": "doc/tp-old.html#cloner-le-projet",
+    "title": "Git TP",
+    "section": "2 Cloner le projet",
+    "text": "2 Cloner le projet\n\n\n\n\n\n\nNote\n\n\n\nLe but de cette étape est de créer votre dépôt local en faisant un clone du dépôt distant\n\n\n\nOuvrir Visual Studio Code\nOuvrir un Terminal\nOuvrir un Terminal Git Bash\n\nEn haut à droite du terminal, à coté du +, cliquer sur la flèche vers le bas ˅\n\nCréer le dossier ci-dessous s’il n’existe pas déjà\n\nmkdir /p/Cours/Python\n\nSe positionner dans ce dossier\n\ncd /p/Cours/Python\n\nCloner le projet\n\ngit clone git@github.com:???????/git-tp.git\n\nRemplacer les ?????? par votre nom d’utilisateur GitHub\nOu sinon sur la page GitHub du projet\n\ncliquer sur Clone\ncopier la ligne qui commence par git@github...\n\n\nAre you sure you want to continue connecting (yes/no)?\n\ntaper yes puis ENTREE\n\nVotre dépôt local est maintenant créé\n\nOuvrir ce dépôt dans l’explorateur VSCode\n\nFile &gt; Open Folder\ngit-tp\n\nRé-ouvrir le terminal Git Bash\n\nSi ce n’est pas le cas, se positionner dans le dossier suivant :\n\ncd /p/Cours/Python/git-tp\"\n\nun (main) apparait dans le terminal, cela signifie bien que vous êtes dans un dépôt Git"
   },
   {
-    "objectID": "doc/presentation-slides.html#introduction-1",
-    "href": "doc/presentation-slides.html#introduction-1",
-    "title": "Introduction à Git",
-    "section": "Introduction",
-    "text": "Introduction\nVous faites parti d’une équipe de 5 personnes qui doit coder une application de jeux de cartes.\n😕 Comment mettre en commun votre code ?\n\nVous développez chacun de votre coté et à la fin, vous mettez tout en commun\nVous envoyez vos programmes par mail\nVous créez un dossier commun\n\n😅 En cas d’erreur, comment revenir en arrière ?"
+    "objectID": "doc/tp-old.html#ajouter-un-nouveau-fichier",
+    "href": "doc/tp-old.html#ajouter-un-nouveau-fichier",
+    "title": "Git TP",
+    "section": "3 Ajouter un nouveau fichier",
+    "text": "3 Ajouter un nouveau fichier\n\n\n\n\n\n\nNote\n\n\n\nNous allons ici voir comment :\n\najouter/modifier des fichiers dans le dépôt local\nenvoyer ces mises à jour au dépôt distant\n\n\n\nDans le dossier git-tp, créer un fichier voiture.py contenant le code suivant :\nclass Voiture:\n    \n    def __init__(self, nom, couleur):\n        self.couleur = couleur\n        self.nom = nom\n        self.vitesse = 0\n\n    def accelere(self, increment):\n        if increment &gt; 10:\n            increment = 10\n        self.vitesse = min(130, self.vitesse + increment)\n\nDans le terminal Git Bash, exécuter les commandes suivantes :\ngit status\n\nLe fichier apparait dans les Untracked files\nCela siginifie que Git a repéré ce fichier mais pour le moment il ne le versionnera pas\n\ngit add voiture.py\n\npour dire à Git de suivre ce fichier\n\ngit status\n\nmaintenant le fichier est reconnu par Git\n\ngit commit -m \"creation classe voiture\"\n\npour créer un point de sauvegarde\nEntre les \" \", mettre un message court et explicite\n\ngit status\n\nYour branch is ahead of ‘origin/main’ by 1 commit\nCe qui signifie que votre dépôt local est en avance d’un commit par rapport au dépôt distant\n\ngit pull\n\nAlready up to date\nPour vérifier que le dépôt distant n’a pas été mis à jour\n\ngit push\n\nVérifier qu’il n’y a pas d’erreur\nPour mettre à jour le dépôt distant avec mes modifications locales\n\n\n\n\n\n\n\n\nCombiner les commandes add et commit\n\n\n\nDans le cas d’un nouveau fichier, il faut impérativement enchaîner les deux commandes suivantes pour que Git suive ce fichier :\n\ngit add mon_fichier.py\ngit commit -m \"Creation mon_fichier\"\n\nSi le fichier existait déjà, il est possible de combiner les deux commandes :\n\nen ajoutant au commit un a qui signifie add\ngit commit -am \"Modification mon_fichier\"\n\n\n\n💡 Si vous créez, non pas un mais plusieurs fichiers, vous pouvez utiliser la commande suivante pour tous les faire suivre par Git : git add .\n\n\n\n\n\n\nImportant\n\n\n\nIl est fortement recommandé de créer des commits très fréquement, par exemple\n\nVous venez de modifier une fonction\nTestez pour vérifier que votre code fonctionne bien\nCréez un commit\nSi jamais par la suite vous “cassez tout” et que plus rien ne marche, il est facile de revenir au dernier commit"
   },
   {
-    "objectID": "doc/presentation-slides.html#au-programme",
-    "href": "doc/presentation-slides.html#au-programme",
-    "title": "Introduction à Git",
-    "section": "Au programme",
-    "text": "Au programme\n\n📌 Versionner son code\n💾 Historique des modifications\n👷 Travail en équipe"
+    "objectID": "doc/tp-old.html#gérer-un-conflit",
+    "href": "doc/tp-old.html#gérer-un-conflit",
+    "title": "Git TP",
+    "section": "4 Gérer un conflit",
+    "text": "4 Gérer un conflit\n\nDans le monde merveilleux de Git, tout se passe bien quand chacun travaille sur des fichiers différents. Lorsque deux personnes ont modifié le même fichier, ça peut se compliquer.\nAu moment de la synchronisation des dépôts, Git va tenter de faire un auto-merge. Celui-ci fonctionnera bien si par exemple l’une des deux personnes a modifié le début du fichier et l’autre la fin.\nPar contre, si les modifications concernent le même endroit, Git ne peut pas décider seul quelle est la bonne version et demande à l’utilisateur de choisir quelles lignes il souhaite conserver.\n\nNous allons créer artificiellement un conflit, c’est à dire faire comme si 2 personnes avaient modifié le même fichier. Ce cas de figure arrivera inévitablement lorsque vous travaillerez à plusieurs sur un projet.\n\n\n\n\n\n\nImportant\n\n\n\nIl faut bien avoir en tête qu’un conflit :\n\nce n’est pas grave\nce n’est pas une erreur\nvous n’avez pas tout cassé\n😱 il ne faut pas paniquer, simplement savoir comment le résoudre\n\n\n\n\nDans GitHub, cliquer sur le fichier voiture.py\nPuis sur la petite flèche après Open in web IDE et Edit\nCliquer sur Edit\n\nRemplacer à la dernière ligne 130 par 110\nCommit changes\nLe fichier a été modifié sur le dépôt distant\n\nDans VSCode, éditer le fichier voiture.py\n\nRemplacer à la dernière ligne 130 par 150 et enregistrer\ngit status\n\nle fichier voiture.py est à l’état modifié\n\ngit commit -am \"Modif vitesse max\"\nLe fichier a été modifié sur le dépôt local\n\ngit push\n\n⚠️ Error : petit piège, il faut toujours faire un pull avant de tenter un push\nLe dépôt distant a été modifié\nJe dois d’abord récupérer ces modifications sur mon dépôt local (pull)\nEnsuite seulement je pourrai mettre à jour le dépôt distant (push)\n\ngit pull\n\n🚨 Conflict - Automatic merge failed\nSur les 2 dépôts, la même ligne a été modifiée\n\nAinsi dans le cas présent, Git ne peut pas savoir quelle version choisir\n\ndans le terminal Git est au statut (main|MERGING)\n\ngit status\n\nboth modified: voiture.py\n\nDans VSCode, ouvrir le fichier voiture.py, on voit s’afficher :\n\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\n        self.vitesse = min(150, self.vitesse + increment)\n******=\n        self.vitesse = min(110, self.vitesse + increment)\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; d29aa04e48e16d3648fd4ae9796b4a035e176f1c\n\nMaintenant il faut choisir quelle ligne on garde\n\nCelle du dessus est la notre (dépôt local)\nCelle du dessous est celle telle qu’elle a été modifiée sur le dépôt distant\n\nSupprimer la ligne avec le 110, ainsi que les lignes avec &lt;&lt;&lt;&lt;&lt;, ****= et &gt;&gt;&gt;&gt;&gt;\n\nOu cliquer simplement sur le bouton VSCode Accept Current Change\nEnregistrer\n\n💡 En théorie, à cet instant, il faut tester de nouveau que le programme fonctionne bien, cependant ce n’est pas l’objet de ce TP\ngit commit -am \"Resolve merge\"\n\ncela crée un nouveau point de sauvegarde pour valider le merge\ndans le terminal Git repasse au statut (main)\n\ngit status\ngit push\n\ncette fois ci, c’est ok, les modifications faites sur le dépôt local sont poussées vers le dépôt distant\n\n🎉 Félicitations, vous venez de résoudre votre 1er conflit\n\nc’était pas compliqué, hein ?\n\n\n\nLes parties 3 et 4 sont de très loin les plus importantes. Pour utiliser efficacement Git, il faut impérativement avoir bien compris comment utiliser les 5 commandes principales (status, add, commit ,pull, push) et savoir résoudre des conflits.\nLa suite permet d’aller un peu plus loin si vous commencez à être à l’aise."
   },
   {
-    "objectID": "doc/presentation-slides.html#pourquoi-versionner",
-    "href": "doc/presentation-slides.html#pourquoi-versionner",
-    "title": "Introduction à Git",
-    "section": "Pourquoi versionner ?",
-    "text": "Pourquoi versionner ?\n\nQuelle est la bonne version ?\nComment faire pour revenir en arrière ?\nQui a écrit ce code ? Quand ?\n\n\n\nles questions que l’on peut se poser en projet\nMais qui a écrit cette merde ???\n\nah ben c’est moi…"
+    "objectID": "doc/tp-old.html#revenir-en-arrière",
+    "href": "doc/tp-old.html#revenir-en-arrière",
+    "title": "Git TP",
+    "section": "5 Revenir en arrière",
+    "text": "5 Revenir en arrière\nℹ️ L’intérêt de versionner est d’avoir la possibilité de revenir en arrière si besoin !\nSoyons clair, revenir en arrière n’est pas une action anodine et nécessite parfois une certaine maîtrise de Git. Nous nous contenterons donc ici de quelques outils de base.\n\n\n5.1 Revenir au dernier commit\nComme souvent avec Git, il y a plusieurs manières de faire, ici nous utiliserons la commande stash\n\nCréer un fichier vehicule.py\nModifier le fichier voiture.py\n\npar exemple en ajoutant toto sur la dernière ligne\n\ngit stash -u\n\nLe fichier vehicule.py a été supprimé\nLe fichier voiture.py est revenu à l’état du dernier commit\n\nil est possible de retrouver les fichiers qui ont été “stashés” (voir commandes stash et pop)\n\n\n\n\n5.2 Consulter l’historique d’un fichier\n\n5.2.1 Dans GitHub, aller sur le fichier voiture.py\n\nCliquer sur History\nCela affiche la liste des commits qui ont mis à jour ce fichier\n\n\n\n5.2.2 Dans Git Bash\n\ngit log voiture.py\n\nCela affiche a peu près la même chose que dans GitHub\n\nFaire ENTREE pour continuer à défiler\nFaire q comme quit pour sortir\n\nMais ce n’est pas très lisible, voire très moche\nHeureusement la commande git log propose de nombreuses options\n\ngit log affiche une liste de commit\n\nPour la suite, nous ne limeterons pas aux commits impactant le fichier voiture.py mais nous afficherons tous les commits\nvous pouvez ajouter à la fin de chaque commande le nom d’un fichier pour se restreindre aux commits sur ce fichier\n\ngit log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=relative\n\nC’est joli, non ?\nMais un peu pénible à retenir, et long à écrire\nC’est ici que l’on présente les alias\n\nVoici deux commandes pour créer les alias nommés arbitrairement bb et cc :\n\ngit config --global alias.bb \"log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=relative\"\ngit config --global alias.cc \"log --all --decorate --oneline --graph\"\nces 2 alias sont à créer une seule fois\néventuellement vous pouvez en créer d’autres, ou les modifier\n\nMaintenant essayez git bb et git cc\n\nC’est de toute beauté !\n\n\n\n\n\n\n5.3 Comparer 2 versions d’un fichier\n\nNoter le numéro d’un commit où vous avez modifié voiture.py\n\ngit bb voiture.py\nen jaune sur 7 caractères alphanumériques\nne choisissez pas le plus récent, sinon il n’y aura aucune différence\n\ngit diff 7539cf7 voiture.py\n\nremplacer 7539cf7 par votre numéro de commit\nvous voyez les différences la version actuelle et une ancienne version\n\ngit diff\n\npour lister toutes les modifications effectuées depuis le dernier commit\ngit diff voiture.py : pour se limiter aux modifications effectuée sur ce fichier\n\n\n\n\n\n5.4 Retour vers le passé\n\nToujours avec le numéro d’un ancien commit\ngit checkout 7539cf7\n\nHEAD is now 7539cf7\nHEAD est un mot que l’on retrouve souvent dans Git\n\non peut le traduire par “tête de lecture”\n\nAu bout de la ligne de commande, ne s’affiche plus (main) mais ((7539cf7...))\nVous voici revenu au code tel qu’il était à l’époque de ce commit\n\ngit checkout main pour revenir au présent\n\n\n\n\n5.5 Annuler un commit\n\nEn fait non, on ne verra pas comment annuler un commit, ni sur le dépôt local, ni sur le dépôt distant. C’est possible mais à vos risques et périls.\nPréférez la méthode un peu archaïque qui consiste à retourner dans le passé pour copier ce qui fonctionnait bien avant.\nEt pour vous faciliter la vie, faites des commits réguliers et ne modifiez pas 50 fichiers dans un commit.\n\n\n\n\n\n\n\nTip\n\n\n\nSi à un moment vous avez peur de faire une bétise et de perdre tout votre code (par exemple si une commande Git ne se passe pas comme vous l’aviez prévu), il est tout a fait possible de copier votre dépôt. Votre dépôt local est un dossier, allez dans l’explorateur windows, faites CTRL + C CTRL + V et voila vous avez une copie que vous pouvez garder de coté au cas où ça tourne mal.\n\n\nEt surtout n’hésitez pas à demander de l’aide !"
   },
   {
-    "objectID": "doc/presentation-slides.html#la-solution",
-    "href": "doc/presentation-slides.html#la-solution",
-    "title": "Introduction à Git",
-    "section": "La solution",
-    "text": "La solution\n\n\n\nLa solution, tous en choeur, c’est …"
+    "objectID": "doc/tp-old.html#fonctionnalités-de-github",
+    "href": "doc/tp-old.html#fonctionnalités-de-github",
+    "title": "Git TP",
+    "section": "6 Fonctionnalités de GitHub",
+    "text": "6 Fonctionnalités de GitHub\nGitHub n’est pas seulement un dépôt distant, il y a de nombreuses fonctionnalités interessantes.\n\nIssues : Pour lister et suivre les incidents ou les évolutions du programme\nWiki : Pour créer facilement des pages de documentation en langage markdown\nCI/CD (Continuous Integration/Continuous Delivery) : Cela permet lorsque l’on met à jour le dépôt distant de lancer des tâches automatisées, par exemple pour : tester le code, évaluer la qualité du code, déployer le code sur une machine de production ou de développement…"
   },
   {
-    "objectID": "doc/presentation-slides.html#git",
-    "href": "doc/presentation-slides.html#git",
-    "title": "Introduction à Git",
-    "section": "Git",
-    "text": "Git\n\n\n\n\n\ngit : connard en argot britannique"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#git-bash",
-    "href": "doc/presentation-slides.html#git-bash",
-    "title": "Introduction à Git",
-    "section": "Git Bash",
-    "text": "Git Bash\n\nTerminal de commande\nPlusieurs manières de lancer (Menu Windows, clic droit, inclus dans VSCode)\n\n\n\nConseil : lors de l’installation de Git, choisissez le terminal Unix\n\n1ere ligne : prompt (username, machine, répertoire actuel)\n2e ligne (commence par $) : commande\n3e ligne : résultat de la commande"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#versionner-son-code",
-    "href": "doc/presentation-slides.html#versionner-son-code",
-    "title": "Introduction à Git",
-    "section": "Versionner son code",
-    "text": "Versionner son code\n\n\nAu début j’ai parlé de versionner\nComment faire avec Git"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#travailler-en-équipe",
-    "href": "doc/presentation-slides.html#travailler-en-équipe",
-    "title": "Introduction à Git",
-    "section": "Travailler en équipe",
-    "text": "Travailler en équipe"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#etat-du-dépôt-local",
-    "href": "doc/presentation-slides.html#etat-du-dépôt-local",
-    "title": "Introduction à Git",
-    "section": "Etat du dépôt local",
-    "text": "Etat du dépôt local\nEst-ce qu’il y a des fichiers :\n\nnon suivis ? Untracked files\nprêts à être commités ? Changes to be committed\nmodifiés non ajoutés à l’index ? Changes not staged for commit\n\n\n\n\n\n\n\nImportant\n\n\nLa commande git status permet de répondre à ces questions.\nElle peut être utilisée n’importe quand, sans modération !"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#cloner-un-dépôt",
-    "href": "doc/presentation-slides.html#cloner-un-dépôt",
-    "title": "Introduction à Git",
-    "section": "Cloner un dépôt",
-    "text": "Cloner un dépôt"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#commandes-principales",
-    "href": "doc/presentation-slides.html#commandes-principales",
-    "title": "Introduction à Git",
-    "section": "Commandes principales",
-    "text": "Commandes principales\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\ngit clone &lt;adr&gt;\nCréer un dépôt local sur son poste\n\n\ngit status\nVoir où l’on en est\n\n\ngit add &lt;file&gt;\nAjouter pour le prochain commit\n\n\ngit commit -m \"&lt;msg&gt;\"\nCréer un point de sauvegarde\n\n\ngit pull\ndépôt local ➡️ dépôt distant\n\n\ngit push\ndépôt local ⬅️ dépôt distant\n\n\n\n\nclone : bouton vert code sur GitHub, GitLab"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#la-routine-git",
-    "href": "doc/presentation-slides.html#la-routine-git",
-    "title": "Introduction à Git",
-    "section": "La routine Git",
-    "text": "La routine Git\n\nje commence par git pull pour mettre à jour mon dépôt local\nje code\nj’ai fini, je teste mon code, ça marche 🎉\ngit status pour voir l’état du dépôt\ngit add &lt;filename&gt; pour ajouter mes fichiers au prochain commit\ngit commit -m \"blabla\" pour créer un point de sauvegarde\ngit pull pour voir si personne n’a poussé depuis mon dernier pull\nsi besoin, je résouds les conflits\nje pousse mon code git push\n\n\n\npull : des fois qu’un camarade ait codé la nuit"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#démo",
-    "href": "doc/presentation-slides.html#démo",
-    "title": "Introduction à Git",
-    "section": "Démo",
-    "text": "Démo\n\n\naller sur GitHub, cloner\ncréer un fichier, status\nreset, status\nmodifier un fichier, status\ncommit\nmodifier sur github\npush"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#travailler-dans-le-cloud",
-    "href": "doc/presentation-slides.html#travailler-dans-le-cloud",
-    "title": "Introduction à Git",
-    "section": "Travailler dans le cloud",
-    "text": "Travailler dans le cloud\n\nAutre manière de travailler\nServices non perennes\nSauvegarder votre code\n\n\n\nvous ne travaillerez pas toujours en local\nmais parfois sur des services à la demande\nex : besoin de puissance de calcul"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#les-branches",
-    "href": "doc/presentation-slides.html#les-branches",
-    "title": "Introduction à Git",
-    "section": "Les branches",
-    "text": "Les branches\nImaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.\nSeulement vous n’êtes pas encore sûr que :\n\ncette fonctionnalité sera vraiment utile 😐\nqu’elle ne va pas tout casser 😰\n\n\n\n\n\n\n\nNote\n\n\n\nsi c’est tout petit, vous pouvez dev en local en faire un reset au cas où\nsinon utilisez une branche"
-  },
-  {
-    "objectID": "doc/presentation-slides.html#bibliographie",
-    "href": "doc/presentation-slides.html#bibliographie",
-    "title": "Introduction à Git",
-    "section": "Bibliographie",
-    "text": "Bibliographie\n\nGit : un élément essentiel au quotidien, Python pour la datascience, Lino Galiana\nFormation Git du Lab INSEE\nGitFlow\nDéveloppement basé sur le tronc\n\n\n\n\nHome — Introduction à Git"
+    "objectID": "doc/tp-old.html#un-petit-exo-dapplication",
+    "href": "doc/tp-old.html#un-petit-exo-dapplication",
+    "title": "Git TP",
+    "section": "7 Un petit exo d’application",
+    "text": "7 Un petit exo d’application\n\nRevenez dans VSCode, ouvrez un terminal Git Bash et positionnez votre terminal dans le dossier P:\\Cours\\Python\\git-tp comme cela a été fait au début de la partie 2.\nDans VSCode, sur le constructeur de la classe voiture, mettre la valeur par défaut de couleur à verte : def __init__(self, nom, couleur=verte)\nDans GitHub, faites la même modification sur la classe voiture mais en mettant cette fois-ci la couleur jaune\nCréez un nouveau fichier velo.py en copiant le contenu du fichier voiture.py\nModifier la méthode accelere() de velo.py pour avoir une vitesse maximale de 80\nCréer un point de sauvegarde sur votre dépôt local (add et commit)\nSynchronisez vos dépôts et résolvez les conflits (pull et push)"
   },
   {
     "objectID": "doc/presentation.html",
@@ -298,7 +214,154 @@
     "href": "doc/presentation.html#bibliographie",
     "title": "Introduction à Git",
     "section": "Bibliographie",
-    "text": "Bibliographie\n\nGit : un élément essentiel au quotidien, Python pour la datascience, Lino Galiana\nFormation Git du Lab INSEE\nGitFlow\nDéveloppement basé sur le tronc"
+    "text": "Bibliographie\n\nGit : un élément essentiel au quotidien, Python pour la datascience, Lino Galiana\nFormation Git du Lab INSEE\nFormation Git du SSM Agriculture\nGitFlow\nDéveloppement basé sur le tronc"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#introduction",
+    "href": "doc/presentation-slides.html#introduction",
+    "title": "Introduction à Git",
+    "section": "Introduction",
+    "text": "Introduction\n\nOutil indispensable\nPas d’évaluation immédiate\n\nmais utilisé toute la scolarité et vie pro\n\n\n\n\nPrésentation perso en 1min\nÉvalué en Compléments d’info 2A\nSuivi d’un TP\n⚠️ valable pour tous les TP\n\nn’allez pas trop vite\nsuivez précisément les consignes"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#introduction-1",
+    "href": "doc/presentation-slides.html#introduction-1",
+    "title": "Introduction à Git",
+    "section": "Introduction",
+    "text": "Introduction\nVous faites parti d’une équipe de 5 personnes qui doit coder une application de jeux de cartes.\n😕 Comment mettre en commun votre code ?\n\nVous développez chacun de votre coté et à la fin, vous mettez tout en commun\nVous envoyez vos programmes par mail\nVous créez un dossier commun\n\n😅 En cas d’erreur, comment revenir en arrière ?"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#au-programme",
+    "href": "doc/presentation-slides.html#au-programme",
+    "title": "Introduction à Git",
+    "section": "Au programme",
+    "text": "Au programme\n\n📌 Versionner son code\n💾 Historique des modifications\n👷 Travail en équipe"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#pourquoi-versionner",
+    "href": "doc/presentation-slides.html#pourquoi-versionner",
+    "title": "Introduction à Git",
+    "section": "Pourquoi versionner ?",
+    "text": "Pourquoi versionner ?\n\nQuelle est la bonne version ?\nComment faire pour revenir en arrière ?\nQui a écrit ce code ? Quand ?\n\n\n\nles questions que l’on peut se poser en projet\nMais qui a écrit cette merde ???\n\nah ben c’est moi…"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#la-solution",
+    "href": "doc/presentation-slides.html#la-solution",
+    "title": "Introduction à Git",
+    "section": "La solution",
+    "text": "La solution\n\n\n\nLa solution, tous en choeur, c’est …"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#git",
+    "href": "doc/presentation-slides.html#git",
+    "title": "Introduction à Git",
+    "section": "Git",
+    "text": "Git\n\n\n\n\n\ngit : connard en argot britannique"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#git-bash",
+    "href": "doc/presentation-slides.html#git-bash",
+    "title": "Introduction à Git",
+    "section": "Git Bash",
+    "text": "Git Bash\n\nTerminal de commande\nPlusieurs manières de lancer (Menu Windows, clic droit, inclus dans VSCode)\n\n\n\nConseil : lors de l’installation de Git, choisissez le terminal Unix\n\n1ere ligne : prompt (username, machine, répertoire actuel)\n2e ligne (commence par $) : commande\n3e ligne : résultat de la commande"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#versionner-son-code",
+    "href": "doc/presentation-slides.html#versionner-son-code",
+    "title": "Introduction à Git",
+    "section": "Versionner son code",
+    "text": "Versionner son code\n\n\nAu début j’ai parlé de versionner\nComment faire avec Git"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#travailler-en-équipe",
+    "href": "doc/presentation-slides.html#travailler-en-équipe",
+    "title": "Introduction à Git",
+    "section": "Travailler en équipe",
+    "text": "Travailler en équipe"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#etat-du-dépôt-local",
+    "href": "doc/presentation-slides.html#etat-du-dépôt-local",
+    "title": "Introduction à Git",
+    "section": "Etat du dépôt local",
+    "text": "Etat du dépôt local\nEst-ce qu’il y a des fichiers :\n\nnon suivis ? Untracked files\nprêts à être commités ? Changes to be committed\nmodifiés non ajoutés à l’index ? Changes not staged for commit\n\n\n\n\n\n\n\nImportant\n\n\nLa commande git status permet de répondre à ces questions.\nElle peut être utilisée n’importe quand, sans modération !"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#cloner-un-dépôt",
+    "href": "doc/presentation-slides.html#cloner-un-dépôt",
+    "title": "Introduction à Git",
+    "section": "Cloner un dépôt",
+    "text": "Cloner un dépôt"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#commandes-principales",
+    "href": "doc/presentation-slides.html#commandes-principales",
+    "title": "Introduction à Git",
+    "section": "Commandes principales",
+    "text": "Commandes principales\n\n\n\n\n\n\n\nCommande\nDescription\n\n\n\n\ngit clone &lt;adr&gt;\nCréer un dépôt local sur son poste\n\n\ngit status\nVoir où l’on en est\n\n\ngit add &lt;file&gt;\nAjouter pour le prochain commit\n\n\ngit commit -m \"&lt;msg&gt;\"\nCréer un point de sauvegarde\n\n\ngit pull\ndépôt local ➡️ dépôt distant\n\n\ngit push\ndépôt local ⬅️ dépôt distant\n\n\n\n\nclone : bouton vert code sur GitHub, GitLab"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#la-routine-git",
+    "href": "doc/presentation-slides.html#la-routine-git",
+    "title": "Introduction à Git",
+    "section": "La routine Git",
+    "text": "La routine Git\n\nje commence par git pull pour mettre à jour mon dépôt local\nje code\nj’ai fini, je teste mon code, ça marche 🎉\ngit status pour voir l’état du dépôt\ngit add &lt;filename&gt; pour ajouter mes fichiers au prochain commit\ngit commit -m \"blabla\" pour créer un point de sauvegarde\ngit pull pour voir si personne n’a poussé depuis mon dernier pull\nsi besoin, je résouds les conflits\nje pousse mon code git push\n\n\n\npull : des fois qu’un camarade ait codé la nuit"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#démo",
+    "href": "doc/presentation-slides.html#démo",
+    "title": "Introduction à Git",
+    "section": "Démo",
+    "text": "Démo\n\n\naller sur GitHub, cloner\ncréer un fichier, status\nreset, status\nmodifier un fichier, status\ncommit\nmodifier sur github\npush"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#travailler-dans-le-cloud",
+    "href": "doc/presentation-slides.html#travailler-dans-le-cloud",
+    "title": "Introduction à Git",
+    "section": "Travailler dans le cloud",
+    "text": "Travailler dans le cloud\n\nAutre manière de travailler\nServices non perennes\nSauvegarder votre code\n\n\n\nvous ne travaillerez pas toujours en local\nmais parfois sur des services à la demande\nex : besoin de puissance de calcul"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#les-branches",
+    "href": "doc/presentation-slides.html#les-branches",
+    "title": "Introduction à Git",
+    "section": "Les branches",
+    "text": "Les branches\nImaginez que vous souhaitez ajouter une nouvelle fonctionnalité à votre code.\nSeulement vous n’êtes pas encore sûr que :\n\ncette fonctionnalité sera vraiment utile 😐\nqu’elle ne va pas tout casser 😰\n\n\n\n\n\n\n\nNote\n\n\n\nsi c’est tout petit, vous pouvez dev en local en faire un reset au cas où\nsinon utilisez une branche"
+  },
+  {
+    "objectID": "doc/presentation-slides.html#bibliographie",
+    "href": "doc/presentation-slides.html#bibliographie",
+    "title": "Introduction à Git",
+    "section": "Bibliographie",
+    "text": "Bibliographie\n\nGit : un élément essentiel au quotidien, Python pour la datascience, Lino Galiana\nFormation Git du Lab INSEE\nFormation Git du SSM Agriculture\nGitFlow\nDéveloppement basé sur le tronc\n\n\n\n\nHome — Introduction à Git"
+  },
+  {
+    "objectID": "doc/branches.html",
+    "href": "doc/branches.html",
+    "title": "Les branches",
+    "section": "",
+    "text": "🚧"
+  },
+  {
+    "objectID": "doc/branches.html#a-quoi-sert-une-branche",
+    "href": "doc/branches.html#a-quoi-sert-une-branche",
+    "title": "Les branches",
+    "section": "1 A quoi sert une branche ?",
+    "text": "1 A quoi sert une branche ?\nImaginez vous avez votre code qui fonctionne bien mais qui est tout moche (avec des duplications…). Comme vous êtes sérieux, vous voulez faire tout bien comme il faut et mettre tout au propre.\nVous faites vos corrections, faites de commits, et puis à un moment vous en avez marre car plus rien ne fonctionne. Vous avez envie de retourner en arrière, ce qui est possible avec ce que l’on a vu précédemment mais pas trivial ni très propre.\nSi vous connaissiez les branches voici ce que vous auriez fait :\n\ncréer une branche nommée “refonte”\nDévelopper, Commiter sur cette branche\nSi à la fin ce que vous avez fait sur cette branche vous plait alors fusion de cette branche avec la branche principale main\nSinon vous pouvez simplement supprimer cette branche\n\nEn gros une branche permet de coder et/ou tester une nouvelle fonctionnalité sans polluer la branche principale."
+  },
+  {
+    "objectID": "doc/branches.html#un-petit-exemple-pour-y-voir-plus-clair",
+    "href": "doc/branches.html#un-petit-exemple-pour-y-voir-plus-clair",
+    "title": "Les branches",
+    "section": "2 Un petit exemple pour y voir plus clair",
+    "text": "2 Un petit exemple pour y voir plus clair\n\nimaginons que vous voulez ajouter une classe trottinette, mais vous n’êtes pas encore sûr, alors vous testez sur une branche\ngit switch -c trottinette\n\ncréation d’une branche trottinette\nSwitched to a new branch ‘trottinette’\n\net comme l’indique le message, avec cette commande vous êtes directement positionné sur cette branche\n\n\nCréez un fichier trottinette.py\nModifiez la vitesse de voiture à 210 parce que vous êtes un malade\nadd puis commit\ngit push pour partager sur le dépôt distant\n\nGit dit que cette branche n’est pas connue sur le dépôt distant\nMais comme il est sympa, il donne la commande pour la créer\ngit push --set-upstream origin trottinette\n\nEnsuite revenons sur la branche principale main\n\ngit switch main\n\nModifiez la vitesse maximale de voiture à 90 parce qu’en fait vous êtes très prudent puis commit\nMaintenant, après mûre réflexion, vous vous dites que la trottinette c’est trop bien et qu’il faut l’intégrer à la branche main\nVous avec envie de fusionner directement les branches trottinette et main\n\ngit merge trottinette\nSeulement il y a un conflit et c’est fait exprés\nIl a été dit plus haut que la branche main doit rester le plus propre possible, ainsi on va éviter de la polluer avec des commits de gestion de conflit. Les conflits doivent être réglé sur les autres branches\nAnnulons ce merge\n\ngit merge --abort\n\n\nVoici comment nous allons procéder pour faire cela proprement\n\nOn retourne sur la branche trottinette\n\ngit switch trottinette\n\nNous allons faire la fusion sur cette branche\n\ngit merge main\nnous résolvons le conflit puis commit\n\nMaintenant que les 2 branches sont synchronisées, retournons sur la branche main\n\ngit switch main\ngit merge --squash trottinette\n\ncette fois-ci pas de conflits car ils ont été résolu juste avant\n\ngit commit -am \"ajout fonctionnalité trottinette\"\n\nL’option --squash permet de ne pas polluer le main avec tous les commits réalisés sur la branche trottinette. Si par la suite vous utilisez GitHub ou GitHub cette option se retrouve directement dans les merge ou les pull requests."
+  },
+  {
+    "objectID": "doc/gitflow.html",
+    "href": "doc/gitflow.html",
+    "title": "Gitflow",
+    "section": "",
+    "text": "🚧\nWorkflow Gitflow\nvs\nDéveloppement basé sur le tronc"
   },
   {
     "objectID": "doc/tp-ensai.html",
@@ -376,68 +439,5 @@
     "title": "Git TP",
     "section": "8 Simulation de travail en groupe",
     "text": "8 Simulation de travail en groupe\nPour les questions suivantes, vous allez avoir besoin de 2 dépôts locaux et d’un dépôt distant. Il y a 2 possibilités :\n\nsoit vous travaillez en bînome (vous avez chacun votre dépôt local)\nsoit vous faîtes seul (mais vous gérez 2 dépôts locaux différents)\n\n\n\n\n\n\n\nSi vous travaillez à 2\n\n\n\nUn des 2 membres va créer un dépôt local à partir du dépôt distant de l’autre.\n\n🐸 fournit à 🐱 l’adresse ssh de son repo\n🐸 donne accès à 🐱 à son repo\n\npage GitHub du repo &gt; Settings &gt; Collaborators\nAdd people\n\n🐱 clone le dépôt distant\n\nexplorateur Windows &gt; aller dans P:/Cours1A/git-initiation/\ncréez un dossier depot2, et entrez dans ce dossier\nclic droit &gt; Open Git Bash here\ngit clone &lt;adresse_ssh_depot_distant_de_frog&gt;\n\n🐱 ouvre ce dépôt avec VScode (File &gt; Open Folder)\n\n\n\n\n\n\n\n\n\nSi vous faîtes seul\n\n\n\n\n\nDans l’explorateur Windows :\n\nAllez dans P:/Cours1A/git-initiation\nCréez un dossier depot2, et entrez dans ce dossier\nClic droit &gt; Open Git Bash here\nCréez un nouveau clone du dépôt distant\n\ngit clone xxx comme fait précédemment\n\nVous avez donc 2 dépôts locaux distincts\n\nP:/Cours1A/git-initiation/tp-git 🐸\nP:/Cours1A/git-initiation/depot2/tp-git 🐱\nils sont indépendants mais tous deux reliés au même dépôt distant\n\nOuvrez un autre VSCode pour gérer votre second dépôt\n\nFile &gt; Open Folder &gt; P:/Cours1A/git-initiation/depot2/tp-git\n\n\n\n\n\n\n🐸 crée un fichier moto.py (dans le dossier src) avec le code suivant dans son dépôt local :\n\n\nmoto.py\n\nclass Moto:\n    def __init__(self, nom, couleur):\n        self.couleur = couleur\n        self.nom = nom\n        self.vitesse = 0\n\n    def accelere(self, increment):\n        if increment &gt; 15:\n            increment = 15\n        self.vitesse = min(150, self.vitesse + increment)\n\n🐸 envoie ce fichier vers le dépôt distant : add, commit et push\n🐱 fait ensuite git pull\n\nil récupére le fichier moto.py dans son dépôt local\n\nInversez les rôles (optionnel)\n\n🐱 crée un fichier velo.py et le pousse\n🐸 le récupère\n\n\nNous allons maintenant illustrer le fait que votre dépôt local doit être impérativement à jour pour pousser du code.\nVous allez faire en parallèle (1, 2, 3, partez) :\n\n🐱 crée dans src le fichier trottinette.py en s’inspirant de moto.py\n🐸 crée dans le dossier doc le fichier state-diag.md avec ce code\n\n\nstate-diag.md\n\n```mermaid\nstateDiagram\n    login : Se connecter\n    menu_joueur : Menu Joueur\n    logon : Créer un compte      \n    [*] --&gt; Accueil      \n    Accueil --&gt; login\n    login --&gt; menu_joueur      \n    Accueil --&gt; logon      \n    Accueil --&gt; quitter\n    quitter --&gt; [*]\n```\n\n🐸 envoie son code vers le dépôt distant, ensuite 🐱 fait de même\n\ngit add .\ngit commit -m \"&lt;complétez&gt;\"\ngit push\n\n\n\n\n\n\n\n\nImportant\n\n\n\n\nPour 🐸 qui a poussé son code en premier ➡️ tout s’est bien passé\nPour 🐱, il a du recevoir ce genre de message\n! [rejected]        main -&gt; dev (fetch first)\nerror: failed to push some refs to 'git@github.com:ludo2ne/tp-git.git'\nhint: Updates were rejected because the remote contains work that you do\nhint: not have locally. This is usually caused by another repository pushing\nhint: to the same ref. You may want to first integrate the remote changes\nhint: (e.g., 'git pull ...') before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\n\n\n\n\n🐱 commence par git pull\n\nsi vous lisez le message, c’est assez clair\nvotre dépôt local est en retard de version par rapport au dépôt distant qui fait foi\nvous devez donc mettre à jour votre dépôt local avant de pousser\n\n🐱 fait enfin git push\nMaintenant c’est 🐸 qui a son dépôt local en retard\n\nil fait donc un pull\n\n\n\n\n8.1 Exercice d’application\n\n🐱 modifie et pousse le fichier fibonacci.py\n🐸 modifie et pousse le fichier puissance_rec.py\nSynchronisez vos dépôts pour avoir tous la dernière version\n\n\n\n8.2 Un premier conflit\nPour le moment vous avez travaillé sur des fichiers différents, donc git arrive à gérer la situation.\nMaintenant, que se passe-t-il si vous modifiez tous les deux le même fichier ?\nVous allez tous les 2 travailler sur le fichier voiture.py. Dans la méthode accelere() :\n\n🐱 remplace 130 par 150\n🐱 commit et pousse son code (add, commit, push)\nDe son côté, 🐸 remplace 130 par 110\n🐸 commit et pousse son code (add, commit, push)\n\nsi vous avez bien compris, vous savez que le push ne va pas fonctionner\n\n🐸 doit commencer par mettre à jour son dépôt local : git pull\n\nEt là c’est le conflit…\n\nremote: Enumerating objects: 7, done.\nremote: Counting objects: 100% (7/7), done.\nremote: Compressing objects: 100% (3/3), done.\nremote: Total 4 (delta 2), reused 0 (delta 0), pack-reused 0\nUnpacking objects: 100% (4/4), 1015 bytes | 8.00 KiB/s, done.\nFrom github.com:ludo2ne/tp-git\n   c27c708..05380ea  main       -&gt; origin/main\nAuto-merging src/voiture.py\nCONFLICT (content): Merge conflict in src/voiture.py\nAutomatic merge failed; fix conflicts and then commit the result.\n\nGit vous prévient qu’il n’est pas arrivé à fusionner les commits automatiquement\nUn conflit est généré quand les mêmes lignes d’un fichier sont modifiés par 2 commits de manière différente\n\n\nVotre code ressemble à cela désormais à :\n    def accelere(self, increment) -&gt; None:\n        if increment &gt; 10:\n            increment = 10\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\n        self.vitesse = min(110, self.vitesse + increment)\n=======\n        self.vitesse = min(150, self.vitesse + increment)\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; 05380ea70dbd5d4e49371af8da7c0ac1df13a010\n\nLa première partie (entre &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD et =======) correspond au code en que vous aviez dans votre copie de travail\nLa seconde partie est le code provenant du dépôt distant\nPlusieurs choix s’offrent à vous :\n\nImposer votre version (110)\nAccepter la version de 🐱 (150)\nChoisir une toute autre version (par exemple 120)\n\n\nRésolvons ce conflit\n\n🐸 conserve uniquement la ligne avec 110\n\net supprime toutes les autres lignes de &lt;&lt;&lt;&lt;&lt;&lt;&lt; à &gt;&gt;&gt;&gt;&gt;&gt;&gt;\nautre possibilité offerte par VSCode, cliquer sur Accept Current Change\n\n🐸 sauvegarde le fichier\n🐸 commit et pousse son code (add, commit -m “resolve merge”, push)\n\nvous remarquerez qu’avant le commit, le prompt affichait (main|MERGING)\nce qui signifie que vous êtes en train de fusionner du code\n\n🐱 fait un pull pour mettre à jour son dépôt local\n\n\n\n\n\n\n\nImportant\n\n\n\nAvoir un conflit, ce n’est pas grave !\nAvoir un conflit, ce n’est pas grave !\nAvoir un conflit, ce n’est pas grave !\nAvoir un conflit, ce n’est pas grave !\nAvoir un conflit, ce n’est pas grave !\nConflit ≠ Erreur\nCela arrive simplement quand Git rencontre 2 versions et il n’a pas de 🔮, ni de 🎲 pour choisir laquelle est la bonne.\n\n\n\n\n\n\n\n\nÉviter les conflits\n\n\n\n\nEssayez de ne pas coder en même temps sur les mêmes fichiers\nFaites des pull et push réguliers\n\nPlus le code de votre dépôt local sera “proche” de celui du dépôt distant, moins vous en aurez.\nEn effet, si vous codez pendant 5 jours sans jamais pousser votre code, vous prenez le risque que d’autres personnes modifient les mêmes fichiers et poussent avant leur code.\n\n\n\n\n8.3 Exercice d’application\nDans le constructeur de la classe Voiture :\n\n🐱 ajoute un attribut vitesse_max qui vaut par défaut 130\n\n\nvoiture.py\n\n    def __init__(self, nom, couleur, vitesse_max=130):\n      \"\"\"Constructeur\"\"\"\n      self.nom = nom\n      self.couleur = couleur\n      self.vitesse = 0\n      self.vitesse_max = vitesse_max\n\n🐸 ajoute un attribut carburant\n\n\nvoiture.py\n\n    def __init__(self, nom, couleur, carburant):\n      \"\"\"Constructeur\"\"\"\n      self.nom = nom\n      self.couleur = couleur\n      self.vitesse = 0\n      self.carburant = carburant\n\nSynchronisez vos dépôts et résolvez les conflits"
-  },
-  {
-    "objectID": "doc/tp-old.html",
-    "href": "doc/tp-old.html",
-    "title": "Git TP",
-    "section": "",
-    "text": "Présenter les fonctionnalités de base de Git\nManipuler les 5 commandes principales (status, add, commit, pull, push)\nRésoudre un conflit\nbonus : retour en arrière, branches…"
-  },
-  {
-    "objectID": "doc/tp-old.html#objectifs",
-    "href": "doc/tp-old.html#objectifs",
-    "title": "Git TP",
-    "section": "",
-    "text": "Présenter les fonctionnalités de base de Git\nManipuler les 5 commandes principales (status, add, commit, pull, push)\nRésoudre un conflit\nbonus : retour en arrière, branches…"
-  },
-  {
-    "objectID": "doc/tp-old.html#créer-un-projet",
-    "href": "doc/tp-old.html#créer-un-projet",
-    "title": "Git TP",
-    "section": "1 Créer un projet",
-    "text": "1 Créer un projet\nℹ️ Ce projet permettra d’héberger le dépôt distant\n\nse connecter à GitHub\nEn haut à gauche, cliquez sur l’icone GitHub, puis sur New\n\nou directement : Create a new repository\n\nRepository name : git-tp\nPublic\nAdd a README file\nAdd .gitignore (python)\nCreate Project\n\n\n1.1 Le fichier .gitignore\n\n\n\n\n\n\nTip\n\n\n\n.gitignore est un fichier présent à la racine du dépôt permettant de dire à Git quels fichiers il faut ignorer. Par exemple :\n\nsi .gitignore contient *.csv\net sur votre dépôt local, vous avez un fichier resultats.csv\nGit fera comme si ce fichier n’existe pas\nAinsi, ce fichier ne sera jamais poussé vers le dépôt distant\n\n\n\n\n\n1.2 Inviter d’autres membres\nVous venez de créer un projet public donc visible par tous. Cependant, vous êtes seul à pouvoir modifier ce projet. Pour autoriser d’autres personnes à écrire sur ce projet (par exemple lors du projet info), il faut donner les droits en écriture.\nSur la page de votre dépôt, allez dans :\n\nSettings &gt; Collaborators\nAdd people\n\nCependant ce n’est pas nécessaire dans le cadre de ce TP, vous pouvez donc passer à la suite."
-  },
-  {
-    "objectID": "doc/tp-old.html#cloner-le-projet",
-    "href": "doc/tp-old.html#cloner-le-projet",
-    "title": "Git TP",
-    "section": "2 Cloner le projet",
-    "text": "2 Cloner le projet\n\n\n\n\n\n\nNote\n\n\n\nLe but de cette étape est de créer votre dépôt local en faisant un clone du dépôt distant\n\n\n\nOuvrir Visual Studio Code\nOuvrir un Terminal\nOuvrir un Terminal Git Bash\n\nEn haut à droite du terminal, à coté du +, cliquer sur la flèche vers le bas ˅\n\nCréer le dossier ci-dessous s’il n’existe pas déjà\n\nmkdir /p/Cours/Python\n\nSe positionner dans ce dossier\n\ncd /p/Cours/Python\n\nCloner le projet\n\ngit clone git@github.com:???????/git-tp.git\n\nRemplacer les ?????? par votre nom d’utilisateur GitHub\nOu sinon sur la page GitHub du projet\n\ncliquer sur Clone\ncopier la ligne qui commence par git@github...\n\n\nAre you sure you want to continue connecting (yes/no)?\n\ntaper yes puis ENTREE\n\nVotre dépôt local est maintenant créé\n\nOuvrir ce dépôt dans l’explorateur VSCode\n\nFile &gt; Open Folder\ngit-tp\n\nRé-ouvrir le terminal Git Bash\n\nSi ce n’est pas le cas, se positionner dans le dossier suivant :\n\ncd /p/Cours/Python/git-tp\"\n\nun (main) apparait dans le terminal, cela signifie bien que vous êtes dans un dépôt Git"
-  },
-  {
-    "objectID": "doc/tp-old.html#ajouter-un-nouveau-fichier",
-    "href": "doc/tp-old.html#ajouter-un-nouveau-fichier",
-    "title": "Git TP",
-    "section": "3 Ajouter un nouveau fichier",
-    "text": "3 Ajouter un nouveau fichier\n\n\n\n\n\n\nNote\n\n\n\nNous allons ici voir comment :\n\najouter/modifier des fichiers dans le dépôt local\nenvoyer ces mises à jour au dépôt distant\n\n\n\nDans le dossier git-tp, créer un fichier voiture.py contenant le code suivant :\nclass Voiture:\n    \n    def __init__(self, nom, couleur):\n        self.couleur = couleur\n        self.nom = nom\n        self.vitesse = 0\n\n    def accelere(self, increment):\n        if increment &gt; 10:\n            increment = 10\n        self.vitesse = min(130, self.vitesse + increment)\n\nDans le terminal Git Bash, exécuter les commandes suivantes :\ngit status\n\nLe fichier apparait dans les Untracked files\nCela siginifie que Git a repéré ce fichier mais pour le moment il ne le versionnera pas\n\ngit add voiture.py\n\npour dire à Git de suivre ce fichier\n\ngit status\n\nmaintenant le fichier est reconnu par Git\n\ngit commit -m \"creation classe voiture\"\n\npour créer un point de sauvegarde\nEntre les \" \", mettre un message court et explicite\n\ngit status\n\nYour branch is ahead of ‘origin/main’ by 1 commit\nCe qui signifie que votre dépôt local est en avance d’un commit par rapport au dépôt distant\n\ngit pull\n\nAlready up to date\nPour vérifier que le dépôt distant n’a pas été mis à jour\n\ngit push\n\nVérifier qu’il n’y a pas d’erreur\nPour mettre à jour le dépôt distant avec mes modifications locales\n\n\n\n\n\n\n\n\nCombiner les commandes add et commit\n\n\n\nDans le cas d’un nouveau fichier, il faut impérativement enchaîner les deux commandes suivantes pour que Git suive ce fichier :\n\ngit add mon_fichier.py\ngit commit -m \"Creation mon_fichier\"\n\nSi le fichier existait déjà, il est possible de combiner les deux commandes :\n\nen ajoutant au commit un a qui signifie add\ngit commit -am \"Modification mon_fichier\"\n\n\n\n💡 Si vous créez, non pas un mais plusieurs fichiers, vous pouvez utiliser la commande suivante pour tous les faire suivre par Git : git add .\n\n\n\n\n\n\nImportant\n\n\n\nIl est fortement recommandé de créer des commits très fréquement, par exemple\n\nVous venez de modifier une fonction\nTestez pour vérifier que votre code fonctionne bien\nCréez un commit\nSi jamais par la suite vous “cassez tout” et que plus rien ne marche, il est facile de revenir au dernier commit"
-  },
-  {
-    "objectID": "doc/tp-old.html#gérer-un-conflit",
-    "href": "doc/tp-old.html#gérer-un-conflit",
-    "title": "Git TP",
-    "section": "4 Gérer un conflit",
-    "text": "4 Gérer un conflit\n\nDans le monde merveilleux de Git, tout se passe bien quand chacun travaille sur des fichiers différents. Lorsque deux personnes ont modifié le même fichier, ça peut se compliquer.\nAu moment de la synchronisation des dépôts, Git va tenter de faire un auto-merge. Celui-ci fonctionnera bien si par exemple l’une des deux personnes a modifié le début du fichier et l’autre la fin.\nPar contre, si les modifications concernent le même endroit, Git ne peut pas décider seul quelle est la bonne version et demande à l’utilisateur de choisir quelles lignes il souhaite conserver.\n\nNous allons créer artificiellement un conflit, c’est à dire faire comme si 2 personnes avaient modifié le même fichier. Ce cas de figure arrivera inévitablement lorsque vous travaillerez à plusieurs sur un projet.\n\n\n\n\n\n\nImportant\n\n\n\nIl faut bien avoir en tête qu’un conflit :\n\nce n’est pas grave\nce n’est pas une erreur\nvous n’avez pas tout cassé\n😱 il ne faut pas paniquer, simplement savoir comment le résoudre\n\n\n\n\nDans GitHub, cliquer sur le fichier voiture.py\nPuis sur la petite flèche après Open in web IDE et Edit\nCliquer sur Edit\n\nRemplacer à la dernière ligne 130 par 110\nCommit changes\nLe fichier a été modifié sur le dépôt distant\n\nDans VSCode, éditer le fichier voiture.py\n\nRemplacer à la dernière ligne 130 par 150 et enregistrer\ngit status\n\nle fichier voiture.py est à l’état modifié\n\ngit commit -am \"Modif vitesse max\"\nLe fichier a été modifié sur le dépôt local\n\ngit push\n\n⚠️ Error : petit piège, il faut toujours faire un pull avant de tenter un push\nLe dépôt distant a été modifié\nJe dois d’abord récupérer ces modifications sur mon dépôt local (pull)\nEnsuite seulement je pourrai mettre à jour le dépôt distant (push)\n\ngit pull\n\n🚨 Conflict - Automatic merge failed\nSur les 2 dépôts, la même ligne a été modifiée\n\nAinsi dans le cas présent, Git ne peut pas savoir quelle version choisir\n\ndans le terminal Git est au statut (main|MERGING)\n\ngit status\n\nboth modified: voiture.py\n\nDans VSCode, ouvrir le fichier voiture.py, on voit s’afficher :\n\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\n        self.vitesse = min(150, self.vitesse + increment)\n******=\n        self.vitesse = min(110, self.vitesse + increment)\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; d29aa04e48e16d3648fd4ae9796b4a035e176f1c\n\nMaintenant il faut choisir quelle ligne on garde\n\nCelle du dessus est la notre (dépôt local)\nCelle du dessous est celle telle qu’elle a été modifiée sur le dépôt distant\n\nSupprimer la ligne avec le 110, ainsi que les lignes avec &lt;&lt;&lt;&lt;&lt;, ****= et &gt;&gt;&gt;&gt;&gt;\n\nOu cliquer simplement sur le bouton VSCode Accept Current Change\nEnregistrer\n\n💡 En théorie, à cet instant, il faut tester de nouveau que le programme fonctionne bien, cependant ce n’est pas l’objet de ce TP\ngit commit -am \"Resolve merge\"\n\ncela crée un nouveau point de sauvegarde pour valider le merge\ndans le terminal Git repasse au statut (main)\n\ngit status\ngit push\n\ncette fois ci, c’est ok, les modifications faites sur le dépôt local sont poussées vers le dépôt distant\n\n🎉 Félicitations, vous venez de résoudre votre 1er conflit\n\nc’était pas compliqué, hein ?\n\n\n\nLes parties 3 et 4 sont de très loin les plus importantes. Pour utiliser efficacement Git, il faut impérativement avoir bien compris comment utiliser les 5 commandes principales (status, add, commit ,pull, push) et savoir résoudre des conflits.\nLa suite permet d’aller un peu plus loin si vous commencez à être à l’aise."
-  },
-  {
-    "objectID": "doc/tp-old.html#revenir-en-arrière",
-    "href": "doc/tp-old.html#revenir-en-arrière",
-    "title": "Git TP",
-    "section": "5 Revenir en arrière",
-    "text": "5 Revenir en arrière\nℹ️ L’intérêt de versionner est d’avoir la possibilité de revenir en arrière si besoin !\nSoyons clair, revenir en arrière n’est pas une action anodine et nécessite parfois une certaine maîtrise de Git. Nous nous contenterons donc ici de quelques outils de base.\n\n\n5.1 Revenir au dernier commit\nComme souvent avec Git, il y a plusieurs manières de faire, ici nous utiliserons la commande stash\n\nCréer un fichier vehicule.py\nModifier le fichier voiture.py\n\npar exemple en ajoutant toto sur la dernière ligne\n\ngit stash -u\n\nLe fichier vehicule.py a été supprimé\nLe fichier voiture.py est revenu à l’état du dernier commit\n\nil est possible de retrouver les fichiers qui ont été “stashés” (voir commandes stash et pop)\n\n\n\n\n5.2 Consulter l’historique d’un fichier\n\n5.2.1 Dans GitHub, aller sur le fichier voiture.py\n\nCliquer sur History\nCela affiche la liste des commits qui ont mis à jour ce fichier\n\n\n\n5.2.2 Dans Git Bash\n\ngit log voiture.py\n\nCela affiche a peu près la même chose que dans GitHub\n\nFaire ENTREE pour continuer à défiler\nFaire q comme quit pour sortir\n\nMais ce n’est pas très lisible, voire très moche\nHeureusement la commande git log propose de nombreuses options\n\ngit log affiche une liste de commit\n\nPour la suite, nous ne limeterons pas aux commits impactant le fichier voiture.py mais nous afficherons tous les commits\nvous pouvez ajouter à la fin de chaque commande le nom d’un fichier pour se restreindre aux commits sur ce fichier\n\ngit log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=relative\n\nC’est joli, non ?\nMais un peu pénible à retenir, et long à écrire\nC’est ici que l’on présente les alias\n\nVoici deux commandes pour créer les alias nommés arbitrairement bb et cc :\n\ngit config --global alias.bb \"log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=relative\"\ngit config --global alias.cc \"log --all --decorate --oneline --graph\"\nces 2 alias sont à créer une seule fois\néventuellement vous pouvez en créer d’autres, ou les modifier\n\nMaintenant essayez git bb et git cc\n\nC’est de toute beauté !\n\n\n\n\n\n\n5.3 Comparer 2 versions d’un fichier\n\nNoter le numéro d’un commit où vous avez modifié voiture.py\n\ngit bb voiture.py\nen jaune sur 7 caractères alphanumériques\nne choisissez pas le plus récent, sinon il n’y aura aucune différence\n\ngit diff 7539cf7 voiture.py\n\nremplacer 7539cf7 par votre numéro de commit\nvous voyez les différences la version actuelle et une ancienne version\n\ngit diff\n\npour lister toutes les modifications effectuées depuis le dernier commit\ngit diff voiture.py : pour se limiter aux modifications effectuée sur ce fichier\n\n\n\n\n\n5.4 Retour vers le passé\n\nToujours avec le numéro d’un ancien commit\ngit checkout 7539cf7\n\nHEAD is now 7539cf7\nHEAD est un mot que l’on retrouve souvent dans Git\n\non peut le traduire par “tête de lecture”\n\nAu bout de la ligne de commande, ne s’affiche plus (main) mais ((7539cf7...))\nVous voici revenu au code tel qu’il était à l’époque de ce commit\n\ngit checkout main pour revenir au présent\n\n\n\n\n5.5 Annuler un commit\n\nEn fait non, on ne verra pas comment annuler un commit, ni sur le dépôt local, ni sur le dépôt distant. C’est possible mais à vos risques et périls.\nPréférez la méthode un peu archaïque qui consiste à retourner dans le passé pour copier ce qui fonctionnait bien avant.\nEt pour vous faciliter la vie, faites des commits réguliers et ne modifiez pas 50 fichiers dans un commit.\n\n\n\n\n\n\n\nTip\n\n\n\nSi à un moment vous avez peur de faire une bétise et de perdre tout votre code (par exemple si une commande Git ne se passe pas comme vous l’aviez prévu), il est tout a fait possible de copier votre dépôt. Votre dépôt local est un dossier, allez dans l’explorateur windows, faites CTRL + C CTRL + V et voila vous avez une copie que vous pouvez garder de coté au cas où ça tourne mal.\n\n\nEt surtout n’hésitez pas à demander de l’aide !"
-  },
-  {
-    "objectID": "doc/tp-old.html#fonctionnalités-de-github",
-    "href": "doc/tp-old.html#fonctionnalités-de-github",
-    "title": "Git TP",
-    "section": "6 Fonctionnalités de GitHub",
-    "text": "6 Fonctionnalités de GitHub\nGitHub n’est pas seulement un dépôt distant, il y a de nombreuses fonctionnalités interessantes.\n\nIssues : Pour lister et suivre les incidents ou les évolutions du programme\nWiki : Pour créer facilement des pages de documentation en langage markdown\nCI/CD (Continuous Integration/Continuous Delivery) : Cela permet lorsque l’on met à jour le dépôt distant de lancer des tâches automatisées, par exemple pour : tester le code, évaluer la qualité du code, déployer le code sur une machine de production ou de développement…"
-  },
-  {
-    "objectID": "doc/tp-old.html#un-petit-exo-dapplication",
-    "href": "doc/tp-old.html#un-petit-exo-dapplication",
-    "title": "Git TP",
-    "section": "7 Un petit exo d’application",
-    "text": "7 Un petit exo d’application\n\nRevenez dans VSCode, ouvrez un terminal Git Bash et positionnez votre terminal dans le dossier P:\\Cours\\Python\\git-tp comme cela a été fait au début de la partie 2.\nDans VSCode, sur le constructeur de la classe voiture, mettre la valeur par défaut de couleur à verte : def __init__(self, nom, couleur=verte)\nDans GitHub, faites la même modification sur la classe voiture mais en mettant cette fois-ci la couleur jaune\nCréez un nouveau fichier velo.py en copiant le contenu du fichier voiture.py\nModifier la méthode accelere() de velo.py pour avoir une vitesse maximale de 80\nCréer un point de sauvegarde sur votre dépôt local (add et commit)\nSynchronisez vos dépôts et résolvez les conflits (pull et push)"
   }
 ]
