@@ -1003,5 +1003,6 @@ La branche principale se nomme généralement *main* ou *master*.
 
 - [Git : un élément essentiel au quotidien](https://pythonds.linogaliana.fr/content/git/introgit.html){target="_blank"}, Python pour la datascience, Lino Galiana
 - [Formation Git du Lab INSEE](https://collaboratif-git-formation-insee.netlify.app/){target="_blank"}
+- [Formation Git du SSM Agriculture](https://ssm-agriculture.github.io/formation-git){target="_blank"}
 - [GitFlow](https://www.atlassian.com/fr/git/tutorials/comparing-workflows/gitflow-workflow){target="_blank"}
 - [Développement basé sur le tronc](https://www.atlassian.com/fr/continuous-delivery/continuous-integration/trunk-based-development){target="_blank"}
