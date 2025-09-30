@@ -12,6 +12,12 @@
   - [ ] Fork, PR
   - [ ] projet quarto
 
+### Ressources
+
+- https://learngitbranching.js.org/
+- https://git-scm.com/book/fr/v2
+- https://skills.github.com/
+
 ## :rocket: Publier les pages
 
 Site construit avec [Quarto](https://quarto.org/) ([Tuto pour découvrir Quarto](https://ludo2ne.github.io/Quarto-tuto/)).

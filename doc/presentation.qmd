@@ -286,7 +286,7 @@ Conseil : lors de l'installation de Git, choisissez le terminal Unix
 
 | Commande                          | Description                                        |
 |-----------------------------------|----------------------------------------------------|
-| `ls`                              | Liste le contenu d'un répertoire                   |
+| `ls` (ou `ll`)                    | Liste le contenu d'un répertoire                   |
 | `pwd`                             | Affiche le répertoire courant                      |
 | `cd <directory>`                  | Change le répertoire de travail courant            |
 | `mv <src_file> <dest_file>`       | Déplace des fichiers ou des répertoires            |
@@ -301,7 +301,7 @@ Conseil : lors de l'installation de Git, choisissez le terminal Unix
 
 | Commande                          | Signification                                      |
 |-----------------------------------|----------------------------------------------------|
-| `ls`                              | list                                               |
+| `ls` (ou `ll`)                    | list                                               |
 | `pwd`                             | print working directory                            |
 | `cd <directory>`                  | change directory                                   |
 | `mv <src_file> <dest_file>`       | move                                               |
@@ -360,7 +360,7 @@ La ligne de commande reste très utilisée :
 ### Copier-Coller
 
 ::: {.callout-warning}
-- CTRL + C et CTRL + V ne fonctionnent pas !
+- CTRL + C et CTRL + V ne fonctionnent pas toujours !
 - CTRL + C : stopper un processus (très utile)
 :::
 

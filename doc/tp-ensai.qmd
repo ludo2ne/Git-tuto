@@ -12,16 +12,22 @@ number-sections: true
 lightbox: true
 ---
 
+## Todo
+
+:construction:
+
+- Glossaire et synonymes : repo, remote, local, git, github,
+
+
+
 ## À faire à la maison{.unnumbered}
 
 ::: {.callout-note}
-Les consignes de ce TP sont données pour une utilisation de GitHub. Il est cependant tout à fait possible de réaliser ce TP avec GitLab dont l'interface est très ressemblante.
+Les consignes de ce TP sont données pour une utilisation de GitHub. 
 
-:warning: Il y a tout de même quelques différences :
+Il est possible de réaliser ce TP avec GitLab dont l'interface est très ressemblante.
 
-- GitHub Repository = GitLab Projet
-- Pour déclarer la clé SSH dans GitLab : cliquez sur votre avatar > Préférences > SSH keys
-
+:warning: Il y a tout de même quelques différences, par exemple : GitHub Repository = GitLab Projet
 :::
 
 - [ ] Créer un compte sur [GitHub](https://github.com/){target="_blank"}
@@ -32,7 +38,8 @@ Les consignes de ce TP sont données pour une utilisation de GitHub. Il est cepe
 
 ## Introduction {.unnumbered}
 
-Git est un formidable outil de versionnage de fichiers qui va vous permettre de conserver efficacement l'historique de votre code aussi bien si vous travaillez seul mais également quand vous travaillez à plusieurs.
+[Git](https://git-scm.com/){target="_blank"} est un **formidable** outil de versionnage de fichiers qui va vous permettre de conserver efficacement l'historique de votre code aussi bien si vous travaillez seul mais également quand vous travaillez à plusieurs.
+
 Cet historique est conservé dans ce que l'on appelle un *dépôt git*.
 
 Sa conception décentralisée fait qu'il est quasi impossible de perdre une donnée définitivement avec git. En particulier, la perte totale d'un ordinateur hébergeant votre code ne représentera qu'une perte minime de code si vous utilisez git correctement.
@@ -41,16 +48,45 @@ En outre, de nombreux outils de *CI/CD* (*Continuous Intégration / Continuous D
 
 ### Concepts Clés {.unnumbered}
 
-Cependant, comme tout logiciel, git demande un peu d'apprentissage, et de la pratique. Pour commencer, nous aurons besoin de certains concepts essentiels pour une utilisation efficace. Par sa conception décentralisée, un dépôt git peut exister en plusieurs endroits en même temps : sur notre machine, sur chaque machine des membre du projet, ou sur un serveur hébergeant le projet.
+Comme tout logiciel, git demande un peu d'apprentissage, et de la pratique. 
+
+Pour commencer, nous aurons besoin de certains concepts essentiels pour une utilisation efficace. Par sa conception décentralisée, un dépôt git peut exister en plusieurs endroits en même temps : 
+
+- sur notre machine
+- sur chaque machine des membre du projet
+- ou sur un serveur hébergeant le projet
 
 Nous parlerons de la *copie distante* (*remote* en anglais) du dépôt dans le cas du serveur distant. En général, une seule copie distante est utilisée, mais par sa nature décentralisée, plusieurs copies distantes sont possibles (possibilité non incluse dans ce TP).
 
-La copie sur notre machine est la *copie locale* (*local* en anglais). Il s'agit de toutes les informations du dépôt concernant l'historique de ses fichiers, et les métadonnées du dépôt. Une distinction subtile est alors faite entre la copie locale et la *copie de travail* (*working copy* en anglais) : Nos modifications sur les fichiers du dépôt n'intégrerons la copie locale qu'à notre demande explicite. Cette intégration sera alors effectuée par l'ajout d'une entrée à l'historique du dépôt.
+La copie sur notre machine est la *copie locale* (*local* en anglais). Il s'agit de toutes les informations du dépôt concernant l'historique de ses fichiers, et les métadonnées du dépôt. Une distinction subtile est alors faite entre la copie locale et la *copie de travail* (*working copy* en anglais) : nos modifications sur les fichiers du dépôt n'intégrerons la copie locale qu'à notre demande explicite. Cette intégration sera alors effectuée par l'ajout d'une entrée à l'historique du dépôt.
+
+::: {.callout-important title="Pour résumer"}
+- **remote** : dépôt distant = hébergé sur GitHub
+  - il est central, tous les dépôts locaux sont branchés dessus
+  - c'est la référence, la version officielle du projet
+- **local** : dépôt sur votre propre machine = clone du remote
+  - c'est ici que vous codez, testez, expérimentez
+
+Une fois votre travail terminé en local, vous pouvez :
+
+- envoyer vos modifications au remote
+- supprimer votre travail s'il n'est pas concluant et revenir à une version antérieure
+
+```{mermaid}
+flowchart
+    github[(Remote)]
+    dev1[(Local 1)]
+    dev2[(Local 2)]
+    
+    github <--> dev1
+    github <--> dev2
+```
+:::
 
 ### Programme {.unnumbered}
 
 Pour utiliser git, donc pour gérer un dépôt, nous avons accès à de nombreuses commandes.
-Pour ce TP de découverte vous allez utiliser seulement les commandes suivantes :
+Pour ce TP de découverte, les commandes suivantes suffiront :
 
 | Commande                    | Description                              |
 |-----------------------------|------------------------------------------|
@@ -62,58 +98,137 @@ Pour ce TP de découverte vous allez utiliser seulement les commandes suivantes 
 | `git push`                  | dépôt local :arrow_left: dépôt distant   |
 
 
+## Environnement de travail
+
+Vous allez travailler sur Git Bash inclus dans VSCode.
+
+- [ ] Connectez-vous à un datalab
+  - <https://onyxia.lab.groupe-genes.fr/>{target="_blank"}
+  - <https://datalab.sspcloud.fr/>{target="_blank"} (create an account using `firstname.lastname@eleve.ensai.fr`)
+
+Durant ce TP, vous allez transférer du code entre votre dépôt local (service VSCode) et votre dépôt distant (sur GitHub). Pour valider ces transfert un processus d'authentification est naturellement requis.
+
+### Génération d'un Token
+
+::: {.callout-note title="Ce que vous allez faire"}
+Ce paramétrage n'est à faire qu'une seule fois, jusqu'à expiration du jeton.
+
+- Générer un jeton sur GitHub
+- Déclarer ce jeton sur le datalab
+
+Ainsi, à chaque fois que vous lancerez un service du datalab :
+
+- Le jeton sera injecté dans une variable d'environnement
+- vous pourrez donc le récupérer et l'utiliser pour communiquer avec GitHub de manière sécurisée
+:::
+
+- [ ] Connectez-vous à votre compte [GitHub](https://github.com/){target="_blank"}
+- [ ] Allez sur ce lien : [Personal Access Token](https://github.com/settings/tokens){target="_blank"}
+  - pour créer un nouveau [token **classic**]{.underline}
+  - Note: for ENSAI datalabs
+  - Expiration: 30/06/2026
+  - cochez repo and workflow
+  - [Generate token]{.green-button}
+- [ ] Copiez le token (ghp_xxxxxxxxxx)
+  - :warning: Attention sa valeur ne sera affichée qu'une seule fois. En cas de perte, il faut le supprimer et en recréer un nouveau.
+
+Nous allons maintenant déclarer ce jeton sur votre compte du datalab.
+
+
+### Déclaration du Token au Datalab
+
+- [ ] Allez dans *Mon Compte*, puis onglet *Git*
+- [ ] Collez le token
+
+Grâce à ce jeton, vous pouvez maintenant communiquer avec vos dépôts GitHub depuis n'importe quel service du datalab.
+
+- [ ] Lancez, puis ouvrez un service **Vscode-python**
+
+::: {.callout-tip title="VSCode"}
+Vous allez utiliser ce logiciel pour la majorité des cours d'informatique de l'ENSAI.
+
+C'est un IDE (Integrated Development Environment) i.e. une application qui offre des outils complets pour le développement logiciel (Éditeur de Code, Compilateur / Interpréteur, Gestionnaire de Projet, Terminal Intégré...)
+:::
+
+
+- [ ] Ouvrez un terminal
+  - 3 petits traits horizontaux > Terminal > New
+  - ou CTRL + ù
+
+
 ## Git Bash et Unix
 
 Avant de nous lancer avec git, prenons quelques minutes pour découvrir le terminal Git Bash et les principales commandes Unix.
 
 Ces commandes ne sont pas indispensables pour utiliser git, mais il est utile et préférable de les connaitre.
 
-- [ ] Cliquez sur l'icone Windows (ou Menu Démarrer) et ouvrez l'application `Git Bash`
-  - cela ouvre un terminal
-
-![](img/git-bash.PNG){.r-stretch}
+Pour vous aider, voici la [liste des commandes principales](presentation.html#commandes-unix){target="_blank"}.
 
 
-Pour vous aider, voici la [liste des commandes](presentation.html#commandes-unix){target="_blank"}.
+### Un terminal ?
 
-### Création d'une arborescence
+Un terminal est une interface texte qui permet de donner des commandes à l'ordinateur.
 
-- [ ] Affichez le répertoire courant
-- [ ] Positionnez-vous sur le disque *P:* (`/p`)
-- [ ] Listez les fichiers
-- [ ] S'il n'existe pas, créez un dossier nommé `Cours1A`
-- [ ] Positionnez-vous dans le dossier *Cours1A*
-- [ ] Créez un dossier nommé `git-initiation`
-- [ ] Positionnez-vous dans le dossier *git-initiation*
+C'est une alternative à la souris pour naviguer, créer des fichiers, lancer des programmes.
 
-::: {.callout-note collapse="true" title="Solution"}
-- `pwd`
-- `cd /p`
-- `ll`
-- `mkdir Cours1A`
-- `cd Cours1A`
-- `mkdir git-initiation`
-- `cd git-initiation`
+Git Bash est un terminal qui :
 
-Il était également possible de tout faire d'une seule traite :
+- émule un environnement type Linux/Unix
+- inclus les commandes Git
 
-- `mkdir -p /p/Cours1A/git-initiation && cd $_`
-- l'option -p de *mkdir* crée tous les dossiers et sous-dossiers s'ils n'existent pas déjà
-- *$\_* : correspond au dernier argument de la commande précédente
+::: {.callout-tip}
+Le terminal, c'est sobre, c'est rapide, c'est efficace.
+
+Le terminal reste un outil très utilisé en informatique, même à l’ère du tout *clic-bouton*. Il permet d’aller droit au but sans passer par des menus parfois longs et compliqués.
+
+Rapide et léger, il s’adapte aussi bien aux petites tâches qu’aux opérations plus techniques.
+
+Les développeurs et administrateurs l’utilisent au quotidien pour automatiser et gagner du temps.
 :::
 
-### Les fichiers
+### Disséquons la bête
 
-- [ ] Créez un fichier *a.txt* contenant le résultat de la commande `ps` 
-  - *ps* liste tous les processus en cours
-  - `ps > a.txt`
+![](./img/Git-bash2.jpg)
+
+Dans le terminal, vous avez :
+
+- un prompt (username, host, folder)
+  - vous êtes connecté avec l'utilisateur *onyxia* sur la machine vscode-python-345194-0
+  - vous êtes positionné dans le dossier `~/work` (~ est le dossier personnel de l'utilisateur)
+  - il se termine par un `$`
+- à côté, vous pouvez écrire une commande
+- en dessous, vous avez le résultat de la commande
+- à droite, vous avez vos terminaux (c'est possible d'en ouvrir plusieurs)
+
+
+### Premières commandes
+
+Commençons par quelques commandes simples :
+
+- [ ] Affichez le répertoire courant
+- [ ] Positionnez-vous dans le dossier parent
+- [ ] Listez les fichiers et dossiers
+- [ ] Retournez dans le dossier *work*
+- [ ] Créez deux dossiers nommés *clone1* et *clone2*
+
+
+### Fichiers
+
+Faisons maintenant quelques manipulations sur des fichiers :
+
+- [ ] Créez un fichier *a.txt* contenant le résultat de la commande `env` 
+  - *env* : liste des variables d'environnement
+  - `env > a.txt`
 - [ ] Créez une copie de ce fichier que vous nommerez *b.txt*
 - [ ] Listez les fichiers du dossier courant
+- [ ] Renommez *a.txt* en *c.txt*
 - [ ] Affichez le contenu du fichier *b.txt*
-- [ ] Filtrez le contenu du fichier *b.txt* pour n'afficher que les lignes contenant *ps*
-  - `cat b.txt | grep ps`
-- [ ] Renommez le fichier *a.txt* en *c.txt*
-- [ ] Listez les fichiers du dossier courant
+- [ ] Filtrez le contenu du fichier *b.txt* pour n'afficher que les lignes contenant *GIT*
+  - `cat b.txt | grep GIT`
+  
+Vous devriez retrouver ici votre token. Les variables d'environnement sont un système clé-valeur, pour récupérer votre jeton :
+
+- [ ] `echo $GIT_PERSONAL_ACCESS_TOKEN`
 
 ::: {.callout-tip title="Raccourcis très utiles"}
 - Les flèches :arrow_up: et :arrow_down: pour naviguer dans l'historique des dernières commandes et éviter de retaper 10 fois la même commande
@@ -123,99 +238,13 @@ Il était également possible de tout faire d'une seule traite :
   - La touche *TAB* se situe à gauche du clavier dessous `²` et dessus :lock: 
 :::
 
-- [ ] Supprimez les fichiers *b.txt* et *c.txt*
-- [ ] Créez 5 fichiers avec la commande `touch ex{1..5}.py`
-- [ ] Listez les fichiers du dossier courant
-- [ ] Supprimez ces 5 fichiers avec la commande `rm ex*.py`
-- [ ] Créez un fichier avec la commande `touch setup-git.sh`
+## Dépôts Git
 
-Pour aller plus loin, vous pouvez consulter le chapitre [Linux 101](https://ensae-reproductibilite.github.io/website/chapters/linux-101.html){target="_blank"} du cours de *Mise en production* de l'ENSAE.
+Passons maintenant au thème central de ce TP : Git et la synchronisation des dépôts.
 
-## Paramétrage de Git
+Commençons par créer un remote sur GitHub.
 
-### Configuration
-
-- [ ] Dans l'explorateur de fichiers Windows (WIN + E), allez dans le dossier `P:/Cours1A/git-initiation`
-- [ ] Ouvrez le fichier *setup-git.sh* avec **Notepad++** et collez ce contenu
-  ```{.bash filename="setup-git.sh"}
-  git config --global user.name "Prenom Nom"
-  git config --global user.email prenom.nom@eleve.ensai.fr
-  git config --global credential.helper store
-  git config --global core.mergeoptions --no-edit
-  git config --global core.editor "code -w"
-  ```
-- [ ] Remplacez *Nom* et *Prenom* sur les deux premières lignes et enregistrez
-- [ ] Dans Git Bash, exécutez le fichier : `./setup-git.sh`
-- [ ] Vérifiez que la configuration est correcte avec `git config -l`
-
-
-### Création d'une clé SSH
-
-Pour permettre de faire dialoguer notre dépôt local avec le dépôt distant de GitHub, vous utiliserez le protocole `SSH`. Pour cela, vous allez :
-
-- générer une paire de clés (publique/privée) sur notre machine
-- déclarer votre clé publique à GitHub
-
-::: {.callout-warning}
-Ce paramètrage SSH est réalisé au niveau de la machine.
-
-Si par exemple, vous souhaitez utiliser Git sur votre ordinateur personnel, il faudra faire également ce paramétrage.
-:::
-
-Dans Git Bash :
-
-- [ ] Créez un dossier */c/Users/id????.ssh* pour stocker votre clé ssh
-  - `mkdir -p ~/.ssh`
-- [ ] Créez une clé SSH
-  - `ssh-keygen -t rsa -b 4096 -N '' -q -f ~/.ssh/id_rsa`
-- [ ] Copiez le contenu de la clé publique
-  - `cat ~/.ssh/id_rsa.pub | clip`
-  - c'est comme si vous copiez le contenu du fichier *id_rsa.pub*
-
-Déclarez votre clé publique à *GitHub*, pour pouvoir ensuite faire communiquer dépôts locaux avec les dépôts distants :
-
-- [ ] GitHub > cliquez sur votre avatar > Settings > SSH and GPG keys
-  - [lien direct](https://github.com/settings/keys){target="_blank"}
-- [ ] Cliquez sur [New SSH key]{.green-button}
-  - Title : VM ENSAI
-  - Key : Collez votre clé publique
-  - [Add SSH key]{.green-button}
-
-
-
-::: {.callout-note title="SSH : Comment ça marche ?" collapse="true"}
-
-SSH (Secure Shell) est un protocole permettant de se connecter à un autre ordinateur sur un réseau de manière sécurisée.
-
-SSH chiffre toutes les informations échangées afin de protéger les données.
-
-SSH utilise un mécanisme de clés cryptographiques pour authentifier les ordinateurs et les utilisateurs, garantissant que la connexion est effectuée avec le bon serveur et sans intervention malveillante :
-
-- `Clé privée` : C'est comme la clé de votre maison. Vous la gardez en sécurité avec vous et ne la partagez avec personne. Cette clé reste sur votre ordinateur et sert à prouver votre identité.
-- `Clé publique` : Elle serait comme votre adresse postale. Vous pouvez la partager avec d'autres. Dans SSH, vous placez votre clé publique sur les serveurs ou les ordinateurs auxquels vous souhaitez vous connecter.
-
-Ces deux clés sont liées. Un message chiffré par la clé publique n'est déchiffrable que par celui qui posséde la clé privée.
-Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous votre identité car chacun peut déchiffrer ce message avec la clé publique.
-
-{{< video https://www.youtube.com/watch?v=Y-S6GtdLaSU&ab_channel=Grafikart.fr >}}
-
-:::
-
-
-
-### Le terminal Git Bash
-
-- [ ] Allez dans le dossier `P:/Cours1A/git-initiation`
-- [ ] Clic droit > *Git Bash here*
-- Créez un dossier *depot1* et entrez dans ce dossier
-  - [ ] `mkdir depot1` pour *make directory*
-  - [ ] `cd depot1` pour *change directory*
-- Afficher le chemin du répertoire courant avec la commande `pwd` : *print working directory*
-- [ ] `cd ..` pour retourner dans le dossier parent
-- [ ] créer un dossier depot2
-
-
-## Créez un dépôt distant
+### Créez un dépôt distant
 
 - [ ] Créez un [nouveau Repository](https://github.com/new){target="_blank"} sur GitHub
   - GitHub > Repositories > [New]{.green-button}
@@ -233,93 +262,48 @@ Toutes les modifications doivent être faites sur votre clone local et ensuite e
 :::
 
 
-## Créez un dépôt local
+### Créez un dépôt local
 
-Suite à la création de votre compte GitHub, vous avez créé un **Repository** (i.e. un dépôt distant).
-
-Vous allez maintenant créer une copie locale de ce dépôt en clonant ce projet. 
+Vous allez maintenant créer une copie locale du remote en le clonant.
 
 Sur la page GitHub de votre repo :
 
 - [ ] Cliquez sur [Code]{.green-button}
-- [ ] Copiez la ligne *Clone with SSH*
+- [ ] Copiez la ligne *Clone with HTTPS*
 
-Dans Git Bash :
 
-- [ ] Positionnez-vous dans le dossier *p/Cours1A/git-initiation/depot1*
-  - `cd /p/Cours1A/git-initiation/depot1`
+Vous obtenez une url de ce type : `https://github.com/<username>/tp-git.git`
+
+- [ ] Modifiez-là pour y intégrer votre token avant *github.com*
+  - `https://$GIT_PERSONAL_ACCESS_TOKEN@github.com/<username>/tp-git.git`
+
+Dans le terminal Git Bash de VSCode :
+
+- [ ] Positionnez-vous dans le dossier *clone1*
 - [ ] Créez votre clone
-  - `git clone <collez l'adresse ssh>`
-  - exemple : *git clone git@github.com:ludo2ne/tp-git.git*
+  - `git clone <url ci-dessus>`
+- [ ] Listez les fichiers et dossier du répertoire courant
+  - Normalement, le dossier *tp-git* est apparu
+  - C'est le clone du repo que vous venez de créer
+- [ ] Entrez dans ce dossier
 
-::: {.callout-caution}
-Lors du clonage, vous allez peut-être avoir la question suivante :
+Vous êtes maintenant dans un repo git, vous pouvez donc exécuter des commandes git !
 
-**Are you sure you want to continue connecting (yes/no/[fingerprint])?**
-
-Écrivez `yes` puis ENTREE.
-:::
-
-- [ ] Listez le contenu du répertoire courant
-  - Le dossier *tp-git* est apparu :arrow_right: c'est votre clone local
-  - vous pouvez également vérifier sa présence via l'explorateur Windows 
-    - WIN + E, puis allez à *P:\Cours1A\git-initiation\depot1*
-- [ ] Positionnez-vous dans le dépôt : `cd tp-git`
-  - à la fin de votre prompt, vous remarquerez l'apparition de [(main)]{style="color: cyan"}
-  - cela signifie que vous êtes dans un dépôt git, sur la branche principale
-
-Vous pouvez fermer *Git Bash*.
-
-Vous allez par la suite utiliser le *Git Bash* (exactement le même) qui est intégré dans l'IDE [Visual Studio Code](https://code.visualstudio.com/){target="_blank"}.
-Vous allez utiliser ce logiciel pour la majorité des cours d'informatique de l'ENSAI.
-
-::: {.callout-tip title="Définition"}
-Un IDE (Integrated Development Environment) est une application qui offre des outils complets pour le développement logiciel.
-
-Les composants principaux d'un IDE :
-
-- Éditeur de Code
-- Compilateur / Interpréteur
-- Gestionnaire de Projet
-- Terminal Intégré
-:::
+- [ ] Vérifiez sur quel dépôt distant votre clone est branché
+  - `git remote -v`
+  - Vous devez voir ici votre token et l'url du remote
+- [ ] Listez le contenu
+- [ ] Comparez à ce que vous avez sur GitHub : `https://github.com/<username>/tp-git`
 
 
-## Visual Studio Code - Config
+## Premiers pas
 
-Commençons par déclarer *Git Bash* comme le terminal par défaut. C'est plus pratique et convivial lorsque l'on utilise *git*.
+Dans ce dépôt local, vous allez commencer par créer de nouveaux dossiers et fichiers sur votre dépôt local.
 
-- [ ] Ouvrez l'application **Visual Studio Code**
-- [ ] En bas à gauche, cliquez sur :gear:, puis Settings
-- [ ] Dans la barre de recherche, collez : `terminal.integrated.defaultProfile.windows`
-- [ ] Choisissez *Git Bash*
-
-## Votre dépôt local dans VSCode
-
-Vous allez maintenant ouvrir votre dépôt local avec Visual Studio Code :
-
-- [ ] File > Open Folder
-  - Allez dans *P:/Cours1A/git-initiation/depot1*
-  - Cliquez [une seule fois]{.underline} sur le dossier *tp-git*
-  - Puis sur le bouton [Sélectionner un dossier]{.grey-button}
-  - *Yes I trust the authors*
-  - :warning: dans votre explorer en haut à gauche, le dossier parent doit être *tp-git*
-    - si ce n'est pas le cas, recommencez l'Open Folder
-- [ ] Ouvrez un terminal *Git Bash*
-  - Terminal > New Terminal (raccourci : CTRL + ù)
-
-## Premiers pas avec Git
-
-Vous allez commencer par créer de nouveaux dossiers et fichiers sur votre dépôt local.
-
-- [ ] Créez un dossier `src`
+- [ ] Créez les dossiers *src* et *doc*
   - dans VSCode > clic droit dans l'Explorer > New Folder
-  - ce dossier contiendra vos programmes
-- [ ] Créez également à la racine, le dossier `doc`
-  - :bulb: racine du dépôt = dossier *tp-git*
-- [ ] Créez un fichier `voiture.py`
-  - dans le dossier *src*
-  - ouvrez ce fichier et collez ce code 
+- [ ] Dans *src*, créez un fichier `voiture.py`
+- [ ] Ouvrez ce fichier, collez ce code et enregistrez
   ```{.python filename="voiture.py"}
   class Voiture:
       """Classe représentant une voiture.
@@ -343,8 +327,10 @@ Vous allez commencer par créer de nouveaux dossiers et fichiers sur votre dép�
       def __str__(self):
         return f"La voiture {self.nom} de couleur {self.couleur} roule à {self.vitesse} km/h."  
   ```
-- [ ] Enregistrez ce fichier
-  
+
+Vous venez de créez quelques nouveaux éléments sur votre clone, envoyons-les maintenant au remote.
+
+
 ### Add, Commit, Pull et Push
 
 ::: {.callout-important}
@@ -765,3 +751,75 @@ Dans le constructeur de la classe *Voiture* :
         self.carburant = carburant
   ```
 - [ ] Synchronisez vos dépôts et résolvez les conflits
+
+
+
+## Git sur la VM ENSAI
+
+> Optionnel
+
+Si vous souhaitez gérer des dépôts locaux sur votre VM ENSAI, vous pouvez utiliser le paramétrage ci-dessous.
+
+La communication avec GitHub se fera avec le protocole *ssh*
+
+### Configuration
+
+```{.bash filename="setup-git.sh"}
+git config --global user.name "<Prenom Nom>"
+git config --global user.email <prenom.nom>@eleve.ensai.fr
+git config --global credential.helper store
+git config --global core.mergeoptions --no-edit
+git config --global core.editor "code -w"
+```
+
+### Création d'une clé SSH
+
+Pour permettre de faire dialoguer notre dépôt local avec le dépôt distant de GitHub, vous utiliserez le protocole `SSH`. Pour cela, vous allez :
+
+- générer une paire de clés (publique/privée) sur notre machine
+- déclarer votre clé publique à GitHub
+
+::: {.callout-warning}
+Ce paramètrage SSH est réalisé au niveau de la machine.
+
+Si par exemple, vous souhaitez utiliser Git sur votre ordinateur personnel, il faudra faire également ce paramétrage.
+:::
+
+Dans Git Bash :
+
+- [ ] Créez un dossier */c/Users/id????.ssh* pour stocker votre clé ssh
+  - `mkdir -p ~/.ssh`
+- [ ] Créez une clé SSH
+  - `ssh-keygen -t rsa -b 4096 -N '' -q -f ~/.ssh/id_rsa`
+- [ ] Copiez le contenu de la clé publique
+  - `cat ~/.ssh/id_rsa.pub | clip`
+  - c'est comme si vous copiez le contenu du fichier *id_rsa.pub*
+
+Déclarez votre clé publique à *GitHub*, pour pouvoir ensuite faire communiquer dépôts locaux avec les dépôts distants :
+
+- [ ] GitHub > cliquez sur votre avatar > Settings > SSH and GPG keys
+  - [lien direct](https://github.com/settings/keys){target="_blank"}
+- [ ] Cliquez sur [New SSH key]{.green-button}
+  - Title : VM ENSAI
+  - Key : Collez votre clé publique
+  - [Add SSH key]{.green-button}
+
+
+
+::: {.callout-note title="SSH : Comment ça marche ?" collapse="true"}
+
+SSH (Secure Shell) est un protocole permettant de se connecter à un autre ordinateur sur un réseau de manière sécurisée.
+
+SSH chiffre toutes les informations échangées afin de protéger les données.
+
+SSH utilise un mécanisme de clés cryptographiques pour authentifier les ordinateurs et les utilisateurs, garantissant que la connexion est effectuée avec le bon serveur et sans intervention malveillante :
+
+- `Clé privée` : C'est comme la clé de votre maison. Vous la gardez en sécurité avec vous et ne la partagez avec personne. Cette clé reste sur votre ordinateur et sert à prouver votre identité.
+- `Clé publique` : Elle serait comme votre adresse postale. Vous pouvez la partager avec d'autres. Dans SSH, vous placez votre clé publique sur les serveurs ou les ordinateurs auxquels vous souhaitez vous connecter.
+
+Ces deux clés sont liées. Un message chiffré par la clé publique n'est déchiffrable que par celui qui posséde la clé privée.
+Lorsque vous chiffrez un message avec votre clé privée, vous prouvez à tous votre identité car chacun peut déchiffrer ce message avec la clé publique.
+
+{{< video https://www.youtube.com/watch?v=Y-S6GtdLaSU&ab_channel=Grafikart.fr >}}
+
+:::
