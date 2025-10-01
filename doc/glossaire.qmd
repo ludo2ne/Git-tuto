@@ -1,0 +1,49 @@
+---
+title: "Glossaire"
+author: Ludovic Deneuville
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+lightbox: true
+---
+
+
+:construction:
+
+
+## Les bases
+
+| Terme            | Synonymes               | Signification  |
+|------------------|-------------------------|----------------------|
+| Git              | Outil de versionnage    | Logiciel qui gère les versions et l'historique du code |
+| GitHub           | Plateforme Git          | Service web pour héberger et collaborer sur des dépôts Git |
+| Dépôt            | Repository, Repo        | Dossier contenant un projet Git (code + historique) |
+| Remote           | Dépôt distant           | Dépôt hébergée sur un serveur (GitHub, GitLab…) |
+| Local            | Dépôt local, Clone      | Copie d'un Remote sur ordinateur, ton service |
+| Commit           | Point de sauvegarde     | État du projet à un instant donné |
+| Push             | Envoyer                 | Transmettre les commits locaux vers le dépôt remote |
+| Pull             | Récupérer               | Ramener les commits du remote vers le local et les fusionner |
+
+: {tbl-colwidths="[15,25,60]"}
+
+
+
+
+## Autres
+
+
+
+
+| Terme            | Synonymes               | Signification  |
+|------------------|-------------------------|----------------------|
+| Branche          | Branch                  | Ligne parallèle de développement dans un dépôt |
+| Merge            | Fusion                  | Action de combiner une branche dans une autre |
+| Fork             | Copier un dépôt externe | Créer une copie d'un dépôt sur son propre compte GitHub |
+| Issue            | Ticket                  | Outil pour signaler un bug, une tâche ou une discussion |
+| Pull Request     | PR, Merge Request       | Proposition d'intégrer des changements d'une branche vers une autre |
+
+: {tbl-colwidths="[15,25,60]"}

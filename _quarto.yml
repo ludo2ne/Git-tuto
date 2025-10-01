@@ -18,6 +18,9 @@ website:
         text: Présentation
       - href: doc/tp-ensai.qmd
         text: TP ENSAI
+    right:
+      - href: doc/glossaire.qmd
+        text: Glossaire
       - text: Aller plus loin
         menu:
           - href: doc/branches.qmd
@@ -26,7 +29,6 @@ website:
             text: Gitflow
           - href: doc/open-source.qmd
             text: Open Source
-    right:
       - icon: github
         href: "{{< meta var.url-repo >}}"
         target: "_blank"
