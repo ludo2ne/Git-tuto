@@ -436,6 +436,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>n’allez pas trop vite</li>
 <li>suivez précisément les consignes</li>
+<li>réfléchissez (il peut y avoir des coquilles)</li>
+<li>&lt; … &gt; -&gt; remplacer</li>
 </ul></li>
 </ul>
 </div>
@@ -458,6 +460,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><span class="emoji" data-emoji="floppy_disk">💾</span> Historique des modifications</li>
 <li><span class="emoji" data-emoji="construction_worker">👷</span> Travail en équipe</li>
 </ul>
+<div class="notes">
+<p>2 grandes problèmatiques :</p>
+<ul>
+<li>Versionner le code</li>
+<li>Partager du code</li>
+</ul>
+</div>
 </section>
 <section id="pourquoi-versionner" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-versionner">Pourquoi versionner ?</h2>
@@ -478,14 +487,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="pour-connaitre-la-véritable-dernière-version" class="level3">
 <h3 class="anchored" data-anchor-id="pour-connaitre-la-véritable-dernière-version">Pour connaitre la véritable dernière version</h3>
 <div class="notes">
+<p>Même si vous êtes bien intentionné, ça finira par déraper</p>
+<p>Solutions naïves :</p>
 <ul>
-<li>imaginons que vous partagiez un dossier commun</li>
-<li>ou encore que ce fichier soit dans des mails</li>
-<li>version v0, v1, v2
+<li>Pas de versionnage
 <ul>
-<li>même si vous êtes bien intentionné</li>
-<li>ça finira par déraper</li>
+<li>vous écrasez les anciens fichiers</li>
 </ul></li>
+<li>Copiez intégralement le dossier à chaque modif
+<ul>
+<li>projet_v1, projet_v2</li>
+</ul></li>
+<li>incrémenter les noms de fichier</li>
 </ul>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
@@ -618,12 +631,14 @@ Figure&nbsp;1: Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstud
 </div>
 <section id="historique" class="level3">
 <h3 class="anchored" data-anchor-id="historique">Historique</h3>
-<ul>
+<div class="incremental">
+<ul class="incremental">
 <li>Créé par Linus Torvalds en 2005</li>
 <li>Pour gérer le développement du noyau Linux</li>
 <li>Le standard incontournable de la gestion de versions</li>
 <li>Anciens outils : CVS, SVN</li>
 </ul>
+</div>
 <div class="notes">
 <ul>
 <li>Standard : produit qui s’est imposé par l’usage (ex : Moteur de recherche Google, TCP/IP)
@@ -715,6 +730,7 @@ Note
 <li>2e ligne (commence par $) : commande</li>
 <li>3e ligne : résultat de la commande</li>
 </ul>
+<p>Bref apparté sur les commandes Unix</p>
 </div>
 <section id="commandes-unix" class="level3 smaller">
 <h3 class="smaller anchored" data-anchor-id="commandes-unix">Commandes Unix</h3>
@@ -961,13 +977,14 @@ Warning
 </div>
 </div>
 <div class="notes">
+<p>Retenir Local et Remote, mais en fait c’est un peu plus complexe :</p>
 <ul>
 <li>ça fait un peu peur, pas intuitif au début</li>
-<li>c’est un peu plus complexe que d’avoir simplement local et remote</li>
 <li>workspace : tous les fichiers de votre dossier</li>
 <li>staging : fichier reconnus par git</li>
 <li>local : sauvegardes du dépôt local</li>
 </ul>
+<p>Plus facile dans un sens que l’autre</p>
 </div>
 </section>
 <section id="créer-un-commit" class="level3">
@@ -1236,17 +1253,13 @@ Important
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">flowchart
     github[(Dépôt distant)]
     dev1[(Dépôt local 1)]
     dev2[(Dépôt local 2)]
-    dev3[(Dépôt local 3)]
-    dev4[(Dépôt local 4)]
     
     github &lt;--&gt; dev1
     github &lt;--&gt; dev2
-    dev3 &lt;--&gt; github
-    dev4 &lt;--&gt; github
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -1379,6 +1392,7 @@ Important
 <li><code>git add</code> puis <code>git commit</code> pour valider la résolution du conflit</li>
 </ul>
 <div class="notes">
+<p>Il apparait sur votre dépôt local.</p>
 <ul>
 <li>conflit ≠ erreur</li>
 <li>ça arrive</li>
@@ -1567,15 +1581,14 @@ Important
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true" href="">https</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false" href="">ssh</a></li></ul>
 <div class="tab-content nav-pills">
 <div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
-<p>À utiliser si vous voulez simplement avoir une copie locale du code sans partager vos modifications.</p>
+<p>À utiliser sur les datalabs.</p>
 <ul>
 <li>Plus simple, pas besoin de configuration</li>
 <li>Nécessite un token si vous voulez pousser du code</li>
-<li>Requiert des saisies répétées du token</li>
 </ul>
 </div>
 <div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
-<p>À utiliser si vous travaillez en projet.</p>
+<p>À utiliser si vous travaillez sur la VM ENSAI.</p>
 <ul>
 <li>Configuration initiale des clés SSH</li>
 <li>Plus pratique pour des interactions fréquentes</li>
@@ -1589,12 +1602,11 @@ Important
 <li>ssh :
 <ul>
 <li>clé publique / clé privée -&gt; config machine</li>
-<li>push and pull</li>
+<li>vous générez un secret depuis votre machine</li>
 </ul></li>
 <li>https :
 <ul>
-<li>token donné par github</li>
-<li>pull only</li>
+<li>GitHub génére un token</li>
 </ul></li>
 </ul>
 </div>
