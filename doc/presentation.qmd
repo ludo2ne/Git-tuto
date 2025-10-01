@@ -32,6 +32,8 @@ lightbox: true
 - :warning: valable pour tous les TP
   - n'allez pas trop vite
   - suivez précisément les consignes
+  - réfléchissez (il peut y avoir des coquilles)
+  - < ... > -> remplacer
 :::
 
 
@@ -54,6 +56,12 @@ Vous faites parti d'une équipe de 5 personnes qui doit coder une application de
 - :floppy_disk: Historique des modifications
 - :construction_worker: Travail en équipe
 
+:::{.notes}
+2 grandes problèmatiques :
+
+- Versionner le code
+- Partager du code
+:::
 
 ## Pourquoi versionner ?
 
@@ -71,11 +79,15 @@ Vous faites parti d'une équipe de 5 personnes qui doit coder une application de
 ### Pour connaitre la véritable dernière version
 
 ::: {.notes}
-- imaginons que vous partagiez un dossier commun
-- ou encore que ce fichier soit dans des mails
-- version v0, v1, v2
-  - même si vous êtes bien intentionné
-  - ça finira par déraper
+Même si vous êtes bien intentionné, ça finira par déraper
+
+Solutions naïves :
+
+- Pas de versionnage
+  - vous écrasez les anciens fichiers
+- Copiez intégralement le dossier à chaque modif
+  - projet_v1, projet_v2
+- incrémenter les noms de fichier
 :::
 
 ::: {.panel-tabset .nav-pills}
@@ -200,7 +212,7 @@ La solution, tous en choeur, c'est ...
 
 ## Git
 
-::: incremental
+::: {.incremental}
 ![](img/git-logo.jpg){.r-stretch}
 :::
 
@@ -210,10 +222,12 @@ La solution, tous en choeur, c'est ...
 
 ### Historique
 
+::: {.incremental}
 - Créé par Linus Torvalds en 2005 
 - Pour gérer le développement du noyau Linux
 - Le standard incontournable de la gestion de versions
 - Anciens outils : CVS, SVN
+:::
 
 ::: {.notes}
 - Standard : produit qui s'est imposé par l'usage (ex : Moteur de recherche Google, TCP/IP)
@@ -275,6 +289,8 @@ Conseil : lors de l'installation de Git, choisissez le terminal Unix
 - 1ere ligne : prompt (username, machine, répertoire actuel)
 - 2e ligne (commence par $) : commande
 - 3e ligne : résultat de la commande
+
+Bref apparté sur les commandes Unix
 :::
 
 ### Commandes Unix {.smaller}
@@ -406,11 +422,14 @@ sequenceDiagram
 :::
 
 ::: {.notes}
+Retenir Local et Remote, mais en fait c'est un peu plus complexe :
+
 - ça fait un peu peur, pas intuitif au début
-- c'est un peu plus complexe que d'avoir simplement local et remote
 - workspace : tous les fichiers de votre dossier
 - staging : fichier reconnus par git
 - local : sauvegardes du dépôt local
+
+Plus facile dans un sens que l'autre
 :::
 
 ### Créer un commit
@@ -587,17 +606,13 @@ Chaque dépôt est une copie intégrale du projet.
 :::
 
 ```{mermaid}
-flowchart LR
+flowchart
     github[(Dépôt distant)]
     dev1[(Dépôt local 1)]
     dev2[(Dépôt local 2)]
-    dev3[(Dépôt local 3)]
-    dev4[(Dépôt local 4)]
     
     github <--> dev1
     github <--> dev2
-    dev3 <--> github
-    dev4 <--> github
 ```
 
 ::: {.notes}
@@ -704,6 +719,8 @@ Que se passe-t-il si :
 - `git add` puis `git commit` pour valider la résolution du conflit
 
 ::: {.notes}
+Il apparait sur votre dépôt local.
+
 - conflit ≠ erreur
 - ça arrive
 :::
@@ -853,15 +870,14 @@ Cependant ce cas d'utilisation est assez marginal.
 
 #### https
 
-À utiliser si vous voulez simplement avoir une copie locale du code sans partager vos modifications.
+À utiliser sur les datalabs.
 
 - Plus simple, pas besoin de configuration
 - Nécessite un token si vous voulez pousser du code
-- Requiert des saisies répétées du token
 
 #### ssh
 
-À utiliser si vous travaillez en projet.
+À utiliser si vous travaillez sur la VM ENSAI.
 
 - Configuration initiale des clés SSH
 - Plus pratique pour des interactions fréquentes
@@ -872,10 +888,9 @@ Cependant ce cas d'utilisation est assez marginal.
 ::: {.notes}
 - ssh : 
   - clé publique / clé privée -> config machine
-  - push and pull
+  - vous générez un secret depuis votre machine
 - https : 
-  - token donné par github
-  - pull only
+  - GitHub génére un token
 :::
 
 
