@@ -138,7 +138,8 @@ Nous allons maintenant déclarer ce jeton sur votre compte du datalab.
 - [ ] Allez dans *Mon Compte*, puis onglet *Git*
 - [ ] Collez le token
 
-Grâce à ce jeton, vous pouvez maintenant communiquer avec vos dépôts GitHub depuis n'importe quel service du datalab.
+Ce jeton est maintenant accessible dans la plupart des services du datalab (VSCode, Jupyter, RStudio...)
+Vous pourrez alors l'utiliser pour communiquer avec vos dépôts GitHub.
 
 Aujourd'hui nous allons utiliser un service VSCode. Ce logiciel sera utilisé pour la majorité des cours d'informatique de l'ENSAI.
 
@@ -260,6 +261,36 @@ Avant de se lancer, exécutez ces deux commandes qui vous éviterons peut-être 
 - [ ] `git config --global core.editor "code-server --wait"`
 - [ ] `git config --global core.mergeoptions --no-edit`
 
+::: {.callout-note title="Explication détaillée" collapse="true"}
+`git config --global core.editor "code-server --wait"`
+
+Cette commande définit l'éditeur de texte que Git utilisera par défaut pour les opérations nécessitant l'édition d'un message, comme les commits, les tags ou la résolution de conflits de fusion (merge).
+
+- `git config`: La commande de base pour obtenir et définir les options de configuration de Git.
+- `--global`: Indique que le paramètre est appliqué à tous les dépôts Git de l'utilisateur sur la machine actuelle. La configuration est stockée dans le fichier `~/.gitconfig`.
+- `core.editor`: La variable de configuration spécifique qui détermine l'éditeur.
+- `"code-server --wait"`: La valeur définie pour l'éditeur.
+    - `code-server`: C'est une version de Visual Studio Code (VS Code) fonctionnant dans un navigateur sur un serveur distant, ce qui est souvent utilisé dans les environnements de développement cloud.
+    - `--wait`: Cet argument est crucial. Il indique à Git de patienter jusqu'à ce que l'éditeur (`code-server`) soit fermé avant de continuer l'opération Git. Par exemple, lorsque vous faites un `git commit`, VS Code s'ouvre, vous éditez le message, vous fermez l'éditeur, et seulement à ce moment-là Git finalise le commit.
+
+Elle configure VS Code comme l'éditeur par défaut pour Git à la place de Nano. 
+
+---
+
+`git config --global core.mergeoptions --no-edit`
+
+Cette commande modifie les options par défaut utilisées lors de la fusion de branches (`git merge`).
+
+- `git config`: La commande de base de configuration.
+- `--global`: Applique le paramètre à tous les dépôts de l'utilisateur.
+- `core.mergeoptions`: La variable de configuration qui permet de définir des options par défaut pour la commande `git merge`.
+- `--no-edit`: L'option ajoutée.
+    - Lors d'une fusion réussie (sans conflit), Git génère un message de commit de fusion par défaut. Normalement, Git ouvre l'éditeur (`core.editor`) pour vous permettre de modifier ce message.
+    - L'option `--no-edit` désactive l'ouverture automatique de l'éditeur pour la modification du message de commit de fusion. Git utilisera le message de commit de fusion par défaut sans intervention de l'utilisateur.
+
+Elle configure Git pour qu'il n'ouvre pas l'éditeur de texte lors d'une fusion réussie, utilisant directement le message de commit de fusion par défaut.
+:::
+
 Commençons par créer un remote sur GitHub.
 
 ### Créez un dépôt distant
@@ -352,7 +383,7 @@ Dans ce dépôt local, vous allez commencer par créer de nouveaux dossiers et f
 ```{.python filename="voiture.py"}
 class Voiture:
     """Classe représentant une voiture.
-    
+
     Attributes
     ----------
     nom : str
@@ -367,9 +398,9 @@ class Voiture:
         self.nom = nom
         self.couleur = couleur
         self.vitesse = 0
-    
+
     def __str__(self):
-      return f"La voiture {self.nom} de couleur {self.couleur} roule à {self.vitesse} km/h."  
+        return f"La voiture {self.nom} de couleur {self.couleur} roule à {self.vitesse} km/h."  
 ```
 
 Vous venez de créez quelques nouveaux éléments sur votre clone, envoyons-les maintenant au remote.
@@ -443,8 +474,9 @@ Retournez sur VSCode :
 - [ ] Ajoutez à la fin du fichier `voiture.py` ce code et [**enregistrez**]{.underline}
   
 ```{.python filename="voiture.py"}
-    def accelere(self, increment) -> None:
+    def accelere(self, increment):
         """Augmente la vitesse de la voiture.
+
         L'incrément maximal est de 10 km/h.
         La Vitesse maximale est de 130 km/h.
 
@@ -525,25 +557,26 @@ C'est le moment d'appliquer ce que nous venons de voir, à vous :
 ```{.python filename="test_voiture.py"}
 from voiture import Voiture
 
+
 class TestVoiture:
 
     def test_accelere_incremente_vitesse():
         # GIVEN
         v = Voiture("4L", "verte")
-        
+
         # WHEN
         v.accelere(5)
-        
+
         # THEN
         assert v.vitesse == 5
 
     def test_accelere_limite_increment():
         # GIVEN
         v = Voiture("4L", "verte")
-        
+
         # WHEN
         v.accelere(20)
-        
+
         # THEN
         assert v.vitesse == 10
 ```
@@ -644,11 +677,12 @@ class Moto:
         self.couleur = couleur
         self.nom = nom
         self.vitesse = 0
-        
+
     def accelere(self, increment):
         if increment > 15:
             increment = 15
         self.vitesse = min(150, self.vitesse + increment)
+
 ```
 
 - [ ] :frog: envoie ce fichier vers le dépôt distant : *add*, *commit* et *push*

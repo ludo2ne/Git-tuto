@@ -21,6 +21,7 @@ lightbox: true
 |------------------|-------------------------|----------------------|
 | Git              | Outil de versionnage    | Logiciel qui gère les versions et l'historique du code |
 | GitHub           | Plateforme Git          | Service web pour héberger et collaborer sur des dépôts Git |
+| Git Bash         | Terminal                | Terminal pour lancer des commandes Git |
 | Dépôt            | Repository, Repo        | Dossier contenant un projet Git (code + historique) |
 | Remote           | Dépôt distant           | Dépôt hébergée sur un serveur (GitHub, GitLab…) |
 | Local            | Dépôt local, Clone      | Copie d'un Remote sur ordinateur, ton service |
@@ -35,14 +36,12 @@ lightbox: true
 
 ## Autres
 
-
-
-
 | Terme            | Synonymes               | Signification  |
 |------------------|-------------------------|----------------------|
 | Branche          | Branch                  | Ligne parallèle de développement dans un dépôt |
+| Main             | Master                  | Branche principale (tronc) |
 | Merge            | Fusion                  | Action de combiner une branche dans une autre |
-| Fork             | Copier un dépôt externe | Créer une copie d'un dépôt sur son propre compte GitHub |
+| Fork             | Copier un remote        | Copier un remote sur son propre compte GitHub |
 | Issue            | Ticket                  | Outil pour signaler un bug, une tâche ou une discussion |
 | Pull Request     | PR, Merge Request       | Proposition d'intégrer des changements d'une branche vers une autre |
 
