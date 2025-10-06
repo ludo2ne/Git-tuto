@@ -641,7 +641,7 @@ Caution
 <li><label><input type="checkbox">Allez dans <em>Mon Compte</em>, puis onglet <em>Git</em></label></li>
 <li><label><input type="checkbox">Collez le token</label></li>
 </ul>
-<p>Grâce à ce jeton, vous pouvez maintenant communiquer avec vos dépôts GitHub depuis n’importe quel service du datalab.</p>
+<p>Ce jeton est maintenant accessible dans la plupart des services du datalab (VSCode, Jupyter, RStudio…) Vous pourrez alors l’utiliser pour communiquer avec vos dépôts GitHub.</p>
 <p>Aujourd’hui nous allons utiliser un service VSCode. Ce logiciel sera utilisé pour la majorité des cours d’informatique de l’ENSAI.</p>
 <p>C’est un IDE (Integrated Development Environment) i.e.&nbsp;une application qui offre des outils complets pour le développement logiciel (éditeur de Code, compilateur / interpréteur, gestionnaire de projet, terminal Intégré, nombreuses extensions…)</p>
 <ul class="task-list">
@@ -791,6 +791,48 @@ Tip
 <li><label><input type="checkbox"><code>git config --global core.editor "code-server --wait"</code></label></li>
 <li><label><input type="checkbox"><code>git config --global core.mergeoptions --no-edit</code></label></li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Explication détaillée">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Explication détaillée
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><code>git config --global core.editor "code-server --wait"</code></p>
+<p>Cette commande définit l’éditeur de texte que Git utilisera par défaut pour les opérations nécessitant l’édition d’un message, comme les commits, les tags ou la résolution de conflits de fusion (merge).</p>
+<ul>
+<li><code>git config</code>: La commande de base pour obtenir et définir les options de configuration de Git.</li>
+<li><code>--global</code>: Indique que le paramètre est appliqué à tous les dépôts Git de l’utilisateur sur la machine actuelle. La configuration est stockée dans le fichier <code>~/.gitconfig</code>.</li>
+<li><code>core.editor</code>: La variable de configuration spécifique qui détermine l’éditeur.</li>
+<li><code>"code-server --wait"</code>: La valeur définie pour l’éditeur.
+<ul>
+<li><code>code-server</code>: C’est une version de Visual Studio Code (VS Code) fonctionnant dans un navigateur sur un serveur distant, ce qui est souvent utilisé dans les environnements de développement cloud.</li>
+<li><code>--wait</code>: Cet argument est crucial. Il indique à Git de patienter jusqu’à ce que l’éditeur (<code>code-server</code>) soit fermé avant de continuer l’opération Git. Par exemple, lorsque vous faites un <code>git commit</code>, VS Code s’ouvre, vous éditez le message, vous fermez l’éditeur, et seulement à ce moment-là Git finalise le commit.</li>
+</ul></li>
+</ul>
+<p>Elle configure VS Code comme l’éditeur par défaut pour Git à la place de Nano.</p>
+<hr>
+<p><code>git config --global core.mergeoptions --no-edit</code></p>
+<p>Cette commande modifie les options par défaut utilisées lors de la fusion de branches (<code>git merge</code>).</p>
+<ul>
+<li><code>git config</code>: La commande de base de configuration.</li>
+<li><code>--global</code>: Applique le paramètre à tous les dépôts de l’utilisateur.</li>
+<li><code>core.mergeoptions</code>: La variable de configuration qui permet de définir des options par défaut pour la commande <code>git merge</code>.</li>
+<li><code>--no-edit</code>: L’option ajoutée.
+<ul>
+<li>Lors d’une fusion réussie (sans conflit), Git génère un message de commit de fusion par défaut. Normalement, Git ouvre l’éditeur (<code>core.editor</code>) pour vous permettre de modifier ce message.</li>
+<li>L’option <code>--no-edit</code> désactive l’ouverture automatique de l’éditeur pour la modification du message de commit de fusion. Git utilisera le message de commit de fusion par défaut sans intervention de l’utilisateur.</li>
+</ul></li>
+</ul>
+<p>Elle configure Git pour qu’il n’ouvre pas l’éditeur de texte lors d’une fusion réussie, utilisant directement le message de commit de fusion par défaut.</p>
+</div>
+</div>
+</div>
 <p>Commençons par créer un remote sur GitHub.</p>
 <section id="créez-un-dépôt-distant" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="créez-un-dépôt-distant"><span class="header-section-number">3.1</span> Créez un dépôt distant</h3>
@@ -938,7 +980,7 @@ Important
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Voiture:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Classe représentant une voiture.</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Attributes</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    nom : str</span></span>
@@ -953,9 +995,9 @@ Important
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.nom <span class="op">=</span> nom</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="ss">f"La voiture </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>nom<span class="sc">}</span><span class="ss"> de couleur </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>couleur<span class="sc">}</span><span class="ss"> roule à </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>vitesse<span class="sc">}</span><span class="ss"> km/h."</span>  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"La voiture </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>nom<span class="sc">}</span><span class="ss"> de couleur </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>couleur<span class="sc">}</span><span class="ss"> roule à </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>vitesse<span class="sc">}</span><span class="ss"> km/h."</span>  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Vous venez de créez quelques nouveaux éléments sur votre clone, envoyons-les maintenant au remote.</p>
 <section id="add-commit-et-push" class="level3" data-number="4.1">
@@ -1065,19 +1107,20 @@ Important
 <div class="code-with-filename-file">
 <pre><strong>voiture.py</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelere(<span class="va">self</span>, increment) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelere(<span class="va">self</span>, increment):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Augmente la vitesse de la voiture.</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">        L'incrément maximal est de 10 km/h.</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">        La Vitesse maximale est de 130 km/h.</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">        Parameters</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">        ----------</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">        increment : int</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">            la valeur de l'accélération demandée (limité à 10)</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> increment <span class="op">&gt;</span> <span class="dv">10</span>:</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">130</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">        L'incrément maximal est de 10 km/h.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">        La Vitesse maximale est de 130 km/h.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">        Parameters</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">        ----------</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">        increment : int</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">            la valeur de l'accélération demandée (limité à 10)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> increment <span class="op">&gt;</span> <span class="dv">10</span>:</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="bu">min</span>(<span class="dv">130</span>, <span class="va">self</span>.vitesse <span class="op">+</span> increment)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Dans le terminal <em>Git Bash</em> :</p>
 <ul class="task-list">
@@ -1173,27 +1216,28 @@ Important
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="test_voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> voiture <span class="im">import</span> Voiture</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TestVoiture:</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_accelere_incremente_vitesse():</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># GIVEN</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        v <span class="op">=</span> Voiture(<span class="st">"4L"</span>, <span class="st">"verte"</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># WHEN</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        v.accelere(<span class="dv">5</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># THEN</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> v.vitesse <span class="op">==</span> <span class="dv">5</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_accelere_limite_increment():</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="co"># GIVEN</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        v <span class="op">=</span> Voiture(<span class="st">"4L"</span>, <span class="st">"verte"</span>)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># WHEN</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        v.accelere(<span class="dv">20</span>)</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># THEN</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> v.vitesse <span class="op">==</span> <span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TestVoiture:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_accelere_incremente_vitesse():</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># GIVEN</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        v <span class="op">=</span> Voiture(<span class="st">"4L"</span>, <span class="st">"verte"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># WHEN</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        v.accelere(<span class="dv">5</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># THEN</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> v.vitesse <span class="op">==</span> <span class="dv">5</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> test_accelere_limite_increment():</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># GIVEN</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        v <span class="op">=</span> Voiture(<span class="st">"4L"</span>, <span class="st">"verte"</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># WHEN</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        v.accelere(<span class="dv">20</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># THEN</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> v.vitesse <span class="op">==</span> <span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul class="task-list">
 <li><label><input type="checkbox">Envoyez le sur la copie distante de votre projet GitHub</label></li>
@@ -1303,7 +1347,7 @@ Note
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Si vous faîtes seul">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1312,7 +1356,7 @@ Note
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul class="task-list">
 <li><label><input type="checkbox">Ouvrez un nouveau terminal</label></li>
@@ -1344,7 +1388,7 @@ Note
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.couleur <span class="op">=</span> couleur</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.nom <span class="op">=</span> nom</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelere(<span class="va">self</span>, increment):</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> increment <span class="op">&gt;</span> <span class="dv">15</span>:</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            increment <span class="op">=</span> <span class="dv">15</span></span>
@@ -1718,7 +1762,7 @@ Warning
 </ul></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="SSH : Comment ça marche ?">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1727,7 +1771,7 @@ Warning
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>SSH (Secure Shell) est un protocole permettant de se connecter à un autre ordinateur sur un réseau de manière sécurisée.</p>
 <p>SSH chiffre toutes les informations échangées afin de protéger les données.</p>
